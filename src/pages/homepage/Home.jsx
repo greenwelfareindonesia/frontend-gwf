@@ -1,9 +1,7 @@
 import tumblrImage from "../../assets/tumblr-image2.webp";
 import ImageSlider from "../../components/ImageSlider";
+import Footer from "../../components/Footer";
 import ClimateWishesBg from "../../assets/ClimateWishesBg.png";
-import InstagramIcon from "../../assets/Instagram.webp";
-import YoutubeIcon from "../../assets/Youtube.webp";
-import LinkedinIcon from "../../assets/Linkedin.webp";
 
 const Home = () => {
   const slides = [
@@ -186,41 +184,7 @@ const Home = () => {
         </button>
       </div>
       {/* Footer */}
-      <div>
-        <div className="pt-10 pb-20 relative">
-          <h6 className="text-[#3E3E08] text-center font-inter text-lg font-bold">
-            Green Welfare Indonesia
-          </h6>
-          <p className="text-[#3E3E08] text-center font-inter text-xs mt-5 mb-1 cursor-pointer">
-            greenwelfare.id@gmail.com
-          </p>
-          <p className="text-[#3E3E08] text-center font-inter font-bold">
-            Supported by ASEAN Youth Organization
-          </p>
-          <div className="flex w-full justify-center">
-            <div className="flex space-x-2 absolute bottom-1 ml-">
-              <img
-                src={InstagramIcon}
-                alt="instagram icon"
-                className="cursor-pointer"
-              />
-              <img
-                src={YoutubeIcon}
-                alt="youtube icon"
-                className="cursor-pointer"
-              />
-              <img
-                src={LinkedinIcon}
-                alt="linkedin icon"
-                className="cursor-pointer"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="bg-[#3E3E08] font-inter text-white text-center text-xs py-2">
-          ©2023 by Green Welfare Indonesia
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 };
