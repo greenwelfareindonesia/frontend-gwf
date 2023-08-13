@@ -2,6 +2,7 @@ import tumblrImage from "../../assets/tumblr-image2.webp";
 import ImageSlider from "../../components/ImageSlider";
 import Footer from "../../components/Footer";
 import ClimateWishesBg from "../../assets/ClimateWishesBg.png";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const slides = [
@@ -49,9 +50,6 @@ const Home = () => {
 
   return (
     <div>
-      {/* <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 ">
-        First Project Broww
-      </div> */}
       {/* Climate Wishes Header */}
       <section
         style={{ backgroundImage: `url(${ClimateWishesBg})` }}
@@ -77,21 +75,45 @@ const Home = () => {
         <h3 className="text-center text-white text-4xl mb-6 lg:mb-24">FAQ</h3>
         <div className="lg:flex lg:justify-center mb-28">
           <div className="ml-2 mb-8 lg:mb-0 mr-8 lg:h-[18rem]">
-            <h4 className="text-xl mb-2 text-white lg:mb-8 w-[21rem]">
+            <motion.h4
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2 }}
+              viewport={{ once: true }}
+              className="text-xl mb-2 text-white lg:mb-8 w-[21rem]"
+            >
               Where is Green Welfare&apos;s distribution Domicile?
-            </h4>
-            <p className="w-[26.5rem] text-xs text-white lg:text-sm leading-7">
+            </motion.h4>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2 }}
+              viewport={{ once: true }}
+              className="w-[26.5rem] text-xs text-white lg:text-sm leading-7"
+            >
               Currently, Green Welfare is at a national scale and distributes
               around the areas of Jabodetabek. Though, we plan to broaden the
               areas of our distributions to other cities in need inside
               Indonesia.
-            </p>
+            </motion.p>
           </div>
           <div className="ml-2 lg:ml-8 lg:h-[18rem]">
-            <h4 className="text-xl h-14 text-white lg:mb-8 w-[21rem]">
+            <motion.h4
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2 }}
+              viewport={{ once: true }}
+              className="text-xl h-14 text-white lg:mb-8 w-[21rem]"
+            >
               Where do the donations proceed to?
-            </h4>
-            <p className="w-[26.5rem] text-xs text-white lg:text-sm leading-7">
+            </motion.h4>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2 }}
+              viewport={{ once: true }}
+              className="w-[26.5rem] text-xs text-white lg:text-sm leading-7"
+            >
               All donations that are made to Green Welfare Indonesia will be put
               to good use to distribute plant-based meals alongside sanitary
               kits or eco-friendly household goods to certain communities in
@@ -100,7 +122,7 @@ const Home = () => {
               poverty-stricken areas to provide continuous food resources and to
               support Green Welfare&apos;s other environmental go-green
               projects.
-            </p>
+            </motion.p>
           </div>
         </div>
         <button
@@ -150,13 +172,25 @@ const Home = () => {
       {/* Feedback Form */}
       <div className="bg-[#5F5E36] pb-44 pt-28 flex flex-col items-center">
         <div className="w-[57rem] flex flex-col justify-center items-center">
-          <h5 className="text-white text-center font-inter text-2xl mb-4 md:text-4xl md:text-left md:mb-6">
+          <motion.h5
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            viewport={{ once: true }}
+            className="text-white text-center font-inter text-2xl mb-4 md:text-4xl md:text-left md:mb-6"
+          >
             Give Us Your Feedback!
-          </h5>
-          <p className="text-white text-center text-sm w-60 font-inter md:w-full md:text-base mb-6">
+          </motion.h5>
+          <motion.p
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            viewport={{ once: true }}
+            className="text-white text-center text-sm w-60 font-inter md:w-full md:text-base mb-6"
+          >
             We are always working to improve our community and would love to
             hear your suggestions on how to grow Green Welfare Indonesia!
-          </p>
+          </motion.p>
         </div>
         <form className="flex flex-col items-center">
           <div>
