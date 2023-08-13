@@ -4,6 +4,7 @@ import ClimateWishesBg from "../../assets/ClimateWishesBg.png";
 import InstagramIcon from "../../assets/Instagram.webp";
 import YoutubeIcon from "../../assets/Youtube.webp";
 import LinkedinIcon from "../../assets/Linkedin.webp";
+import { CoreValues, Header, Navbar, OurRoots, PrimeGoals } from "../../components";
 
 const Home = () => {
   const slides = [
@@ -50,26 +51,29 @@ const Home = () => {
   ];
 
   return (
-    <div>
-      {/* <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 ">
-        First Project Broww
-      </div> */}
+    <>
+      <Navbar />
+      <Header />
+      <OurRoots />
+      <PrimeGoals />
+      <CoreValues />
+      {/* <VideoSection /> */}
       {/* Climate Wishes Header */}
       <section style={{ backgroundImage: `url(${ClimateWishesBg})` }} className="h-[25rem] bg-cover bg-center">
         <div className="flex flex-col justify-center h-full">
-          <h3 className="text-center text-white mb-5">Youth Climate Advocates Share Their Hopes For 2021</h3>
-          <h2 className="text-center text-white font-inter text-4xl">My Climate Wishes</h2>
+          <h3 className="mb-5 text-center text-white">Youth Climate Advocates Share Their Hopes For 2021</h3>
+          <h2 className="text-4xl text-center text-white font-inter">My Climate Wishes</h2>
         </div>
       </section>
       {/* Carousel Section */}
-      <section className="pt-28 pb-16">
+      <section className="pb-16 pt-28">
         <div className="w-full h-[280px] mx-auto my-0">
           <ImageSlider slides={slides} parentWidth={1519} />
         </div>
       </section>
       {/* FAQ Section */}
       <section className="bg-[#5F5E36] flex flex-col justify-center pt-8 pb-4 lg:pt-28 lg:pb-24">
-        <h3 className="text-center text-white text-4xl mb-6 lg:mb-24">FAQ</h3>
+        <h3 className="mb-6 text-4xl text-center text-white lg:mb-24">FAQ</h3>
         <div className="lg:flex lg:justify-center mb-28">
           <div className="ml-2 mb-8 lg:mb-0 mr-8 lg:h-[18rem]">
             <h4 className="text-xl mb-2 text-white lg:mb-8 w-[21rem]">Where is Green Welfare&apos;s distribution Domicile?</h4>
@@ -103,7 +107,7 @@ const Home = () => {
             Spend it for what it&apos;s worth - 100% of the revenue will be directed to <br /> support our non-profit programs and operational costs!
           </p>
         </div>
-        <div className="flex flex-col lg:justify-center lg:flex-row relative">
+        <div className="relative flex flex-col lg:justify-center lg:flex-row">
           <div>
             <img src={tumblrImage} alt="Tumblr Image" className="lg:w-[42rem] lg:h-[40rem] lg:mr-3" />
             <button
@@ -127,8 +131,8 @@ const Home = () => {
       {/* Feedback Form */}
       <div className="bg-[#5F5E36] pb-44 pt-28 flex flex-col items-center">
         <div className="w-[57rem] flex flex-col justify-center items-center">
-          <h5 className="text-white text-center font-inter text-2xl mb-4 md:text-4xl md:text-left md:mb-6">Give Us Your Feedback!</h5>
-          <p className="text-white text-center text-sm w-60 font-inter md:w-full md:text-base mb-6">
+          <h5 className="mb-4 text-2xl text-center text-white font-inter md:text-4xl md:text-left md:mb-6">Give Us Your Feedback!</h5>
+          <p className="mb-6 text-sm text-center text-white w-60 font-inter md:w-full md:text-base">
             We are always working to improve our community and would love to hear your suggestions on how to grow Green Welfare Indonesia!
           </p>
         </div>
@@ -159,12 +163,12 @@ const Home = () => {
       </div>
       {/* Footer */}
       <div>
-        <div className="pt-10 pb-20 relative">
+        <div className="relative pt-10 pb-20">
           <h6 className="text-[#3E3E08] text-center font-inter text-lg font-bold">Green Welfare Indonesia</h6>
           <p className="text-[#3E3E08] text-center font-inter text-xs mt-5 mb-1 cursor-pointer">greenwelfare.id@gmail.com</p>
           <p className="text-[#3E3E08] text-center font-inter font-bold">Supported by ASEAN Youth Organization</p>
-          <div className="flex w-full justify-center">
-            <div className="flex space-x-2 absolute bottom-1 ml-">
+          <div className="flex justify-center w-full">
+            <div className="absolute flex space-x-2 bottom-1 ml-">
               <img src={InstagramIcon} alt="instagram icon" className="cursor-pointer" />
               <img src={YoutubeIcon} alt="youtube icon" className="cursor-pointer" />
               <img src={LinkedinIcon} alt="linkedin icon" className="cursor-pointer" />
@@ -173,7 +177,7 @@ const Home = () => {
         </div>
         <div className="bg-[#3E3E08] font-inter text-white text-center text-xs py-2">©2023 by Green Welfare Indonesia</div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -34,42 +34,24 @@ export default function ImageSlider(props) {
   });
 
   return (
-    <div className="h-full relative">
-      <div
-        className="absolute top-1/2 left-16 transform -translate-y-1/2 text-4xl z-10 cursor-pointer"
-        onClick={goPrev}
-      >
+    <div className="relative h-full">
+      <div className="absolute z-10 text-4xl transform -translate-y-1/2 cursor-pointer top-1/2 left-16" onClick={goPrev}>
         <img src={arrowLeft} alt="Arrow Left" />
       </div>
-      <div
-        className="absolute top-1/2 right-16 transform -translate-y-1/2 text-4xl z-10 cursor-pointer"
-        onClick={goNext}
-      >
+      <div className="absolute z-10 text-4xl transform -translate-y-1/2 cursor-pointer top-1/2 right-16" onClick={goNext}>
         <img src={arrowRight} alt="Arrow Right" />
       </div>
       <div className="overflow-hidden">
-        <div
-          className="flex h-full transition transform ease-out duration-500"
-          style={slidesContainer()}
-        >
+        <div className="flex h-full transition duration-500 ease-out transform" style={slidesContainer()}>
           {props.slides.map((_, slideIndex) => (
-            <div
-              key={slideIndex}
-              className="text-center text-[#3E3E08] w-full font-bold font-inter italic text-lg mb-6"
-            >
+            <div key={slideIndex} className="text-center text-[#3E3E08] w-full font-bold font-inter italic text-lg mb-6">
               {props.slides[slideIndex].title}
             </div>
           ))}
         </div>
-        <div
-          className="flex h-full transition transform ease-out duration-500"
-          style={slidesContainer()}
-        >
+        <div className="flex h-full transition duration-500 ease-out transform" style={slidesContainer()}>
           {props.slides.map((_, slideIndex) => (
-            <div
-              key={slideIndex}
-              className="text-center text-[#3E3E08] font-inter text-sm w-[400px] lg:w-[58rem] h-[8.4rem] mx-auto leading-7 mb-10"
-            >
+            <div key={slideIndex} className="text-center text-[#3E3E08] font-inter text-sm w-[400px] lg:w-[58rem] h-[8.4rem] mx-auto leading-7 mb-10">
               {props.slides[slideIndex].desc}
             </div>
           ))}
@@ -77,11 +59,7 @@ export default function ImageSlider(props) {
       </div>
       <div className="flex justify-center">
         {props.slides.map((slide, slideIndex) => (
-          <div
-            key={slideIndex}
-            className="cursor-pointer text-3xl mx-1 my-1"
-            onClick={() => goToSlide(slideIndex)}
-          >
+          <div key={slideIndex} className="mx-1 my-1 text-3xl cursor-pointer" onClick={() => goToSlide(slideIndex)}>
             {slideIndex === currentIndex ? <>&#9702;</> : <>&#8226;</>}
           </div>
         ))}

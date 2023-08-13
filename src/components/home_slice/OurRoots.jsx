@@ -2,7 +2,7 @@ import { image_our_roots } from "../../assets/image";
 
 const OurRoots = () => {
   return (
-    <div className="w-full h-screen bg-center bg-cover" style={{ backgroundImage: `url('${image_our_roots}')` }}>
+    <div className="w-full h-screen bg-bottom bg-cover" style={{ backgroundImage: `url('${image_our_roots}')` }}>
       <div className="flex items-center justify-center w-full h-full bg-opacity-50 bg-black/30">
         <div className="mx-20 bg-[#6B6B0E] p-16 max-w-screen-lg w-full">
           <h5 className="font-light text-white text-md md:text-lg">Our Roots</h5>
