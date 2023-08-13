@@ -1,10 +1,9 @@
 import tumblrImage from "../../assets/tumblr-image2.webp";
 import ImageSlider from "../../components/ImageSlider";
+import Footer from "../../components/Footer";
 import ClimateWishesBg from "../../assets/ClimateWishesBg.png";
-import InstagramIcon from "../../assets/Instagram.webp";
-import YoutubeIcon from "../../assets/Youtube.webp";
-import LinkedinIcon from "../../assets/Linkedin.webp";
 import { CoreValues, Header, Navbar, OurRoots, PrimeGoals } from "../../components";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const slides = [
@@ -61,8 +60,8 @@ const Home = () => {
       {/* Climate Wishes Header */}
       <section style={{ backgroundImage: `url(${ClimateWishesBg})` }} className="h-[25rem] bg-cover bg-center">
         <div className="flex flex-col justify-center h-full">
-          <h3 className="mb-5 text-center text-white">Youth Climate Advocates Share Their Hopes For 2021</h3>
-          <h2 className="text-4xl text-center text-white font-inter">My Climate Wishes</h2>
+          <h3 className="text-center text-white mb-5">Youth Climate Advocates Share Their Hopes For 2021</h3>
+          <h2 className="text-center text-white font-inter text-4xl">My Climate Wishes</h2>
         </div>
       </section>
       {/* Carousel Section */}
@@ -76,20 +75,48 @@ const Home = () => {
         <h3 className="mb-6 text-4xl text-center text-white lg:mb-24">FAQ</h3>
         <div className="lg:flex lg:justify-center mb-28">
           <div className="ml-2 mb-8 lg:mb-0 mr-8 lg:h-[18rem]">
-            <h4 className="text-xl mb-2 text-white lg:mb-8 w-[21rem]">Where is Green Welfare&apos;s distribution Domicile?</h4>
-            <p className="w-[26.5rem] text-xs text-white lg:text-sm leading-7">
+            <motion.h4
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2 }}
+              viewport={{ once: true }}
+              className="text-xl mb-2 text-white lg:mb-8 w-[21rem]"
+            >
+              Where is Green Welfare&apos;s distribution Domicile?
+            </motion.h4>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2 }}
+              viewport={{ once: true }}
+              className="w-[26.5rem] text-xs text-white lg:text-sm leading-7"
+            >
               Currently, Green Welfare is at a national scale and distributes around the areas of Jabodetabek. Though, we plan to broaden the areas of
               our distributions to other cities in need inside Indonesia.
-            </p>
+            </motion.p>
           </div>
           <div className="ml-2 lg:ml-8 lg:h-[18rem]">
-            <h4 className="text-xl h-14 text-white lg:mb-8 w-[21rem]">Where do the donations proceed to?</h4>
-            <p className="w-[26.5rem] text-xs text-white lg:text-sm leading-7">
+            <motion.h4
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2 }}
+              viewport={{ once: true }}
+              className="text-xl h-14 text-white lg:mb-8 w-[21rem]"
+            >
+              Where do the donations proceed to?
+            </motion.h4>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2 }}
+              viewport={{ once: true }}
+              className="w-[26.5rem] text-xs text-white lg:text-sm leading-7"
+            >
               All donations that are made to Green Welfare Indonesia will be put to good use to distribute plant-based meals alongside sanitary kits
               or eco-friendly household goods to certain communities in need. Donations will also be allocated to GWF&apos;s hydroponics program to
               install sustainable hydroponics units in poverty-stricken areas to provide continuous food resources and to support Green Welfare&apos;s
               other environmental go-green projects.
-            </p>
+            </motion.p>
           </div>
         </div>
         <button
@@ -131,10 +158,24 @@ const Home = () => {
       {/* Feedback Form */}
       <div className="bg-[#5F5E36] pb-44 pt-28 flex flex-col items-center">
         <div className="w-[57rem] flex flex-col justify-center items-center">
-          <h5 className="mb-4 text-2xl text-center text-white font-inter md:text-4xl md:text-left md:mb-6">Give Us Your Feedback!</h5>
-          <p className="mb-6 text-sm text-center text-white w-60 font-inter md:w-full md:text-base">
+          <motion.h5
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            viewport={{ once: true }}
+            className="text-white text-center font-inter text-2xl mb-4 md:text-4xl md:text-left md:mb-6"
+          >
+            Give Us Your Feedback!
+          </motion.h5>
+          <motion.p
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            viewport={{ once: true }}
+            className="text-white text-center text-sm w-60 font-inter md:w-full md:text-base mb-6"
+          >
             We are always working to improve our community and would love to hear your suggestions on how to grow Green Welfare Indonesia!
-          </p>
+          </motion.p>
         </div>
         <form className="flex flex-col items-center">
           <div>
@@ -162,21 +203,7 @@ const Home = () => {
         </button>
       </div>
       {/* Footer */}
-      <div>
-        <div className="relative pt-10 pb-20">
-          <h6 className="text-[#3E3E08] text-center font-inter text-lg font-bold">Green Welfare Indonesia</h6>
-          <p className="text-[#3E3E08] text-center font-inter text-xs mt-5 mb-1 cursor-pointer">greenwelfare.id@gmail.com</p>
-          <p className="text-[#3E3E08] text-center font-inter font-bold">Supported by ASEAN Youth Organization</p>
-          <div className="flex justify-center w-full">
-            <div className="absolute flex space-x-2 bottom-1 ml-">
-              <img src={InstagramIcon} alt="instagram icon" className="cursor-pointer" />
-              <img src={YoutubeIcon} alt="youtube icon" className="cursor-pointer" />
-              <img src={LinkedinIcon} alt="linkedin icon" className="cursor-pointer" />
-            </div>
-          </div>
-        </div>
-        <div className="bg-[#3E3E08] font-inter text-white text-center text-xs py-2">©2023 by Green Welfare Indonesia</div>
-      </div>
+      <Footer />
     </>
   );
 };
