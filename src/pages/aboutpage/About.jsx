@@ -8,6 +8,7 @@ import topLeft from "../../assets/about-image/top-left.png";
 import topMiddle from "../../assets/about-image/top-middle.png";
 import topRight from "../../assets/about-image/top-right.png";
 import Footer from "../../components/Footer";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
@@ -124,46 +125,112 @@ export default function About() {
         </h2>
         <div className="flex flex-col justify-center ml-4 md:space-x-10 md:flex-row">
           <div>
-            <h3 className="text-white font-inter text-3xl leading-[4rem] md:text-6xl md:leading-[5rem]">
+            <motion.h3
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+              viewport={{ once: true }}
+              className="text-white font-inter text-3xl leading-[4rem] md:text-6xl md:leading-[5rem]"
+            >
               16,000+
-            </h3>
-            <p className="text-white font-thin md:leading-7 h-[4rem]">
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2, delay: 0.2 }}
+              className="text-white font-thin md:leading-7 h-[4rem]"
+            >
               Social media followers
-            </p>
-            <h3 className="text-white font-inter text-3xl leading-[4rem] md:text-6xl md:leading-[5rem]">
+            </motion.p>
+            <motion.h3
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+              viewport={{ once: true }}
+              className="text-white font-inter text-3xl leading-[4rem] md:text-6xl md:leading-[5rem]"
+            >
               1,500+
-            </h3>
-            <p className="text-white font-thin md:leading-7 h-[4rem]">
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2, delay: 0.2 }}
+              className="text-white font-thin md:leading-7 h-[4rem]"
+            >
               Sanitary & Household goods <br /> distributed
-            </p>
+            </motion.p>
           </div>
           <div>
-            <h3 className="text-white font-inter text-3xl leading-[4rem] md:text-6xl md:leading-[5rem]">
+            <motion.h3
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+              viewport={{ once: true }}
+              className="text-white font-inter text-3xl leading-[4rem] md:text-6xl md:leading-[5rem]"
+            >
               4,300+
-            </h3>
-            <p className="text-white font-thin md:leading-7 h-[4rem]">
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2, delay: 0.2 }}
+              className="text-white font-thin md:leading-7 h-[4rem]"
+            >
               Plant-based meals distributed
-            </p>
-            <h3 className="text-white font-inter text-3xl leading-[4rem] md:text-6xl md:leading-[5rem]">
+            </motion.p>
+            <motion.h3
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+              viewport={{ once: true }}
+              className="text-white font-inter text-3xl leading-[4rem] md:text-6xl md:leading-[5rem]"
+            >
               20+
-            </h3>
-            <p className="text-white font-thin md:leading-7 h-[4rem]">
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2, delay: 0.2 }}
+              className="text-white font-thin md:leading-7 h-[4rem]"
+            >
               Distribution drives
-            </p>
+            </motion.p>
           </div>
           <div>
-            <h3 className="text-white font-inter text-3xl leading-[4rem] md:text-6xl md:leading-[5rem]">
+            <motion.h3
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+              viewport={{ once: true }}
+              className="text-white font-inter text-3xl leading-[4rem] md:text-6xl md:leading-[5rem]"
+            >
               4,000+
-            </h3>
-            <p className="text-white font-thin md:leading-7 h-[4rem]">
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2, delay: 0.2 }}
+              className="text-white font-thin md:leading-7 h-[4rem]"
+            >
               Youths spoken to about Climate <br /> Change
-            </p>
-            <h3 className="text-white font-inter text-3xl leading-[4rem] md:text-6xl md:leading-[5rem]">
+            </motion.p>
+            <motion.h3
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+              viewport={{ once: true }}
+              className="text-white font-inter text-3xl leading-[4rem] md:text-6xl md:leading-[5rem]"
+            >
               10+
-            </h3>
-            <p className="text-white font-thin md:leading-7 h-[4rem]">
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2, delay: 0.2 }}
+              className="text-white font-thin md:leading-7 h-[4rem]"
+            >
               Environmental events curated
-            </p>
+            </motion.p>
           </div>
         </div>
       </section>
