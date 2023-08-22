@@ -24,15 +24,18 @@ export default function Team() {
               alt="Nala Amirah"
               className="rounded-full"
             />
-            <motion.h3
+            <motion.a
+              href="https://www.linkedin.com/in/nalaamirah/"
+              target="_blank"
+              rel=""
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-lg mt-8 lg:mt-0"
+              className="text-lg mt-8 lg:mt-0 hover:underline"
             >
               Nala Amirah
-            </motion.h3>
+            </motion.a>
             <motion.h4
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -70,15 +73,18 @@ export default function Team() {
           </div>
           <div className="text-white flex flex-col items-center lg:space-y-10">
             <img src={foundingRight} alt="Fiza Khan" className="rounded-full" />
-            <motion.h3
+            <motion.a
+              href="https://www.linkedin.com/in/fiza-khan-096476218/"
+              target="_blank"
+              rel=""
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-lg mt-8 lg:mt-0"
+              className="text-lg mt-8 lg:mt-0 hover:underline"
             >
               Fiza Khan
-            </motion.h3>
+            </motion.a>
             <motion.h4
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -105,15 +111,18 @@ export default function Team() {
               alt="Nifa Rahma"
               className="rounded-full"
             />
-            <motion.h3
+            <motion.a
+              href="https://www.linkedin.com/in/nifa-rahma/"
+              target="_blank"
+              rel=""
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-lg mt-8 lg:mt-0"
+              className="text-lg mt-8 lg:mt-0 hover:underline"
             >
               Nifa Rahma
-            </motion.h3>
+            </motion.a>
             <motion.h4
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -130,15 +139,18 @@ export default function Team() {
               alt="Regatta Lara"
               className="rounded-full"
             />
-            <motion.h3
+            <motion.a
+              href="https://www.linkedin.com/in/regatta-lara-kurusetra-993b90161/"
+              target="_blank"
+              rel=""
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-lg mt-8 lg:mt-0"
+              className="text-lg mt-8 lg:mt-0 hover:underline"
             >
               Regatta Lara
-            </motion.h3>
+            </motion.a>
             <motion.h4
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -155,15 +167,18 @@ export default function Team() {
               alt="Shahira Syifa"
               className="rounded-full"
             />
-            <motion.h3
+            <motion.a
+              href="https://www.linkedin.com/in/shahira-syifa-putri-irwanto-5a4b9b157/"
+              target="_blank"
+              rel=""
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-lg mt-8 lg:mt-0"
+              className="text-lg mt-8 lg:mt-0 hover:underline"
             >
               Shahira Syifa
-            </motion.h3>
+            </motion.a>
             <motion.h4
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
