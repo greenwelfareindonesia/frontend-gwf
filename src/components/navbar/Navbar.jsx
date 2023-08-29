@@ -1,6 +1,6 @@
 import React from "react";
 
-import { logo_navbar } from "../../assets/image";
+import { logo_gwf } from "../../assets/image";
 import { Navbar as NavbarList, Typography, IconButton, Collapse, Popover, PopoverHandler, PopoverContent } from "@material-tailwind/react";
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
@@ -68,7 +68,7 @@ const Navbar = () => {
     <NavbarList className="sticky top-0 z-10 max-w-full px-0 py-2 bg-opacity-100 rounded-none h-max">
       <div className="flex items-center justify-between text-blue-gray-900 px-14">
         <Typography as="a" href="#" className="cursor-pointer py-1.5 font-medium">
-          <img src={logo_navbar} className="h-20" alt="" />
+          <img src={logo_gwf} className="h-20" alt="" />
         </Typography>
         <div className="flex items-center gap-4">
           <div className="hidden lg:block">{navList}</div>
