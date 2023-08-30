@@ -11,16 +11,16 @@ export default function Footer() {
         <img
           src={GwfLogo2}
           alt="Green Welfare Logo"
-          className="border-r-2 mr-6 w-[9rem] h-[7.5rem]"
+          className="border-r-2 mr-6 lg:w-[8rem] lg:h-[7rem] w-[6rem] h-[5rem]"
         />
         <div>
-          <h5 className="text-[#656539] font-inter text-2xl font-bold">
+          <h5 className="text-[#656539] font-inter text-lg lg:text-2xl font-bold">
             Contact Us
           </h5>
-          <p className="text-[#656539] text-sm font-medium mt-3">
+          <p className="text-[#656539] text-xs lg:text-sm font-medium mt-3">
             greenwelfare.id@gmail.com
           </p>
-          <p className="text-[#656539] text-sm font-medium mb-3">
+          <p className="text-[#656539] text-xs lg:text-sm font-medium mb-3">
             +62 812 8836 1624
           </p>
           <div className="flex space-x-4">
