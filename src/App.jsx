@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { About, Events, GwfBandung, Home, Involved, Team } from "./pages";
+import Donate from "./pages/donatepage/Donate";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <Route path="/team" element={<Team />} />
         <Route path="/bdg" element={<GwfBandung />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/donate" element={<Donate />} />
       </Routes>
     </BrowserRouter>
   );
