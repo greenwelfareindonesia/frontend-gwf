@@ -73,7 +73,7 @@ const Article = () => {
           />
         </div>
         <div className="w-full sm:text-end">
-          <Button className="!bg-[#3E3E08] text-white hover:!bg-[#3E3E08]/50 !px-16 !py-6 !text-lg !font-extralight mt-4 w-full sm:w-max">
+          <Button className="!bg-[#3E3E08] text-white hover:!bg-[#3E3E08]/50 !px-8 !py-4 !text-lg !font-extralight mt-4 w-full sm:w-max">
             Submit my Article
           </Button>
         </div>

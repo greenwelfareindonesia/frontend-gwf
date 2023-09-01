@@ -8,9 +8,16 @@ import { HiUserCircle } from "react-icons/hi2";
 
 const listMenu = [
   { name: "Home", content: [], path: "/" },
-  { name: "About", content: [], path: "/" },
-  { name: "Get Involved", content: [], path: "/" },
-  { name: "Events", content: [], path: "/" },
+  {
+    name: "About",
+    content: [
+      { name: "Team", path: "/team" },
+      { name: "Chapters", path: "/bdg" },
+    ],
+    path: "/about",
+  },
+  { name: "Get Involved", content: [], path: "/involved" },
+  { name: "Events", content: [], path: "/events" },
   { name: "Make a Donation", content: [], path: "/" },
   { name: "Workshop & Classes", content: [], path: "/" },
   {

@@ -1,5 +1,5 @@
 import Navbar from "../../components/navbar/Navbar";
-import Footer from "../../components/Footer";
+import Footer from "../../components/footer/Footer";
 import HeroSectionImage from "../../assets/gwfbandung-image/HeroSectionImg.png";
 import { motion } from "framer-motion";
 
@@ -9,11 +9,7 @@ export default function GwfBandung() {
       <Navbar />
       {/* Hero Section */}
       <div className="lg:grid lg:grid-cols-2 w-screen items-center justify-center">
-        <img
-          src={HeroSectionImage}
-          alt="Hero Section Image"
-          className="h-full w-screen lg:hidden"
-        />
+        <img src={HeroSectionImage} alt="Hero Section Image" className="h-full w-screen lg:hidden" />
         <div className=" h-full flex flex-col items-center pt-28">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
@@ -75,11 +71,7 @@ export default function GwfBandung() {
             Meet the People behind GWF Bandung
           </motion.button>
         </div>
-        <img
-          src={HeroSectionImage}
-          alt="Hero Section Image"
-          className="h-full hidden lg:block"
-        />
+        <img src={HeroSectionImage} alt="Hero Section Image" className="h-full hidden lg:block" />
       </div>
       {/* Footer */}
       <Footer />

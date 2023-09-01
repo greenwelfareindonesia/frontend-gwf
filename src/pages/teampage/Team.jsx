@@ -4,26 +4,22 @@ import foundingRight from "../../assets/team-image/founding-right.png";
 import executiveLeft from "../../assets/team-image/executive-left.png";
 import executiveMiddle from "../../assets/team-image/executive-middle.png";
 import executiveRight from "../../assets/team-image/executive-right.png";
-import Footer from "../../components/Footer";
+import Footer from "../../components/footer/Footer";
 import { motion } from "framer-motion";
+import Navbar from "../../components/navbar/Navbar";
 
 export default function Team() {
   return (
     <div>
+      <Navbar />
       {/* Founding Members */}
       <section className="bg-[#5F5E36] flex flex-col justify-center items-center pt-28 pb-28">
         <div>
-          <h2 className="text-white text-xl mb-10 lg:mb-24">
-            Founding Members
-          </h2>
+          <h2 className="text-white text-xl mb-10 lg:mb-24">Founding Members</h2>
         </div>
         <div className="lg:flex lg:space-x-40 justify-center space-y-16 lg:space-y-0">
           <div className="text-white flex flex-col items-center lg:space-y-10">
-            <img
-              src={foundingLeft}
-              alt="Nala Amirah"
-              className="rounded-full"
-            />
+            <img src={foundingLeft} alt="Nala Amirah" className="rounded-full" />
             <motion.a
               href="https://www.linkedin.com/in/nalaamirah/"
               target="_blank"
@@ -47,11 +43,7 @@ export default function Team() {
             </motion.h4>
           </div>
           <div className="text-white flex flex-col items-center lg:space-y-10">
-            <img
-              src={foundingMiddle}
-              alt="Daniel Filgo"
-              className="rounded-full"
-            />
+            <img src={foundingMiddle} alt="Daniel Filgo" className="rounded-full" />
             <motion.h3
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -100,17 +92,11 @@ export default function Team() {
       {/* Executive Leads */}
       <section className="flex flex-col justify-center items-center pt-28 pb-28">
         <div>
-          <h2 className="text-[#5F5E36] text-xl mb-10 lg:mb-24">
-            Current Executive Leads
-          </h2>
+          <h2 className="text-[#5F5E36] text-xl mb-10 lg:mb-24">Current Executive Leads</h2>
         </div>
         <div className="lg:flex lg:space-x-40 justify-center space-y-16 lg:space-y-0">
           <div className="flex flex-col items-center lg:space-y-10">
-            <img
-              src={executiveLeft}
-              alt="Nifa Rahma"
-              className="rounded-full"
-            />
+            <img src={executiveLeft} alt="Nifa Rahma" className="rounded-full" />
             <motion.a
               href="https://www.linkedin.com/in/nifa-rahma/"
               target="_blank"
@@ -134,11 +120,7 @@ export default function Team() {
             </motion.h4>
           </div>
           <div className="flex flex-col items-center lg:space-y-10">
-            <img
-              src={executiveMiddle}
-              alt="Regatta Lara"
-              className="rounded-full"
-            />
+            <img src={executiveMiddle} alt="Regatta Lara" className="rounded-full" />
             <motion.a
               href="https://www.linkedin.com/in/regatta-lara-kurusetra-993b90161/"
               target="_blank"
@@ -162,11 +144,7 @@ export default function Team() {
             </motion.h4>
           </div>
           <div className="flex flex-col items-center lg:space-y-10">
-            <img
-              src={executiveRight}
-              alt="Shahira Syifa"
-              className="rounded-full"
-            />
+            <img src={executiveRight} alt="Shahira Syifa" className="rounded-full" />
             <motion.a
               href="https://www.linkedin.com/in/shahira-syifa-putri-irwanto-5a4b9b157/"
               target="_blank"

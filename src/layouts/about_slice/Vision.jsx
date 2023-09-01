@@ -2,13 +2,22 @@ import { header_image, vision_image1 } from "../../assets/about-image";
 import Container from "../../components/container";
 import { motion } from "framer-motion";
 import Slider from "../../components/slider";
+import React from "react";
 
 const slides = [{ src: header_image }, { src: vision_image1 }, { src: vision_image1 }];
 
 const Vision = () => {
+  const [index, setIndex] = React.useState(0);
   return (
     <Container>
-      <Slider slides={slides} arrowClassName="!hidden" parentClassName="h-[300px] sm:h-[400px] md:h-[500px] lg:[600px] xl:h-[700px] !p-0" />
+      <Slider
+        slides={slides}
+        arrowClassName="!hidden"
+        dotClassName="absolute bottom-0 left-1/2 -translate-x-1/2"
+        parentClassName="h-[300px] sm:h-[400px] md:h-[500px] lg:[600px] xl:h-[700px] !p-0"
+        setCurrentIndex={setIndex}
+        currentIndex={index}
+      />
       <div className="w-full h-full bg-[#5F5E36] flex flex-col items-center justify-center text-center gap-8 py-8 sm:py-16 lg:py-24">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
