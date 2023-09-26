@@ -14,9 +14,15 @@ const InvolvedCarousel = () => {
   const [index, setIndex] = React.useState(0);
   return (
     <Container className="py-16">
-      <Slider slides={slides} parentClassName="!h-[100vh] !py-8" childrenClassName="!flex-row !px-40" setCurrentIndex={setIndex} currentIndex={index}>
-        <div className="flex-1">
-          <img src={slides[index].image} alt={slides[index].title} />
+      <Slider
+        slides={slides}
+        parentClassName="!h-[100vh] !py-8"
+        childrenClassName="!flex-col-reverse md:!flex-row !px-0 lg:!px-40"
+        setCurrentIndex={setIndex}
+        currentIndex={index}
+      >
+        <div className="flex-1 flex flex-col justify-center items-center">
+          <img src={slides[index].image} alt={slides[index].title} className="h-[300px] md:h-[400px] w-full" />
         </div>
         <div className="flex-1 flex flex-col justify-center items-center text-center gap-8 w-full">
           <h1 className="text-[#3E3E08] w-full font-normal italic text-xl">{slides[index].title}</h1>
