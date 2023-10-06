@@ -1,5 +1,5 @@
 import Navbar from "../../components/navbar/Navbar";
-import Footer from "../../components/Footer";
+import Footer from "../../components/footer/Footer";
 import DonateBg from "../../assets/donate-image/DonateBg.png";
 import FundingReceivedIcon from "../../assets/donate-image/FundingReceived.svg";
 import FundingUsedIcon from "../../assets/donate-image/FundingUsed.svg";

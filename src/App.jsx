@@ -1,6 +1,16 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { About, Events, GwfBandung, Home, Involved, Team } from "./pages";
+import {
+  About,
+  Events,
+  GwfBandung,
+  Home,
+  Involved,
+  Team,
+  Workshop,
+} from "./pages";
+import Ecopedia from "./pages/ecopediapage/Ecopedia";
 import Donate from "./pages/donatepage/Donate";
+import ResourceHub from "./pages/resourcehubpage/ResourceHub";
 
 const App = () => {
   return (
@@ -13,6 +23,9 @@ const App = () => {
         <Route path="/bdg" element={<GwfBandung />} />
         <Route path="/events" element={<Events />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/workshop" element={<Workshop />} />
+        <Route path="/ecopedia" element={<Ecopedia />} />
+        <Route path="/resourcehub" element={<ResourceHub />} />
       </Routes>
     </BrowserRouter>
   );
