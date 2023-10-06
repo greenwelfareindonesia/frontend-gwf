@@ -10,18 +10,15 @@ export default function Donate() {
     <div>
       <Navbar />
       <div className="bg-[#5F5E36]">
-        <h1 className="text-center text-white text-lg lg:text-2xl">
-          15k IDR = 1 plant-based meal donated!
-        </h1>
+        <h1 className="text-center text-white text-lg lg:text-2xl">15k IDR = 1 plant-based meal donated!</h1>
       </div>
       {/* Donate */}
       <section className="pt-28 pb-28">
         <div className="flex flex-col items-center">
           <h1 className="text-xl lg:text-3xl text-[#5F5E36] mb-8">Donate</h1>
           <p className="text text-center max-w-[41rem] text-sm lg:text-base leading-7 mb-32 font-light">
-            By donating to Green Welfare Indonesia, you are giving back to the
-            community and contributing to our environment one plant-based meal
-            at a time. Support us!
+            By donating to Green Welfare Indonesia, you are giving back to the community and contributing to our environment one plant-based meal at a
+            time. Support us!
           </p>
         </div>
         <div className="flex flex-col lg:flex-row justify-center items-center gap-20 mb-16">
@@ -144,9 +141,7 @@ export default function Donate() {
             </motion.button>
           </div>
         </div>
-        <h3 className="font-semibold text-xl text-center italic underline">
-          Download Donor Brochure
-        </h3>
+        <h3 className="font-semibold text-xl text-center italic underline">Download Donor Brochure</h3>
       </section>
       {/* Image Headline */}
       <motion.section
