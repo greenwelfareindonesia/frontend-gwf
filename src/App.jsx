@@ -2,15 +2,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   About,
   Events,
+  Contact,
   GwfBandung,
   Home,
   Involved,
   Team,
   Workshop,
+  Resource,
 } from "./pages";
 import Ecopedia from "./pages/ecopediapage/Ecopedia";
 import Donate from "./pages/donatepage/Donate";
-import ResourceHub from "./pages/resourcehubpage/ResourceHub";
 
 const App = () => {
   return (
@@ -25,9 +26,8 @@ const App = () => {
         <Route path="/donate" element={<Donate />} />
         <Route path="/workshop" element={<Workshop />} />
         <Route path="/ecopedia" element={<Ecopedia />} />
-        <Route path="/resourcehub" element={<ResourceHub />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/resourcehub" element={<Resource />} />
+        <Route path="/resource" element={<Resource />} />
       </Routes>
     </BrowserRouter>
   );
