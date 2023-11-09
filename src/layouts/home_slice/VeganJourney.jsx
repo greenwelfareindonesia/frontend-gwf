@@ -27,7 +27,8 @@ const VeganJourney = () => {
           viewport={{ once: true }}
           className="text-center font-light text-lg md:text-xl text-white"
         >
-          With just one click, we have the perfect resource for you to start your vegan/vegetarian transition.
+          With just one click, we have the perfect resource for you to start
+          your vegan/vegetarian transition.
         </motion.h6>
         <motion.h6
           initial={{ opacity: 0, y: 30 }}
@@ -36,8 +37,10 @@ const VeganJourney = () => {
           viewport={{ once: true }}
           className="text-center font-extralight text-white text-base"
         >
-          A vegan diet has the lowest carbon footprint at just 1.5 tons CO2e (Carbon Dioxide Equivalent). You can reduce your foodprint by a quarter
-          just by consuming a plant-based meal. It&sbquo;s good for the animals too!
+          A vegan diet has the lowest carbon footprint at just 1.5 tons CO2e
+          (Carbon Dioxide Equivalent). You can reduce your foodprint by a
+          quarter just by consuming a plant-based meal. It&sbquo;s good for the
+          animals too!
         </motion.h6>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -46,8 +49,18 @@ const VeganJourney = () => {
           viewport={{ once: true }}
           className="mb-3 flex items-center justify-between gap-8 mt-4"
         >
-          <Button className="!bg-[#5F5E36] hover:!bg-[#5F5E3696] text-white hover:text-white/90 font-light">I want to start!</Button>
-          <Button className="border border-white !bg-transparent text-white hover:!bg-white hover:text-[#3E3E08]">Vegan Guide</Button>
+          <Button className="!bg-[#5F5E36] hover:!bg-[#5F5E3696] text-white hover:text-white/90 font-light">
+            <a
+              href="https://www.21hariveg.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              I want to start!
+            </a>
+          </Button>
+          <Button className="border border-white !bg-transparent text-white hover:!bg-white hover:text-[#3E3E08]">
+            Vegan Guide
+          </Button>
         </motion.div>
       </Image>
     </Container>

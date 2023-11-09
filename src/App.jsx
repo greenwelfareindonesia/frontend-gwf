@@ -12,6 +12,7 @@ import {
 } from "./pages";
 import Ecopedia from "./pages/ecopediapage/Ecopedia";
 import Donate from "./pages/donatepage/Donate";
+import AdminLogin from "./pages/adminloginpage/AdminLogin";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/ecopedia" element={<Ecopedia />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/resource" element={<Resource />} />
+        <Route path="/admin" element={<AdminLogin />} />
       </Routes>
     </BrowserRouter>
   );
