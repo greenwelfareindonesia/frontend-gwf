@@ -31,7 +31,8 @@ const eventContent = [
   },
   {
     image: image_events_part2,
-    title: "GYT #5: Achieving Eco-Leadership & Climate Justice Wins 2022 Environmental Plans By University Student Organizers",
+    title:
+      "GYT #5: Achieving Eco-Leadership & Climate Justice Wins 2022 Environmental Plans By University Student Organizers",
     desc: "With the rise of environmental issues, Indonesian youths are more proactive in voicing and taking roles for environmental sustainability. Together with 6 universities from various regions in Indonesia, Green YOUth Talks #5 has invited university student organizations to share, learn and discuss the important role of students in eco-leadership and climate advocacy.",
   },
   {
@@ -56,7 +57,8 @@ const eventContent = [
   },
   {
     image: image_events_part7,
-    title: "UN Food Systems Summit Independent Dialogue: The Role of Youths in building a Regenerative Food Systems",
+    title:
+      "UN Food Systems Summit Independent Dialogue: The Role of Youths in building a Regenerative Food Systems",
     desc: "An independent dialogue convened by Green Welfare Indonesia in the pathway of the UN Food Systems Summit 2021 with two keynote sessions showcasing how we can build regenerative food systems and the role of youths in the process, followed by a youth panel session to spark conversations and inputs around the UNFSS’s Action Tracks.",
   },
   {
@@ -111,8 +113,6 @@ const eventContent = [
   },
 ];
 
-console.log(eventContent);
-
 const Events = () => {
   return (
     <>
@@ -132,7 +132,10 @@ const Events = () => {
       <Container className="my-8 px-32">
         <div className="grid grid-cols-1 md:grid-cols-2 p-6 gap-8">
           {eventContent.map((item, index) => (
-            <div key={index} className="flex flex-col items-center justify-center text-center gap-4">
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center text-center gap-4"
+            >
               <img src={item.image} alt="" className="w-full h-full md:w-max md:h-max" />
               <h1 className="text-[#3E3E08] text-2xl font-normal leading-normal">{item.title}</h1>
               <p className="text-[#3E3E08] text-base font-light leading-loose">{item.desc}</p>

@@ -3,5 +3,7 @@ import Vision from "./Vision";
 import Mision from "./Mision";
 import DevGoals from "./DevGoals";
 import OngoingPrograms from "./OngoingPrograms";
+import OurWorksNumbers from "./OurWorksNumbers";
+import VideoSectionSlider from "./VideoSectionSlider";
 
-export { Header, Vision, Mision, DevGoals, OngoingPrograms };
+export { OurWorksNumbers, Header, Vision, Mision, DevGoals, OngoingPrograms, VideoSectionSlider };

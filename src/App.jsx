@@ -1,15 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {
-  About,
-  Contact,
-  Donate,
-  Events,
-  GwfBandung,
-  Home,
-  Involved,
-  Resource,
-  Team,
-} from "./pages";
+import { About, Contact, Donate, Events, GwfBandung, Home, Involved, Resource, Team } from "./pages";
+import EventsDashboard from "./layouts/dashboard_section/EventsDashboard";
+import WorkshopDashboard from "./layouts/dashboard_section/WorkshopDashboard";
 
 const App = () => {
   return (
@@ -24,6 +16,8 @@ const App = () => {
         <Route path="/donate" element={<Donate />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/resourcehub" element={<Resource />} />
+        <Route path="/dashboard/events" element={<EventsDashboard />} />
+        <Route path="/dashboard/workshop" element={<WorkshopDashboard />} />
       </Routes>
     </BrowserRouter>
   );

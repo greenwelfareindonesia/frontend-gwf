@@ -13,8 +13,12 @@ import logo_aseanorg from "./logo_aseanorg.png";
 import image_tumblr from "./image_tumblr.png";
 import image_planebased from "./image_plane-based.png";
 import image_veganjourney from "./image_vegan-journey.png";
+import tumb1 from "./tumb1.jpg";
+import tumb2 from "./tumb2.jpg";
 
 export {
+  tumb1,
+  tumb2,
   image_veganjourney,
   image_planebased,
   image_tumblr,
