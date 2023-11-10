@@ -6,7 +6,9 @@ const Slider = (props) => {
 
   const goPrev = () => {
     const isFirstSlide = props.currentIndex === 0;
-    const newIndex = isFirstSlide ? props.slides.length - 1 : props.currentIndex - 1;
+    const newIndex = isFirstSlide
+      ? props.slides.length - 1
+      : props.currentIndex - 1;
     props.setCurrentIndex(newIndex);
   };
 
@@ -22,7 +24,7 @@ const Slider = (props) => {
 
   // const slidesContainer = () => ({
   //   maxWidth: `${1200 * props.slides.length}px`,
-  //   transform: `translateX(${-(currentIndex * 1200)}px)`,
+  //   transform: `translateX(${-(props.currentIndex * 1200)}px)`,
   // });
 
   React.useEffect(() => {
@@ -36,7 +38,9 @@ const Slider = (props) => {
   });
 
   return (
-    <div className={`h-full w-full py-36 px-4 relative group ${props.parentClassName}`}>
+    <div
+      className={`h-full w-full py-36 px-4 relative group ${props.parentClassName}`}
+    >
       <Image
         src={props.slides[props.currentIndex].src}
         className={`h-full overflow-hidden flex-col gap-8 px-28 duration-500 transition-all ${props.childrenClassName}`}
@@ -57,9 +61,15 @@ const Slider = (props) => {
           <BsChevronCompactRight size={30} />
         </div>
       </div>
-      <div className={`flex items-center justify-center gap-1 ${props.dotClassName}`}>
+      <div
+        className={`flex items-center justify-center gap-1 ${props.dotClassName}`}
+      >
         {props.slides.map((_, slideIndex) => (
-          <div key={slideIndex} onClick={() => goToSlide(slideIndex)} className="text-4xl cursor-pointer">
+          <div
+            key={slideIndex}
+            onClick={() => goToSlide(slideIndex)}
+            className="text-4xl cursor-pointer"
+          >
             {slideIndex === props.currentIndex ? <>&#9702;</> : <>&#8226;</>}
           </div>
         ))}

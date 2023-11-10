@@ -7,5 +7,17 @@ import Home from "./homepage/Home";
 import Involved from "./involvedpage/Involved";
 import Resource from "./resourcepage/Resource";
 import Team from "./teampage/Team";
+import Workshop from "./workshoppage/Workshop";
 
-export { Resource, About, Home, Involved, GwfBandung, Team, Events, Contact, Donate };
+export {
+  Resource,
+  About,
+  Home,
+  Involved,
+  GwfBandung,
+  Team,
+  Events,
+  Contact,
+  Donate,
+  Workshop,
+};
