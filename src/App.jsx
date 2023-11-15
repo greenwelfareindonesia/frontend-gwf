@@ -12,6 +12,7 @@ import {
   Donate,
 } from "./pages";
 import Ecopedia from "./pages/ecopediapage/Ecopedia";
+import VeganGuide from "./pages/veganguidepage/VeganGuide";
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
 import EventsDashboard from "./layouts/dashboard_section/EventsDashboard";
 import WorkshopDashboard from "./layouts/dashboard_section/WorkshopDashboard";
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/ecopedia" element={<Ecopedia />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/resource" element={<Resource />} />
+        <Route path="/plantbasedhub" element={<VeganGuide />} />
         <Route path="/dashboard/events" element={<EventsDashboard />} />
         <Route path="/dashboard/workshop" element={<WorkshopDashboard />} />
         <Route path="/dashboard/user" element={<UserDashboard />} />
