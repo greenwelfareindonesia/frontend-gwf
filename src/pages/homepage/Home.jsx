@@ -14,6 +14,7 @@ import {
   PrimeGoals,
   VeganJourney,
 } from "../../layouts/home_slice";
+import VideoSection from "../../layouts/home_slice/VideoSection";
 
 const Home = () => {
   return (
@@ -23,7 +24,7 @@ const Home = () => {
       <OurRoots />
       <PrimeGoals />
       <CoreValues />
-      {/* <VideoSection /> */}
+      <VideoSection />
       <BenefitOfPlane />
       <VeganJourney />
       <ClimateWishes />

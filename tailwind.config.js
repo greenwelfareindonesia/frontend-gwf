@@ -7,7 +7,16 @@ export default withMT({
     "path-to-your-node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        filter: "#3E3E0850",
+        "primary-1": "#5F5E36",
+        "primary-2": "#3E3E08",
+        "light-1": "#F1F1F1",
+        "light-2": "#ecece6",
+        dark: "#313335",
+      },
+    },
   },
   plugins: [],
 });

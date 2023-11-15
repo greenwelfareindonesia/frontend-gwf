@@ -1,10 +1,10 @@
-const Button = (props) => {
+const Button = ({ children, className, ...props }) => {
   return (
     <button
-      className={`align-middle select-none text-center transition-all duration-400 text-sm font-normal py-3 px-6 bg-white text-[#3E3E08] outline-none ${props.className}`}
-      onClick={props.onClick ? () => props.onClick() : null}
+      className={`align-middle flex items-center gap-1 text-center duration-300 text-sm py-3 px-6 bg-white text-primary-2 outline-none ${className}`}
+      {...props}
     >
-      {props.children}
+      {children}
     </button>
   );
 };

@@ -19,7 +19,11 @@ const DevGoals = () => {
         <ul className="flex flex-col gap-16 mb-8 lg:gap-32 lg:flex-row">
           {iconList.map((item, key) => (
             <li key={key} className="flex flex-col items-center flex-1 gap-16">
-              <img src={item.icon} className={`${item.name === "End Hunger" ? "w-16 h-10" : "w-10 h-10"}`} alt="" />
+              <img
+                src={item.icon}
+                className={`${item.name === "End Hunger" ? "w-16 h-10" : "w-10 h-10"}`}
+                alt=""
+              />
               <motion.p
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
