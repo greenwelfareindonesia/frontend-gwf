@@ -18,6 +18,8 @@ import EventsDashboard from "./layouts/dashboard_section/EventsDashboard";
 import WorkshopDashboard from "./layouts/dashboard_section/WorkshopDashboard";
 import UserDashboard from "./layouts/dashboard_section/UserDashboard";
 import GalleryDashboard from "./layouts/dashboard_section/GalleryDashboard";
+import VeganDiet from "./pages/veganguidepage/VeganDiet";
+import FoodsToAvoid from "./pages/veganguidepage/FoodsToAvoid";
 
 const App = () => {
   return (
@@ -40,6 +42,8 @@ const App = () => {
         <Route path="/dashboard/user" element={<UserDashboard />} />
         <Route path="/dashboard/gallery" element={<GalleryDashboard />} />
         <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/vegandiet" element={<VeganDiet />} />
+        <Route path="/foodstoavoid" element={<FoodsToAvoid />} />
       </Routes>
     </BrowserRouter>
   );
