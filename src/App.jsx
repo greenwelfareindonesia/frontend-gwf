@@ -20,6 +20,9 @@ import UserDashboard from "./layouts/dashboard_section/UserDashboard";
 import GalleryDashboard from "./layouts/dashboard_section/GalleryDashboard";
 import VeganDiet from "./pages/veganguidepage/VeganDiet";
 import FoodsToAvoid from "./pages/veganguidepage/FoodsToAvoid";
+import VeganSampleMenu from "./pages/veganguidepage/VeganSampleMenu";
+import FoodsToEat from "./pages/veganguidepage/FoodsToEat";
+import EnvironmentalBenefits from "./pages/veganguidepage/EnvironmentalBenefits";
 
 const App = () => {
   return (
@@ -44,6 +47,12 @@ const App = () => {
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/vegandiet" element={<VeganDiet />} />
         <Route path="/foodstoavoid" element={<FoodsToAvoid />} />
+        <Route path="/veganmenuforaweek" element={<VeganSampleMenu />} />
+        <Route path="/foodstoeat" element={<FoodsToEat />} />
+        <Route
+          path="/environmentalbenefits"
+          element={<EnvironmentalBenefits />}
+        />
       </Routes>
     </BrowserRouter>
   );

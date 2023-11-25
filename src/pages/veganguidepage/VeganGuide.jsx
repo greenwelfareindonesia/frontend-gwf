@@ -20,10 +20,12 @@ function VeganGuide() {
     {
       title: "A Vegan Sample Menu for One Week",
       desc: "A simple plan covering a week's worth of vegan meals",
+      onClick: () => navigate("/veganmenuforaweek"),
     },
     {
       title: "Foods to Eat",
       desc: "Foods to eat as a vegan",
+      onClick: () => navigate("/foodstoeat"),
     },
     {
       title: "17 Environmental Benefits Of Veganism",
