@@ -1,7 +1,12 @@
 import gwficon from "../../assets/adminlogin-image/gwflogo.svg";
 import adminBg from "../../assets/adminlogin-image/admin-bg.svg";
+import { useForm } from "react-hook-form";
+import { DevTool } from "@hookform/devtools";
 
 export default function AdminLogin() {
+  const form = useForm();
+  const { register, control } = form;
+
   return (
     <section className="bg-[#3E3E08] flex h-screen">
       {/* Left Side */}
@@ -16,20 +21,29 @@ export default function AdminLogin() {
               Username/Email Address:
             </label>
             <input
-              type="text"
+              type="email"
+              id="email"
               className="h-[3rem] w-[20rem] px-2 border-[#3E3E08] border-[1px] rounded-lg font-light text-xs mb-3"
               placeholder="Username/Email Address"
+              {...register("email")}
             />
             <label htmlFor="password" className="text-[#3E3E08] font-semibold">
               Password:
             </label>
             <input
-              type="text"
+              type="password"
+              id="password"
               className="h-[3rem] w-[20rem] px-2 border-[#3E3E08] border-[1px] rounded-lg font-light text-xs mb-3"
               placeholder="Password"
+              {...register("password")}
             />
             <div className="flex items-center mb-8">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                id="remember"
+                {...register("remember")}
+                className="mr-1"
+              />
               <label htmlFor="remember" className="text-xs">
                 Remember Me
               </label>
@@ -40,10 +54,12 @@ export default function AdminLogin() {
             <button
               className="h-[3rem] border-[#3E3E08] border-[1px] first-letter rounded-lg text-sm font-medium hover:bg-[#3E3E08]
             hover:text-white ease-in-out duration-300"
+              type="submit"
             >
               Submit
             </button>
           </form>
+          <DevTool control={control} />
           <div className="bg-blue-gray-500"></div>
           <p className="font-medium text-xs absolute bottom-2">
             ©2023 by Green Welfare Indonesia
