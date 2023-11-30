@@ -4,6 +4,7 @@ import Ecopedia from "./pages/ecopediapage/Ecopedia";
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
 import EventsDashboard from "./layouts/dashboard_section/EventsDashboard";
 import WorkshopDashboard from "./layouts/dashboard_section/WorkshopDashboard";
+import ArticlePage from "./pages/dashboardPage/ArticlePage";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/resource" element={<Resource />} />
         <Route path="/dashboard/events" element={<EventsDashboard />} />
+        <Route path="/dashboard/article" element={<ArticlePage />} />
         <Route path="/dashboard/workshop" element={<WorkshopDashboard />} />
         <Route path="/admin" element={<AdminLogin />} />
       </Routes>
