@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 function EnvironmentalCard(props) {
@@ -18,7 +17,7 @@ function EnvironmentalCard(props) {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.2 }}
         viewport={{ once: true }}
-        className="text-[#3E3E08] font-light xl:text-sm text-sm leading-7"
+        className="text-[#3E3E08] font-light text-sm leading-7"
       >
         {props.desc}
       </motion.p>

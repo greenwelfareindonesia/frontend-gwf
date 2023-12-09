@@ -23,6 +23,12 @@ import FoodsToAvoid from "./pages/veganguidepage/FoodsToAvoid";
 import VeganSampleMenu from "./pages/veganguidepage/VeganSampleMenu";
 import FoodsToEat from "./pages/veganguidepage/FoodsToEat";
 import EnvironmentalBenefits from "./pages/veganguidepage/EnvironmentalBenefits";
+import TopTipsForVegan from "./pages/veganguidepage/TopTipsForVegan";
+import VeganDishesInIndo from "./pages/veganguidepage/VeganDishesInIndo";
+import VeganBooks from "./pages/veganguidepage/VeganBooks";
+import VeganMovies from "./pages/veganguidepage/VeganMovies";
+import HealthBenefits from "./pages/veganguidepage/HealthBenefits";
+import AnimalAgriculture from "./pages/veganguidepage/AnimalAgriculture";
 
 const App = () => {
   return (
@@ -53,6 +59,12 @@ const App = () => {
           path="/environmentalbenefits"
           element={<EnvironmentalBenefits />}
         />
+        <Route path="/toptipsforgoingvegan" element={<TopTipsForVegan />} />
+        <Route path="/vegandishesinindo" element={<VeganDishesInIndo />} />
+        <Route path="/veganbooks" element={<VeganBooks />} />
+        <Route path="/veganmovies" element={<VeganMovies />} />
+        <Route path="/healthbenefits" element={<HealthBenefits />} />
+        <Route path="/animalagriculturefacts" element={<AnimalAgriculture />} />
       </Routes>
     </BrowserRouter>
   );
