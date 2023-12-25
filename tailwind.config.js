@@ -12,7 +12,7 @@ export default withMT({
         filter: "#3E3E0850",
         "primary-1": "#5F5E36",
         "primary-2": "#3E3E08",
-        "light-1": "#F1F1F1",
+        "light-1": "#ffffff",
         "light-2": "#ecece6",
         dark: "#313335",
       },

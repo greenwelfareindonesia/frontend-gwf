@@ -79,29 +79,19 @@ function EnvironmentalBenefits() {
       <Navbar />
       {/* Main Content */}
       <section className="py-16 xl:px-72 px-4">
-        <h1 className="text-[#5F5E36] text-4xl text-center mb-8">
-          17 Environmental Benefits of Veganism
-        </h1>
+        <h1 className="text-[#5F5E36] text-4xl text-center mb-8">17 Environmental Benefits of Veganism</h1>
         <p className="text-[#3E3E08] text-center font-light mb-8">
-          In 2018, the United Nations identified animal agriculture and meat
-          production as the most urgent problem around the world - a catastrophe
-          of our own making.
+          In 2018, the United Nations identified animal agriculture and meat production as the most urgent problem around the world - a catastrophe of
+          our own making.
         </p>
         <p className="text-[#3E3E08] text-center font-light">
-          In order to understand why Veganism is good for the environment, we
-          have to look at the ways in which meat, fish, and dairy production is
-          seriously impacting our planet&apos;s resources and ecosystem. From
-          greenhouse gas emissions to deforestation, species extinction and
-          water pollution, the animal agriculture industry is the main driver
-          behind our planet&apos;s environmental crisis.
+          In order to understand why Veganism is good for the environment, we have to look at the ways in which meat, fish, and dairy production is
+          seriously impacting our planet&apos;s resources and ecosystem. From greenhouse gas emissions to deforestation, species extinction and water
+          pollution, the animal agriculture industry is the main driver behind our planet&apos;s environmental crisis.
         </p>
         <div className="space-y-10 mt-20">
           {card.map((item, index) => (
-            <EnvironmentalCard
-              key={index}
-              title={item.title}
-              desc={item.desc}
-            />
+            <EnvironmentalCard key={index} title={item.title} desc={item.desc} />
           ))}
         </div>
       </section>

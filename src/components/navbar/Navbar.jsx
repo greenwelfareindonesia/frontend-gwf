@@ -2,10 +2,10 @@ import React from "react";
 import { logo_gwf } from "../../assets/image";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { HiUserCircle } from "react-icons/hi2";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const listMenu = [
-  { name: "Home", content: [], path: "/" },
+  { name: "Home", path: "/" },
   {
     name: "About",
     content: [
@@ -14,24 +14,22 @@ const listMenu = [
     ],
     path: "/about",
   },
-  { name: "Get Involved", content: [], path: "/involved" },
-  { name: "Events", content: [], path: "/events" },
-  { name: "Make a Donation", content: [], path: "/" },
-  { name: "Workshop & Classes", content: [], path: "/" },
+  { name: "Get Involved", path: "/involved" },
+  { name: "Events", path: "/events" },
+  { name: "Make a Donation", path: "/donate" },
+  { name: "Workshop & Classes", path: "/workshop" },
   {
     name: "More",
     content: [
       { name: "Gallery", path: "/" },
-      { name: "Contact", path: "/" },
-      { name: "Eco-pedia", path: "/" },
-      { name: "Resource Hub", path: "/" },
+      { name: "Contact", path: "/contact" },
+      { name: "Eco-pedia", path: "/ecopedia" },
+      { name: "Resource Hub", path: "/resource" },
     ],
   },
 ];
 
 const Navbar = () => {
-  const pathname = useLocation().pathname;
-
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -44,27 +42,15 @@ const Navbar = () => {
         openNav ? "left-0" : "left-[-200%]"
       }`}
     >
-      {listMenu.map((item, key) => (
-        <li
-          key={key}
-          className="block antialiased text-sm font-normal leading-normal p-1 relative group"
-        >
-          <Link
-            to={item.path}
-            className={`flex items-center duration-500 hover:text-[#6B6B0E] ${
-              item.path === pathname ? "text-[#6B6B0E]" : "text-blue-gray-900"
-            } whitespace-nowrap`}
-          >
+      {listMenu.map((item, index) => (
+        <li key={index} className="relative block p-1 text-sm antialiased font-normal leading-normal group">
+          <Link to={item.path} className={`flex items-center duration-500 hover:text-[#6B6B0E] text-blue-gray-900 whitespace-nowrap`}>
             {item.name}
           </Link>
-          {item.content.length > 1 && (
+          {item?.content?.length > 1 && (
             <div className="hidden absolute transition-all duration-300 left-0 min-w-[120px] shadow-md z-[3] group-hover:flex flex-col p-2 bg-white">
-              {item.content.map((item, key) => (
-                <Link
-                  key={key}
-                  to={item.path}
-                  className={`flex items-center duration-500 hover:text-[#6B6B0E] "text-[#6B6B0E]" whitespace-nowrap`}
-                >
+              {item.content.map((item, index) => (
+                <Link key={index} to={item.path} className={`flex items-center duration-500 hover:text-[#6B6B0E] "text-[#6B6B0E]" whitespace-nowrap`}>
                   {item.name}
                 </Link>
               ))}
@@ -72,7 +58,7 @@ const Navbar = () => {
           )}
         </li>
       ))}
-      <li className="lg:block hidden antialiased text-sm font-normal leading-normal text-blue-gray-900 p-1">
+      <li className="hidden p-1 text-sm antialiased font-normal leading-normal lg:block text-blue-gray-900">
         <Link href="/" className="flex items-center duration-200 hover:text-[#6B6B0E]">
           <HiUserCircle className="hidden w-6 h-6 mr-1 lg:block text-[#6B6B0E]" /> Login
         </Link>
@@ -81,12 +67,9 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="block w-full shadow-md backdrop-saturate-200 backdrop-blur-2xl border border-white/80 bg-white text-white sticky top-0 z-10 px-0 py-2 bg-opacity-100 rounded-none h-max">
-      <div className="flex flex-shrink-0 flex-grow-0 items-center justify-between text-blue-gray-900 px-4 lg:px-12 w-full relative">
-        <a
-          href="#"
-          className="block antialiased font-sans text-base leading-relaxed text-inherit cursor-pointer py-1.5 font-medium z-20"
-        >
+    <nav className="sticky top-0 z-10 block w-full px-0 py-2 text-white bg-white bg-opacity-100 border rounded-none shadow-md backdrop-saturate-200 backdrop-blur-2xl border-white/80 h-max">
+      <div className="relative flex items-center justify-between flex-grow-0 flex-shrink-0 w-full px-4 text-blue-gray-900 lg:px-12">
+        <a href="/" className="block antialiased font-sans text-base leading-relaxed text-inherit cursor-pointer py-1.5 font-medium z-20">
           <img src={logo_gwf} className="h-20" alt="logo gwf" />
         </a>
 
