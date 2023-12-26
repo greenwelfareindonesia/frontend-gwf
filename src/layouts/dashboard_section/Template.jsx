@@ -32,6 +32,7 @@ const Menus = [
   { title: "Veganguide", src: veganguide_icon },
   { title: "Workshop", src: workshop_icon },
 ];
+
 const DashboardSection = ({ children, titleField, buttonField }) => {
   const [open, setOpen] = React.useState(true);
   return (

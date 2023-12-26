@@ -2,7 +2,7 @@ import DashboardSection from "./Template";
 import { HiPencil, HiTrash } from "react-icons/hi2";
 import Button from "../../components/button";
 
-const EventsDashboard = ({ events }) => {
+const EventsDashboard = () => {
   const headItem = ["Product Name", "Color", "Category", "Price", "Action"];
   return (
     <DashboardSection titleField="Events" buttonField="Post Events">
