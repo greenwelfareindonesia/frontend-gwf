@@ -1,4 +1,4 @@
-import image_events from "./image_events.png";
+import events_image from "./head-events.webp";
 import image_events_part1 from "./image_events_part1.png";
 import image_events_part2 from "./image_events_part2.png";
 import image_events_part3 from "./image_events_part3.png";
@@ -18,7 +18,7 @@ import image_events_part16 from "./image_events_part16.png";
 import image_events_part17 from "./image_events_part17.png";
 
 export {
-  image_events,
+  events_image,
   image_events_part1,
   image_events_part2,
   image_events_part3,

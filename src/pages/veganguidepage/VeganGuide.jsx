@@ -162,9 +162,9 @@ function VeganGuide() {
       <Navbar />
       {/* Header */}
       <section className="h-[31rem] bg-no-repeat bg-cover bg-center py-28 xl:px-[22rem]" style={{ backgroundImage: `url(${Header})` }}>
-        <h1 className="text-center text-white font-medium text-3xl lg:text-4xl mb-8">GWF Plant-based Hub</h1>
-        <h3 className="text-center text-white font-light mb-10">Your guide to a plant-based lifestyle</h3>
-        <p className="text-center text-white font-light">
+        <h1 className="text-center text-light-1 font-medium text-3xl lg:text-4xl mb-8">GWF Plant-based Hub</h1>
+        <h3 className="text-center text-light-1 font-light mb-10">Your guide to a plant-based lifestyle</h3>
+        <p className="text-center text-light-1 font-light">
           <span className="font-bold">
             Did you know? Eating a vegan diet could be the “single biggest way” to reduce your environmental impact on earth.
           </span>{" "}

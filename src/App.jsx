@@ -14,6 +14,9 @@ import {
 
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
 
+import ProtectedAdmin from "./routes/ProtectedAdmin";
+import NotFound from "./pages/notFoundPage/NotFound";
+
 import VeganGuide from "./pages/veganguidepage/VeganGuide";
 import VeganDiet from "./pages/veganguidepage/VeganDiet";
 import FoodsToAvoid from "./pages/veganguidepage/FoodsToAvoid";
@@ -43,17 +46,19 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/resource" element={<Resource />} />
 
-        <Route path="/dashboard/article" element={<ArticlePage />} />
-        <Route path="/dashboard/contact" element={<ContactPage />} />
-        <Route path="/dashboard/ecopedia" element={<EcopediaPage />} />
-        <Route path="/dashboard/event" element={<EventsPage />} />
-        <Route path="/dashboard/feedback" element={<FeedbackPage />} />
-        <Route path="/dashboard/gallery" element={<GalleryPage />} />
-        <Route path="/dashboard/veganguide" element={<VeganguidePage />} />
-        <Route path="/dashboard/workshop" element={<WorkshopPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route element={<ProtectedAdmin />}>
+          <Route path="/dashboard/article" element={<ArticlePage />} />
+          <Route path="/dashboard/contact" element={<ContactPage />} />
+          <Route path="/dashboard/ecopedia" element={<EcopediaPage />} />
+          <Route path="/dashboard/event" element={<EventsPage />} />
+          <Route path="/dashboard/feedback" element={<FeedbackPage />} />
+          <Route path="/dashboard/gallery" element={<GalleryPage />} />
+          <Route path="/dashboard/veganguide" element={<VeganguidePage />} />
+          <Route path="/dashboard/workshop" element={<WorkshopPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+        </Route>
 
-        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/login" element={<AdminLogin />} />
 
         <Route path="/plantbasedhub" element={<VeganGuide />} />
         <Route path="/vegandiet" element={<VeganDiet />} />
@@ -67,6 +72,8 @@ const App = () => {
         <Route path="/veganmovies" element={<VeganMovies />} />
         <Route path="/healthbenefits" element={<HealthBenefits />} />
         <Route path="/animalagriculturefacts" element={<AnimalAgriculture />} />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

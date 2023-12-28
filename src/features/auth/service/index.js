@@ -5,7 +5,9 @@ export const useLogin = () => {
   return useMutation({
     mutationFn: async (body) => {
       const response = await login(body);
-      return response.data;
+      localStorage.setItem("token", response?.data?.Token);
+      localStorage.setItem("name", response?.data?.Name);
+      return response?.data;
     },
   });
 };
@@ -14,7 +16,7 @@ export const useRegister = () => {
   return useMutation({
     mutationFn: async (body) => {
       const response = await register(body);
-      return response.data;
+      return response?.data;
     },
   });
 };
@@ -23,7 +25,7 @@ export const useEditUser = () => {
   return useMutation({
     mutationFn: async (body) => {
       const response = await editUser(body);
-      return response.data;
+      return response?.data;
     },
   });
 };
@@ -32,7 +34,7 @@ export const useDeleteUser = () => {
   return useMutation({
     mutationFn: async (body) => {
       const response = await deleteUser(body);
-      return response.data;
+      return response?.data;
     },
   });
 };

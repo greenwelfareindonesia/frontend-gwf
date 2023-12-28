@@ -15,10 +15,10 @@ export default function Team() {
       {/* Founding Members */}
       <section className="bg-[#5F5E36] flex flex-col justify-center items-center pt-28 pb-28">
         <div>
-          <h2 className="text-white text-xl mb-10 lg:mb-24">Founding Members</h2>
+          <h2 className="mb-10 text-xl text-light-1 lg:mb-24">Founding Members</h2>
         </div>
-        <div className="lg:flex lg:space-x-40 justify-center space-y-16 lg:space-y-0">
-          <div className="text-white flex flex-col items-center lg:space-y-10">
+        <div className="justify-center space-y-16 lg:flex lg:space-x-40 lg:space-y-0">
+          <div className="flex flex-col items-center text-light-1 lg:space-y-10">
             <img src={foundingLeft} alt="Nala Amirah" className="rounded-full" />
             <motion.a
               href="https://www.linkedin.com/in/nalaamirah/"
@@ -28,7 +28,7 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-lg mt-8 lg:mt-0 hover:underline"
+              className="mt-8 text-lg lg:mt-0 hover:underline"
             >
               Nala Amirah
             </motion.a>
@@ -37,19 +37,19 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 2, delay: 0.2 }}
               viewport={{ once: true }}
-              className="font-light mt-2 lg:mt-0"
+              className="mt-2 font-light lg:mt-0"
             >
               Founder & Board of Director
             </motion.h4>
           </div>
-          <div className="text-white flex flex-col items-center lg:space-y-10">
+          <div className="flex flex-col items-center text-light-1 lg:space-y-10">
             <img src={foundingMiddle} alt="Daniel Filgo" className="rounded-full" />
             <motion.h3
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-lg mt-8 lg:mt-0"
+              className="mt-8 text-lg lg:mt-0"
             >
               Daniel Filgo
             </motion.h3>
@@ -58,12 +58,12 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 2, delay: 0.2 }}
               viewport={{ once: true }}
-              className="font-light mt-2 lg:mt-0"
+              className="mt-2 font-light lg:mt-0"
             >
               Co-Founder
             </motion.h4>
           </div>
-          <div className="text-white flex flex-col items-center lg:space-y-10">
+          <div className="flex flex-col items-center text-light-1 lg:space-y-10">
             <img src={foundingRight} alt="Fiza Khan" className="rounded-full" />
             <motion.a
               href="https://www.linkedin.com/in/fiza-khan-096476218/"
@@ -73,7 +73,7 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-lg mt-8 lg:mt-0 hover:underline"
+              className="mt-8 text-lg lg:mt-0 hover:underline"
             >
               Fiza Khan
             </motion.a>
@@ -82,7 +82,7 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 2, delay: 0.2 }}
               viewport={{ once: true }}
-              className="font-light mt-2 lg:mt-0"
+              className="mt-2 font-light lg:mt-0"
             >
               Co-Founder & Chief of Finance
             </motion.h4>
@@ -90,11 +90,11 @@ export default function Team() {
         </div>
       </section>
       {/* Executive Leads */}
-      <section className="flex flex-col justify-center items-center pt-28 pb-28">
+      <section className="flex flex-col items-center justify-center pt-28 pb-28">
         <div>
           <h2 className="text-[#5F5E36] text-xl mb-10 lg:mb-24">Current Executive Leads</h2>
         </div>
-        <div className="lg:flex lg:space-x-40 justify-center space-y-16 lg:space-y-0">
+        <div className="justify-center space-y-16 lg:flex lg:space-x-40 lg:space-y-0">
           <div className="flex flex-col items-center lg:space-y-10">
             <img src={executiveLeft} alt="Nifa Rahma" className="rounded-full" />
             <motion.a
@@ -105,7 +105,7 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-lg mt-8 lg:mt-0 hover:underline"
+              className="mt-8 text-lg lg:mt-0 hover:underline"
             >
               Nifa Rahma
             </motion.a>
@@ -114,7 +114,7 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 2, delay: 0.2 }}
               viewport={{ once: true }}
-              className="font-light mt-2 lg:mt-0"
+              className="mt-2 font-light lg:mt-0"
             >
               Executive Director
             </motion.h4>
@@ -129,7 +129,7 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-lg mt-8 lg:mt-0 hover:underline"
+              className="mt-8 text-lg lg:mt-0 hover:underline"
             >
               Regatta Lara
             </motion.a>
@@ -138,7 +138,7 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 2, delay: 0.2 }}
               viewport={{ once: true }}
-              className="font-light mt-2 lg:mt-0"
+              className="mt-2 font-light lg:mt-0"
             >
               Co-Executive Director
             </motion.h4>
@@ -153,7 +153,7 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-lg mt-8 lg:mt-0 hover:underline"
+              className="mt-8 text-lg lg:mt-0 hover:underline"
             >
               Shahira Syifa
             </motion.a>
@@ -162,7 +162,7 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 2, delay: 0.2 }}
               viewport={{ once: true }}
-              className="font-light mt-2 lg:mt-0"
+              className="mt-2 font-light lg:mt-0"
             >
               Secretary General
             </motion.h4>

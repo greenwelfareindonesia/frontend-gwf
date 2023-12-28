@@ -10,7 +10,7 @@ import { HiPencil, HiTrash } from "react-icons/hi2";
 
 import Button from "../../components/button";
 import Input from "../../components/input";
-import Image from "../../components/container/Image";
+import Image from "../../components/image";
 import DashboardSection from "../../layouts/dashboard_section/Template";
 
 const GalleryPage = () => {
@@ -74,7 +74,7 @@ const GalleryPage = () => {
 
   return (
     <DashboardSection titleField="Galleries" buttonField="Post Gallery" handlePopUp={openAddModal}>
-      <div className="relative overflow-x-auto overflow-y-hidden">
+      <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left text-primary-2">
           <thead className="uppercase border-y border-y-dark bg-light-2">
             <tr>
@@ -91,9 +91,9 @@ const GalleryPage = () => {
                 <td className="p-4 font-medium w-80">{item.Alt}</td>
                 <td className="p-4 font-medium w-80">{item.Slug}</td>
                 <td className="p-4 font-medium">
-                  <Slider {...settings} className="w-36">
-                    {item?.FileNames?.map((child, index) => (
-                      <Image key={index} src={child} className="h-32 w-32" />
+                  <Slider {...settings} className="w-32 h-32">
+                    {item?.FileNames?.map((child, childIndex) => (
+                      <Image key={childIndex} src={child} className="!w-32 !h-32" description={`gallery-${childIndex}`} />
                     ))}
                   </Slider>
                 </td>

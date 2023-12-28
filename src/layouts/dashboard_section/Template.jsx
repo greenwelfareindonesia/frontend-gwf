@@ -13,13 +13,15 @@ import {
   events_icon,
   feedback_icon,
   gallery_icon,
-  gwf_logo_dashboard,
+  gwf_dashboard_icon,
   users_icon,
   veganguide_icon,
   workshop_icon,
 } from "../../assets/icons";
 import Icon from "../../components/icon";
 import Button from "../../components/button";
+
+import ReloadRefresh from "../../utils/ReloadRefresh";
 
 const Menus = [
   { title: "Dashboard", path: "/dashboard", src: dashboard_icon },
@@ -37,6 +39,12 @@ const DashboardSection = ({ children, titleField, buttonField, handlePopUp }) =>
   const [open, setOpen] = React.useState(true);
   const { pathname } = useLocation();
 
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    ReloadRefresh(2000, "/login");
+  };
+
   return (
     <section className="flex">
       <div
@@ -48,10 +56,10 @@ const DashboardSection = ({ children, titleField, buttonField, handlePopUp }) =>
           <HiArrowRightCircle className={`${open && "rotate-[180deg]"} w-7 h-7 duration-700 text-light-1`} />
         </button>
         <div className="flex items-center pb-4">
-          <Icon src={gwf_logo_dashboard} type="unset" className={`${open && "rotate-[360deg]"} w-24`} />
+          <Icon src={gwf_dashboard_icon} type="unset" className={`${open && "rotate-[360deg]"} w-24`} />
         </div>
         <i className="h-0.5 w-full bg-light-1 absolute left-0"></i>
-        <ul className=" pt-4 space-y-2">
+        <ul className="pt-4 space-y-2 ">
           {Menus.map((item, index) => (
             <Link
               key={index}
@@ -68,13 +76,24 @@ const DashboardSection = ({ children, titleField, buttonField, handlePopUp }) =>
       </div>
       <div className={`flex-1 w-full duration-300 ${open ? "ml-[240px]" : "ml-[90px]"}`}>
         <div className="flex items-center justify-end h-16 px-8 bg-light-2">
-          <Button className="group !bg-light-2">
+          <div className="group !bg-light-2 relative p-2 flex items-center gap-1 cursor-pointer">
             <Icon src={admin_user_icon} />
-            <h1>Admin</h1>
+            <h1>{localStorage.getItem("name")}</h1>
             <RiArrowDownSLine className="duration-300 group-hover:rotate-180" />
-          </Button>
+
+            <div className="absolute right-0 hidden p-4 shadow-lg top-10 group-hover:block z-1 bg-light-1 rounded-xl">
+              <ul className="w-full space-y-2">
+                <Link to="/dashboard">
+                  <Button className="rounded-md !w-full">Profile</Button>
+                </Link>
+                <Button className="!bg-red-400 hover:!bg-red-600 rounded-md" onClick={handleLogout}>
+                  Logout
+                </Button>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className="space-y-8 mb-20">
+        <div className="mb-20 space-y-8">
           <div className="flex items-center justify-between px-4 pt-8">
             <h1 className="text-3xl font-bold text-primary-1">{titleField}</h1>
             {buttonField && handlePopUp && (

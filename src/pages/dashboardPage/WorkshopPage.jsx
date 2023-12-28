@@ -8,7 +8,7 @@ import Popup from "reactjs-popup";
 import { HiPencil, HiTrash } from "react-icons/hi2";
 
 import DashboardSection from "../../layouts/dashboard_section/Template";
-import Image from "../../components/container/Image";
+import Image from "../../components/image";
 import Button from "../../components/button";
 import Input from "../../components/input";
 import convertDateValue from "../../utils/ConvertDate";
@@ -89,7 +89,7 @@ const WorkshopPage = () => {
                 <td className="p-4 font-medium">{item.Desc}</td>
                 <td className="w-32 p-4 font-medium">{item.Date}</td>
                 <td className="w-40 p-4 font-medium">
-                  <Image src={item.Image} className="w-24 h-24" />
+                  <Image src={item.Image} className="!w-24 !h-24" description={`workshop-${index}`} />
                 </td>
                 <td className="flex gap-4 p-4">
                   <Button

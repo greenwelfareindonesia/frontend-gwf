@@ -14,7 +14,7 @@ function VeganGuideCard(props) {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
         viewport={{ once: true }}
-        className="text-white font-medium text-xl"
+        className="text-light-1 font-medium text-xl"
       >
         {props.title}
       </motion.h2>
@@ -23,7 +23,7 @@ function VeganGuideCard(props) {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
         viewport={{ once: true }}
-        className="text-white font-light"
+        className="text-light-1 font-light"
       >
         {props.desc}
       </motion.p>

@@ -1,11 +1,16 @@
 import * as React from "react";
+
 import { useForm } from "react-hook-form";
-import { useAddVeganguide, useDeleteVeganguide, useEditVeganguide, useGetVeganguide, useGetVeganguideById } from "../../features/veganguide/service";
-import DashboardSection from "../../layouts/dashboard_section/Template";
-import Image from "../../components/container/Image";
-import Button from "../../components/button";
-import { HiPencil, HiTrash } from "react-icons/hi2";
+
 import Popup from "reactjs-popup";
+
+import { useAddVeganguide, useDeleteVeganguide, useEditVeganguide, useGetVeganguide, useGetVeganguideById } from "../../features/veganguide/service";
+
+import { HiPencil, HiTrash } from "react-icons/hi2";
+
+import DashboardSection from "../../layouts/dashboard_section/Template";
+import Image from "../../components/image";
+import Button from "../../components/button";
 import Input from "../../components/input";
 
 const VeganguidePage = () => {
@@ -79,7 +84,7 @@ const VeganguidePage = () => {
                 <td className="p-4 font-medium">{item.Title}</td>
                 <td className="p-4 font-medium w-96">{item.EventMessage}</td>
                 <td className="w-40 p-4 font-medium">
-                  <Image src={item.FileName} className="w-24 h-24" />
+                  <Image src={item.FileName} className="!w-24 !h-24" description={`vegan-${index}`} />
                 </td>
                 <td className="flex gap-4 p-4">
                   <Button

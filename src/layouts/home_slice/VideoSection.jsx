@@ -1,9 +1,14 @@
-import React from "react";
-import { BsFillShareFill, BsInfo, BsSearch, BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import Container from "../../components/container";
+import * as React from "react";
+
 import Slider from "react-slick";
+
+import { BsFillShareFill, BsInfo, BsSearch, BsArrowLeft, BsArrowRight } from "react-icons/bs";
+
 import { tumb1, tumb2 } from "../../assets/image";
-// import Image from "../../components/container/Image";
+
+import Container from "../../components/container";
+import Image from "../../components/image";
+// import Background from "../../components/background";
 // import Button from "../../components/button";
 
 const VideoSection = () => {
@@ -15,7 +20,7 @@ const VideoSection = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    initialSlide: 2,
+    initialSlide: 1,
     responsive: [
       {
         breakpoint: 1024,
@@ -44,44 +49,40 @@ const VideoSection = () => {
     ],
   };
   return (
-    <Container className="max-w-screen-lg my-40 bg-white shadow-none mx-auto px-4">
+    <Container>
       <div className="p-0">
         <div className="flex w-full py-4">
           <h2 className="w-full text-xl font-extralight">All Videos</h2>
           <button className="border-r border-black/30 pe-4">
-            <BsFillShareFill className="text-[#3E3E08] hover:text-[#3E3E08]/80 duration-200" />
+            <BsFillShareFill className="duration-200 text-primary-2 hover:text-filter-2" />
           </button>
           <button className="ps-2">
-            <BsInfo className="w-6 h-6 text-[#3E3E08] hover:text-[#3E3E08]/80 duration-200" />
+            <BsInfo className="w-6 h-6 duration-200 text-primary-2 hover:text-filter-2" />
           </button>
         </div>
-        <div className="flex items-center justify-center w-full h-full relative">
-          {/* <Image
+        <div className="relative flex items-center justify-center w-full h-full">
+          {/* <Background
             src={tumb1}
-            className="aspect-video absolute flex justify-center gap-4 flex-col items-center"
+            className="absolute flex flex-col items-center justify-center gap-4 aspect-video"
           >
-            <h1 className="text-white">All Videos</h1>
+            <h1 className="text-light-1">All Videos</h1>
             <Button>Play Video</Button>
-          </Image> */}
-          <iframe
-            className="w-full aspect-video"
-            src="https://www.youtube.com/embed/tgbNymZ7vqY"
-          ></iframe>
+          </Background> */}
+          <iframe className="w-full aspect-video" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
         </div>
         <div className="flex flex-col">
-          <div className="w-full my-4 flex gap-3 items-center relative">
+          <div className="relative flex items-center w-full gap-3 my-4">
             <input
               type="text"
               placeholder="Search video..."
-              className="w-full text-sm font-extralight outline-none duration-300 bg-[#5F5E36]/20 placeholder:text-[#3E3E08] placeholder:font-extralight focus:bg-[#5F5E36]/20 pl-10 focus:pl-10 py-3 placeholder-shown:bg-white placeholder-shown:pl-7 peer"
+              className="w-full py-3 pl-10 text-sm font-light duration-300 outline-none bg-primary-1/20 placeholder:text-primary-2 placeholder:font-light focus:bg-primary-1/20 focus:pl-10 placeholder-shown:bg-white placeholder-shown:pl-7 peer"
             />
-            <i className="text-md absolute left-3 peer-focus:left-3 peer-placeholder-shown:left-0 duration-100">
+            <i className="absolute duration-100 text-md left-3 peer-focus:left-3 peer-placeholder-shown:left-0">
               <BsSearch />
             </i>
-            <div></div>
             <select
               id="countries"
-              className="absolute right-0 top-0 bg-white border-b outline-none border-gray-300 transform duration-300 text-[#3E3E08] hover:text-[#3E3E08]/80 text-sm focus:ring-[#5F5E36] focus:border-[#5F5E36] hidden w-full p-3 max-w-max font-extralight peer-focus:hidden peer-placeholder-shown:block cursor-pointer"
+              className="absolute top-0 right-0 hidden w-full p-3 text-sm font-light duration-300 transform border-b outline-none cursor-pointer bg-light-1 border-light-2 text-primary-2 hover:text-filter-2 max-w-max peer-focus:hidden peer-placeholder-shown:block"
               defaultValue="All Categories"
             >
               <option value="All Categories">All Categories</option>
@@ -91,34 +92,34 @@ const VideoSection = () => {
           <div className="w-full">
             <Slider ref={(sliderRef) => setSlider(sliderRef)} {...settings}>
               <div>
-                <img src={tumb1} alt="" className="max-w-[230px] w-full h-auto" />
+                <Image src={tumb1} description="thumbnail" className="w-full h-auto" />
               </div>
               <div>
-                <img src={tumb2} alt="" className="max-w-[230px] w-full h-auto" />
+                <Image src={tumb2} description="thumbnail" className="w-full h-auto" />
               </div>
               <div>
-                <img src={tumb1} alt="" className="max-w-[230px] w-full h-auto" />
+                <Image src={tumb1} description="thumbnail" className="w-full h-auto" />
               </div>
               <div>
-                <img src={tumb2} alt="" className="max-w-[230px] w-full h-auto" />
+                <Image src={tumb2} description="thumbnail" className="w-full h-auto" />
               </div>
               <div>
-                <img src={tumb1} alt="" className="max-w-[230px] w-full h-auto" />
+                <Image src={tumb1} description="thumbnail" className="w-full h-auto" />
               </div>
               <div>
-                <img src={tumb2} alt="" className="max-w-[230px] w-full h-auto" />
+                <Image src={tumb2} description="thumbnail" className="w-full h-auto" />
               </div>
             </Slider>
-            <div className="flex w-full justify-between mt-4">
+            <div className="flex justify-between w-full mt-4">
               <button
-                className="flex gap-2 font-light text-sm tracking-wide items-center text-[#3E3E08] hover:text-[#3E3E08]/80"
+                className="flex items-center gap-2 text-sm font-light tracking-wide duration-300 text-primary-2 hover:text-filter-2"
                 onClick={() => slider.slickPrev()}
               >
                 <BsArrowLeft />
                 Prev
               </button>
               <button
-                className="flex gap-2 font-light text-sm tracking-wide items-center text-[#3E3E08] hover:text-[#3E3E08]/80"
+                className="flex items-center gap-2 text-sm font-light tracking-wide duration-300 text-primary-2 hover:text-filter-2"
                 onClick={() => slider.slickNext()}
               >
                 Next

@@ -1,5 +1,5 @@
-import image_farming from "./image_farming.png";
-import image_human from "./image_human.png";
-import image_vegetables from "./image_vegetables.png";
+import climate_action_image from "./climate-action-hub.webp";
+import planted_based_image from "./planted-based-hub.webp";
+import urban_agriculture_image from "./urban-agriculture-hub.webp";
 
-export { image_farming, image_human, image_vegetables };
+export { climate_action_image, planted_based_image, urban_agriculture_image };

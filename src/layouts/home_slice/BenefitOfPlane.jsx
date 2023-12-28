@@ -1,7 +1,7 @@
-import { image_planebased } from "../../assets/image";
 import { motion } from "framer-motion";
-import Container from "../../components/container";
-import Image from "../../components/container/Image";
+import Background from "../../components/background";
+import Filter from "../../components/filter";
+import { planted_based_image } from "../../assets/home-image";
 
 const contentList = [
   { title: "Conserve", description: "/1m² of Forest Land" },
@@ -11,42 +11,36 @@ const contentList = [
 
 const BenefitOfPlane = () => {
   return (
-    <Container>
-      <Image src={image_planebased}>
-        <div className="flex items-center flex-col gap-8 w-full h-full bg-[#3E3E08]/30">
-          <h1 className="font-normal text-white text-2xl text-center px-4 pt-12 md:pt-32 md:text-4xl">
-            By consuming one plant-based meal you will:
-          </h1>
-          <ul className="grid md:grid-cols-3 grid-cols-1 w-full mt-0 md:mt-32">
-            {contentList.map((item, index) => (
-              <li
-                key={index}
-                className="flex flex-col items-center py-8 md:py-16 gap-4 bg-[#5F5E36]/40 border-b border-[#3E3E08]"
+    <Background src={planted_based_image} className="min-h-500 !items-end">
+      <Filter />
+      <div className="w-full space-y-16 md:space-y-32 z-1">
+        <h1 className="px-4 mt-12 text-2xl font-normal text-center md:mt-0 text-light-1 md:text-4xl">By consuming one plant-based meal you will:</h1>
+        <ul className="grid w-full grid-cols-1 md:grid-cols-3">
+          {contentList.map((item, index) => (
+            <li key={index} className="py-8 space-y-4 text-center text-light-1 md:py-16 bg-filter-1">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.5 }}
+                viewport={{ once: true }}
+                className="text-2xl font-light"
               >
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.5 }}
-                  viewport={{ once: true }}
-                  className="text-white font-light text-2xl"
-                >
-                  {item.title}
-                </motion.h1>
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.5 }}
-                  viewport={{ once: true }}
-                  className="text-white font-extralight text-base"
-                >
-                  {item.description}
-                </motion.p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Image>
-    </Container>
+                {item.title}
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.5 }}
+                viewport={{ once: true }}
+                className="text-base font-light"
+              >
+                {item.description}
+              </motion.p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Background>
   );
 };
 

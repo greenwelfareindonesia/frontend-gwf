@@ -4,14 +4,14 @@ import Container from "../../components/container";
 
 const Feedback = () => {
   return (
-    <Container className="bg-[#5F5E36] flex flex-col items-center px-16 gap-8 py-32">
-      <div className="flex flex-col justify-center items-center md:items-start max-w-screen-lg gap-4 w-full">
+    <section className="flex flex-col items-center gap-8 px-16 py-32 bg-primary-1">
+      <Container className="!max-w-screen-lg text-center md:items-start !p-0 !m-0 space-y-4">
         <motion.h5
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
-          className="text-white text-center md:text-start text-3xl md:text-5xl font-light leading-9 tracking-tight"
+          className="text-3xl font-light leading-9 tracking-tight text-center text-light-1 md:text-start md:text-5xl"
         >
           Give Us Your Feedback!
         </motion.h5>
@@ -20,26 +20,28 @@ const Feedback = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2, delay: 1 }}
           viewport={{ once: true }}
-          className="text-white text-center md:text-start text-sm font-extralight leading-7"
+          className="text-sm leading-7 text-center text-light-1 md:text-start font-extralight"
         >
           We are always working to improve our community and would love to hear your suggestions on how to grow Green Welfare Indonesia!
         </motion.p>
-      </div>
-      <form className="flex flex-col items-center max-w-screen-lg gap-4 w-full">
+      </Container>
+      <form className="flex flex-col items-center w-full max-w-screen-lg gap-4">
         <input
           type="email"
-          className="border bg-transparent border-transparent border-b-gray-50 text-white text-lg font-light focus:ring-gray-200 focus:border-gray-200 w-full px-2.5 py-4 hover:border-gray-50 outline-none tracking-tight"
+          className="border bg-transparent border-transparent border-b-light-2 text-light-1 text-lg font-light focus:ring-light-2 focus:border-light-2 w-full px-2.5 py-4 hover:border-light-2 outline-none"
           placeholder="Email"
           required
         />
         <textarea
-          className="border bg-transparent border-transparent border-b-gray-50 text-white text-lg font-light focus:ring-gray-200 focus:border-gray-200 w-full px-2.5 py-4 hover:border-gray-50 outline-none tracking-tight"
+          className="border bg-transparent border-transparent border-b-light-2 text-light-1 text-lg font-light focus:ring-light-2 focus:border-light-2 w-full px-2.5 py-4 hover:border-light-2 outline-none"
           placeholder="How can we improve?"
           rows="6"
         />
-        <Button className="hover:text-white hover:!bg-gray-500 !px-24 !py-6 !text-lg !font-extralight mt-4">Send</Button>
+        <Button intent="white" label="send-feedback" size="large">
+          Send
+        </Button>
       </form>
-    </Container>
+    </section>
   );
 };
 

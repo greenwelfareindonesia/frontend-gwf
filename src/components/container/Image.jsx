@@ -8,7 +8,7 @@ const Image = ({ src, className, children }) => {
       transition={{ duration: 1.5 }}
       viewport={{ once: true }}
       style={{ backgroundImage: `url(${src})` }}
-      className={`w-full bg-center bg-no-repeat bg-cover ${className ?? ""} items-center justify-center flex`}
+      className={`w-full bg-center bg-no-repeat bg-cover items-center justify-center flex relative ${className ?? ""}`}
     >
       {children ?? null}
     </motion.div>

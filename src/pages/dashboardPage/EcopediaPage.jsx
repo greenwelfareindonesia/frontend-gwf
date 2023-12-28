@@ -13,7 +13,7 @@ import Slider from "react-slick";
 import Button from "../../components/button";
 import Input from "../../components/input";
 import DashboardSection from "../../layouts/dashboard_section/Template";
-import Image from "../../components/container/Image";
+import Image from "../../components/image";
 
 const EcopediaPage = () => {
   const [isEditOpen, setEditOpen] = React.useState(false);
@@ -102,9 +102,9 @@ const EcopediaPage = () => {
                 <td className="p-4 font-medium">{item.Description}</td>
                 <td className="p-4 font-medium">{item.SrcFile}</td>
                 <td className="p-4 font-medium">
-                  <Slider {...settings} className="w-24 text-center">
-                    {item?.FileNames?.map((child, index) => (
-                      <Image key={index} src={child} className="h-24 w-24" />
+                  <Slider {...settings} className="w-24 h-24 text-center">
+                    {item?.FileNames?.map((child, childIndex) => (
+                      <Image key={childIndex} src={child} className="!w-24 !h-24" description={`ecopedia-${childIndex}`} />
                     ))}
                   </Slider>
                 </td>

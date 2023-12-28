@@ -1,26 +1,29 @@
+import { motion } from "framer-motion";
+
+import image_contact from "../../assets/contact.webp";
+
 import Container from "../../components/container";
-import Image from "../../components/container/Image";
-import image_contact from "../../assets/image_contact.png";
+import Image from "../../components/image";
+import Button from "../../components/button";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
-import Button from "../../components/button";
-import { motion } from "framer-motion";
+
 const Contact = () => {
   return (
     <>
       <Navbar />
-      <Container className="flex flex-col md:flex-row-reverse px-0 md:px-16 my-16">
-        <div className="w-full h-full flex-1">
-          <Image src={image_contact} className="h-[400px] md:h-[150vh] !bg-top" />
+      <Container className="!max-w-screen-xl flex flex-col !my-8 md:flex-row-reverse">
+        <div className="flex-1 w-full h-full">
+          <Image src={image_contact} className="min-h-400 md:min-h-500 !bg-top" />
         </div>
-        <div className="bg-[#5F5E36] px-4 py-16 flex-1 flex flex-col justify-center items-center gap-8">
-          <div className="flex flex-col justify-center items-center max-w-screen-lg gap-4 w-full px-0 md:px-8">
+        <div className="flex-1 px-4 py-16 space-y-16 bg-primary-2">
+          <div className="w-full gap-4 px-0 space-y-8 md:px-8">
             <motion.h5
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-white text-center text-2xl md:text-4xl font-normal leading-9 md:leading-normal tracking-wider"
+              className="text-2xl font-normal leading-9 text-center text-light-1 md:text-4xl md:leading-normal"
             >
               Contact Green Welfare Indonesia
             </motion.h5>
@@ -29,17 +32,26 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 2, delay: 1 }}
               viewport={{ once: true }}
-              className="text-white text-center text-sm font-light leading-7"
+              className="text-sm font-light leading-7 text-center text-light-1"
             >
-              Get in touch with Green Welfare Indonesia to learn more about our work, how you can
-              get involved and for collaborations or partnerships.
+              Get in touch with Green Welfare Indonesia to learn more about our work, how you can get involved and for collaborations or partnerships.
             </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2, delay: 1 }}
+              viewport={{ once: true }}
+              className="space-y-2 text-sm font-light text-center text-light-1"
+            >
+              <p>info@greenwelfare.org</p>
+              <p>+62 812 8836 1624</p>
+            </motion.div>
           </div>
-          <form className="flex flex-col items-center max-w-screen-lg gap-4 w-full px-0 md:px-8">
+          <form className="flex flex-col items-center w-full max-w-screen-lg gap-4 px-0 md:px-8">
             <div className="w-full">
               <input
                 type="text"
-                className="border bg-transparent border-transparent border-b-white text-white text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-white"
+                className="border bg-transparent border-transparent border-b-white text-light-1 text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-light-1"
                 placeholder="Name"
                 required
               />
@@ -47,7 +59,7 @@ const Contact = () => {
             <div className="w-full">
               <input
                 type="email"
-                className="border bg-transparent border-transparent border-b-white text-white text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-white"
+                className="border bg-transparent border-transparent border-b-white text-light-1 text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-light-1"
                 placeholder="Email"
                 required
               />
@@ -55,20 +67,20 @@ const Contact = () => {
             <div className="w-full">
               <input
                 type="text"
-                className="border bg-transparent border-transparent border-b-white text-white text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-white"
+                className="border bg-transparent border-transparent border-b-white text-light-1 text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-light-1"
                 placeholder="Subject"
                 required
               />
             </div>
             <div className="w-full">
               <textarea
-                className="border bg-transparent border-transparent border-b-white text-white text-base font-light focus:ring-white focus:border-white w-full py-2.5 px-4 hover:border-white outline-none tracking-tight placeholder:text-white"
+                className="border bg-transparent border-transparent border-b-white text-light-1 text-base font-light focus:ring-white focus:border-white w-full py-2.5 px-4 hover:border-white outline-none tracking-tight placeholder:text-light-1"
                 placeholder="Type your message here"
                 rows="6"
               />
             </div>
             <div className="w-full sm:text-end">
-              <Button className="hover:text-white hover:!bg-gray-300 !py-4 !text-lg !font-light mt-4 w-full">
+              <Button intent="white" className="!w-full">
                 Submit
               </Button>
             </div>

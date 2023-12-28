@@ -3,14 +3,16 @@ import ReloadRefresh from "../../../utils/ReloadRefresh";
 import SweatAlert from "../../../utils/SweetAlert";
 
 export const login = async (body) => {
-  return await API.post("/user/login/", body)
+  return await API.post("/user/login", body)
     .then((response) => {
       SweatAlert("You are successfully logged in", "success");
       ReloadRefresh(2000, "/dashboard");
       return response.data;
     })
     .catch(() => {
-      SweatAlert("Failed when logged in, please try again", "error");
+      localStorage.clear();
+      sessionStorage.clear();
+      SweatAlert("Email or password is false", "error");
     });
 };
 
@@ -38,8 +40,8 @@ export const editUser = async (slug, body) => {
     });
 };
 
-export const deleteUser = async (body) => {
-  return await API.post("/user/login/", body)
+export const deleteUser = async (slug, body) => {
+  return await API.delete(`/user/${slug}`, body)
     .then((response) => {
       SweatAlert("Your account has been deleted successfully", "success");
       ReloadRefresh(2000, "/dashboard");

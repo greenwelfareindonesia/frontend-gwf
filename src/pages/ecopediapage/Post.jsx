@@ -6,12 +6,9 @@ import like from "../../assets/ecopedia-image/like.svg";
 
 export default function Post() {
   return (
-    <div
-      style={{ backgroundImage: `url(${Background})` }}
-      className="h-[18rem] w-[18rem] bg-opacity-80 "
-    >
+    <div style={{ backgroundImage: `url(${Background})` }} className="h-[18rem] w-[18rem] bg-opacity-80 ">
       <div className="m-7">
-        <div className="text-white flex items-center">
+        <div className="text-light-1 flex items-center">
           <div className="text-xs">
             <h2>Nifa Rahma</h2>
             <h2>Aug 8 2023 - 5 min</h2>
@@ -20,10 +17,8 @@ export default function Post() {
             <img src={WhiteDot} alt="whitedot" />
           </div>
         </div>
-        <div className="mt-28 text-white">
-          <h1 className="text-2xl pb-2 border-b-2 border-white">
-            Types of Plant-Based Diets
-          </h1>
+        <div className="mt-28 text-light-1">
+          <h1 className="text-2xl pb-2 border-b-2 border-white">Types of Plant-Based Diets</h1>
           <div className="flex mt-2 gap-2 text-xs">
             <img src={view} alt="" />
             <p>13</p>

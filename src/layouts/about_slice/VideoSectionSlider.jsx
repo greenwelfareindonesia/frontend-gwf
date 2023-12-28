@@ -1,9 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
 import Container from "../../components/container";
-import Image from "../../components/container/Image";
 import { tumb1, tumb2 } from "../../assets/image";
 import { GrNext, GrPrevious } from "react-icons/gr";
+import Image from "../../components/image";
 
 const VideoSectionSlider = () => {
   const [slider, setSlider] = React.useState(null);
@@ -17,7 +17,7 @@ const VideoSectionSlider = () => {
   };
   return (
     <Container className="max-w-screen-lg mx-auto my-20">
-      <div className="relative w-full h-full group px-4">
+      <div className="relative w-full h-full px-4 group">
         <Slider {...settings} ref={(sliderRef) => setSlider(sliderRef)}>
           <div>
             <Image src={tumb1} className="aspect-video" />
@@ -26,7 +26,7 @@ const VideoSectionSlider = () => {
             <Image src={tumb2} className="aspect-video" />
           </div>
         </Slider>
-        <div className="absolute top-1/2 -translate-y-1/2 left-0 justify-between px-8 w-full hidden group-hover:flex duration-300">
+        <div className="absolute left-0 justify-between hidden w-full px-8 duration-300 -translate-y-1/2 top-1/2 group-hover:flex">
           <button onClick={() => slider.slickPrev()}>
             <GrPrevious className="w-8 h-8" color="white" />
           </button>

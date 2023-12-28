@@ -1,18 +1,19 @@
-import header_image from "./header_image.png";
 import vision_image1 from "./vision_image1.png";
-import mission_image from "./mission_image.png";
 import logo_endhunger from "./logo_end-hunger.png";
 import logo_climateaction from "./logo_climate-action.png";
 import logo_responsible from "./logo_responsible.png";
-import bottom_left from "./bottom-left.png";
-import bottom_middle from "./bottom-middle.png";
-import bottom_right from "./bottom-right.png";
-import middle_left from "./middle-left.png";
-import middle_middle from "./middle-middle.png";
-import middle_right from "./middle-right.png";
-import top_left from "./top-left.png";
-import top_middle from "./top-middle.png";
-import top_right from "./top-right.png";
+
+import header_image from "./header.webp";
+import mission_image from "./mission.webp";
+import climate_1_image from "./climate-1.webp";
+import climate_2_image from "./climate-2.webp";
+import climate_3_image from "./climate-3.webp";
+import distributed_1_image from "./distributed-1.webp";
+import distributed_2_image from "./distributed-2.webp";
+import distributed_3_image from "./distributed-3.webp";
+import sustainable_1_image from "./sustainable-1.webp";
+import sustainable_2_image from "./sustainable-2.webp";
+import sustainable_3_image from "./sustainable-3.webp";
 
 export {
   header_image,
@@ -21,13 +22,13 @@ export {
   logo_endhunger,
   logo_climateaction,
   logo_responsible,
-  bottom_left,
-  bottom_right,
-  bottom_middle,
-  middle_left,
-  middle_right,
-  middle_middle,
-  top_left,
-  top_right,
-  top_middle,
+  climate_1_image,
+  climate_2_image,
+  climate_3_image,
+  distributed_1_image,
+  distributed_2_image,
+  distributed_3_image,
+  sustainable_1_image,
+  sustainable_2_image,
+  sustainable_3_image,
 };
