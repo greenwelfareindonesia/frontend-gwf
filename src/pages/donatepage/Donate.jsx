@@ -10,7 +10,7 @@ export default function Donate() {
     <div>
       <Navbar />
       <div className="bg-[#5F5E36]">
-        <h1 className="text-center text-white text-lg lg:text-2xl">15k IDR = 1 plant-based meal donated!</h1>
+        <h1 className="text-lg text-center text-light-1 lg:text-2xl">15k IDR = 1 plant-based meal donated!</h1>
       </div>
       {/* Donate */}
       <section className="pt-28 pb-28">
@@ -21,7 +21,7 @@ export default function Donate() {
             time. Support us!
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-20 mb-16">
+        <div className="flex flex-col items-center justify-center gap-20 mb-16 lg:flex-row">
           <div className="lg:w-[27rem] flex flex-col items-center space-y-8">
             <motion.h3
               initial={{ opacity: 0, y: 50 }}
@@ -46,7 +46,7 @@ export default function Donate() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="bg-[#5F5E36] py-3 px-5 font-light text-white rounded-sm hover:opacity-60 transition-opacity duration-500"
+              className="bg-[#5F5E36] py-3 px-5 font-light text-light-1 rounded-sm hover:opacity-60 transition-opacity duration-500"
             >
               Click Here
             </motion.button>
@@ -75,13 +75,13 @@ export default function Donate() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="bg-[#5F5E36] py-3 px-5 font-light text-white rounded-sm hover:opacity-60 transition-opacity duration-500"
+              className="bg-[#5F5E36] py-3 px-5 font-light text-light-1 rounded-sm hover:opacity-60 transition-opacity duration-500"
             >
               Click Here
             </motion.button>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-20 mb-20">
+        <div className="flex flex-col items-center justify-center gap-20 mb-20 lg:flex-row">
           <div className="lg:w-[27rem] flex flex-col items-center space-y-8">
             <motion.h3
               initial={{ opacity: 0, y: 50 }}
@@ -106,7 +106,7 @@ export default function Donate() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="bg-[#5F5E36] py-3 px-5 font-light text-white rounded-sm hover:opacity-60 transition-opacity duration-500"
+              className="bg-[#5F5E36] py-3 px-5 font-light text-light-1 rounded-sm hover:opacity-60 transition-opacity duration-500"
             >
               Click Here
             </motion.button>
@@ -135,13 +135,13 @@ export default function Donate() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="bg-[#5F5E36] py-3 px-5 font-light text-white rounded-sm hover:opacity-60 transition-opacity duration-500"
+              className="bg-[#5F5E36] py-3 px-5 font-light text-light-1 rounded-sm hover:opacity-60 transition-opacity duration-500"
             >
               Click Here
             </motion.button>
           </div>
         </div>
-        <h3 className="font-semibold text-xl text-center italic underline">Download Donor Brochure</h3>
+        <h3 className="text-xl italic font-semibold text-center underline">Download Donor Brochure</h3>
       </section>
       {/* Image Headline */}
       <motion.section
@@ -157,7 +157,7 @@ export default function Donate() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2 }}
           viewport={{ once: true }}
-          className="text-white text-center text-3xl lg:text-5xl lg:leading-[4rem] mb-7"
+          className="text-light-1 text-center text-3xl lg:text-5xl lg:leading-[4rem] mb-7"
         >
           Every Support is <br /> NEEDED.
         </motion.h1>
@@ -166,7 +166,7 @@ export default function Donate() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2 }}
           viewport={{ once: true }}
-          className="text-white mb-12"
+          className="mb-12 text-light-1"
         >
           Make a Difference Today
         </motion.h3>
@@ -175,13 +175,13 @@ export default function Donate() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
-          className="space-y-3 lg:space-y-0 lg:space-x-5 flex flex-col lg:flex-row"
+          className="flex flex-col space-y-3 lg:space-y-0 lg:space-x-5 lg:flex-row"
         >
           <button className="px-5 py-3 text-[#3E3E08] text-sm bg-white rounded-sm hover:opacity-60 transition-opacity duration-300">
             Explore Merch
           </button>
           <button
-            className="px-5 py-3 text-white text-sm rounded-sm border border-white hover:bg-white hover:text-[#3E3E08]
+            className="px-5 py-3 text-light-1 text-sm rounded-sm border border-white hover:bg-white hover:text-[#3E3E08]
           transition-all duration-300"
           >
             Donate Instead

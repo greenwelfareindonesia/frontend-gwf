@@ -1,87 +1,92 @@
+import * as React from "react";
+
 import gwficon from "../../assets/adminlogin-image/gwflogo.svg";
 import adminBg from "../../assets/adminlogin-image/admin-bg.svg";
+
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
+
+import Input from "../../components/input";
+import Button from "../../components/button";
+import Background from "../../components/background";
+import { useLogin } from "../../features/auth/service";
 
 export default function AdminLogin() {
-  const form = useForm();
-  const { register, control } = form;
+  const [input, setInput] = React.useState({
+    Email: sessionStorage.getItem("Email"),
+    Password: sessionStorage.getItem("Password"),
+    isChecked: sessionStorage.getItem("isChecked"),
+  });
+
+  const { handleSubmit, register } = useForm();
+
+  const { mutate: loginMutate } = useLogin();
+
+  const onSubmit = (data) => {
+    const { Email, Password } = data;
+    if (input.isChecked && Email !== "" && Password !== "") {
+      sessionStorage.setItem("Email", Email);
+      sessionStorage.setItem("Password", Password);
+      sessionStorage.setItem("isChecked", input.isChecked);
+    }
+    loginMutate({ Email, Password });
+  };
 
   return (
-    <section className="bg-[#3E3E08] flex h-screen">
+    <section className={`flex h-screen bg-primary-2`}>
       {/* Left Side */}
-      <div className="w-1/2 h-screen px-28 py-28 ">
-        <div className="bg-white w-full h-full mx-auto rounded-[3rem] flex flex-col items-center justify-center relative">
-          <img src={gwficon} alt="gwf logo" className="absolute top-4 left-8" />
-          <h2 className="text-[#3E3E08] font-semibold text-xl text-center ">
-            Welcome GWF Team!
-          </h2>
-          <form action="post" className="flex flex-col mt-8 mb-6">
-            <label htmlFor="email" className="text-[#3E3E08] font-semibold">
-              Username/Email Address:
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="h-[3rem] w-[20rem] px-2 border-[#3E3E08] border-[1px] rounded-lg font-light text-xs mb-3"
-              placeholder="Username/Email Address"
-              {...register("email")}
+      <div className="flex items-center justify-center flex-1">
+        <div className="relative flex flex-col items-center justify-center px-8 py-8 mx-auto overflow-hidden duration-300 bg-white sm:px-24 rounded-3xl">
+          <img src={gwficon} alt="gwf logo" className="absolute top-0 left-0 hidden sm:block" />
+          <h2 className="text-xl font-semibold text-center text-primary-2">Welcome GWF Team!</h2>
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full my-8 space-y-4 sm:w-72">
+            <Input
+              required
+              register={register}
+              defaultValue={input.Email || ""}
+              name="Email"
+              title="Email"
+              placeholder="input your email"
+              type="text"
             />
-            <label htmlFor="password" className="text-[#3E3E08] font-semibold">
-              Password:
-            </label>
-            <input
+            <Input
+              required
+              register={register}
+              defaultValue={input.Password || ""}
+              name="Password"
+              title="Password"
+              placeholder="input your password"
               type="password"
-              id="password"
-              className="h-[3rem] w-[20rem] px-2 border-[#3E3E08] border-[1px] rounded-lg font-light text-xs mb-3"
-              placeholder="Password"
-              {...register("password")}
             />
-            <div className="flex items-center mb-8">
+            <div className="flex items-center">
               <input
                 type="checkbox"
+                defaultChecked={input.isChecked}
+                onChange={(e) => setInput({ isChecked: e.target.checked })}
                 id="remember"
-                {...register("remember")}
                 className="mr-1"
               />
               <label htmlFor="remember" className="text-xs">
                 Remember Me
               </label>
-              <p className="text-xs ml-auto font-extralight hover:cursor-pointer hover:underline">
-                Forgot Your Password?
-              </p>
             </div>
-            <button
-              className="h-[3rem] border-[#3E3E08] border-[1px] first-letter rounded-lg text-sm font-medium hover:bg-[#3E3E08]
-            hover:text-white ease-in-out duration-300"
-              type="submit"
-            >
+            <Button type="submit" className="!w-full rounded-lg">
               Submit
-            </button>
+            </Button>
           </form>
-          <DevTool control={control} />
-          <div className="bg-blue-gray-500"></div>
-          <p className="font-medium text-xs absolute bottom-2">
-            ©2023 by Green Welfare Indonesia
-          </p>
+          <p className="absolute text-xs font-medium bottom-2">©2023 by Green Welfare Indonesia</p>
         </div>
       </div>
       {/* Right Side */}
-      <div
-        className="w-1/2 bg-cover flex justify-center items-center"
-        style={{ backgroundImage: `url(${adminBg})` }}
-      >
-        <div className="bg-[#3E3E08] bg-opacity-50 w-fit px-16 pt-6 pb-28 rounded-3xl">
-          <h1 className="text-white font-bold text-5xl text-center leading-[4rem] mb-16">
-            {" "}
+      <Background src={adminBg} className="items-center justify-center flex-1 hidden lg:!flex">
+        <div className="max-w-lg p-8 space-y-8 text-center bg-opacity-50 bg-primary-2 rounded-3xl">
+          <h1 className="text-5xl font-bold leading-tight text-center text-light-1">
             Green <br /> Welfare <br /> Indonesia
           </h1>
-          <p className="text-white text-center font-light text-lg w-[31rem]">
-            Fostering eco-social change by empowering young changemakers through
-            climate education and food security
+          <p className="text-lg font-light text-center text-light-1">
+            Fostering eco-social change by empowering young change makers through climate education and food security
           </p>
         </div>
-      </div>
+      </Background>
     </section>
   );
 }

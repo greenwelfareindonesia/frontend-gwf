@@ -1,19 +1,22 @@
-import Container from "../../components/container";
-import Image from "../../components/container/Image";
-import { image_plantbased } from "../../assets/involved-image";
-import Button from "../../components/button";
 import { motion } from "framer-motion";
+
+import { planted_based_image } from "../../assets/involved-image";
+
+import Container from "../../components/container";
+import Background from "../../components/background";
+import Button from "../../components/button";
+import Filter from "../../components/filter";
 
 const PlantedBased = () => {
   return (
-    <Container className="bg-[#5F5E36] p-0 lg:p-16">
-      <div className="flex-col items-center justify-center max-w-screen-lg mx-auto gap-4 hidden lg:flex">
+    <section className="p-0 md:p-16 bg-primary-1 text-light-1">
+      <Container className="hidden space-y-12 text-center md:block">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, delay: 1 }}
           viewport={{ once: true }}
-          className="text-center text-6xl font-normal text-white tracking-wide max-w-md leading-tight"
+          className="max-w-lg mx-auto leading-tight tracking-wide text-7xl"
         >
           Switch to plant-based
         </motion.h1>
@@ -22,7 +25,7 @@ const PlantedBased = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.8, delay: 1.3 }}
           viewport={{ once: true }}
-          className="text-center font-extralight text-lg text-white"
+          className="text-lg font-extralight"
         >
           You can also contribute to our movement&rsquo;s mission by becoming a plant-based hero!
         </motion.h6>
@@ -31,19 +34,20 @@ const PlantedBased = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2.4, delay: 2 }}
           viewport={{ once: true }}
-          className="my-8 flex items-center flex-row justify-between gap-4 sm:gap-8"
+          className="flex justify-center gap-8"
         >
-          <Button className="!bg-white hover:!bg-gray-400 text-[#3E3E08] hover:text-[#3E3E08] font-light">Start Now</Button>
-          <Button className="border border-white !bg-transparent text-white hover:!bg-white hover:text-[#3E3E08]">Vegan Guide</Button>
+          <Button intent="white">I want to start!</Button>
+          <Button intent="secondary">Vegan Guide</Button>
         </motion.div>
-      </div>
-      <Image src={image_plantbased} className="h-[500px] flex-col px-16 mt-0 lg:mt-8">
+      </Container>
+      <Background src={planted_based_image} className="flex-col gap-4 px-8 min-h-500">
+        <Filter />
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, delay: 1 }}
           viewport={{ once: true }}
-          className="text-center text-4xl font-normal text-white md:text-6xl mb-4 tracking-tight block lg:hidden"
+          className="block mb-4 text-4xl tracking-tight text-center md:text-6xl md:hidden z-1"
         >
           Switch to plant-based
         </motion.h1>
@@ -52,7 +56,7 @@ const PlantedBased = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.8, delay: 1.3 }}
           viewport={{ once: true }}
-          className="text-center font-extralight text-xl md:text-xl text-white block lg:hidden"
+          className="block text-xl font-light text-center md:text-xl md:hidden z-1"
         >
           You can also contribute to our movement&rsquo;s mission by becoming a plant-based hero!
         </motion.h6>
@@ -61,13 +65,13 @@ const PlantedBased = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2.4, delay: 2 }}
           viewport={{ once: true }}
-          className="mb-3 flex items-center flex-col sm:flex-row justify-between gap-4 sm:gap-8 mt-4 lg:hidden"
+          className="flex flex-col items-center justify-between gap-4 my-4 sm:flex-row sm:gap-8 md:hidden z-1"
         >
-          <Button className="!bg-[#5F5E36] hover:!bg-[#5F5E3696] text-white hover:text-white/90 font-light">I want to start!</Button>
-          <Button className="border border-white !bg-transparent text-white hover:!bg-white hover:text-[#3E3E08]">Vegan Guide</Button>
+          <Button intent="white">I want to start!</Button>
+          <Button intent="secondary">Vegan Guide</Button>
         </motion.div>
-      </Image>
-    </Container>
+      </Background>
+    </section>
   );
 };
 

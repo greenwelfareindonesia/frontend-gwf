@@ -1,4 +1,4 @@
-import gwf_logo_dashboard from "./gwf-logo-dashboard.svg";
+import gwf_dashboard_icon from "./gwf-dashboard-icon.svg";
 import dashboard_icon from "./dashboard-icon.svg";
 import admin_icon from "./admin-icon.svg";
 import articles_icon from "./articles-icon.svg";
@@ -12,6 +12,7 @@ import veganguide_icon from "./veganguide-icon.svg";
 import workshop_icon from "./workshop-icon.svg";
 
 export {
+  gwf_dashboard_icon,
   admin_user_icon,
   dashboard_icon,
   admin_icon,
@@ -23,5 +24,4 @@ export {
   users_icon,
   veganguide_icon,
   workshop_icon,
-  gwf_logo_dashboard,
 };

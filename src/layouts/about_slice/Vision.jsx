@@ -1,30 +1,40 @@
-import { header_image, vision_image1 } from "../../assets/about-image";
-import Container from "../../components/container";
+import * as React from "react";
+import Slider from "react-slick";
 import { motion } from "framer-motion";
-import Slider from "../../components/slider";
-import React from "react";
+import { header_image, vision_image1 } from "../../assets/about-image";
+import Background from "../../components/background";
+import Container from "../../components/container";
 
-const slides = [{ src: header_image }, { src: vision_image1 }, { src: vision_image1 }];
+const slides = [header_image, vision_image1, vision_image1];
 
 const Vision = () => {
-  const [index, setIndex] = React.useState(0);
+  const [activeDots, setActiveDots] = React.useState(0);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    beforeChange: (next) => setActiveDots(next),
+    afterChange: (current) => setActiveDots(current),
+    appendDots: (dots) => <div style={{ bottom: "50px" }}>{dots}</div>,
+    customPaging: (index) => <div className="text-3xl cursor-pointer">{index === activeDots ? <>&#9702;</> : <>&#8226;</>}</div>,
+  };
   return (
-    <Container>
-      <Slider
-        slides={slides}
-        arrowClassName="!hidden"
-        dotClassName="absolute bottom-0 left-1/2 -translate-x-1/2"
-        parentClassName="h-[300px] sm:h-[400px] md:h-[500px] lg:[600px] xl:h-[700px] !p-0"
-        setCurrentIndex={setIndex}
-        currentIndex={index}
-      />
-      <div className="w-full h-full bg-[#5F5E36] flex flex-col items-center justify-center text-center gap-8 py-8 sm:py-16 lg:py-24">
+    <section className="bg-primary-1">
+      <Slider {...settings}>
+        {slides.map((item, index) => (
+          <Background key={index} src={item} className="min-h-400 md:min-h-600" />
+        ))}
+      </Slider>
+      <Container className="py-8 !my-0 text-center text-light-1 space-y-12 md:py-32">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
-          className="py-4 text-3xl font-light text-white md:text-6xl"
+          className="text-3xl font-light md:text-7xl"
         >
           Vision
         </motion.h1>
@@ -33,13 +43,13 @@ const Vision = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, delay: 1 }}
           viewport={{ once: true }}
-          className="max-w-screen-lg mx-8 mb-4 italic text-white md:mb-16 text-md font-extralight md:text-lg lg:text-xl"
+          className="mx-8 mb-4 italic font-extralight md:mb-16 text-md md:text-lg lg:text-xl"
         >
           “Becoming an organization that engages the younger generation to actively participate and contribute to social issues while spreading
           awareness about the climate and making a significant impact on communities.”
         </motion.p>
-      </div>
-    </Container>
+      </Container>
+    </section>
   );
 };
 

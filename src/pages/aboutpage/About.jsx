@@ -1,14 +1,6 @@
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
-import {
-  DevGoals,
-  Header,
-  Mision,
-  OngoingPrograms,
-  Vision,
-  OurWorksNumbers,
-  VideoSectionSlider,
-} from "../../layouts/about_slice";
+import { DevGoals, Header, Mission, OngoingPrograms, Vision, OurWorksNumbers, VideoSectionSlider } from "../../layouts/about_slice";
 
 const About = () => {
   return (
@@ -16,7 +8,7 @@ const About = () => {
       <Navbar />
       <Header />
       <Vision />
-      <Mision />
+      <Mission />
       <DevGoals />
       <VideoSectionSlider />
       <OngoingPrograms />

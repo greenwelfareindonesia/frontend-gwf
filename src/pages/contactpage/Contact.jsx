@@ -1,9 +1,12 @@
+import { motion } from "framer-motion";
+
+import image_contact from "../../assets/contact.webp";
+
 import Container from "../../components/container";
-import Image from "../../components/container/Image";
-import image_contact from "../../assets/image_contact.png";
+import Image from "../../components/image";
+import Button from "../../components/button";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
-import Button from "../../components/button";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { useState } from "react";
@@ -39,14 +42,14 @@ const Contact = () => {
             className="h-[400px] md:h-[150vh] !bg-top"
           />
         </div>
-        <div className="bg-[#5F5E36] px-4 py-16 flex-1 flex flex-col justify-center items-center gap-8">
-          <div className="flex flex-col justify-center items-center max-w-screen-lg gap-4 w-full px-0 md:px-8">
+        <div className="flex-1 px-4 py-16 space-y-16 bg-primary-2">
+          <div className="w-full gap-4 px-0 space-y-8 md:px-8">
             <motion.h5
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               viewport={{ once: true }}
-              className="text-white text-center text-2xl md:text-4xl font-normal leading-9 md:leading-normal tracking-wider"
+              className="text-2xl font-normal leading-9 text-center text-light-1 md:text-4xl md:leading-normal"
             >
               Contact Green Welfare Indonesia
             </motion.h5>
@@ -55,12 +58,22 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 2, delay: 1 }}
               viewport={{ once: true }}
-              className="text-white text-center text-sm font-light leading-7"
+              className="text-sm font-light leading-7 text-center text-light-1"
             >
               Get in touch with Green Welfare Indonesia to learn more about our
               work, how you can get involved and for collaborations or
               partnerships.
             </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2, delay: 1 }}
+              viewport={{ once: true }}
+              className="space-y-2 text-sm font-light text-center text-light-1"
+            >
+              <p>info@greenwelfare.org</p>
+              <p>+62 812 8836 1624</p>
+            </motion.div>
           </div>
           <form
             className="flex flex-col items-center max-w-screen-lg gap-4 w-full px-0 md:px-8"
@@ -106,7 +119,7 @@ const Contact = () => {
               />
             </div>
             <div className="w-full sm:text-end">
-              <Button className="hover:text-white hover:!bg-gray-300 !py-4 !text-lg !font-light mt-4 w-full">
+              <Button intent="white" className="!w-full">
                 Submit
               </Button>
             </div>

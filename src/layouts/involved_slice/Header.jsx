@@ -1,15 +1,15 @@
-import { image_getinvolved } from "../../assets/involved-image";
-import Container from "../../components/container";
-import Image from "../../components/container/Image";
+import { involved_image } from "../../assets/involved-image";
+
+import Background from "../../components/background";
+import Filter from "../../components/filter";
 
 const Header = () => {
   return (
-    <Container>
-      <Image src={image_getinvolved} className="h-[500px] flex justify-center items-center flex-col gap-8 lg:flex-col-reverse">
-        <h1 className="text-3xl font-light text-white lg:text-4xl">Get Involved</h1>
-        <h6 className="text-xl text-white font-extralight">Make Your Mark</h6>
-      </Image>
-    </Container>
+    <Background src={involved_image} className="flex flex-col items-center justify-center gap-8 min-h-500 lg:flex-col-reverse">
+      <Filter />
+      <h1 className="text-3xl font-light text-light-1 lg:text-4xl">Get Involved</h1>
+      <h6 className="text-xl text-light-1 font-extralight">Make Your Mark</h6>
+    </Background>
   );
 };
 

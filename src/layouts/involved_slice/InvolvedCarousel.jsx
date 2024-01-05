@@ -1,35 +1,53 @@
-import React from "react";
-import Container from "../../components/container";
-import Slider from "../../components/slider";
-import { image_donate, image_glasshoping, image_shakinghands } from "../../assets/involved-image";
-import Button from "../../components/button";
+import * as React from "react";
 
-const slides = [
-  { image: image_shakinghands, title: "Partner Up", desc: "Work together to make a bigger impact with Green Welfare Indonesia" },
-  { image: image_donate, title: "Volunteer", desc: "Make an Impact" },
-  { image: image_glasshoping, title: "Brand Collaboration", desc: "Support us through your local business or brand" },
-];
+import Slider from "react-slick";
+
+import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+
+import Container from "../../components/container";
+import Button from "../../components/button";
+import Image from "../../components/image";
+import { involved } from "../../constant/involved";
 
 const InvolvedCarousel = () => {
-  const [index, setIndex] = React.useState(0);
+  const [slider, setSlider] = React.useState(null);
+  const [activeDots, setActiveDots] = React.useState(0);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    beforeChange: (next) => setActiveDots(next),
+    afterChange: (current) => setActiveDots(current),
+    appendDots: (dots) => <div style={{ bottom: "-60px" }}>{dots}</div>,
+    customPaging: (index) => <div className="text-3xl cursor-pointer">{index === activeDots ? <>&#9702;</> : <>&#8226;</>}</div>,
+  };
+
   return (
-    <Container className="py-16">
-      <Slider
-        slides={slides}
-        parentClassName="!h-[100vh] !py-8"
-        childrenClassName="!flex-col-reverse md:!flex-row !px-0 lg:!px-40"
-        setCurrentIndex={setIndex}
-        currentIndex={index}
-      >
-        <div className="flex-1 flex flex-col justify-center items-center">
-          <img src={slides[index].image} alt={slides[index].title} className="h-[300px] md:h-[400px] w-full" />
-        </div>
-        <div className="flex-1 flex flex-col justify-center items-center text-center gap-8 w-full">
-          <h1 className="text-[#3E3E08] w-full font-normal italic text-xl">{slides[index].title}</h1>
-          <p className="text-[#3E3E08] w-full font-light italic text-base leading-8">{slides[index].desc}</p>
-          <Button className="!bg-[#3E3E08] text-white hover:!bg-[#3E3E08]/50 !py-2.5 !px-4 !text-sm !font-extralight">Get in Touch</Button>
-        </div>
+    <Container className="!max-w-screen-xl">
+      <Slider {...settings} ref={(sliderRef) => setSlider(sliderRef)}>
+        {involved.map((item, index) => (
+          <div key={index} className="!flex flex-col lg:flex-row gap-4 px-0 lg:px-16">
+            <div className="flex-1">
+              <Image src={item.image} description={item.title} className="w-full max-w-lg" />
+            </div>
+            <div className="flex flex-col items-center justify-center flex-1 w-full gap-4 text-center lg:gap-8">
+              <h1 className="w-full text-xl italic font-normal text-primary-2">{item.title}</h1>
+              <p className="w-full text-base italic font-light leading-8 text-primary-2">{item.desc}</p>
+              <Button className="mx-auto">Get in Touch</Button>
+            </div>
+          </div>
+        ))}
       </Slider>
+
+      <button className="absolute left-0 hidden top-1/2 lg:flex" onClick={() => slider.slickPrev()}>
+        <BsChevronCompactLeft size={30} />
+      </button>
+      <button className="absolute right-0 hidden top-1/2 lg:flex" onClick={() => slider.slickNext()}>
+        <BsChevronCompactRight size={30} />
+      </button>
     </Container>
   );
 };

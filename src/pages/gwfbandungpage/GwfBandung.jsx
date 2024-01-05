@@ -8,9 +8,9 @@ export default function GwfBandung() {
     <div>
       <Navbar />
       {/* Hero Section */}
-      <div className="lg:grid lg:grid-cols-2 w-screen items-center justify-center">
-        <img src={HeroSectionImage} alt="Hero Section Image" className="h-full w-screen lg:hidden" />
-        <div className=" h-full flex flex-col items-center pt-28">
+      <div className="items-center justify-center w-screen lg:grid lg:grid-cols-2">
+        <img src={HeroSectionImage} alt="Hero Section Image" className="w-screen h-full lg:hidden" />
+        <div className="flex flex-col items-center h-full pt-28">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ export default function GwfBandung() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5 }}
             viewport={{ once: true }}
-            className="text-center font-bold text-lg"
+            className="text-lg font-bold text-center"
           >
             COMING SOON
           </motion.h3>
@@ -34,7 +34,7 @@ export default function GwfBandung() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5 }}
             viewport={{ once: true }}
-            className="italic text-lg text-center mb-9"
+            className="text-lg italic text-center mb-9"
           >
             Site in process
           </motion.h3>
@@ -55,7 +55,7 @@ export default function GwfBandung() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5 }}
             viewport={{ once: true }}
-            className="bg-[#3E3E08] lg:w-[19rem] w-5/6 h-[2.8rem] text-white text-sm rounded-md mb-8
+            className="bg-[#3E3E08] lg:w-[19rem] w-5/6 h-[2.8rem] text-light-1 text-sm rounded-md mb-8
             hover:cursor-pointer hover:bg-opacity-70 ease-in-out transition duration-500"
           >
             Donate to GWF Bandung
@@ -66,12 +66,12 @@ export default function GwfBandung() {
             transition={{ duration: 1.5 }}
             viewport={{ once: true }}
             className="lg:w-[19rem] w-5/6 h-[2.8rem] text-sm text-[#3E3E08] rounded-md border-2 border-[#3E3E08] 
-            hover:cursor-pointer hover:bg-[#3E3E08] hover:text-white ease-in-out transition duration-500"
+            hover:cursor-pointer hover:bg-[#3E3E08] hover:text-light-1 ease-in-out transition duration-500"
           >
             Meet the People behind GWF Bandung
           </motion.button>
         </div>
-        <img src={HeroSectionImage} alt="Hero Section Image" className="h-full hidden lg:block" />
+        <img src={HeroSectionImage} alt="Hero Section Image" className="hidden h-full lg:block" />
       </div>
       {/* Footer */}
       <Footer />

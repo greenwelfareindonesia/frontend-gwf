@@ -1,19 +1,20 @@
 import { motion } from "framer-motion";
+
 import { header_image } from "../../assets/about-image";
+import Background from "../../components/background";
 import Container from "../../components/container";
-import Image from "../../components/container/Image";
 
 const Header = () => {
   return (
-    <Container>
-      <Image src={header_image} className="h-[500px]" />
-      <div className="flex flex-col items-center justify-center gap-4 mx-8 mt-10 lg:gap-8">
+    <section className="space-y-8 md:space-y-16">
+      <Background src={header_image} className="min-h-400 md:min-h-600" />
+      <Container className="mx-8 space-y-4 text-center md:space-y-8 !px-8 !mb-32">
         <motion.h1
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
-          className="text-[#3E3E08] text-center font-inter text-2xl md:text-4xl mb-0 md:mb-8"
+          className="text-3xl text-center text-primary-2 font-inter md:text-5xl"
         >
           About Us
         </motion.h1>
@@ -22,7 +23,7 @@ const Header = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
-          className="text-center text-black"
+          className="text-xl font-light text-center text-dark"
         >
           Turning Goodwill Into Action
         </motion.h3>
@@ -31,9 +32,9 @@ const Header = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
-          className="text-center text-black w-full font-light text-sm lg:w-[54rem] mb-12 leading-7 lg:leading-8"
+          className="w-full mb-12 font-light leading-7 text-center text-dark lg:leading-8"
         >
-          After realising the many cruel exploitations to animals for the sake of human consumption followed up with large carbon footprints in the
+          After releasing the many cruel exploitations to animals for the sake of human consumption followed up with large carbon footprints in the
           proceedings; and the countless 19.4 million homeless people in our country who are still going overnight with striking hunger pains, Green
           Welfare Indonesia tends to make an impact to overcome these ongoing issues that are occurring in our country today. Established in 2020,
           Green Welfare Indonesia is a youth-led organization driven by compassion and a strong foundation of goodwill that strives on the social and
@@ -42,8 +43,8 @@ const Header = () => {
           environmental education including eco-friendly lifestyles to encourage youths and millennials to undergo a more responsible diet as well as
           executing other go-green projects that advocates for carbon neutrality.
         </motion.p>
-      </div>
-    </Container>
+      </Container>
+    </section>
   );
 };
 

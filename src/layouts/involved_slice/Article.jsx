@@ -1,39 +1,21 @@
 import { motion } from "framer-motion";
 import Container from "../../components/container";
 import Button from "../../components/button";
-import { useState } from "react";
-import axios from "axios";
+import Input from "../../components/input";
+import { useForm } from "react-hook-form";
 
 const Article = () => {
-  const BASE_URL = "https://backend-gwf-production.up.railway.app/api/article/";
-  const [fullname, setFullname] = useState("");
-  const [email, setEmail] = useState("");
-  const [topic, setTopic] = useState("");
-  const [articlemessage, setArticlemessage] = useState("");
+  const { register } = useForm();
 
-  const handleSubmit = async (e) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post(BASE_URL, {
-        FullName: fullname,
-        Email: email,
-        Topic: topic,
-        ArticleMessage: articlemessage,
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.log(error.response);
-    }
-  };
   return (
-    <Container className="flex flex-col items-center px-4 gap-8 py-32">
-      <div className="flex flex-col justify-center items-center max-w-screen-lg gap-4 w-full">
+    <Container className="px-4 py-32 space-y-8">
+      <div className="space-y-4 text-center">
         <motion.h5
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
-          className="text-[#3E3E08] text-center text-4xl md:text-5xl font-normal leading-9 tracking-tight"
+          className="text-4xl font-normal leading-9 tracking-tight text-primary-2 md:text-5xl"
         >
           Submit an Article
         </motion.h5>
@@ -42,7 +24,7 @@ const Article = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2, delay: 1 }}
           viewport={{ once: true }}
-          className="text-[#3E3E08] text-center text-base font-light leading-7"
+          className="text-base font-light leading-7 text-primary-2"
         >
           Are you interested in writing articles on environmental or climate
           change topics? Or do you want to inspire other people to take climate
@@ -50,84 +32,32 @@ const Article = () => {
           GWF&rsquo;s Eco-pedia!
         </motion.p>
       </div>
-      <form
-        className="flex flex-col items-center max-w-screen-lg gap-4 w-full"
-        onSubmit={handleSubmit}
-      >
+      <form className="space-y-8">
+        <Input
+          model="article"
+          register={register}
+          labelClassName="!text-lg !font-normal"
+          type="email"
+          name="Email"
+          title="Email"
+          placeholder="(or put Anonymous!)"
+        />
+        <Input model="article" register={register} labelClassName="!text-lg !font-normal" type="text" name="FullName" title="Full Name" />
+        <Input model="article" register={register} labelClassName="!text-lg !font-normal" type="text" name="Topic" title="Topic" />
         <div className="w-full">
-          <label
-            htmlFor="full_name"
-            className="block mb-2 text-lg font-normal text-[#3E3E08]"
-          >
-            Full Name
-          </label>
-          <input
-            id="full_name"
-            type="text"
-            name="FullName"
-            value={fullname}
-            onChange={(e) => setFullname(e.target.value)}
-            className="border bg-transparent border-transparent border-b-[#3E3E08] text-[#3E3E08] text-lg font-light focus:ring-[#3E3E08] focus:border-[#3E3E08] w-full p-4 hover:border-[#3E3E08] outline-none tracking-tight placeholder:text-[#3E3E08]/90"
-            placeholder="(or put Anonymous!)"
-            required
-          />
-        </div>
-        <div className="w-full">
-          <label
-            htmlFor="email"
-            className="block mb-2 text-lg font-normal text-[#3E3E08]"
-          >
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            name="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="border bg-transparent border-transparent border-b-[#3E3E08] text-[#3E3E08] text-lg font-light focus:ring-[#3E3E08] focus:border-[#3E3E08] w-full p-4 hover:border-[#3E3E08] outline-none tracking-tight"
-            required
-          />
-        </div>
-        <div className="w-full">
-          <label
-            htmlFor="topic_article"
-            className="block mb-2 text-lg font-normal text-[#3E3E08]"
-          >
-            Topic of Article
-          </label>
-          <input
-            id="topic_article"
-            type="text"
-            name="Topic"
-            value={topic}
-            onChange={(e) => setTopic(e.target.value)}
-            className="border bg-transparent border-transparent border-b-[#3E3E08] text-[#3E3E08] text-lg font-light focus:ring-[#3E3E08] focus:border-[#3E3E08] w-full p-4 hover:border-[#3E3E08] outline-none tracking-tight"
-            required
-          />
-        </div>
-        <div className="w-full">
-          <label
-            htmlFor="article"
-            className="block mb-2 text-lg font-normal text-[#3E3E08]"
-          >
+          <label htmlFor="article" className="block mb-2 text-lg font-normal text-primary-2">
             Write down your article here!
           </label>
           <textarea
             id="article"
-            name="ArticleMessage"
-            value={articlemessage}
-            onChange={(e) => setArticlemessage(e.target.value)}
-            className="border bg-transparent border-transparent border-b-[#3E3E08] text-[#3E3E08] text-lg font-light focus:ring-[#3E3E08] focus:border-[#3E3E08] w-full p-4 hover:border-[#3E3E08] outline-none tracking-tight placeholder:text-[#3E3E08]/90"
+            className="w-full p-4 text-lg font-light tracking-tight bg-transparent border border-transparent outline-none border-b-primary-2 text-primary-2 focus:ring-primary-2 focus:border-primary-2 hover:border-primary-2 placeholder:text-primary-2/90"
             placeholder="(Minimum words of 300)"
             rows="6"
           />
         </div>
-        <div className="w-full sm:text-end">
-          <Button className="!bg-[#3E3E08] text-white hover:!bg-[#3E3E08]/50 !px-8 !py-4 !text-lg !font-extralight mt-4 w-full sm:w-max">
-            Submit my Article
-          </Button>
-        </div>
+        <Button size="large" className="!px-8 block">
+          Submit my Article
+        </Button>
       </form>
     </Container>
   );
