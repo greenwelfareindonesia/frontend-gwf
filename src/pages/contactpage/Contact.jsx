@@ -7,14 +7,40 @@ import Image from "../../components/image";
 import Button from "../../components/button";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
+import { motion } from "framer-motion";
+import axios from "axios";
+import { useState } from "react";
 
 const Contact = () => {
+  const BASE_URL = "https://backend-gwf-production.up.railway.app/api/contact/";
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
+  const [subject, setSubject] = useState("");
+
+  const handleSubmit = async (e) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post(BASE_URL, {
+        Email: email,
+        Message: message,
+        Name: name,
+        Subject: subject,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
   return (
     <>
       <Navbar />
-      <Container className="!max-w-screen-xl flex flex-col !my-8 md:flex-row-reverse">
-        <div className="flex-1 w-full h-full">
-          <Image src={image_contact} className="min-h-400 md:min-h-500 !bg-top" />
+      <Container className="flex flex-col md:flex-row-reverse px-0 md:px-16 my-16">
+        <div className="w-full h-full flex-1">
+          <Image
+            src={image_contact}
+            className="h-[400px] md:h-[150vh] !bg-top"
+          />
         </div>
         <div className="flex-1 px-4 py-16 space-y-16 bg-primary-2">
           <div className="w-full gap-4 px-0 space-y-8 md:px-8">
@@ -34,7 +60,9 @@ const Contact = () => {
               viewport={{ once: true }}
               className="text-sm font-light leading-7 text-center text-light-1"
             >
-              Get in touch with Green Welfare Indonesia to learn more about our work, how you can get involved and for collaborations or partnerships.
+              Get in touch with Green Welfare Indonesia to learn more about our
+              work, how you can get involved and for collaborations or
+              partnerships.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -47,11 +75,16 @@ const Contact = () => {
               <p>+62 812 8836 1624</p>
             </motion.div>
           </div>
-          <form className="flex flex-col items-center w-full max-w-screen-lg gap-4 px-0 md:px-8">
+          <form
+            className="flex flex-col items-center max-w-screen-lg gap-4 w-full px-0 md:px-8"
+            onSubmit={handleSubmit}
+          >
             <div className="w-full">
               <input
                 type="text"
-                className="border bg-transparent border-transparent border-b-white text-light-1 text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-light-1"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="border bg-transparent border-transparent border-b-white text-white text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-white"
                 placeholder="Name"
                 required
               />
@@ -59,7 +92,9 @@ const Contact = () => {
             <div className="w-full">
               <input
                 type="email"
-                className="border bg-transparent border-transparent border-b-white text-light-1 text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-light-1"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="border bg-transparent border-transparent border-b-white text-white text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-white"
                 placeholder="Email"
                 required
               />
@@ -67,14 +102,18 @@ const Contact = () => {
             <div className="w-full">
               <input
                 type="text"
-                className="border bg-transparent border-transparent border-b-white text-light-1 text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-light-1"
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+                className="border bg-transparent border-transparent border-b-white text-white text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-white"
                 placeholder="Subject"
                 required
               />
             </div>
             <div className="w-full">
               <textarea
-                className="border bg-transparent border-transparent border-b-white text-light-1 text-base font-light focus:ring-white focus:border-white w-full py-2.5 px-4 hover:border-white outline-none tracking-tight placeholder:text-light-1"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="border bg-transparent border-transparent border-b-white text-white text-base font-light focus:ring-white focus:border-white w-full py-2.5 px-4 hover:border-white outline-none tracking-tight placeholder:text-white"
                 placeholder="Type your message here"
                 rows="6"
               />
