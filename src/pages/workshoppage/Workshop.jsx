@@ -30,7 +30,7 @@ const imgSlides = [
 export default function Workshop() {
   const [index, setIndex] = React.useState(0);
   return (
-    <div>
+    <>
       <Navbar />
       <Background src={WorkshopBg} className="min-h-500">
         <Filter />
@@ -193,6 +193,6 @@ export default function Workshop() {
         </Slider>
       </Container>
       <Footer />
-    </div>
+    </>
   );
 }

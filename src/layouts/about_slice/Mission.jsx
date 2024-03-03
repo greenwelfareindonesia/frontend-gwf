@@ -29,7 +29,7 @@ const Mission = () => {
 
   return (
     <section ref={containerRef} className="relative block lg:flex">
-      <Image src={mission_image} className="flex-1 hidden w-500 xl:w-600 2xl:w-800 lg:block" />
+      <Image src={mission_image} className="flex-1 hidden lg:w-600 2xl:w-800 lg:block" />
       <Background
         src={isShowBg && mission_image}
         className="flex-col flex-1 gap-8 px-8 py-24 text-center lg:px-16 text-light-1 lg:text-primary-2 lg:text-start"
