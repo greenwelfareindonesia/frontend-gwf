@@ -26,8 +26,10 @@ const Article = () => {
           viewport={{ once: true }}
           className="text-base font-light leading-7 text-primary-2"
         >
-          Are you interested in writing articles on environmental or climate change topics? Or do you want to inspire other people to take climate
-          action through literacy? Submit your article now to get featured in GWF&rsquo;s Eco-pedia!
+          Are you interested in writing articles on environmental or climate
+          change topics? Or do you want to inspire other people to take climate
+          action through literacy? Submit your article now to get featured in
+          GWF&rsquo;s Eco-pedia!
         </motion.p>
       </div>
       <form className="space-y-8">
@@ -53,7 +55,6 @@ const Article = () => {
             rows="6"
           />
         </div>
-
         <Button size="large" className="!px-8 block">
           Submit my Article
         </Button>
