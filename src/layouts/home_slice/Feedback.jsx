@@ -5,12 +5,11 @@ import axios from "axios";
 import { useState } from "react";
 
 const Feedback = () => {
-  const BASE_URL =
-    "https://backend-gwf-production.up.railway.app/api/feedback/";
+  const BASE_URL = "https://backend-gwf-production.up.railway.app/api/feedback/";
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(BASE_URL, { Email: email, Text: text });
@@ -38,14 +37,10 @@ const Feedback = () => {
           viewport={{ once: true }}
           className="text-sm leading-7 text-center text-light-1 md:text-start font-extralight"
         >
-          We are always working to improve our community and would love to hear
-          your suggestions on how to grow Green Welfare Indonesia!
+          We are always working to improve our community and would love to hear your suggestions on how to grow Green Welfare Indonesia!
         </motion.p>
-      </div>
-      <form
-        className="flex flex-col items-center max-w-screen-lg gap-4 w-full"
-        onSubmit={handleSubmit}
-      >
+      </Container>
+      <form className="flex flex-col items-center w-full max-w-screen-lg gap-4" onSubmit={handleSubmit}>
         <input
           id="Email"
           type="email"
@@ -66,7 +61,7 @@ const Feedback = () => {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <Button className="hover:text-white hover:!bg-gray-500 !px-24 !py-6 !text-lg !font-extralight mt-4">
+        <Button className="hover:!bg-primary-2/50" size="large">
           Send
         </Button>
       </form>

@@ -2,12 +2,10 @@ import { motion } from "framer-motion";
 
 import image_contact from "../../assets/contact.webp";
 
-import Container from "../../components/container";
 import Image from "../../components/image";
 import Button from "../../components/button";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
-import { motion } from "framer-motion";
 import axios from "axios";
 import { useState } from "react";
 
@@ -18,7 +16,7 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [subject, setSubject] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(BASE_URL, {
@@ -35,12 +33,9 @@ const Contact = () => {
   return (
     <>
       <Navbar />
-      <Container className="flex flex-col md:flex-row-reverse px-0 md:px-16 my-16">
-        <div className="w-full h-full flex-1">
-          <Image
-            src={image_contact}
-            className="h-[400px] md:h-[150vh] !bg-top"
-          />
+      <section className="flex flex-col px-0 my-16 md:flex-row-reverse md:px-16">
+        <div className="flex-1 w-full h-full">
+          <Image src={image_contact} className="w-full" />
         </div>
         <div className="flex-1 px-4 py-16 space-y-16 bg-primary-2">
           <div className="w-full gap-4 px-0 space-y-8 md:px-8">
@@ -60,9 +55,7 @@ const Contact = () => {
               viewport={{ once: true }}
               className="text-sm font-light leading-7 text-center text-light-1"
             >
-              Get in touch with Green Welfare Indonesia to learn more about our
-              work, how you can get involved and for collaborations or
-              partnerships.
+              Get in touch with Green Welfare Indonesia to learn more about our work, how you can get involved and for collaborations or partnerships.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -75,10 +68,7 @@ const Contact = () => {
               <p>+62 812 8836 1624</p>
             </motion.div>
           </div>
-          <form
-            className="flex flex-col items-center max-w-screen-lg gap-4 w-full px-0 md:px-8"
-            onSubmit={handleSubmit}
-          >
+          <form className="flex flex-col items-center w-full max-w-screen-lg gap-4 px-0 md:px-8" onSubmit={handleSubmit}>
             <div className="w-full">
               <input
                 type="text"
@@ -125,7 +115,7 @@ const Contact = () => {
             </div>
           </form>
         </div>
-      </Container>
+      </section>
       <Footer />
     </>
   );
