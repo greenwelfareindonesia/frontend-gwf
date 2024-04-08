@@ -34,3 +34,9 @@ input[type="file"]::file-selector-button {
 input[type="file"]::file-selector-button:hover {
   background: #5f5e36;
 }
+
+@layer components {
+  .sidebar-menu {
+    @apply flex items-center p-2 text-sm text-gray-300 rounded-md cursor-pointer hover:bg-primary-1 gap-x-4;
+  }
+}
