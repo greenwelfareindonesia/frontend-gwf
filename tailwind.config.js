@@ -17,7 +17,12 @@ export default withMT({
         200: "200px",
         300: "300px",
       },
+      margin: {
+        70: "70px",
+      },
       width: {
+        200: "200px",
+        220: "220px",
         300: "300px",
         400: "400px",
         500: "500px",
@@ -28,6 +33,7 @@ export default withMT({
       },
       minHeight: {
         "custom-header": "calc(100vh - 88px)",
+        100: "100px",
         200: "200px",
         300: "300px",
         400: "400px",
