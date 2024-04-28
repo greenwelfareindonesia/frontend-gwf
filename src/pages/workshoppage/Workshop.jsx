@@ -93,6 +93,7 @@ export default function Workshop() {
         </div>
       </Background>
 
+
       <section className="flex flex-col items-center lg:flex-row lg:flex-wrap lg:items-stretch lg:justify-normal pt-28 gap-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full px-4 pl-20">
       {event.map((events) => (
@@ -116,7 +117,7 @@ export default function Workshop() {
             <p>{events.event}</p>
           </motion.p>
           <div className="pt-12">
-            <button className="bg-primary-1 text-base text-light-1 px-5 py-2 hover:opacity-60 duration-300 ease-in-out">{events.button}</button>
+              <button className="bg-primary-1 text-base text-light-1 px-5 py-2 hover:opacity-60 duration-300 ease-in-out">{events.button}</button>
           </div>
       </div>
       ))}

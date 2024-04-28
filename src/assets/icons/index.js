@@ -10,6 +10,10 @@ import users_icon from "./users-icon.svg";
 import admin_user_icon from "./admin-user-icon.svg";
 import veganguide_icon from "./veganguide-icon.svg";
 import workshop_icon from "./workshop-icon.svg";
+import edit_icon from "./edit-icon.svg";
+import delete_icon from "./delete-icon.svg";
+import camera_icon from "./camera-icon.svg";
+import upload_QShqflcTLk from "./cloud-icon/https_/lottiefiles.com/animations/upload-QShqflcTLk.png";
 
 export {
   gwf_dashboard_icon,
@@ -24,4 +28,8 @@ export {
   users_icon,
   veganguide_icon,
   workshop_icon,
+  edit_icon,
+  delete_icon,
+  camera_icon,
+  upload_QShqflcTLk,
 };
