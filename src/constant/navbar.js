@@ -4,7 +4,7 @@ export const navContent = [
     name: "About",
     content: [
       { name: "Team", path: "/team" },
-      { name: "Chapters", path: "/bdg" },
+      { name: "Chapters", path: "/chapter" },
     ],
     path: "/about",
   },
@@ -15,7 +15,6 @@ export const navContent = [
   {
     name: "More",
     content: [
-      { name: "Gallery", path: "/" },
       { name: "Contact", path: "/contact" },
       { name: "Eco-pedia", path: "/ecopedia" },
       { name: "Resource Hub", path: "/resource" },

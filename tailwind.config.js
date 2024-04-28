@@ -41,9 +41,9 @@ export default withMT({
       colors: {
         "filter-1": "#3E3E0850",
         "filter-2": "#3E3E0875",
-        "filter-3": "#31333550",
         "primary-1": "#5F5E36",
         "primary-2": "#3E3E08",
+        "primary-3": "#707034",
         "light-1": "#ffffff",
         "light-2": "#bfbfbf",
         dark: "#313335",
