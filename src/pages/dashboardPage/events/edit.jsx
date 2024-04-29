@@ -31,7 +31,7 @@ const Edit = () => {
           </div>
           <div className="flex-1 flex flex-col py-2">
             <p className="my-5">Add Photo</p>
-            <Link to="/Add">
+            <Link to="/Add2">
               <img src={Dummy1} className="container w-[217px] h-[140px] overflow-hidden rounded-md hover:opacity-40" alt="Dummy"></img>
             </Link>
           </div>

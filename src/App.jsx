@@ -9,6 +9,11 @@ import Post from "./pages/dashboardPage/workshop/post";
 import Edit from "./pages/dashboardPage/workshop/edit";
 import Add from "./pages/dashboardPage/workshop/add";
 import Delete from "./pages/dashboardPage/workshop/delete";
+import Index2 from "./pages/dashboardPage/events/index";
+import Post2 from "./pages/dashboardPage/events/post";
+import Edit2 from "./pages/dashboardPage/events/edit";
+import Add2 from "./pages/dashboardPage/events/add";
+import Delete2 from "./pages/dashboardPage/events/delete";
 
 const App = () => {
   return (
@@ -27,11 +32,16 @@ const App = () => {
         <Route path="/resource" element={<Resource />} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/workshopIndexx" element={<Indexx />} />
+        <Route path="/Indexx" element={<Indexx />} />
         <Route path="/post" element={<Post />} />
         <Route path="/edit" element={<Edit/>} />
         <Route path="/add" element={<Add/>} />
         <Route path="/delete" element={<Delete/>} />
+        <Route path="/index2" element={<Index2 />} />
+        <Route path="/post2" element={<Post2 />} />
+        <Route path="/edit2" element={<Edit2/>} />
+        <Route path="/add2" element={<Add2/>} />
+        <Route path="/delete2" element={<Delete2/>} />
       </Routes>
     </BrowserRouter>
   );

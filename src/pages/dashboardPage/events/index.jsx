@@ -30,7 +30,7 @@ const index = () => {
   return (
     <Sidebar titleField={"Events"}>
       <div className="flex absolute top-24 right-9 justify-between items-center mb-4">
-        <Link to="/Post">
+        <Link to="/Post2">
           <button className="bg-primary-2 w-36 h-9 rounded-3xl font-semibold text-light-1">Post Workshop</button>
         </Link>
       </div>
@@ -74,12 +74,12 @@ const index = () => {
               </td>
               <td className="pt-3.5 pb-3.5">
                 <div className="container overflow-hidden flex gap-2">
-                  <Link to="/Edit">
+                  <Link to="/Edit2">
                     <button>
                       <img src={edit_icon} alt="Edit"/>
                     </button>
                   </Link>
-                  <Link to="/Delete">
+                  <Link to="/Delete2">
                     <button>
                       <img src={delete_icon} alt="Delete" />
                     </button>
