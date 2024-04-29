@@ -5,7 +5,8 @@ import Dummy1 from "../../../assets/workshop-image/dummy1.png";
 import Dummy2 from "../../../assets/workshop-image/dummy2.png";
 import { edit_icon, delete_icon } from "../../../assets/icons";
 
-const Indexx = () => {
+
+const index = () => {
 
   const elemen = [
     {
@@ -27,7 +28,7 @@ const Indexx = () => {
   ];
 
   return (
-    <Sidebar titleField={"Workshop"}>
+    <Sidebar titleField={"Events"}>
       <div className="flex absolute top-24 right-9 justify-between items-center mb-4">
         <Link to="/Post">
           <button className="bg-primary-2 w-36 h-9 rounded-3xl font-semibold text-light-1">Post Workshop</button>
@@ -93,4 +94,4 @@ const Indexx = () => {
   );
 };
 
-export default Indexx;
+export default index;
