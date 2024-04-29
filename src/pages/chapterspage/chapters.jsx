@@ -2,6 +2,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import HeroSectionImage from "../../assets/gwfbandung-image/HeroSectionImg.png";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; //tambahan
 
 export default function Chapters() {
   return (
@@ -50,6 +51,7 @@ export default function Chapters() {
           >
           @greenwelfare.bdg
           </motion.a>
+          <Link to="/ecopediaDashboard"> 
           <motion.button
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,6 +62,9 @@ export default function Chapters() {
           >
           Donate to GWF Bandung
           </motion.button>
+          </Link>
+
+          <Link to="/galleryDashboard"> 
           <motion.button
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -68,9 +73,9 @@ export default function Chapters() {
             className="lg:w-300 w-5/6 h-12 text-sm font-light text-primary-1 rounded-none border border-primary-1 
             hover:cursor-pointer hover:bg-primary-1 hover:text-light-1 ease-in-out transition duration-500"
           >
-
           Meet the People behind GWF Bandung
           </motion.button>
+          </Link>
         </div>
         <img src={HeroSectionImage} alt="Hero Section Image" className="hidden lg:inline-block min-h-[600px]" />
       </div>

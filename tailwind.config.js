@@ -38,6 +38,9 @@ export default withMT({
         900: "800px",
         1000: "1000px",
       },
+      borderWidth:{
+        1: "1px",
+      },
       colors: {
         "filter-1": "#3E3E0850",
         "filter-2": "#3E3E0875",
