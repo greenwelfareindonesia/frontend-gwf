@@ -5,7 +5,6 @@ import Dummy1 from "../../../assets/workshop-image/dummy1.png";
 import Dummy2 from "../../../assets/workshop-image/dummy2.png";
 import { edit_icon, delete_icon } from "../../../assets/icons";
 
-
 const index = () => {
 
   const elemen = [

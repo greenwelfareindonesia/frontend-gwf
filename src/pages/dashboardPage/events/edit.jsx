@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 const Edit = () => {
   return (
     <Sidebar>
-    <div className="fixed inset-0 container w-auto ml-60 bg-white flex items-center">
+    <div className="fixed inset-0 container w-full ml-60 bg-white flex items-center">
       <div className="p-10 w-full">
         <div className="flex">
           <h1 className="text-3xl text-primary-2 pb-5 font-semibold flex-1">Edit Post</h1>
@@ -32,7 +32,7 @@ const Edit = () => {
           <div className="flex-1 flex flex-col py-2">
             <p className="my-5">Add Photo</p>
             <Link to="/Add2">
-              <img src={Dummy1} className="container w-[217px] h-[140px] overflow-hidden rounded-md hover:opacity-40" alt="Dummy"></img>
+              <img src={Dummy1} className="container w-217 min-h-140 overflow-hidden rounded-md hover:opacity-40" alt="Dummy"></img>
             </Link>
           </div>
         </div>

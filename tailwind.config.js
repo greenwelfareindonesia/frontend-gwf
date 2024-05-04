@@ -40,6 +40,7 @@ export default withMT({
       minHeight: {
         "custom-header": "calc(100vh - 88px)",
         100: "100px",
+        140: "140px",
         111: "111px",
         200: "200px",
         300: "300px",

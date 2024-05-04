@@ -5,6 +5,8 @@ import Sidebar from "../../../layouts/dashboard_section/Template";
 
 const post = () => {
   return(
+    <section>
+
     <Sidebar>
       <div className="fixed inset-0 container w-auto ml-60 bg-white flex items-center">
         <div className="p-10 w-full">
@@ -50,6 +52,7 @@ const post = () => {
         </div>
       </div>
     </Sidebar>
+    </section>
     );
   };
 

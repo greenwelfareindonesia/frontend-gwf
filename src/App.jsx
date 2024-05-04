@@ -4,7 +4,7 @@ import { About, Events, Contact, Home, Involved, Team, Workshop, Resource, Donat
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
 import NotFound from "./pages/notFoundPage/NotFound";
 
-import Indexx from "./pages/dashboardPage/workshop/workshopIndexx";
+import Index from "./pages/dashboardPage/workshop/index";
 import Post from "./pages/dashboardPage/workshop/post";
 import Edit from "./pages/dashboardPage/workshop/edit";
 import Add from "./pages/dashboardPage/workshop/add";
@@ -32,7 +32,7 @@ const App = () => {
         <Route path="/resource" element={<Resource />} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/Indexx" element={<Indexx />} />
+        <Route path="/index" element={<Index />} />
         <Route path="/post" element={<Post />} />
         <Route path="/edit" element={<Edit/>} />
         <Route path="/add" element={<Add/>} />

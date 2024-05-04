@@ -6,8 +6,8 @@ import Sidebar from "../../../layouts/dashboard_section/Template";
 const Add = () => {
   return (
     <Sidebar>
-    <div className="fixed inset-0 container w-auto ml-60 bg-white flex items-center">
-      <div className="p-10 w-full ml-300">
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="bg-white p-10 w-600 rounded-lg">
         <img src={uploadIcon} alt="Upload Icon" className="mb-4 ml-40" />
         <p className="ml-20">Tarik lalu lepas file Foto yang ingin diupload</p>
         <button className="h-10 mt-4 ml-52 bg-primary-2 text-white rounded px-4" type="button">Pilih Foto</button>

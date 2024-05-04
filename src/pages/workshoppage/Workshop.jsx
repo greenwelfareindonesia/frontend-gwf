@@ -86,7 +86,7 @@ export default function Workshop() {
         <Filter />
         <div className="max-w-3xl space-y-8 z-1"> 
           <h1 className="text-4xl text-center text-light-1">Workshops & Classes</h1>
-          <h3 className="font-poppins font-light text-sm text-center text-light-1">
+          <h3 className="font-light text-sm text-center text-light-1">
             Enroll now to Green Welfare's interactive workshops and virtual classes to enhance your knowledge and skills around agriculture and
             climate!
           </h3>
@@ -94,7 +94,6 @@ export default function Workshop() {
       </Background>
 
 
-      <section className="flex flex-col items-center lg:flex-row lg:flex-wrap lg:items-stretch lg:justify-normal pt-28 gap-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full px-4 pl-20">
       {event.map((events) => (
       <div className="py-3" key={events.title}>
@@ -122,7 +121,7 @@ export default function Workshop() {
       </div>
       ))}
       </div>
-    </section>
+
 
       
         <Slider className="max-w-fit" slides={imgSlides} parentClassName="!h-100" setCurrentIndex={setIndex} currentIndex={index} column-2>
