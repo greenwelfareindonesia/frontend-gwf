@@ -57,6 +57,9 @@ export default withMT({
         1: "1px",
         3: "3px",
       },
+      borderRadius: {
+        '4xl': '2rem', // Customize the radius value as needed
+      },
       colors: {
         "filter-1": "#3E3E0850",
         "filter-2": "#3E3E0875",
@@ -65,6 +68,7 @@ export default withMT({
         "primary-2": "#3E3E08",
         "light-1": "#ffffff",
         "light-2": "#bfbfbf",
+        "light-3": "#efefeb",
         dark: "#313335",
       },
     },
