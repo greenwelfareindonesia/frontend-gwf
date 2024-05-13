@@ -1,10 +1,9 @@
 import React from "react";
 import uploadIcon from "../../../assets/icons/delete-icon-2/lottiefiles.com/animations/question-ESUC7y16es.png";
-import Sidebar from "../../../layouts/dashboard_section/Template";
 
-const Delete = () => {
+const Delete = ({visible}) => {
+  if (!visible) return null;
   return (
-    <Sidebar>
       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
         <div className="bg-white p-10 w-00 rounded-lg">
           <h1 className="text-3xl text-primary-2 pb-5 font-semibold">Apakah Kamu Yakin akan Menghapus Postingan?</h1>
@@ -15,7 +14,6 @@ const Delete = () => {
           </div>
         </div>
       </div>
-    </Sidebar>
   );
 };
 

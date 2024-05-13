@@ -2,7 +2,8 @@ import React from "react";
 import uploadIcon from "../../../assets/icons/delete-icon-2/lottiefiles.com/animations/question-ESUC7y16es.png";
 import Sidebar from "../../../layouts/dashboard_section/Template";
 
-const Delete = () => {
+const Delete = ({visible}) => {
+  if (!visible) return null;
   return (
     <Sidebar>
       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">

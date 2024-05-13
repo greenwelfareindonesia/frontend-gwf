@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Dummy1 from "../../../assets/workshop-image/dummy1.png";
 import Sidebar from "../../../layouts/dashboard_section/Template";
-import { Link } from "react-router-dom"
+import AddModal from "./add";
 
 const Edit = () => {
+  const[showAddPopOut, setShowAddPopOut] = useState(false);
   return (
     <Sidebar>
     <div className="fixed inset-0 container w-full ml-60 bg-white flex items-center">
@@ -31,9 +32,9 @@ const Edit = () => {
           </div>
           <div className="flex-1 flex flex-col py-2">
             <p className="my-5">Add Photo</p>
-            <Link to="/Add2">
+            <button onClick={() => setShowAddPopOut(true)}>
               <img src={Dummy1} className="container w-217 min-h-140 overflow-hidden rounded-md hover:opacity-40" alt="Dummy"></img>
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -48,6 +49,7 @@ const Edit = () => {
         </div>
       </div>
     </div>
+    <AddModal visible={showAddPopOut}/>
   </Sidebar>
   );
 };

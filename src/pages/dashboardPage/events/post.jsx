@@ -4,6 +4,7 @@ import {camera_icon} from "../../../assets/icons";
 import Sidebar from "../../../layouts/dashboard_section/Template";
 
 const post = () => {
+  const [showAddPopOut, setShowAddPopOut] = useState(false);
   return(
     <section>
 

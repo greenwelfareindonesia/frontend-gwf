@@ -4,9 +4,10 @@ import Sidebar from "../../../layouts/dashboard_section/Template";
 import Dummy1 from "../../../assets/workshop-image/dummy1.png";
 import Dummy2 from "../../../assets/workshop-image/dummy2.png";
 import { edit_icon, delete_icon } from "../../../assets/icons";
+import Delete from "./delete";
 
 const Indexx = () => {
-
+  const [showDeletePopOut, setShowDeletePopOut] = useState(false);
   const elemen = [
     {
       judul: 'GYT #4: Achieving Eco-Leadership..',
@@ -78,17 +79,18 @@ const Indexx = () => {
                       <img src={edit_icon} alt="Edit"/>
                     </button>
                   </Link>
-                  <Link to="/Delete">
-                    <button>
+                  <div>
+                    <button onClick={() => setShowDeletePopOut(true)}>
                       <img src={delete_icon} alt="Delete" />
                     </button>
-                  </Link>
+                  </div>
                 </div>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <Delete visible={showDeletePopOut}/>
     </Sidebar>
   );
 };

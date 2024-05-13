@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import foundingLeft from "../../assets/team-image/founding-left.png";
 import foundingMiddle from "../../assets/team-image/founding-middle.png";
 import foundingRight from "../../assets/team-image/founding-right.png";
@@ -6,10 +6,35 @@ import executiveLeft from "../../assets/team-image/executive-left.png";
 import executiveMiddle from "../../assets/team-image/executive-middle.png";
 import executiveRight from "../../assets/team-image/executive-right.png";
 import Footer from "../../components/footer/Footer";
-import { motion } from "framer-motion";
 import Navbar from "../../components/navbar/Navbar";
 
 export default function Team() {
+  const [isHovered1, setIsHovered1] = useState(false);
+  const [isHovered2, setIsHovered2] = useState(false);
+  const [isHovered3, setIsHovered3] = useState(false);
+
+  const handleMouseEnter = (element) => {
+    if (element === 1) {
+      setIsHovered1(true);
+      setIsHovered2(true);
+      setIsHovered3(false);
+    } else if (element === 2) {
+      setIsHovered1(false);
+      setIsHovered2(false);
+      setIsHovered3(false);
+    } else if (element === 3) {
+      setIsHovered1(false);
+      setIsHovered2(true);
+      setIsHovered3(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered1(false);
+    setIsHovered2(false);
+    setIsHovered3(false);
+  };
+
   const [event, setEvent] = React.useState([
     {
       img: foundingLeft,
@@ -38,48 +63,69 @@ export default function Team() {
     },
   ]); 
 
-
   return (
     <div>
       <Navbar />
-        {/* Founding Members */}
-        <section className="bg-primary-1 flex pt-28 pb-28 min-h-600  grid-cols-4 space-x-16 justify-center items-center text-light-1">
-          <div className="w-80 h-40 text-6xl p-4 mr-16">Founding Members</div>
-          <div className="w-40 h-96 rounded-3xl hover:w-80">
-            <img src={foundingLeft} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
-            <p className="">Shahira Syifa</p>
+      {/* Founding Members */}
+      <section className="bg-primary-1 flex pt-28 pb-28 min-h-600 grid-cols-4 space-x-16 justify-center items-center text-light-1">
+        <div className="w-80 h-40 text-6xl p-4 mr-16">Founding Members</div>
+
+        <div
+          className={`w-40 h-96 rounded-3xl duration-500 ${isHovered1 ? 'w-80' : 'w-40'}`}
+          onMouseEnter={() => handleMouseEnter(1)}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="absolute mt-60 mr-1 text-light-1 text-right text-xl font-semibold rotate-90">
+            <p>Shahira Syifa</p>
             <p>Secretary General</p>
           </div>
-          <div className="w-80 h-96 rounded-3xl default:w-80">
-            <img src={foundingMiddle} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>            
-            <p className="">Nifa Rahma</p>
+          <img src={foundingLeft} className="w-full h-full rounded-3xl object-cover" alt="Founding Member" />
+        </div>
+
+        <div
+          className={`w-40 h-96 rounded-3xl duration-500 ${isHovered2 ? 'w-40' : 'w-80'}`}
+          onMouseEnter={() => handleMouseEnter(2)}
+          onMouseLeave={handleMouseLeave}
+        >
+
+          <div className="absolute ml-16 mt-80 text-center text-light-1 text-xl font-semibold">
+            <p className="font-semibold">Nifa Rahma</p>
             <p>Executive Director</p>
           </div>
-          <div className="w-40 h-96 rounded-3xl hover:w-80">
-            <img src={foundingRight} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
+          <img src={foundingMiddle} className="w-full h-full rounded-3xl object-cover" alt="Founding Member" />
+        </div>
+
+        <div
+          className={`w-40 h-96 rounded-3xl duration-500 ${isHovered3 ? 'w-80' : 'w-40'}`}
+          onMouseEnter={() => handleMouseEnter(3)}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="absolute mt-56 text-light-1 text-right text-xl font-semibold rotate-90">
             <p>Reggata Lara</p>
             <p>CO-Executive Director</p>
           </div>
-        </section>
+          <img src={foundingRight} className="w-full h-full rounded-3xl object-cover" alt="Founding Member" />
+        </div>
+      </section>
 
-        {/* Current Executive Leads */}
-        <section className="flex flex-wrap items-center pb-28 min-h-600 grid-cols-3 space-y-32 justify-center text-primary-1 bg-light-3">
-          <div className="pt-40 mx-16">
-            <div className="w-72 h-72 text-center pt-6">
-              <h className="text-7xl font-semibold text-center">Current Executive Leads</h>
-            </div>
+      {/* Current Executive Leads */}
+      <section className="flex flex-wrap items-center pb-28 min-h-600 grid-cols-3 space-y-32 justify-center text-primary-1 bg-light-3">
+        <div className="pt-40 mx-16">
+          <div className="w-72 h-72 text-center pt-6">
+            <h className="text-7xl font-semibold text-center">Current Executive Leads</h>
           </div>
-          {event.map((people) => (
-            <div key={people.nama} className="w-72 h-72 mx-14">
-              <img className="w-72 h-72 rounded-b-4xl rounded-tr-4xl" src={people.img} alt="Executive Lead"></img>
-              <p className="text-center pt-3 font-semibold">{people.nama}</p>
-              <p className="text-center">{people.peran}</p>
-            </div>
-          ))}
-        </section>
+        </div>
+        {event.map((people) => (
+          <div key={people.nama} className="w-72 h-72 mx-14">
+            <img className="w-72 h-72 rounded-b-4xl rounded-tr-4xl" src={people.img} alt="Executive Lead"></img>
+            <p className="text-center pt-3 font-semibold">{people.nama}</p>
+            <p className="text-center">{people.peran}</p>
+          </div>
+        ))}
+      </section>
 
-        {/* Board of Director */}
-        <section className="bg-primary-1 flex pt-28 pb-28 min-h-600  grid-cols-4 space-x-16 justify-center items-center text-light-1 ">
+      {/* Board of Director */}
+      <section className="bg-primary-1 flex pt-28 pb-28 min-h-600  grid-cols-4 space-x-16 justify-center items-center text-light-1 ">
         <div className="w-80 h-40 text-6xl p-4 mr-16">Board of Director</div>
           <div className="w-32 h-96 rounded-3xl hover:w-96">
             <img src={foundingLeft} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
@@ -108,6 +154,7 @@ export default function Team() {
           </div>
 
         </section>
+
       <Footer />
     </div>
   );
