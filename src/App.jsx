@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { About, Events, Contact, Home, Involved, Team, Workshop, Resource, Donate, Ecopedia, Chapters} from "./pages";
+import { About, Events, Contact, Home, Involved, Team, Workshop, Resource, Donate, Ecopedia, Chapters, Cart} from "./pages";
 
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
 import NotFound from "./pages/notFoundPage/NotFound";
@@ -28,6 +28,7 @@ const App = () => {
         <Route path="/donate" element={<Donate />} />
         <Route path="/workshop" element={<Workshop />} />
         <Route path="/ecopedia" element={<Ecopedia />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/resource" element={<Resource />} />
         <Route path="/login" element={<AdminLogin />} />

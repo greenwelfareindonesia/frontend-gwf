@@ -13,6 +13,10 @@ import workshop_icon from "./workshop-icon.svg";
 import edit_icon from "./edit-icon.svg";
 import delete_icon from "./delete-icon.svg";
 import camera_icon from "./camera-icon.svg";
+import delete_icon_cart from "./delete-icon-cart.png";
+import plus_icon_cart from "./plus-icon-cart.png";
+import minus_icon_cart from "./minus-icon-cart.png";
+import tumbler from "./tumbler1.png";
 import upload_QShqflcTLk from "./cloud-icon/https_/lottiefiles.com/animations/upload-QShqflcTLk.png";
 
 export {
@@ -31,5 +35,9 @@ export {
   edit_icon,
   delete_icon,
   camera_icon,
+  delete_icon_cart,
+  plus_icon_cart,
+  minus_icon_cart,
+  tumbler,
   upload_QShqflcTLk,
 };
