@@ -19,6 +19,7 @@ export default withMT({
       },
       margin: {
         70: "70px",
+        78: "78px",
         270: "200px",
         300: "300px",
         340: "340px",
