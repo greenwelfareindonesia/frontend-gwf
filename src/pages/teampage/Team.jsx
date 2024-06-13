@@ -139,37 +139,75 @@ export default function Team() {
         <div className="absolute left-0 w-8 p-4 mr-16 text-6xl h-96">Board of Director</div>
 
         <div className="w-32 transition-all duration-300 ease-linear h-96 rounded-3xl"></div>
-        <div className="relative w-32 transition-all duration-300 ease-linear origin-right transform h-96 rounded-3xl hover:w-96">
+        <div className="relative w-32 transition-all duration-300 ease-linear origin-right transform h-96 rounded-3xl hover:w-96 group">
           <img src={foundingLeft} className="object-cover w-full h-full rounded-3xl" alt="Founding Member"></img>
           <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-linear bg-transparent">
-            <div className="flex items-center justify-center vertical-text"></div>
-            <p className="m-0">Afifah Vanya</p>
-          </div>
-          <div className="absolute bottom-0 hidden w-full pb-2 text-center text-white hover:block">
-            <p className="m-0">Afifah Vanya</p>
-            <p className="m-0">Jabatan</p>
+            <span className="text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 -rotate-90 whitespace-nowrap group-hover:opacity-0">
+              Afifah Vanya
+            </span>
+            <span className="absolute text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 whitespace-nowrap group-hover:opacity-100">
+              Afifah Vanya
+            </span>
+            <span className="absolute text-2xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 mt-14 whitespace-nowrap group-hover:opacity-100">
+              Jabatan
+            </span>
           </div>
         </div>
-
-        <div className="relative w-32 transition-all duration-300 ease-linear origin-right transform h-96 rounded-3xl hover:w-96">
+        <div className="relative w-32 transition-all duration-300 ease-linear origin-right transform h-96 rounded-3xl hover:w-96 group">
           <img src={foundingMiddle} className="object-cover w-full h-full rounded-3xl" alt="Founding Member"></img>
-          <p className="">Raihan Alfarisi</p>
-          <p>Technology</p>
+          <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-linear bg-transparent">
+            <span className="text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 -rotate-90 whitespace-nowrap group-hover:opacity-0">
+              Afifah Vanya
+            </span>
+            <span className="absolute text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 whitespace-nowrap group-hover:opacity-100">
+              Afifah Vanya
+            </span>
+            <span className="absolute text-2xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 mt-14 whitespace-nowrap group-hover:opacity-100">
+              Jabatan
+            </span>
+          </div>
         </div>
         <div className="relative w-32 transition-all duration-300 ease-linear origin-right transform h-96 rounded-3xl hover:w-96">
           <img src={foundingRight} className="object-cover w-full h-full rounded-3xl" alt="Founding Member"></img>
-          <p>Afifah Vanya</p>
-          <p className="">Jabatan</p>
+          <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-linear bg-transparent group">
+            <span className="text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 -rotate-90 whitespace-nowrap group-hover:opacity-0">
+              Afifah Vanya
+            </span>
+            <span className="absolute text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 whitespace-nowrap group-hover:opacity-100">
+              Afifah Vanya
+            </span>
+            <span className="absolute text-2xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 mt-14 whitespace-nowrap group-hover:opacity-100">
+              Jabatan
+            </span>
+          </div>
         </div>
         <div className="relative w-32 transition-all duration-300 ease-linear origin-right transform h-96 rounded-3xl hover:w-96">
           <img src={foundingRight} className="object-cover w-full h-full rounded-3xl" alt="Founding Member"></img>
-          <p>Ayundha Sachi</p>
-          <p className="">Jabatan</p>
+          <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-linear bg-transparent group">
+            <span className="text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 -rotate-90 whitespace-nowrap group-hover:opacity-0">
+              Afifah Vanya
+            </span>
+            <span className="absolute text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 whitespace-nowrap group-hover:opacity-100">
+              Afifah Vanya
+            </span>
+            <span className="absolute text-2xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 mt-14 whitespace-nowrap group-hover:opacity-100">
+              Jabatan
+            </span>
+          </div>
         </div>
         <div className="relative w-32 transition-all duration-300 ease-linear origin-right transform h-96 rounded-3xl hover:w-96">
           <img src={foundingRight} className="object-cover w-full h-full rounded-3xl" alt="Founding Member"></img>
-          <p>Bartholomew Jordan</p>
-          <p className="">Jabatan</p>
+          <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-linear bg-transparent group">
+            <span className="text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 -rotate-90 whitespace-nowrap group-hover:opacity-0">
+              Afifah Vanya
+            </span>
+            <span className="absolute text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 whitespace-nowrap group-hover:opacity-100">
+              Afifah Vanya
+            </span>
+            <span className="absolute text-2xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 mt-14 whitespace-nowrap group-hover:opacity-100">
+              Jabatan
+            </span>
+          </div>
         </div>
       </section>
 
