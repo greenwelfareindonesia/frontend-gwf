@@ -11,7 +11,6 @@ import Climate1 from "../../assets/about-image/climate-1.webp";
 import Climate2 from "../../assets/about-image/climate-2.webp";
 import Climate3 from "../../assets/about-image/climate-3.webp";
 import Slider from "../../components/slider/index";
-import Container from "../../components/container";
 import { motion } from "framer-motion";
 import Background from "../../components/background";
 import Filter from "../../components/filter";
@@ -86,43 +85,41 @@ export default function Workshop() {
         <Filter />
         <div className="max-w-3xl space-y-8 z-1">
           <h1 className="text-4xl text-center text-light-1">Workshops & Classes</h1>
-          <h3 className="text-sm font-light text-center font-poppins text-light-1">
+          <h3 className="text-sm font-light text-center text-light-1">
             Enroll now to Green Welfare`s interactive workshops and virtual classes to enhance your knowledge and skills around agriculture and
             climate!
           </h3>
         </div>
       </Background>
 
-      <section className="flex flex-col items-center lg:flex-row lg:flex-wrap lg:items-stretch lg:justify-normal pt-28 gap-y-8">
-        <div className="grid w-full grid-cols-1 gap-8 px-4 pl-20 md:grid-cols-2 lg:grid-cols-4">
-          {event.map((events) => (
-            <div className="py-3" key={events.title}>
-              <motion.h1
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.5 }}
-                viewport={{ once: true }}
-                className="text-left text-primary-1 w-220"
-              >
-                <h1 className="pt-10 text-xl">{events.title}</h1>
-              </motion.h1>
-              <img className="py-16 w-60" src={events.img} alt="" />
-              <motion.p
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.5 }}
-                viewport={{ once: true }}
-                className="text-sm font-light w-220 text-primary-2"
-              >
-                <p>{events.event}</p>
-              </motion.p>
-              <div className="pt-12">
-                <button className="px-5 py-2 text-base duration-300 ease-in-out bg-primary-1 text-light-1 hover:opacity-60">{events.button}</button>
-              </div>
+      <div className="grid w-full grid-cols-1 gap-8 px-4 pl-20 md:grid-cols-2 lg:grid-cols-4">
+        {event.map((events) => (
+          <div className="py-3" key={events.title}>
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+              viewport={{ once: true }}
+              className="text-left text-primary-1 w-220"
+            >
+              <h1 className="pt-10 text-xl">{events.title}</h1>
+            </motion.h1>
+            <img className="py-16 w-60" src={events.img} alt="" />
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+              viewport={{ once: true }}
+              className="text-sm font-light w-220 text-primary-2"
+            >
+              <p>{events.event}</p>
+            </motion.p>
+            <div className="pt-12">
+              <button className="px-5 py-2 text-base duration-300 ease-in-out bg-primary-1 text-light-1 hover:opacity-60">{events.button}</button>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        ))}
+      </div>
 
       <Slider className="max-w-fit" slides={imgSlides} parentClassName="!h-100" setCurrentIndex={setIndex} currentIndex={index} column-2>
         <div className="columns-3">
