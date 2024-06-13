@@ -1,10 +1,23 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { About, Events, Home, Involved, Team, Workshop, Resource, Donate, Ecopedia, Chapters, Cart } from "./pages";
+import { About, Events, Home, Involved, Team, Workshop, Resource, Donate, Ecopedia, Chapters, Cart, Merch } from "./pages";
 
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
 import NotFound from "./pages/notFoundPage/NotFound";
 
-import { EditEvents, EditWorkshop, EventsDashboard, PostEvents, PostWorkshop, WorkshopDashboard } from "./pages/dashboardPage";
+import {
+  EcopediaDashboard,
+  EditEcopedia,
+  EditEvents,
+  EditGallery,
+  EditWorkshop,
+  EventsDashboard,
+  GalleryDashboard,
+  PostEcopedia,
+  PostEvents,
+  PostGallery,
+  PostWorkshop,
+  WorkshopDashboard,
+} from "./pages/dashboardPage";
 
 const App = () => {
   return (
@@ -20,11 +33,19 @@ const App = () => {
         <Route path="/workshop" element={<Workshop />} />
         <Route path="/ecopedia" element={<Ecopedia />} />
         <Route path="/resource" element={<Resource />} />
+        <Route path="/merch" element={<Merch />} />
         <Route path="/cart" element={<Cart />} />
 
+        <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<AdminLogin />} />
 
-        <Route path="*" element={<NotFound />} />
+        <Route path="/dashboard/ecopedia" element={<EcopediaDashboard />} />
+        <Route path="/dashboard/ecopedia/edit" element={<EditEcopedia />} />
+        <Route path="/dashboard/ecopedia/post" element={<PostEcopedia />} />
+
+        <Route path="/dashboard/gallery" element={<GalleryDashboard />} />
+        <Route path="/dashboard/gallery/edit" element={<EditGallery />} />
+        <Route path="/dashboard/gallery/post" element={<PostGallery />} />
 
         <Route path="/dashboard/workshop" element={<WorkshopDashboard />} />
         <Route path="/dashboard/workshop/edit" element={<EditWorkshop />} />

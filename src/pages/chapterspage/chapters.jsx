@@ -2,10 +2,11 @@ import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import HeroSectionImage from "../../assets/gwfbandung-image/HeroSectionImg.png";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-export default function Chapters() {
+const Chapters = () => {
   return (
-    <div>
+    <>
       <Navbar />
       {/* Hero Section */}
       <div className="items-center justify-center w-screen lg:grid lg:grid-cols-2">
@@ -50,29 +51,35 @@ export default function Chapters() {
           >
             @greenwelfare.bdg
           </motion.a>
-          <motion.button
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5 }}
-            viewport={{ once: true }}
-            className="w-5/6 h-12 mb-8 text-sm font-light transition duration-500 ease-in-out rounded-none bg-primary-1 lg:w-300 text-light-1 hover:cursor-pointer hover:bg-opacity-70 "
-          >
-            Donate to GWF Bandung
-          </motion.button>
-          <motion.button
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5 }}
-            viewport={{ once: true }}
-            className="w-5/6 h-12 text-sm font-light transition duration-500 ease-in-out border rounded-none lg:w-300 text-primary-1 border-primary-1 hover:cursor-pointer hover:bg-primary-1 hover:text-light-1"
-          >
-            Meet the People behind GWF Bandung
-          </motion.button>
+          <Link to="/ecopediaDashboard">
+            <motion.button
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+              viewport={{ once: true }}
+              className="w-5/6 h-12 mb-8 text-sm font-light transition duration-500 ease-in-out rounded-none bg-primary-1 lg:w-300 text-light-1 hover:cursor-pointer hover:bg-opacity-70 "
+            >
+              Donate to GWF Bandung
+            </motion.button>
+          </Link>
+
+          <Link to="/galleryDashboard">
+            <motion.button
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+              viewport={{ once: true }}
+              className="w-5/6 h-12 text-sm font-light transition duration-500 ease-in-out border rounded-none lg:w-300 text-primary-1 border-primary-1 hover:cursor-pointer hover:bg-primary-1 hover:text-light-1"
+            >
+              Meet the People behind GWF Bandung
+            </motion.button>
+          </Link>
         </div>
         <img src={HeroSectionImage} alt="Hero Section Image" className="hidden lg:inline-block min-h-[600px]" />
       </div>
       {/* Footer */}
       <Footer />
-    </div>
+    </>
   );
-}
+};
+export default Chapters;

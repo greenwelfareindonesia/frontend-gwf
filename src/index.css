@@ -39,4 +39,10 @@ input[type="file"]::file-selector-button:hover {
   .sidebar-menu {
     @apply flex items-center p-2 text-sm text-gray-300 rounded-md cursor-pointer hover:bg-primary-1 gap-x-4;
   }
+  
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-align: center;
+    transform: rotate(180deg);
+  }
 }

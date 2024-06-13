@@ -63,7 +63,7 @@ export default function Team() {
   ]);
 
   return (
-    <div>
+    <>
       <Navbar />
       {/* Founding Members */}
       <section className="flex items-center justify-center grid-cols-4 space-x-16 bg-primary-1 pt-28 pb-28 min-h-600 text-light-1">
@@ -212,6 +212,6 @@ export default function Team() {
       </section>
 
       <Footer />
-    </div>
+    </>
   );
 }

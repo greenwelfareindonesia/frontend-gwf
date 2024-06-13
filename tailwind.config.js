@@ -8,6 +8,11 @@ export default withMT({
   ],
   theme: {
     extend: {
+      verticalText: {
+        writingMode: "vertical-rl",
+        textAlign: "center",
+        transform: "rotate(180deg)",
+      },
       zIndex: {
         1: "1",
         5: "5",
@@ -31,6 +36,7 @@ export default withMT({
         220: "220px",
         300: "300px",
         400: "400px",
+        490: "490px",
         500: "500px",
         550: "550px",
         600: "600px",
@@ -44,6 +50,7 @@ export default withMT({
         140: "140px",
         111: "111px",
         200: "200px",
+        280: "280px",
         300: "300px",
         400: "400px",
         500: "500px",
