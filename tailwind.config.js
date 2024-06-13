@@ -8,6 +8,11 @@ export default withMT({
   ],
   theme: {
     extend: {
+      verticalText: {
+        writingMode: 'vertical-rl',
+        textAlign: 'center',
+        transform: 'rotate(180deg)',
+      },
       zIndex: {
         1: "1",
         5: "5",
@@ -20,6 +25,7 @@ export default withMT({
       width: {
         300: "300px",
         400: "400px",
+        490: "490px",
         500: "500px",
         550: "550px",
         600: "600px",
@@ -29,6 +35,7 @@ export default withMT({
       minHeight: {
         "custom-header": "calc(100vh - 88px)",
         200: "200px",
+        280: "280px",
         300: "300px",
         400: "400px",
         500: "500px",
@@ -49,6 +56,7 @@ export default withMT({
         "primary-2": "#3E3E08",
         "light-1": "#ffffff",
         "light-2": "#bfbfbf",
+        "button-1": "#ECECE6",
         dark: "#313335",
       },
     },

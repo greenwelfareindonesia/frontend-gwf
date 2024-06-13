@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import DashboardSection from "../../../layouts/dashboard_section/Template";
 import { NavLink } from "react-router-dom";
 import image1 from "../../../assets/dashboard-image/Rectangle7.svg";
@@ -6,6 +6,30 @@ import image2 from "../../../assets/dashboard-image/Rectangle8.svg";
 import editIcon from "../../../assets/icons/edit_icon.svg";
 import deleteIcon from "../../../assets/icons/delete_icon.svg";
 import postFoto from "../../../assets/icons/postFoto_icon.svg";
+import questionPerson from "../../../assets/icons/icon_questionperson.svg";
+import closeIcon from "../../../assets/icons/close_icon.svg";
+
+// Define the Modal within the same file
+const Modal = ({ isOpen, onClose, onConfirm }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+      <div className="bg-white p-12 rounded-lg shadow-lg w-700 h-96 flex flex-col justify-center items-center">
+      <button onClick= {onClose} className="ml-[575px] bg-transparent border-none">
+      <img src={closeIcon} alt="Close" />
+       </button>
+        <h1 className="text-center text-primary-2 text-2xl font-bold">Apakah Kamu Yakin akan Menghapus</h1>
+        <h1 className="text-center text-primary-2 text-2xl font-bold mb-4">Postingan?</h1>
+        <img src={questionPerson} style={{ width: "200px", height: "200px" }}></img>
+        <div className="flex justify-center">
+          <button onClick={onClose} className="bg-primary-2 text-white font-semibold py-2 px-20 rounded mr-4">Batal</button>
+          <button onClick={onConfirm} className="mr-4 bg-white text-primary-2 font-semibold py-2 px-20 rounded border border-primary-2">Hapus</button>
+        </div> 
+      </div>
+    </div>
+  );
+};
 
 const articles = [
   {
@@ -33,6 +57,24 @@ const articles = [
 ];
 
 const GalleryPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedArticle, setSelectedArticle] = useState(null);
+
+  const openModal = (article) => {
+    setSelectedArticle(article);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleDelete = () => {
+    console.log("Delete Article:", selectedArticle);
+    // Handle the deletion logic here
+    setIsModalOpen(false);
+  };
+
   return (
     <DashboardSection titleField="Gallery">
       <NavLink to="/addGallery"> 
@@ -71,16 +113,17 @@ const GalleryPage = () => {
                   <button className="bg-transparent border-none p-0 mr-4" onClick={() => console.log("Edit button clicked")}>
                     <img src={editIcon} alt="Edit" />
                   </button>
-                  <button className="bg-transparent border-none p-0" onClick={() => console.log("Delete button clicked")}>
+                  </NavLink>
+                  <button className="bg-transparent border-none p-0" onClick={() => openModal(article)}>
                     <img src={deleteIcon} alt="Delete" />
                   </button>
-                </NavLink>
               </td>
               <td></td>
             </tr>
           ))}
         </tbody>
       </table>
+      <Modal isOpen={isModalOpen} onClose={closeModal} onConfirm={handleDelete} />
     </DashboardSection>
   );
 };

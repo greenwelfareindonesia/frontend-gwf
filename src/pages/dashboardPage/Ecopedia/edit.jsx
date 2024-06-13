@@ -1,12 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import DashboardSection from "../../../layouts/dashboard_section/Template";
 import closeIcon from "../../../assets/icons/close_icon.svg";
 import image1 from "../../../assets/dashboard-image/Rectangle7.svg";
 
 const EcopediaPageEdit = () => {
+  const navigate = useNavigate();  // Initialize useNavigate hook
+
+  const handleBack = () => {
+    navigate('/ecopediaDashboard/*');  // Use navigate with -1 to go back to the previous page
+  };
+
   return (
     <DashboardSection titleField="Edit Post">
-    <button className="absolute top-0 right-0 mt-24 mr-9 bg-transparent border-none">
+    <button onClick= {handleBack} className="absolute top-0 right-0 mt-24 mr-9 bg-transparent border-none">
     <img src={closeIcon} alt="Close" />
     </button>
     <div className="text-xl font-bold  text-primary-1 mb-4">Judul</div>
