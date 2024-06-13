@@ -125,41 +125,50 @@ export default function Team() {
 
       {/* Board of Director */}
       <section className="bg-primary-1 flex pt-28 pb-28 min-h-600 grid-cols-4 space-x-16 justify-center items-center text-light-1 relative">
-        <div className="w-8 h-96 text-6xl p-4 mr-16 absolute left-0">Board of Director</div>
+       <div className="w-8 h-96 text-6xl p-4 mr-16 absolute left-0">Board of Director</div>
 
-        <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear"></div>
-        <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative">
-          <img src={foundingLeft} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
-          <div className="absolute inset-0 flex items-center justify-center bg-transparent transition-all duration-300 ease-linear">
-            <div className="vertical-text flex items-center justify-center"></div>
-            <p className="m-0">Afifah Vanya</p>
-          </div>
-          <div className="text-center text-white hidden hover:block absolute bottom-0 w-full pb-2">
-            <p className="m-0">Afifah Vanya</p>
-            <p className="m-0">Jabatan</p>
-          </div>
-        </div>
-
-        <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative">
-          <img src={foundingMiddle} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
-          <p className="">Raihan Alfarisi</p>
-          <p>Technology</p>
-        </div>
-        <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative">
-          <img src={foundingRight} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
-          <p>Afifah Vanya</p>
-          <p className="">Jabatan</p>
-        </div>
-        <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative">
-          <img src={foundingRight} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
-          <p>Ayundha Sachi</p>
-          <p className="">Jabatan</p>
-        </div>
-        <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative">
-          <img src={foundingRight} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
-          <p>Bartholomew Jordan</p>
-          <p className="">Jabatan</p>
-        </div>
+       <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear">        
+         </div>
+         <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative group">
+           <img src={foundingLeft} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
+           <div className="absolute inset-0 flex items-center justify-center bg-transparent transition-all duration-300 ease-linear">
+             <span className = "text-white font-semibold -rotate-90 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-0">Afifah Vanya</span>
+             <span className="absolute text-white font-semibold opacity-0 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-100">Afifah Vanya</span>
+             <span className="absolute mt-14 text-white font-semibold opacity-0 whitespace-nowrap text-2xl tracking-wider transition-opacity duration-300 group-hover:opacity-100"> Jabatan </span>
+           </div>
+         </div>
+         <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative group">
+           <img src={foundingMiddle} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>  
+            <div className="absolute inset-0 flex items-center justify-center bg-transparent transition-all duration-300 ease-linear">        
+             <span className = "text-white font-semibold -rotate-90 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-0">Afifah Vanya</span>
+             <span className="absolute text-white font-semibold opacity-0 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-100">Afifah Vanya</span>
+             <span className="absolute mt-14 text-white font-semibold opacity-0 whitespace-nowrap text-2xl tracking-wider transition-opacity duration-300 group-hover:opacity-100"> Jabatan </span>
+           </div>  
+         </div>
+         <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative">
+           <img src={foundingRight} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
+           <div className="absolute inset-0 flex items-center justify-center bg-transparent transition-all duration-300 ease-linear group">        
+             <span className = "text-white font-semibold -rotate-90 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-0">Afifah Vanya</span>
+             <span className="absolute text-white font-semibold opacity-0 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-100">Afifah Vanya</span>
+             <span className="absolute mt-14 text-white font-semibold opacity-0 whitespace-nowrap text-2xl tracking-wider transition-opacity duration-300 group-hover:opacity-100"> Jabatan </span>
+           </div>
+         </div>
+         <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative">
+           <img src={foundingRight} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
+           <div className="absolute inset-0 flex items-center justify-center bg-transparent transition-all duration-300 ease-linear group">        
+           <span className = "text-white font-semibold -rotate-90 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-0">Afifah Vanya</span>
+             <span className="absolute text-white font-semibold opacity-0 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-100">Afifah Vanya</span>
+             <span className="absolute mt-14 text-white font-semibold opacity-0 whitespace-nowrap text-2xl tracking-wider transition-opacity duration-300 group-hover:opacity-100"> Jabatan </span>
+           </div>
+         </div>
+         <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative">
+           <img src={foundingRight} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
+           <div className="absolute inset-0 flex items-center justify-center bg-transparent transition-all duration-300 ease-linear group">        
+           <span className = "text-white font-semibold -rotate-90 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-0">Afifah Vanya</span>
+             <span className="absolute text-white font-semibold opacity-0 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-100">Afifah Vanya</span>
+             <span className="absolute mt-14 text-white font-semibold opacity-0 whitespace-nowrap text-2xl tracking-wider transition-opacity duration-300 group-hover:opacity-100"> Jabatan </span>
+           </div>
+         </div>
       </section>
 
       <Footer />

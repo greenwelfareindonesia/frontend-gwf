@@ -18,6 +18,9 @@ import plus_icon_cart from "./plus-icon-cart.png";
 import minus_icon_cart from "./minus-icon-cart.png";
 import tumbler from "./tumbler1.png";
 import upload_QShqflcTLk from "./cloud-icon/https_/lottiefiles.com/animations/upload-QShqflcTLk.png";
+import date_icon from "./date-icon/white/date.png";
+import location_icon from "./location-icon/white/location.png";
+import donate_icon from "./donate-needed-icon/white/donate.png";
 
 export {
   gwf_dashboard_icon,
@@ -40,4 +43,7 @@ export {
   minus_icon_cart,
   tumbler,
   upload_QShqflcTLk,
+  date_icon,
+  location_icon,
+  donate_icon,
 };
