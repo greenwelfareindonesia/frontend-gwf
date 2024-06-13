@@ -8,16 +8,14 @@ export const navContent = [
     ],
     path: "/about",
   },
-  { name: "Get Involved", path: "/involved" },
-  { name: "Events", path: "/events" },
-  { name: "Make a Donation", path: "/donate" },
-  { name: "Workshop & Classes", path: "/workshop" },
   {
-    name: "More",
+    name: "Get Involved",
     content: [
-      { name: "Contact", path: "/contact" },
-      { name: "Eco-pedia", path: "/ecopedia" },
-      { name: "Resource Hub", path: "/resource" },
+      { name: "Events", path: "/event" },
+      { name: "Donation", path: "/donate" },
     ],
+    path: "/involved",
   },
+  { name: "Resource Hub", path: "/resource" },
+  { name: "Eco-pedia", path: "/ecopedia" },
 ];

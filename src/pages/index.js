@@ -1,5 +1,4 @@
 import About from "./aboutpage/About";
-import Contact from "./contactpage/Contact";
 import Donate from "./donatepage/Donate";
 import Ecopedia from "./ecopediapage/Ecopedia";
 import Cart from "./ecopediapage/Cart";
@@ -11,4 +10,4 @@ import Resource from "./resourcepage/Resource";
 import Team from "./teampage/Team";
 import Workshop from "./workshoppage/Workshop";
 
-export { Ecopedia, Resource, About, Home, Involved, Chapters, Team, Events, Contact, Donate, Workshop, Cart };
+export { Ecopedia, Resource, About, Home, Involved, Chapters, Team, Events, Donate, Workshop, Cart };

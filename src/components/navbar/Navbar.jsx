@@ -26,13 +26,13 @@ const Navbar = () => {
     >
       {navContent.map((item, index) => (
         <li key={index} className="relative block p-1 text-sm group">
-          <Link to={item.path} className={`flex items-center duration-500 hover:text-primary-2 text-dark whitespace-nowrap`}>
+          <Link to={item.path} className="flex items-center duration-500 hover:text-primary-2 text-dark whitespace-nowrap">
             {item.name}
           </Link>
           {item?.content?.length > 1 && (
-            <div className="absolute z-30 hidden w-32 px-2 py-4 space-y-1 shadow-lg -left-1/2 bg-light-1 group-hover:block">
+            <div className="absolute left-0 z-30 hidden w-24 px-2 py-4 space-y-1 bg-light-1 group-hover:block">
               {item.content.map((item, index) => (
-                <Link key={index} to={item.path} className={`flex items-center duration-300 hover:text-primary-2 text-dark`}>
+                <Link key={index} to={item.path} className="flex items-center duration-300 hover:text-primary-2 text-dark">
                   {item.name}
                 </Link>
               ))}
