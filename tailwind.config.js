@@ -67,6 +67,7 @@ export default withMT({
         "filter-3": "#31333550",
         "filter-4": "#3B3F5C",
         "filter-5": "#A6A68D",
+        "filter-6": "#ECECE6",
         "primary-1": "#5F5E36",
         "primary-2": "#3E3E08",
         "light-1": "#ffffff",
