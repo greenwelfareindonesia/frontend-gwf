@@ -116,12 +116,16 @@ export default function MerchDetail() {
                         </p>
 
                         <div>
-                            <p className="pl-5 pt-6 text-primary-2 text-xl font-bold">Colors</p>
+                            <div className="flex items-center">
+                                <p className="pl-5 pt-6 text-primary-2 text-xl font-bold">Colors</p>
+                                {(selectedColor === 'grey' || selectedColor === 'blue') && (<p className="pl-56 pt-6 text-red-500 text-lg">in stock</p>)}
+                                {selectedColor === 'green' && (<p className="pl-52 pt-6 text-red-500 text-lg">low stock</p>)}
+                            </div>
                             <div className="flex mt-3 pl-5">
                                 <button
-                                className={`w-28 h-28 flex items-center justify-center rounded-md ${selectedColor === 'grey' ? '' : ''}`}
-                                onClick={() => handleColorSelect('grey')}>
-                                <img src={selectedColor === 'grey' ? colorGreyHover : colorGrey} alt="color grey" className="w-28 h-28" />
+                                    className={`w-28 h-28 flex items-center justify-center rounded-md ${selectedColor === 'grey' ? '' : ''}`}
+                                    onClick={() => handleColorSelect('grey')}>
+                                    <img src={selectedColor === 'grey' ? colorGreyHover : colorGrey} alt="color grey" className="w-28 h-28" />
                                 </button>
                                 <button
                                 className={`w-28 h-28 flex items-center justify-center rounded-md ml-3 ${selectedColor === 'blue' ? '' : ''}`}
@@ -138,7 +142,11 @@ export default function MerchDetail() {
 
                     
                         <div>
-                            <p className="pl-5 pt-6 text-primary-2 text-xl font-bold">Size</p>
+                            <div className="flex items-center">
+                                <p className="pl-5 pt-6 text-primary-2 text-xl font-bold">Size</p>
+                                {selectedSize === '650 ml' && (<p className="pl-56 pt-6 text-red-500 text-lg">low stock</p>)}
+                                {(selectedSize === '300 ml' || selectedSize === '250 ml') && (<p className="pl-60 pt-6 text-red-500 text-lg">in stock</p>)}
+                            </div>
                             <div className="flex mt-3 pl-5">
                                 <button
                                     className={`w-28 h-12 bg-gray-200 mr-3 rounded-md ${selectedSize === '650 ml' ? 'font-bold' : ''}`}
@@ -175,11 +183,13 @@ export default function MerchDetail() {
                                 </button>
                                 <p className="mx-4 text-xl font-bold">{quantity}</p>
                                 <button
-                                    className="flex items-center justify-center ml-3"
+                                    className="flex items-center justify-center"
                                     onClick={handleIncrease}
                                     disabled={!selectedColor || !selectedSize}>
                                     <img src={tambahPesanan} alt="tambah Pesanan" className="w-10 h-10"/>
                                 </button>
+                                {(selectedColor && selectedSize) && (selectedColor !== 'green' || selectedSize !== '650 ml') && (<p className="pl-10 text-primary-2 text-lg">Stok tersedia: 25</p>)}
+                                {(selectedColor === 'green' && selectedSize === '650 ml') && (<p className="pl-10 text-red-500 text-lg">Stok hanya tersisa 5</p>)}
                             </div>
                         </div>
 
