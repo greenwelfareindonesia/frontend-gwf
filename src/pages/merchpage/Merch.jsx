@@ -4,14 +4,17 @@ import Navbar from "../../components/navbar/Navbar";
 import Card from "../../components/card/index";
 import header_merch from "../../assets/image/header_merch.png";
 import image_merch from "../../assets/image/image_merch.png";
-import keranjang_merch from "../../assets/icons/keranjang_merch.png";
 import tambahkeranjang_merch from "../../assets/icons/tambahkeranjang_merch.png";
+import berhasilditambahkan from "../../assets/image/berhasilditambahkan.png";
 
 export default function Merch() {
     const [cartItemCount, setCartItemCount] = useState(0);
+    const [showMessage, setShowMessage] = useState(false);
 
     const handleAddToCart = () => {
         setCartItemCount(cartItemCount + 1);
+        setShowMessage(true);
+        setTimeout(() => setShowMessage(false), 2000); // Sembunyikan pesan setelah 2 detik
     };
 
     const merchs = [
@@ -88,6 +91,15 @@ export default function Merch() {
                     )}
                 </button>
             </div>
+            
+            {showMessage && (
+                <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="w-96">
+                        <img src={berhasilditambahkan} alt="Berhasil Ditambahkan" />
+                    </div>
+                </div>
+            )}
+
             <Footer />
         </div>
     );

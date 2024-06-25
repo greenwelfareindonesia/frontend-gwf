@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { About, Events, Contact, Home, Involved, Team, Workshop, Resource, Donate, Ecopedia, Chapters, Merch } from "./pages";
+import { About, Events, Contact, Home, Involved, Team, Workshop, Resource, Donate, Ecopedia, Chapters, Merch, MerchDetail, MerchDetailLogin} from "./pages";
 
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
 import NotFound from "./pages/notFoundPage/NotFound";
@@ -33,6 +33,8 @@ const App = () => {
         <Route path="/addGallery" element={<GalleryPageAdd />} />
         <Route path="/editGallery" element={<GalleryPageEdit />} />
         <Route path="/merch" element={<Merch />} />
+        <Route path="/merchDetail" element={<MerchDetail />} />
+        <Route path="/merchDetailLogin" element={<MerchDetailLogin />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
