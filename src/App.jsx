@@ -59,7 +59,6 @@ const App = () => {
         <Route path="/dashboard/workshop/post" element={<PostWorkshop />} />
         <Route path="/dashboard/donatur-transaction/edit" element={<EditDonaturTransaction />} />  
         <Route path="/dashboard/donatur-transaction/post" element={<PostDonaturTransaction />} />
-        
 
         {/* skripsi */}
 
