@@ -10,5 +10,11 @@ import Resource from "./resourcepage/Resource";
 import Team from "./teampage/Team";
 import Workshop from "./workshoppage/Workshop";
 import Merch from "./merchpage/Merch";
+import Order from "./merchpage/Ordersummary"
+import PaymentDonation from "./payment/PaymentDonation";
+import PaymentMerch from "./payment/PaymentMerch";
+import VaNumber from "./payment/VaNumber";
+import MerchDetail from "./merchpage/Detail";
 
-export { Ecopedia, Resource, About, Home, Involved, Chapters, Team, Events, Cart, Donate, Workshop, Merch };
+
+export { Ecopedia, Resource, About, Home, Involved, Chapters, Team, Events, Cart, Donate, Workshop, Merch, MerchDetail, Order, PaymentDonation, PaymentMerch, VaNumber};

@@ -3,7 +3,7 @@ import DashboardSection from "../../../layouts/dashboard_section/Template";
 import cameraIcon from "../../../assets/icons/camera_icon.svg";
 import closeIcon from "../../../assets/icons/close_icon.svg";
 
-const PostEcopedia = () => {
+const DonaturTransaction = () => {
   const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleBack = () => {
@@ -16,9 +16,14 @@ const PostEcopedia = () => {
         <img src={closeIcon} alt="Close" />
       </button>
       <div className="mb-4 text-xl font-bold text-primary-2">Judul</div>
-      <input className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm" placeholder="Tulis judul disini" />
+      <input className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 focus:outline-nonesm:text-sm" placeholder="Tulis judul disini" />
+      <div className="mb-4 text-xl font-bold text-primary-2">Judul Event</div>
+      <input className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 focus:outline-none sm:text-sm" placeholder="Event 1" />
       <div className="mb-4 text-xl font-bold text-primary-2">Deskripsi</div>
-      <input className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm" placeholder="Tulis deskripsi disini" />
+      <input
+        className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 focus:outline-none sm:text-sm"
+        placeholder="Tulis deskripsi disini"
+      />
       <div className="flex flex-col flex-1 py-2">
         <p className="my-2 text-xl font-bold text-primary-2">Add Photo</p>
         <label
@@ -34,11 +39,11 @@ const PostEcopedia = () => {
       </div>
 
       {/* Container for the button */}
-      <div className="flex justify-center mt-16">
+      <div className="flex justify-center mt-10">
         <button className="py-2 font-semibold text-white rounded bg-primary-2 px-96">Post Event</button>
       </div>
     </DashboardSection>
   );
 };
 
-export default PostEcopedia;
+export default DonaturTransaction;

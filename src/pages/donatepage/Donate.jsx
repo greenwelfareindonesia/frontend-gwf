@@ -24,52 +24,8 @@ export default function Donate() {
             time. Support us!
           </p>
         </div>
-        <div className="flex flex-col items-center justify-center gap-20 mb-16 lg:flex-row">
-          <div className="flex flex-col items-center w-full space-y-8">
-            <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2 }}
-              viewport={{ once: true }}
-              className="text-xl text-center text-primary-1"
-            >
-              Donate through Bank Transfer
-            </motion.h1>
-            <motion.h4
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2 }}
-              viewport={{ once: true }}
-              className="text-[#3E3E08] text-center font-light"
-            >
-              Bank Central Asia (BCA)
-            </motion.h4>
-            <Button>Click Here</Button>
-          </div>
-          <div className="flex flex-col items-center w-full space-y-8">
-            <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2 }}
-              viewport={{ once: true }}
-              className="text-xl text-center text-primary-1"
-            >
-              Donate through E-Wallets
-            </motion.h1>
-            <motion.h4
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2 }}
-              viewport={{ once: true }}
-              className="text-[#3E3E08] text-center font-light"
-            >
-              Go-Pay, Ovo, Dana, LinkAja
-            </motion.h4>
-            <Button>Click Here</Button>
-          </div>
-        </div>
+        
 
-        <h1 className="text-xl italic font-semibold text-center underline cursor-pointer">Download Donor Brochure</h1>
       </Container>
       {/* Image Headline */}
       <Background src={DonateBg} className="flex-col gap-16 min-h-800">
@@ -99,8 +55,9 @@ export default function Donate() {
           viewport={{ once: true }}
           className="flex flex-col gap-8 lg:flex-row"
         >
-          <Button intent="white">Explore Merch</Button>
+        <a href="/form-donation">
           <Button intent="secondary">Donate Instead</Button>
+        </a>
         </motion.div>
       </Background>
       {/* Fundings Section */}

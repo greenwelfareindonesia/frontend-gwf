@@ -21,6 +21,7 @@ import upload_QShqflcTLk from "./cloud-icon/https_/lottiefiles.com/animations/up
 import date_icon from "./date-icon/white/date.png";
 import location_icon from "./location-icon/white/location.png";
 import donate_icon from "./donate-needed-icon/white/donate.png";
+import logout_icon from "./logout-icon.png"
 
 export {
   gwf_dashboard_icon,
@@ -46,4 +47,5 @@ export {
   date_icon,
   location_icon,
   donate_icon,
+  logout_icon,
 };
