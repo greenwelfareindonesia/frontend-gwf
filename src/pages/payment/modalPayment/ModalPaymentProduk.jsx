@@ -16,7 +16,7 @@ const customStyles = {
   },
 };
 
-export default function ModalPayment({
+export default function ModalPaymentProduct({
   modalIsOpen,
   setIsOpen,
   saveRespMidtrans,
@@ -55,7 +55,7 @@ export default function ModalPayment({
 
   const fetchProducts = async () => {
     try { 
-      const response = await API.get(`/payments/${orderID}`, {
+      const response = await API.get(`/payment/${orderID}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -111,8 +111,9 @@ export default function ModalPayment({
               saveRespMidtrans.va_numbers.map((item, index) => (
                 <div key={index} className="font-semibold text-2xl">{item?.bank.toUpperCase()}</div>
               ))}
-<div>Note: Please be aware that refreshing the page will require you to place your order again. Thank you for your understanding!</div>
-<hr className="border-t-1 border-gray-500 w-full" />
+              <div>Note: Please be aware that refreshing the page will require you to place your order again. Thank you for your understanding!</div>
+
+            <hr className="border-t-1 border-gray-500 w-full" />
             <div className="text-lg">
               Complete payment from BCA to the virtual account number below.
             </div>

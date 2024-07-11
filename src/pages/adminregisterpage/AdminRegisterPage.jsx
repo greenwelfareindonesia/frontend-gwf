@@ -18,6 +18,7 @@ export default function AdminRegister() {
     Password: "",
     isChecked: false,
   });
+  const [successMessage, setSuccessMessage] = React.useState(""); // State variable for success message
 
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate()
@@ -34,7 +35,7 @@ export default function AdminRegister() {
     }
   
     try {
-      const response = await fetch('http://localhost:8080/api/user/register', {
+      const response = await fetch('https://servicegwf-production.up.railway.app/api/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -49,6 +50,7 @@ export default function AdminRegister() {
       if (response.ok) {
         // Handle successful registration
         console.log('Registration successful');
+        setSuccessMessage("Account successfully registered!"); // Update success message
         navigate("/login")
       } else {
         // Handle registration failure
@@ -67,6 +69,9 @@ export default function AdminRegister() {
         <div className="relative flex flex-col items-center justify-center px-8 py-8 mx-auto overflow-hidden duration-300 bg-white sm:px-24 rounded-3xl">
           <img src={gwficon} alt="gwf logo" className="absolute top-0 left-0 hidden sm:block" />
           <h2 className="text-xl font-semibold text-center text-primary-2">Welcome GWF Team!</h2>
+          {successMessage && (
+            <div className="mb-4 text-green-600">{successMessage}</div> // Conditionally render success message
+          )}
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full my-8 space-y-4 sm:w-72">
             <Input
               required

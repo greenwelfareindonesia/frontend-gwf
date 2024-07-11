@@ -13,6 +13,7 @@ const EditMerch = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
+  const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState("");
 
   useEffect(() => {
@@ -27,6 +28,7 @@ const EditMerch = () => {
         setName(product.name);
         setPrice(product.price);
         setStock(product.stock);
+        setDescription(product.description);
         if (product.file_names && product.file_names.length > 0) {
           setPhoto(product.file_names[0]); // Set the first image as the photo
         }
@@ -49,6 +51,7 @@ const EditMerch = () => {
       name,
       price: parseInt(price),
       stock: parseInt(stock),
+      description,
     };
 
     try {
@@ -96,6 +99,13 @@ const EditMerch = () => {
           placeholder="Stock"
           value={stock}
           onChange={(e) => setStock(e.target.value)}
+        />
+        <div className="mb-4 text-xl font-bold text-primary-1">Description</div>
+        <input
+          className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm"
+          placeholder="Your Product Name"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
 
         <div className="flex flex-col flex-1 py-2">

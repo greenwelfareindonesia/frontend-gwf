@@ -14,6 +14,7 @@ const PaymentDonation = () => {
   const { makeDonationID } = useParams();
   const [saveRespMidtrans, setSaveRespMidtrans] = useState(null);
   const [modalIsOpen, setIsOpen] = useState(false);
+  
 
   const handlePayment = async () => {
     if (!selectedBank) {
@@ -45,8 +46,7 @@ const PaymentDonation = () => {
     <div className="my-4 text-center border-2 border-filter-5 w-[60%] m-auto p-5 rounded-xl space-y-4 bg-[#F4F7F9]">
       <div className=" text-2xl font-bold">Enter Your Payment Details</div>
       <div className="bg-[#F4F7F9] text-[20px]">
-        <div>Total Price</div>
-        <div>20.000</div>
+        
       </div>
       <div className="font-bold text-[20px]">Bank Virtual Account</div>
       <div className="flex flex-col gap-5 items-center justify-center">
@@ -121,7 +121,7 @@ const PaymentDonation = () => {
           Submit
         </button>
       </div>
-      <ModalPayment modalIsOpen={modalIsOpen} setIsOpen={true} saveRespMidtrans={saveRespMidtrans} />
+      <ModalPayment modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} saveRespMidtrans={saveRespMidtrans} orderID={makeDonationID} />
     </div>
   );
 };

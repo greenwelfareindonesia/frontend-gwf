@@ -62,7 +62,7 @@ const DonaturTransactionDashboard = () => {
     const fetchDonations = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8080/api/payments/",
+          "https://servicegwf-production.up.railway.app/api/payments/",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

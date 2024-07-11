@@ -26,7 +26,7 @@ const OrderSummary = () => {
 
   // Fetch provinces
   useEffect(() => {
-    fetch("http://localhost:8080/api/raja-ongkir/provinces")
+    fetch("https://servicegwf-production.up.railway.app/api/raja-ongkir/provinces")
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 200) {
@@ -39,7 +39,7 @@ const OrderSummary = () => {
   // Fetch cities based on selected province
   const handleProvinceChange = (event) => {
     const provinceId = event.target.value;
-    fetch(`http://localhost:8080/api/raja-ongkir/city/${provinceId}`)
+    fetch(`https://servicegwf-production.up.railway.app/api/raja-ongkir/city/${provinceId}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 200) {
@@ -81,7 +81,7 @@ const OrderSummary = () => {
     setSelectedCourier(courier);
 
     // Calculate shipping fee based on selected city and courier
-    fetch(`http://localhost:8080/api/raja-ongkir/calculate-shipping-fee`, {
+    fetch(`https://servicegwf-production.up.railway.app/api/raja-ongkir/calculate-shipping-fee`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ destination: selectedCityId, courier: courier }),

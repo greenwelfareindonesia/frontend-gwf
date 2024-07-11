@@ -5,30 +5,36 @@ import Button from "../../../components/button";
 import Navbar from '../../../components/navbar/Navbar';
 import Footer from '../../../components/footer/Footer';
 import { useNavigate } from 'react-router-dom';
+import API from '../../../libs/api';
 
 export const FormInputDonation = () => {
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
+    const amount = parseInt(data.amount);
+
+    if (amount < 5000) {
+      alert("Thank you but the amount is less than the minimum required");
+      return;
+    }
+
     const body = {
       ...data,
-      amount: parseInt(data.amount)
+      amount
     };
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch('http://localhost:8080/api/make-donation/', {
-        method: 'POST',
+      const response = await API.post('/make-donation/', body, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(body)
+        }
       });
-
-      if (response.ok) {
-        const result = await response.json();
+      
+      if (response.status === 200) {
+        const result = response.data;
         console.log('Donation successful:', result);
         const makeDonationID = result.data?.ID; // Adjusted path to ID
         if (makeDonationID) {

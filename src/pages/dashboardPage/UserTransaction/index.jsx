@@ -3,9 +3,9 @@ import DashboardSection from "../../../layouts/dashboard_user/Template";
 import API from "../../../libs/api";
 import { MdCircle } from "react-icons/md";
 
-
 const DonaturTransactionDashboard = () => {
   const [payments, setPayments] = useState([]);
+  const [history, setHistory] = useState([]);
 
   useEffect(() => {
     const fetchPayments = async () => {
@@ -16,7 +16,7 @@ const DonaturTransactionDashboard = () => {
           },
         });
         console.log("API Response:", response);
-        console.log("Response Data:", response.data);
+        console.log("Response Data ekspedisi:", response.data);
 
         if (response.data && Array.isArray(response.data.data)) {
           setPayments(response.data.data);
@@ -31,6 +31,32 @@ const DonaturTransactionDashboard = () => {
     };
 
     fetchPayments();
+  }, []);
+
+  useEffect(() => {
+    const fetchHistory = async () => {
+      try {
+        const response = await API.get("/payment/", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        console.log("API Response:", response);
+        console.log("Response Data pay:", response.data);
+
+        if (response.data && Array.isArray(response.data.data)) {
+          setHistory(response.data.data);
+        } else {
+          console.error("Unexpected response data format:", response.data);
+          setHistory([]);
+        }
+      } catch (error) {
+        console.error("Error fetching payments:", error);
+        setHistory([]); // Ensure payments is set to an empty array on error
+      }
+    };
+
+    fetchHistory();
   }, []);
 
   return (
@@ -48,12 +74,12 @@ const DonaturTransactionDashboard = () => {
           </tr>
         </thead>
         <tbody>
-        {payments.map((payment) => (
+          {history.map((payment) => (
             <tr key={payment.ID} className="border-b-1 border-primary-2">
               <td className="p-4">
                 {payment.order.items.map((item) => (
                   <div key={item.ID} className="overflow-hidden flex items-center gap-2">
-                    <MdCircle className="text-[8px]"/>
+                    <MdCircle className="text-[8px]" />
                     <p className="text-sm font-semibold align-text-top">
                       {item.product.name}
                     </p>
@@ -64,31 +90,31 @@ const DonaturTransactionDashboard = () => {
                 {payment.order.items.map((item) => (
                   <div key={item.ID} className="overflow-hidden">
                     <p className="text-sm font-semibold align-text-top">
-                       {item.quantity}
+                      {item.quantity}
                     </p>
                   </div>
                 ))}
               </td>
               <td className="text-sm font-bold text-primary-1 p-4">
                 {payment.order.total_price.toLocaleString("id-ID", {
-                    style: "currency",
-                    currency: "IDR",
-                    minimumFractionDigits: 0,
-                    maximumFractionDigits: 0,
-                  })}
+                  style: "currency",
+                  currency: "IDR",
+                  minimumFractionDigits: 0,
+                  maximumFractionDigits: 0,
+                })}
+              </td>
+              <td className="text-sm font-bold text-primary-1 p-4">
+                {payments.find(p => p.order.id === payment.order.id)?.ongkir.home_address || "not updated yet from admin"}
+              </td>
+              <td className="text-sm font-bold text-primary-1 p-4">
+                {payments.find(p => p.order.id === payment.order.id)?.ongkir.courier || "not updated yet from admin"}
               </td>
               
-              <td className="text-sm font-bold text-primary-1 p-4">
-                {payment.ongkir.home_address}
+              <td className="text-sm font-bold text-primary-1 p-4" key={payment.ID}>
+                {payment.status_payment}
               </td>
               <td className="text-sm font-bold text-primary-1 p-4">
-                {payment.ongkir.courier}
-              </td>
-              <td className="text-sm font-bold text-primary-1 p-4">
-                {payment.payment.status_payment}
-              </td>
-              <td className="text-sm font-bold text-primary-1 p-4">
-                {payment.resi_info}
+                {payments.find(p => p.order.id === payment.order.id)?.resi_info || "tracking info not input yet"}
               </td>
             </tr>
           ))}

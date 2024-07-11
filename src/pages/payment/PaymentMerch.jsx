@@ -6,7 +6,8 @@ import ImageBri from "../../assets/payment-method/bri.png";
 import ImageBni from "../../assets/payment-method/bni.png";
 import API from "../../libs/api";
 import { useParams } from "react-router-dom"
-import ModalPayment from "./modalPayment/ModalPayment";
+// import ModalPayment from "./modalPayment/ModalPayment";
+import ModalPaymentProduct from "./modalPayment/ModalPaymentProduk";
 // const { orderID } = useParams();
 const PaymentMerch = () => {
   const [selectedBank, setSelectedBank] = useState("");
@@ -29,7 +30,7 @@ const PaymentMerch = () => {
 
     try {
       const response = await API.post(
-        `http://localhost:8080/api/payment/${orderID}`,
+        `https://servicegwf-production.up.railway.app/api/payment/${orderID}`,
         data
       );
       setSaveRespMidtrans(response.data)
@@ -50,15 +51,9 @@ const PaymentMerch = () => {
   return (
     <div className="my-4 text-center border-2 border-filter-5 w-[60%] m-auto p-5 rounded-xl space-y-4 bg-[#F4F7F9]">
       <div className=" text-2xl font-bold">Enter Your Payment Details</div>
-      <div className="bg-[#F4F7F9] text-[20px]">
-        <div>Total Price</div>
-        <div>Rp. {saveRespMidtrans?.gross_amount.toLocaleString("id-ID", {
-                    style: "currency",
-                    currency: "IDR",
-                    minimumFractionDigits: 0,
-                    maximumFractionDigits: 0,
-                  })}   </div>
-      </div>
+      {/* <div className="bg-[#F4F7F9] text-[20px]">
+        
+      </div> */}
       <div className="font-bold text-[20px]">Bank Virtual Account</div>
       <div className="flex flex-col gap-5 items-center justify-center">
         <div className="flex justify-center items-center gap-2">
@@ -134,7 +129,7 @@ const PaymentMerch = () => {
           Submit
         </button>
       </div>
-      < ModalPayment  modalIsOpen={modalIsOpen} setIsOpen={true} saveRespMidtrans={saveRespMidtrans} />
+      < ModalPaymentProduct  modalIsOpen={modalIsOpen} setIsOpen={true} saveRespMidtrans={saveRespMidtrans} orderID={orderID} />
     </div>
     
   );

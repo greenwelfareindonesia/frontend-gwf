@@ -83,8 +83,10 @@ export default function MerchDetail() {
       <div className="flex justify-between">
         <div className="flex items-center justify-start pl-14 w-[50%]">
           {/* Content for the left side */}
-          <div>
-            <img src={image_merch} alt="Image Merch" className="w-600 mt-16" />
+          <div className="flex flex-col justify-center m-auto items-center">
+          <td>{product.file_names && <img src={product.file_names[0]} alt="" className="w-500 mt-16 " />}</td>
+
+            {/* <img src={product.file_name[0]} alt="Image Merch" className="w-600 mt-16" /> */}
 
             <p className="mt-14 text-5xl font-bold">SAVE MUCH, SAVE SMART!</p>
           </div>

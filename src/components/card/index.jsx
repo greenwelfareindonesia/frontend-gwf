@@ -43,6 +43,7 @@ export default function index({ product, onAddToCart }) {
       </Link>
       <div className="flex justify-between items-center">
         <div>
+       
           <h2 className="text-[16px] h-14">{product.productname}</h2>
           <h2 className="font-semibold text-lg">{formattedPrice}</h2>
         </div>

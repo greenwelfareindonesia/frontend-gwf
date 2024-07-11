@@ -1,7 +1,30 @@
 import React from "react";
 import Logo from "../../assets/gwf.png";
+import { useParams } from "react-router-dom";
+
+
 
 const VaNumber = () => {
+  const [products, setProducts] = useState("");
+  const [selectedProduk, setSelectedProduk] = useState(null); // State for selected payment
+  const { orderID } = useParams();
+
+
+
+  const fetchProducts = async () => {
+    console.log("tes")
+    try {
+      const response = await API.get(`/payments/${orderID}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error("Failed to fetch products", error);
+    }
+  };
+
   return (
     <div className="my-4 text-center border-2 border-filter-5 w-[30%] m-auto p-5 rounded-xl space-y-4 ">
       <div className="text-left space-y-4">
@@ -32,7 +55,7 @@ const VaNumber = () => {
             <div className="text-blue-gray-500">Copy</div>
           </button>
         </div>
-        <button className="p-2 bg-green-600 hover:bg-green-800 w-full rounded-2xl text-white font-bold">
+        <button className="p-2 bg-green-600 hover:bg-green-800 w-full rounded-2xl text-white font-bold" onClick={fetchProducts}>
           Check Status
         </button>
       </div>

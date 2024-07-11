@@ -66,11 +66,14 @@ const DashboardUser = ({ children, titleField, buttonField }) => {
           />
         </button>
         <div className="flex items-center pb-4">
-          <Icon
+        <Link to={`/`}>
+        <Icon
             src={gwf_dashboard_icon}
             type="unset"
             className={`${open && "rotate-[360deg]"} w-24`}
           />
+        </Link>
+          
         </div>
         <i className="h-0.5 w-full bg-light-1 absolute left-0"></i>
         <ul className="pt-4 space-y-2 ">
@@ -92,7 +95,9 @@ const DashboardUser = ({ children, titleField, buttonField }) => {
       </div>
       <div className={`flex-1 w-full duration-300 ${open ? "ml-[240px]" : "ml-[90px]"}`}>
         <div className="flex items-center justify-end h-16 px-8 bg-light-2">
+          
           <div className="group !bg-light-2 relative p-2 flex items-center gap-1 cursor-pointer">
+         
             <Icon src={admin_user_icon} />
             <h1 className="text-sm">{username}</h1>
             <RiArrowDownSLine className="duration-300 group-hover:rotate-180" />
