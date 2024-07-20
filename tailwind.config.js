@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import withMT from "@material-tailwind/react/utils/withMT";
+
 export default withMT({
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -54,7 +55,7 @@ export default withMT({
         900: "900px",
         1000: "1000px",
       },
-      borderWidth:{
+      borderWidth: {
         1: "1px",
         3: "3px",
       },
@@ -70,12 +71,22 @@ export default withMT({
         "filter-6": "#ECECE6",
         "primary-1": "#5F5E36",
         "primary-2": "#3E3E08",
+        "primary-3": "#59B14A",
         "light-1": "#ffffff",
         "light-2": "#bfbfbf",
         "light-3": "#efefeb",
         "light-4": "#d9d9d9",
         "light-5": "#d1d1b4",
         dark: "#313335",
+      },
+      screens: {
+        'sm': '600px',
+        'md': '1024px',  
+        'xl': '1280px',
+      },
+      fontSize: {
+        'xxs': '0.65rem',   // Add your custom size here
+        'xxxs': '0.45rem',   // Add your custom size here
       },
     },
   },

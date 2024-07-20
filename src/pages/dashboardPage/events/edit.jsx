@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Dummy1 from "../../../assets/workshop-image/dummy1.png";
 import Sidebar from "../../../layouts/dashboard_section/Template";
 import AddModal from "./add";

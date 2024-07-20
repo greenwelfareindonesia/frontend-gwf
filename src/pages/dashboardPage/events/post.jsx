@@ -1,10 +1,8 @@
-import React, { useState } from "react";
 // import { Link } from "react-router-dom";
 import {camera_icon} from "../../../assets/icons";
 import Sidebar from "../../../layouts/dashboard_section/Template";
 
 const post = () => {
-  const [showAddPopOut, setShowAddPopOut] = useState(false);
   return(
     <section>
 
@@ -33,7 +31,7 @@ const post = () => {
               <input className="border-primary-1 rounded-md border-1 p-2 px-8" type="date"></input>
             </div>
             <div className="flex-1 flex flex-col py-2">
-              <p clasName="my-5">Add Photo</p>
+              <p className="my-5">Add Photo</p>
               <label htmlFor="photo-upload" className="flex flex-col items-center justify-center w-60 border-1 border-primary-2 p-4 my-2 h-36 rounded-md cursor-pointer">
                 <div className="text-center"> <img src={camera_icon} className="hover:scale-150 duration-75"></img></div>
                 <input id="photo-upload" type="file" className="hidden" />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../../../layouts/dashboard_section/Template";
 import Dummy1 from "../../../assets/workshop-image/dummy1.png";
@@ -6,7 +6,7 @@ import Dummy2 from "../../../assets/workshop-image/dummy2.png";
 import { edit_icon, delete_icon } from "../../../assets/icons";
 import Delete from "./delete";
 
-const index = () => {
+const Index = () => {
   const [showDeletePopOut, setShowDeletePopOut] = useState(false);
   const elemen = [
     {
@@ -31,7 +31,7 @@ const index = () => {
     <Sidebar titleField={"Events"}>
       <div className="flex absolute top-24 right-9 justify-between items-center mb-4">
         <Link to="/Post2">
-          <button className="bg-primary-2 w-36 h-9 rounded-3xl font-semibold text-light-1">Post Workshop</button>
+          <button className="bg-primary-2 w-36 h-9 rounded-3xl font-semibold text-light-1">Post Events</button>
         </Link>
       </div>
       <table className="w-full table-fixed text-left text-primary-2">
@@ -83,6 +83,7 @@ const index = () => {
                     <button onClick={() => setShowDeletePopOut(true)}>
                       <img src={delete_icon} alt="Delete" />
                     </button>
+
                   </div>
                 </div>
               </td>
@@ -95,4 +96,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

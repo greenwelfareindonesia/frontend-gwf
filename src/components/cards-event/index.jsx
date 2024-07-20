@@ -1,13 +1,11 @@
-import React from "react";
 import { date_icon, donate_icon, location_icon, workshop_events_icon, campaign_events_icon } from "../../assets/icons";
 
-const Card = ({ image, title, description, date, location, donateNeeded, buttonText, buttonType, eventType}) => {
-
+const Card = ({ image, title, description, date, location, donateNeeded, buttonText, buttonType, eventType }) => {
   const eventLabel = eventType === "Campaign" ? "Campaign" : "Workshop";
   const eventIcon = eventType === "Campaign" ? campaign_events_icon : workshop_events_icon;
 
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white relative">
+    <div className="max-w-sm md:max-w-md lg:max-w-lg rounded overflow-hidden shadow-lg bg-white relative">
       <img className="w-full h-52 object-cover" src={image} alt="Event" />
 
       <div className="bg-light-3 rounded-lg w-24 p-2 absolute right-5 top-48 flex items-center gap-1">
@@ -20,7 +18,7 @@ const Card = ({ image, title, description, date, location, donateNeeded, buttonT
         <p className="text-gray-700 text-md text-left">{description}</p>
       </div>
 
-      <div className="px-6 pt-2 pb-2">
+      <div className="px-5 pt-2 pb-2">
         <div className="flex items-center mb-2">
           <img src={date_icon} alt="Date Icon" className="w-6 h-6" />
           <span className="ml-2">{date}</span>
@@ -33,11 +31,10 @@ const Card = ({ image, title, description, date, location, donateNeeded, buttonT
           <img src={donate_icon} alt="Donate Icon" className="w-6 h-6" />
           <span className="ml-2">{donateNeeded}</span>
         </div>
-        <button className={`${buttonType === 'join' ? 'bg-primary-2' : 'bg-filter-5'} text-light-1 font-bold py-2 w-64 rounded`}>
+        <button className={`${buttonType === 'join' ? 'bg-primary-2' : 'bg-filter-5'} text-light-1 font-bold py-2 w-full rounded`}>
           {buttonText}
         </button>
       </div>
-
     </div>
   );
 };
