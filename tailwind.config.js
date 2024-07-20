@@ -9,6 +9,11 @@ export default withMT({
   ],
   theme: {
     extend: {
+      verticalText: {
+        writingMode: "vertical-rl",
+        textAlign: "center",
+        transform: "rotate(180deg)",
+      },
       zIndex: {
         1: "1",
         5: "5",
@@ -32,6 +37,7 @@ export default withMT({
         220: "220px",
         300: "300px",
         400: "400px",
+        490: "490px",
         500: "500px",
         550: "550px",
         600: "600px",
@@ -45,6 +51,7 @@ export default withMT({
         140: "140px",
         111: "111px",
         200: "200px",
+        280: "280px",
         300: "300px",
         400: "400px",
         500: "500px",
@@ -60,7 +67,7 @@ export default withMT({
         3: "3px",
       },
       borderRadius: {
-        '4xl': '2rem', // Customize the radius value as needed
+        "4xl": "2rem", // Customize the radius value as needed
       },
       colors: {
         "filter-1": "#3E3E0850",
@@ -71,7 +78,7 @@ export default withMT({
         "filter-6": "#ECECE6",
         "primary-1": "#5F5E36",
         "primary-2": "#3E3E08",
-        "primary-3": "#59B14A",
+        "primary-3": "#707034",
         "light-1": "#ffffff",
         "light-2": "#bfbfbf",
         "light-3": "#efefeb",

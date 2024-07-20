@@ -14,8 +14,8 @@ const Card = ({ image, title, description, date, location, donateNeeded, buttonT
       </div>
 
       <div className="px-6 py-4">
-        <div className="font-bold text-xl text-left text-filter-4">{title}</div>
-        <p className="text-gray-700 text-md text-left">{description}</p>
+        <div className="text-xl font-bold text-left text-filter-4">{title}</div>
+        <p className="text-left text-gray-700 text-md">{description}</p>
       </div>
 
       <div className="px-5 pt-2 pb-2">

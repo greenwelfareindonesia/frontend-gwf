@@ -1,24 +1,35 @@
-import ArticlePage from "./ArticlePage";
-import ContactPage from "./ContactPage";
-import DashboardPage from "./DashboardPage";
-import EventsPage from "./EventsPage";
-import FeedbackPage from "./FeedbackPage";
-import GalleryPage from "./GalleryPage";
-import VeganguidePage from "./VeganguidePage";
-import WorkshopPage from "./WorkshopPage";
-import EcopediaPage from "./ecopediaPage";
-import workshopIndexx from "./dashboardPage/workshop/workshopIndexx";
-import Post from "./workshop/post";
-import Edit from "./workshop/edit";
-import Add from "./workshop/add";
-import Delete from "./workshop/delete";
-import Index2 from "./events/index";
-import Post2 from "./events/post";
-import Edit2 from "./events/edit";
-import Add2 from "./events/add";
-import Delete2 from "./events/delete";
-import Index3 from "./article/index";
-import Post3 from "./article/post";
+import WorkshopDashboard from "./workshop";
+import EditWorkshop from "./workshop/edit";
+import PostWorkshop from "./workshop/post";
 
+import EventsDashboard from "./events";
+import EditEvents from "./events/edit";
+import PostEvents from "./events/post";
 
-export { VeganguidePage, WorkshopPage, GalleryPage, FeedbackPage, EventsPage, EcopediaPage, ArticlePage, DashboardPage, ContactPage, workshopIndexx, Post, Edit, Add, Delete, Index2, Post2, Edit2, Add2, Delete2, Index3, Post3};
+import EcopediaDashboard from "./Ecopedia";
+import PostEcopedia from "./Ecopedia/add";
+import EditEcopedia from "./Ecopedia/edit";
+
+import GalleryDashboard from "./Gallery";
+import PostGallery from "./Gallery/add";
+import EditGallery from "./Gallery/edit";
+
+import ArticleDashboard from "./article";
+import PostArticle from "./article/post";
+
+export {
+  EventsDashboard,
+  EditEvents,
+  PostEvents,
+  WorkshopDashboard,
+  EditWorkshop,
+  PostWorkshop,
+  EcopediaDashboard,
+  PostEcopedia,
+  EditEcopedia,
+  GalleryDashboard,
+  PostGallery,
+  EditGallery,
+  ArticleDashboard,
+  PostArticle,
+};

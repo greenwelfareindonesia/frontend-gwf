@@ -24,7 +24,7 @@ import Button from "../../components/button";
 import ReloadRefresh from "../../utils/ReloadRefresh";
 
 const Menus = [
-  { title: "Dashboard", path: "/dashboard", src: dashboard_icon },
+  { title: "Dashboard", path: "/dashboards", src: dashboard_icon },
   { title: "Articles", path: "/dashboard/article", src: articles_icon },
   { title: "Ecopedia ", path: "/dashboard/ecopedia", src: ecopedia_icon },
   { title: "Events", path: "/dashboard/event", src: events_icon },
@@ -91,7 +91,7 @@ const DashboardSection = ({ children, titleField, buttonField }) => {
             <h1 className="text-3xl font-bold text-primary-1">{titleField ?? null}</h1>
             {buttonField ?? null}
           </div>
-          <div className="block px-4">{children}</div>
+          <div className="block px-4 overflow-y-auto">{children}</div>
         </div>
       </div>
     </section>

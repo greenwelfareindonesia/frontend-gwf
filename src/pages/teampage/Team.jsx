@@ -58,28 +58,28 @@ export default function Team() {
   const [event] = React.useState([
     {
       img: foundingLeft,
-      nama: 'Nifa Rahma',
-      peran: 'Executive Director',
+      nama: "Nifa Rahma",
+      peran: "Executive Director",
     },
     {
       img: foundingMiddle,
-      nama: 'Regatta Larra',
-      peran: 'Co-Executive Director',
+      nama: "Regatta Larra",
+      peran: "Co-Executive Director",
     },
     {
       img: foundingRight,
-      nama: 'Shahira Syifa',
-      peran: 'Secretary General',
+      nama: "Shahira Syifa",
+      peran: "Secretary General",
     },
     {
       img: executiveLeft,
-      nama: 'Hanifa Rahmaliya',
-      peran: 'Vice Secretary',
+      nama: "Hanifa Rahmaliya",
+      peran: "Vice Secretary",
     },
     {
       img: executiveMiddle,
-      nama: 'Yovinka Ignacia',
-      peran: 'Treasurer',
+      nama: "Yovinka Ignacia",
+      peran: "Treasurer",
     },
   ]);
 
@@ -97,7 +97,7 @@ export default function Team() {
   
 
   return (
-    <div>
+    <>
       <Navbar />
       {isMobile ? (
         <div>
@@ -256,6 +256,6 @@ export default function Team() {
       )} 
 
       <Footer />
-    </div>
+    </>
   );
 }
