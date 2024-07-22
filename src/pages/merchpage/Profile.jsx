@@ -150,12 +150,12 @@ const Profile = () => {
           </div>
         </div>
         {isLoggedIn ? (
-          <div className="flex mx-40 gap-2">
+          <div className="flex xl:mx-40 lg:mx-24 md:mx-20 xs:mx-10 gap-2">
             <button className="flex-1 border-primary-1 border-2 h-10 rounded-md text-primary-1 w-full">Cancel</button>
             <button className="flex-1 bg-primary-1 h-10 rounded-md text-light-1 w-full">Save</button>
           </div>
         ) : (
-          <button className="bg-primary-1 h-10 rounded-md mx-44 text-light-1">Save</button>
+          <button className="bg-primary-1 h-10 rounded-md xl:mx-40 lg:mx-24 md:mx-20 xs:mx-10 text-light-1">Save</button>
         )}
       </div>
       <Footer />
