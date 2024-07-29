@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { About, Events, Home, Involved, Team, Workshop, Resource, Donate, Ecopedia, Chapters, Cart, Merch, Order, Profile} from "./pages";
+import { About, Events, Home, Involved, Team, Workshop, Resource, Donate, Ecopedia, Chapters, Cart, Merch, Order, Profile } from "./pages";
 
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
 import NotFound from "./pages/notFoundPage/NotFound";
