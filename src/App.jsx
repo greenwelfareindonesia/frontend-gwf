@@ -9,6 +9,8 @@ import EcopediaPageAdd from "./pages/dashboardPage/Ecopedia/add";
 import EcopediaPageEdit from "./pages/dashboardPage/Ecopedia/edit";
 import GalleryPageAdd from "./pages/dashboardPage/Gallery/add";
 import GalleryPageEdit from "./pages/dashboardPage/Gallery/edit";
+import FeedbackPage from "./pages/dashboardPage/Feedback/index";
+import { Feedback } from "./layouts/home_slice";
 
 const App = () => {
   return (
@@ -32,6 +34,7 @@ const App = () => {
         <Route path="/galleryDashboard" element={<GalleryPage />} />
         <Route path="/addGallery" element={<GalleryPageAdd />} />
         <Route path="/editGallery" element={<GalleryPageEdit />} />
+        <Route path="/feedbackDashboard" element={<FeedbackPage />} />
         <Route path="/merch" element={<Merch />} />
         <Route path="/merchDetail" element={<MerchDetail />} />
         <Route path="/merchDetailLogin" element={<MerchDetailLogin />} />

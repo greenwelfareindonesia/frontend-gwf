@@ -46,3 +46,15 @@ input[type="file"]::file-selector-button:hover {
     transform: rotate(180deg);
   }
 }
+
+/* Add these styles to your CSS file */
+.overlay {
+  display: none; /* Default hidden */
+}
+
+@media (max-width: 640px) { /* Tailwind's sm breakpoint */
+  .overlay {
+      display: block; /* Show overlay on mobile screens */
+  }
+}
+

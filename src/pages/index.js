@@ -13,4 +13,5 @@ import Merch from "./merchpage/Merch";
 import MerchDetail from "./merchpage/Detail";
 import MerchDetailLogin from "./merchpage/DetailLogin";
 
+
 export { Ecopedia, Resource, About, Home, Involved, Chapters, Team, Events, Contact, Donate, Workshop, Merch, MerchDetail, MerchDetailLogin};
