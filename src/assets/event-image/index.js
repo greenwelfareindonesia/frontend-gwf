@@ -16,6 +16,9 @@ import image_events_part14 from "./image_events_part14.png";
 import image_events_part15 from "./image_events_part15.png";
 import image_events_part16 from "./image_events_part16.png";
 import image_events_part17 from "./image_events_part17.png";
+import event1 from "./event1.png";
+import vector1 from "./vector1.png";
+import past_events from "./past_events.png";
 
 export {
   events_image,
@@ -36,4 +39,7 @@ export {
   image_events_part15,
   image_events_part16,
   image_events_part17,
+  event1,
+  vector1,
+  past_events,
 };
