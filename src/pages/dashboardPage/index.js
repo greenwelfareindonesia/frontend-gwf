@@ -6,18 +6,20 @@ import EventsDashboard from "./events";
 import EditEvents from "./events/edit";
 import PostEvents from "./events/post";
 
-import EcopediaDashboard from "./Ecopedia";
-import PostEcopedia from "./Ecopedia/add";
-import EditEcopedia from "./Ecopedia/edit";
+import EcopediaDashboard from "./ecopedia";
+import PostEcopedia from "./ecopedia/add";
+import EditEcopedia from "./ecopedia/edit";
 
-import GalleryDashboard from "./Gallery";
-import PostGallery from "./Gallery/add";
-import EditGallery from "./Gallery/edit";
+import GalleryDashboard from "./gallery";
+import PostGallery from "./gallery/add";
+import EditGallery from "./gallery/edit";
 
 import ArticleDashboard from "./article";
 import PostArticle from "./article/post";
+import FeedbackPage from "./feedback";
 
 export {
+  FeedbackPage,
   EventsDashboard,
   EditEvents,
   PostEvents,

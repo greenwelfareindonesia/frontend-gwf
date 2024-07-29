@@ -36,8 +36,8 @@ import {
   PostWorkshop,
   PostArticle,
   WorkshopDashboard,
+  FeedbackPage,
 } from "./pages/dashboardPage";
-import FeedbackPage from "./pages/dashboardPage/Feedback";
 
 const App = () => {
   return (
