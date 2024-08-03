@@ -37,6 +37,7 @@ import {
   PostArticle,
   WorkshopDashboard,
   FeedbackPage,
+  Dashboard,
 } from "./pages/dashboardPage";
 
 const App = () => {
@@ -64,10 +65,12 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<AdminLogin />} />
 
+        <Route path="/dashboards" element={<Dashboard />} />
+
         <Route path="/dashboard/feedback" element={<FeedbackPage />} />
 
         <Route path="/dashboard/ecopedia" element={<EcopediaDashboard />} />
-        <Route path="/dashboard/ecopedia/edit" element={<EditEcopedia />} />
+        <Route path="/dashboard/ecopedia/edit/:slug" element={<EditEcopedia />} />
         <Route path="/dashboard/ecopedia/post" element={<PostEcopedia />} />
 
         <Route path="/dashboard/gallery" element={<GalleryDashboard />} />

@@ -1,3 +1,5 @@
+import Dashboard from "./dashboard";
+
 import WorkshopDashboard from "./workshop";
 import EditWorkshop from "./workshop/edit";
 import PostWorkshop from "./workshop/post";
@@ -19,6 +21,7 @@ import PostArticle from "./article/post";
 import FeedbackPage from "./feedback";
 
 export {
+  Dashboard,
   FeedbackPage,
   EventsDashboard,
   EditEvents,

@@ -14,8 +14,8 @@ import {
   feedback_icon,
   gallery_icon,
   gwf_dashboard_icon,
-  users_icon,
-  veganguide_icon,
+  // users_icon,
+  // veganguide_icon,
   workshop_icon,
 } from "../../assets/icons";
 import Icon from "../../components/icon";
@@ -30,8 +30,8 @@ const Menus = [
   { title: "Events", path: "/dashboard/event", src: events_icon },
   { title: "Gallery", path: "/dashboard/gallery", src: gallery_icon },
   { title: "Feedback", path: "/dashboard/feedback", src: feedback_icon },
-  { title: "Contact", path: "/dashboard/contact", src: users_icon },
-  { title: "Veganguide", path: "/dashboard/veganguide", src: veganguide_icon },
+  // { title: "Contact", path: "/dashboard/contact", src: users_icon },
+  // { title: "Veganguide", path: "/dashboard/veganguide", src: veganguide_icon },
   { title: "Workshop", path: "/dashboard/workshop", src: workshop_icon },
 ];
 

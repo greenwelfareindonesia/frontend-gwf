@@ -6,7 +6,7 @@ export const useGetEcopedia = () => {
     queryKey: ["getEcopedias"],
     queryFn: async () => {
       const response = await getEcopedia();
-      return response?.data || "";
+      return response?.payload || "";
     },
   });
 };
@@ -16,7 +16,7 @@ export const useGetEcopediaById = (slug) => {
     queryKey: ["getEcopediaById", slug],
     queryFn: async () => {
       const response = await getEcopediaById(slug);
-      return response?.data || "";
+      return response?.payload || "";
     },
   });
 };
@@ -25,7 +25,7 @@ export const useAddEcopedia = () => {
   return useMutation({
     mutationFn: async (body) => {
       const response = await addEcopedia(body);
-      return response?.data;
+      return response?.payload;
     },
   });
 };
@@ -33,9 +33,8 @@ export const useAddEcopedia = () => {
 export const useEditEcopedia = () => {
   return useMutation({
     mutationFn: async (data) => {
-      const { slugId, body } = data;
-      const response = await editEcopedia(slugId, body);
-      return response?.data;
+      const response = await editEcopedia(data);
+      return response?.payload;
     },
   });
 };
@@ -44,7 +43,7 @@ export const useDeleteEcopedia = () => {
   return useMutation({
     mutationFn: async (slug) => {
       const response = await deleteEcopedia(slug);
-      return response?.data;
+      return response?.payload;
     },
   });
 };

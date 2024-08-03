@@ -6,7 +6,7 @@ export const useGetFeedbacks = () => {
     queryKey: ["getFeedbacks"],
     queryFn: async () => {
       const response = await getFeedbacks();
-      return response?.data || "";
+      return response?.payload || "";
     },
   });
 };

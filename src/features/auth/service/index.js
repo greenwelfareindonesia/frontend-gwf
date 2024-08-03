@@ -5,7 +5,7 @@ export const useLogin = () => {
   return useMutation({
     mutationFn: async (body) => {
       const response = await login(body);
-      localStorage.setItem("token", response?.data?.Token);
+      localStorage.setItem("token", response?.payload?.token);
       localStorage.setItem("name", response?.data?.Name);
       return response?.data;
     },

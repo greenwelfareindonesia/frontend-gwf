@@ -3,6 +3,7 @@ import DashboardSection from "../../../layouts/dashboard_section/Template";
 import questionPerson from "../../../assets/icons/icon_questionperson.svg";
 import closeIcon from "../../../assets/icons/close_icon.svg";
 import iconMata from "../../../assets/icons/icon_Mata.svg";
+import { useGetFeedbacks } from "../../../features/feedback/service";
 
 const Modal = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
@@ -29,22 +30,6 @@ const Modal = ({ isOpen, onClose, onConfirm }) => {
   );
 };
 
-const articles = [
-  {
-    id: 1,
-    email: "Raihan@gmail.com",
-    description: "Saya akan bekerjasama apakah ada kontak lebih lanjut?",
-    date: "10 November 2024",
-  },
-
-  {
-    id: 2,
-    email: "jipeng@gmail.com",
-    description: "Saya akan bekerjasama apakah ada kontak lebih lanjut?",
-    date: "10 Oktober 2024",
-  },
-];
-
 const FeedbackPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState(null);
@@ -53,6 +38,8 @@ const FeedbackPage = () => {
     setSelectedArticle(article);
     setIsModalOpen(true);
   };
+
+  const { data } = useGetFeedbacks();
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -72,21 +59,19 @@ const FeedbackPage = () => {
           <tr className="border-b-1 border-primary-2">
             <th className="w-1/5 py-4 text-xs text-left text-primary-1">Email</th>
             <th className="w-4/12 py-4 text-xs text-left text-primary-1">Message</th>
-            <th className="w-1/5 py-4 text-xs text-left text-primary-1">Tanggal</th>
             <th className="w-1/5 px-10 py-4 text-xs text-left text-primary-1">Action</th>
             <th className="w-1/5"></th>
           </tr>
         </thead>
         <tbody>
-          {articles.map((article) => (
-            <tr key={article.id} className="border-b-1 border-primary-2">
+          {data?.map((article) => (
+            <tr key={article.ID} className="border-b-1 border-primary-2">
               <td className="px-4">
-                <p className="py-2 text-sm text-primary-1">{article.email}</p>
+                <p className="py-2 text-sm text-primary-1">{article.Email}</p>
               </td>
               <td className="px-4">
-                <p className="py-2 text-sm text-primary-1">{article.description}</p>
+                <p className="py-2 text-sm text-primary-1">{article.Text}</p>
               </td>
-              <td className="text-sm font-bold text-primary-1">{article.date}</td>
               <td className="px-4">
                 <img src={iconMata} alt="Edit" />
               </td>
