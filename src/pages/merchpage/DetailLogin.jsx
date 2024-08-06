@@ -325,10 +325,7 @@ export default function MerchDetail() {
             </div>
         </div>
     </>
-)}
-
-
-                
+)}     
             <Footer />
         </div>
     );
