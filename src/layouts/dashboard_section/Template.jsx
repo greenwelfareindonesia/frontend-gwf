@@ -14,8 +14,8 @@ import {
   feedback_icon,
   gallery_icon,
   gwf_dashboard_icon,
-  users_icon,
-  veganguide_icon,
+  // users_icon,
+  // veganguide_icon,
   workshop_icon,
 } from "../../assets/icons";
 import Icon from "../../components/icon";
@@ -24,14 +24,14 @@ import Button from "../../components/button";
 import ReloadRefresh from "../../utils/ReloadRefresh";
 
 const Menus = [
-  { title: "Dashboard", path: "/dashboard", src: dashboard_icon },
+  { title: "Dashboard", path: "/dashboards", src: dashboard_icon },
   { title: "Articles", path: "/dashboard/article", src: articles_icon },
   { title: "Ecopedia ", path: "/dashboard/ecopedia", src: ecopedia_icon },
   { title: "Events", path: "/dashboard/event", src: events_icon },
   { title: "Gallery", path: "/dashboard/gallery", src: gallery_icon },
   { title: "Feedback", path: "/dashboard/feedback", src: feedback_icon },
-  { title: "Contact", path: "/dashboard/contact", src: users_icon },
-  { title: "Veganguide", path: "/dashboard/veganguide", src: veganguide_icon },
+  // { title: "Contact", path: "/dashboard/contact", src: users_icon },
+  // { title: "Veganguide", path: "/dashboard/veganguide", src: veganguide_icon },
   { title: "Workshop", path: "/dashboard/workshop", src: workshop_icon },
 ];
 
@@ -91,7 +91,7 @@ const DashboardSection = ({ children, titleField, buttonField }) => {
             <h1 className="text-3xl font-bold text-primary-1">{titleField ?? null}</h1>
             {buttonField ?? null}
           </div>
-          <div className="block px-4">{children}</div>
+          <div className="block px-4 overflow-y-auto">{children}</div>
         </div>
       </div>
     </section>

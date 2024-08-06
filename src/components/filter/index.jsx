@@ -4,7 +4,7 @@ const filter = cva("filter", {
   variants: {
     intent: {
       primary: "bg-filter-2",
-      secondary: "bg-filter-3",
+      secondary: "bg-black/60",
       default: "bg-filter-1",
     },
   },

@@ -1,16 +1,44 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { About, Events, Contact, Home, Involved, Team, Workshop, Resource, Donate, Ecopedia, Chapters, Merch, MerchDetail, MerchDetailLogin} from "./pages";
+import {
+  About,
+  Events,
+  Home,
+  Involved,
+  Team,
+  Workshop,
+  Resource,
+  Donate,
+  Ecopedia,
+  Chapters,
+  Cart,
+  Merch,
+  Order,
+  Profile,
+  MerchDetail,
+  MerchDetailLogin,
+} from "./pages";
 
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
 import NotFound from "./pages/notFoundPage/NotFound";
-import EcopediaPage from "./pages/dashboardPage/Ecopedia/index";
-import GalleryPage from "./pages/dashboardPage/Gallery/index";
-import EcopediaPageAdd from "./pages/dashboardPage/Ecopedia/add";
-import EcopediaPageEdit from "./pages/dashboardPage/Ecopedia/edit";
-import GalleryPageAdd from "./pages/dashboardPage/Gallery/add";
-import GalleryPageEdit from "./pages/dashboardPage/Gallery/edit";
-import FeedbackPage from "./pages/dashboardPage/Feedback/index";
-import { Feedback } from "./layouts/home_slice";
+
+import {
+  EcopediaDashboard,
+  EditEcopedia,
+  EditEvents,
+  EditGallery,
+  EditWorkshop,
+  EventsDashboard,
+  GalleryDashboard,
+  ArticleDashboard,
+  PostEcopedia,
+  PostEvents,
+  PostGallery,
+  PostWorkshop,
+  PostArticle,
+  WorkshopDashboard,
+  FeedbackPage,
+  Dashboard,
+} from "./pages/dashboardPage";
 
 const App = () => {
   return (
@@ -20,25 +48,45 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/involved" element={<Involved />} />
         <Route path="/team" element={<Team />} />
-        <Route path="/chapters" element={<Chapters />} />
-        <Route path="/events" element={<Events />} />
+        <Route path="/chapter" element={<Chapters />} />
+        <Route path="/event" element={<Events />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/workshop" element={<Workshop />} />
         <Route path="/ecopedia" element={<Ecopedia />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/resource" element={<Resource />} />
         <Route path="/login" element={<AdminLogin />} />
-        <Route path="/ecopediaDashboard/*" element={<EcopediaPage />} />
-        <Route path="/addEcopedia" element={<EcopediaPageAdd />} />
-        <Route path="/editEcopedia" element={<EcopediaPageEdit />} />
-        <Route path="/galleryDashboard" element={<GalleryPage />} />
-        <Route path="/addGallery" element={<GalleryPageAdd />} />
-        <Route path="/editGallery" element={<GalleryPageEdit />} />
-        <Route path="/feedbackDashboard" element={<FeedbackPage />} />
         <Route path="/merch" element={<Merch />} />
-        <Route path="/merchDetail" element={<MerchDetail />} />
-        <Route path="/merchDetailLogin" element={<MerchDetailLogin />} />
+        <Route path="/merch/detail" element={<MerchDetail />} />
+        <Route path="/merch/detail/login" element={<MerchDetailLogin />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/order" element={<Order />} />
+        <Route path="/profile" element={<Profile />} />
+
         <Route path="*" element={<NotFound />} />
+        <Route path="/login" element={<AdminLogin />} />
+
+        <Route path="/dashboards" element={<Dashboard />} />
+
+        <Route path="/dashboard/feedback" element={<FeedbackPage />} />
+
+        <Route path="/dashboard/ecopedia" element={<EcopediaDashboard />} />
+        <Route path="/dashboard/ecopedia/edit/:slug" element={<EditEcopedia />} />
+        <Route path="/dashboard/ecopedia/post" element={<PostEcopedia />} />
+
+        <Route path="/dashboard/gallery" element={<GalleryDashboard />} />
+        <Route path="/dashboard/gallery/edit" element={<EditGallery />} />
+        <Route path="/dashboard/gallery/post" element={<PostGallery />} />
+
+        <Route path="/dashboard/workshop" element={<WorkshopDashboard />} />
+        <Route path="/dashboard/workshop/edit" element={<EditWorkshop />} />
+        <Route path="/dashboard/workshop/post" element={<PostWorkshop />} />
+
+        <Route path="/dashboard/event" element={<EventsDashboard />} />
+        <Route path="/dashboard/event/edit" element={<EditEvents />} />
+        <Route path="/dashboard/event/post" element={<PostEvents />} />
+
+        <Route path="/dashboard/article" element={<ArticleDashboard />} />
+        <Route path="/dashboard/article/post" element={<PostArticle />} />
       </Routes>
     </BrowserRouter>
   );

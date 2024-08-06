@@ -6,7 +6,7 @@ export const login = async (body) => {
   return await API.post("/user/login", body)
     .then((response) => {
       SweatAlert("You are successfully logged in", "success");
-      ReloadRefresh(2000, "/dashboard");
+      ReloadRefresh(2000, "/dashboards");
       return response.data;
     })
     .catch(() => {

@@ -23,11 +23,6 @@ export default function AdminLogin() {
 
   const onSubmit = (data) => {
     const { Email, Password } = data;
-    if (input.isChecked && Email !== "" && Password !== "") {
-      sessionStorage.setItem("Email", Email);
-      sessionStorage.setItem("Password", Password);
-      sessionStorage.setItem("isChecked", input.isChecked);
-    }
     loginMutate({ Email, Password });
   };
 

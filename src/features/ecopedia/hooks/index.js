@@ -3,13 +3,9 @@ import ReloadRefresh from "../../../utils/ReloadRefresh";
 import SweatAlert from "../../../utils/SweetAlert";
 
 export const getEcopedia = async () => {
-  return await API.get("/ecopedia/")
-    .then((response) => {
-      return response.data;
-    })
-    .catch(() => {
-      SweatAlert("Error when fetch ecopedia", "error");
-    });
+  return await API.get("/ecopedia/").then((response) => {
+    return response.data;
+  });
 };
 
 export const getEcopediaById = async (slug) => {
@@ -19,21 +15,22 @@ export const getEcopediaById = async (slug) => {
 };
 
 export const addEcopedia = async (body) => {
-  return await API.post("/ecopedia/", body)
-    .then(() => {
+  return await API.post("/ecopedia/", body, { headers: { "Content-Type": "multipart/form-data" } })
+    .then((response) => {
       SweatAlert("Ecopedia has been created successfully", "success");
-      ReloadRefresh(2000);
+      ReloadRefresh(2000, "/dashboard/ecopedia");
+      return response.data;
     })
     .catch(() => {
       SweatAlert("Error when create ecopedia", "error");
     });
 };
 
-export const editEcopedia = async (slug, body) => {
-  return await API.put(`/ecopedia/${slug}`, body)
+export const editEcopedia = async (body) => {
+  return await API.put(`/ecopedia/${body.slug}`, body)
     .then(() => {
       SweatAlert("Ecopedia has been updated successfully", "success");
-      ReloadRefresh(2000);
+      ReloadRefresh(2000, "/dashboard/ecopedia");
     })
     .catch(() => {
       SweatAlert("Error when update ecopedia", "error");

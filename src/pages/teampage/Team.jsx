@@ -1,14 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import foundingLeft from "../../assets/team-image/founding-left.png";
 import foundingMiddle from "../../assets/team-image/founding-middle.png";
 import foundingRight from "../../assets/team-image/founding-right.png";
 import executiveLeft from "../../assets/team-image/executive-left.png";
 import executiveMiddle from "../../assets/team-image/executive-middle.png";
-import executiveRight from "../../assets/team-image/executive-right.png";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
+import Slider from "react-slick";
 
 export default function Team() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+
+  useEffect(() => {
+    const handleResize = () => {
+      console.log("Window width:", window.innerWidth);
+      setIsMobile(window.innerWidth <= 600);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const cards = [
+    { img: foundingLeft, nama: "Nifa Rahma", peran: "Executive Director" },
+    { img: foundingMiddle, nama: "Regatta Larra", peran: "Co-Executive Director" },
+    { img: foundingRight, nama: "Shahira Syifa", peran: "Secretary General" },
+    { img: executiveLeft, nama: "Hanifa Rahmaliya", peran: "Vice Secretary" },
+    { img: executiveMiddle, nama: "Yovinka Ignacia", peran: "Treasurer" },
+  ];
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
   const [isHovered3, setIsHovered3] = useState(false);
@@ -35,144 +54,255 @@ export default function Team() {
     setIsHovered3(false);
   };
 
-  const [event, setEvent] = React.useState([
+  const [event] = React.useState([
     {
       img: foundingLeft,
-      nama: 'Nifa Rahma',
-      peran: 'Executive Director',
+      nama: "Nifa Rahma",
+      peran: "Executive Director",
     },
     {
       img: foundingMiddle,
-      nama: 'Regatta Larra',
-      peran: 'Co-Executive Director',
+      nama: "Regatta Larra",
+      peran: "Co-Executive Director",
     },
     {
       img: foundingRight,
-      nama: 'Shahira Syifa',
-      peran: 'Secretary General',
+      nama: "Shahira Syifa",
+      peran: "Secretary General",
     },
     {
       img: executiveLeft,
-      nama: 'Hanifa Rahmaliya',
-      peran: 'Vice Secretary',
+      nama: "Hanifa Rahmaliya",
+      peran: "Vice Secretary",
     },
     {
       img: executiveMiddle,
-      nama: 'Yovinka Ignacia',
-      peran: 'Treasurer',
+      nama: "Yovinka Ignacia",
+      peran: "Treasurer",
     },
   ]);
 
+  const getSliderSettings = () => ({
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: "2px",
+    swipeToSlide: true,
+    adaptiveHeight: true,
+  });
+
   return (
-    <div>
+    <>
       <Navbar />
-      {/* Founding Members */}
-      <section className="bg-primary-1 flex pt-28 pb-28 min-h-600 grid-cols-4 space-x-16 justify-center items-center text-light-1">
-        <div className="w-80 h-40 text-6xl p-4 mr-16">Founding Members</div>
+      {isMobile ? (
+        <div>
+          <section className="py-8 bg-primary-1 text-light-1">
+            <h1 className="mb-4 text-2xl font-bold text-center ">Founding Members</h1>
+            <Slider {...getSliderSettings()}>
+              {cards.map((member, index) => {
+                const { nama, img, peran } = member;
+                return (
+                  <div key={index} className="">
+                    <div className="w-40 h-40 mx-auto">
+                      <img className="object-cover w-full h-full rounded-b-2xl rounded-tr-2xl" src={img} alt={nama} />
+                      <p className="pt-3 font-semibold text-center">{nama}</p>
+                      <p className="text-center">{peran}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </Slider>
+          </section>
 
-        <div
-          className={`w-40 h-96 rounded-3xl duration-500 ${isHovered1 ? 'w-80' : 'w-40'}`}
-          onMouseEnter={() => handleMouseEnter(1)}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className={`absolute mt-60 mr-1 text-light-1 text-left text-xl font-semibold ${isHovered1 ? 'rotate-0 pl-24 pt-20 text-center' : '-rotate-90 pl-6'} duration-500`}>
-            <p>Shahira Syifa</p>
-            <p className="text-sm font-normal">Secretary General</p>
-          </div>
-          <img src={foundingLeft} className="w-full h-full rounded-3xl object-cover" alt="Founding Member" />
+          <section className="py-8 text-primary-1">
+            <h1 className="mb-4 text-2xl font-bold text-center">Current Executive Leads</h1>
+            <Slider {...getSliderSettings()}>
+              {cards.map((member, index) => (
+                <div key={index} className="mx-2">
+                  <div className="w-40 h-40 mx-auto">
+                    <img className="object-cover w-full h-full rounded-full" src={member.img} alt={member.nama} />
+                    <p className="pt-3 font-semibold text-center">{member.nama}</p>
+                    <p className="text-center">{member.peran}</p>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </section>
+
+          <section className="py-8 bg-primary-1 text-light-1">
+            <h1 className="mb-4 text-2xl font-bold text-center">Board of Director</h1>
+            <Slider {...getSliderSettings()}>
+              {cards.map((member, index) => (
+                <div key={index} className="mx-2 ">
+                  <div className="w-40 h-40 mx-auto">
+                    <img className="object-cover w-full h-full rounded-b-2xl rounded-tr-2xl" src={member.img} alt={member.nama} />
+                    <p className="pt-3 font-semibold text-center">{member.nama}</p>
+                    <p className="text-center">{member.peran}</p>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </section>
         </div>
+      ) : (
+        <div>
+          {/* Founding Members */}
+          <section className="flex items-center justify-center grid-cols-4 space-x-16 bg-primary-1 pt-28 pb-28 min-h-600 text-light-1">
+            <div className="h-40 p-4 mr-16 text-6xl w-80">Founding Members</div>
 
-        <div
-          className={`w-40 h-96 rounded-3xl duration-500 ${isHovered2 ? 'w-40' : 'w-80'}`}
-          onMouseEnter={() => handleMouseEnter(2)}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className={`absolute text-center justify-center text-light-1 text-xl font-semibold ${isHovered2 ? '-rotate-90 ml-4 mt-60' : 'rotate-0 ml-24 mt-80'} duration-500`}>
-            <p className="font-semibold">Nifa Rahma</p>
-            <p className="text-sm font-normal">Executive Director</p>
-          </div>
-          <img src={foundingMiddle} className="w-full h-full rounded-3xl object-cover" alt="Founding Member" />
+            <div
+              className={`w-40 h-96 rounded-3xl duration-500 ${isHovered1 ? "w-80" : "w-40"}`}
+              onMouseEnter={() => handleMouseEnter(1)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div
+                className={`absolute mt-60 mr-1 text-light-1 text-left text-xl font-semibold ${
+                  isHovered1 ? "rotate-0 pl-24 pt-20 text-center" : "-rotate-90 pl-6"
+                } duration-500`}
+              >
+                <p>Shahira Syifa</p>
+                <p className="text-sm font-normal">Secretary General</p>
+              </div>
+              <img src={foundingLeft} className="object-cover w-full h-full rounded-3xl" alt="Founding Member" />
+            </div>
+
+            <div
+              className={`w-40 h-96 rounded-3xl duration-500 ${isHovered2 ? "w-40" : "w-80"}`}
+              onMouseEnter={() => handleMouseEnter(2)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div
+                className={`absolute text-center justify-center text-light-1 text-xl font-semibold ${
+                  isHovered2 ? "-rotate-90 ml-4 mt-60" : "rotate-0 ml-24 mt-80"
+                } duration-500`}
+              >
+                <p className="font-semibold">Nifa Rahma</p>
+                <p className="text-sm font-normal">Executive Director</p>
+              </div>
+              <img src={foundingMiddle} className="object-cover w-full h-full rounded-3xl" alt="Founding Member" />
+            </div>
+
+            <div
+              className={`w-40 h-96 rounded-3xl duration-500 ${isHovered3 ? "w-80" : "w-40"}`}
+              onMouseEnter={() => handleMouseEnter(3)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div
+                className={`absolute mt-56 text-light-1 text-left text-xl font-semibold ${
+                  isHovered3 ? "rotate-0 pl-24 pt-20 text-center" : "-rotate-90 "
+                } duration-500`}
+              >
+                <p>Reggata Lara</p>
+                <p className="text-sm font-normal">CO-Executive Director</p>
+              </div>
+              <img src={foundingRight} className="object-cover w-full h-full rounded-3xl" alt="Founding Member" />
+            </div>
+          </section>
+
+          {/* Current Executive Leads */}
+          <section className="flex flex-wrap items-center justify-center grid-cols-3 space-y-32 pb-28 min-h-600 text-primary-1 bg-light-3">
+            <div className="pt-40 mx-16">
+              <div className="pt-6 text-center w-72 h-72">
+                <h className="font-semibold text-center text-7xl">Current Executive Leads</h>
+              </div>
+            </div>
+            {event.map((people) => (
+              <div key={people.nama} className="w-72 h-72 mx-14">
+                <img className="w-72 h-72 rounded-b-4xl rounded-tr-4xl" src={people.img} alt="Executive Lead"></img>
+                <p className="pt-3 font-semibold text-center">{people.nama}</p>
+                <p className="text-center">{people.peran}</p>
+              </div>
+            ))}
+          </section>
+
+          {/* Board of Director */}
+          <section className="relative flex items-center justify-center grid-cols-4 space-x-16 bg-primary-1 pt-28 pb-28 min-h-600 text-light-1">
+            <div className="absolute left-0 w-8 p-4 mr-16 text-6xl h-96">Board of Director</div>
+
+            <div className="w-32 transition-all duration-300 ease-linear h-96 rounded-3xl"></div>
+            <div className="relative w-32 transition-all duration-300 ease-linear origin-right transform h-96 rounded-3xl hover:w-96 group">
+              <img src={foundingLeft} className="object-cover w-full h-full rounded-3xl" alt="Founding Member"></img>
+              <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-linear bg-transparent">
+                <span className="text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 -rotate-90 whitespace-nowrap group-hover:opacity-0">
+                  Afifah Vanya
+                </span>
+                <span className="absolute text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 whitespace-nowrap group-hover:opacity-100">
+                  Afifah Vanya
+                </span>
+                <span className="absolute text-2xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 mt-14 whitespace-nowrap group-hover:opacity-100">
+                  {" "}
+                  Jabatan{" "}
+                </span>
+              </div>
+            </div>
+            <div className="relative w-32 transition-all duration-300 ease-linear origin-right transform h-96 rounded-3xl hover:w-96 group">
+              <img src={foundingMiddle} className="object-cover w-full h-full rounded-3xl" alt="Founding Member"></img>
+              <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-linear bg-transparent">
+                <span className="text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 -rotate-90 whitespace-nowrap group-hover:opacity-0">
+                  Afifah Vanya
+                </span>
+                <span className="absolute text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 whitespace-nowrap group-hover:opacity-100">
+                  Afifah Vanya
+                </span>
+                <span className="absolute text-2xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 mt-14 whitespace-nowrap group-hover:opacity-100">
+                  {" "}
+                  Jabatan{" "}
+                </span>
+              </div>
+            </div>
+            <div className="relative w-32 transition-all duration-300 ease-linear origin-right transform h-96 rounded-3xl hover:w-96">
+              <img src={foundingRight} className="object-cover w-full h-full rounded-3xl" alt="Founding Member"></img>
+              <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-linear bg-transparent group">
+                <span className="text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 -rotate-90 whitespace-nowrap group-hover:opacity-0">
+                  Afifah Vanya
+                </span>
+                <span className="absolute text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 whitespace-nowrap group-hover:opacity-100">
+                  Afifah Vanya
+                </span>
+                <span className="absolute text-2xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 mt-14 whitespace-nowrap group-hover:opacity-100">
+                  {" "}
+                  Jabatan{" "}
+                </span>
+              </div>
+            </div>
+            <div className="relative w-32 transition-all duration-300 ease-linear origin-right transform h-96 rounded-3xl hover:w-96">
+              <img src={foundingRight} className="object-cover w-full h-full rounded-3xl" alt="Founding Member"></img>
+              <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-linear bg-transparent group">
+                <span className="text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 -rotate-90 whitespace-nowrap group-hover:opacity-0">
+                  Afifah Vanya
+                </span>
+                <span className="absolute text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 whitespace-nowrap group-hover:opacity-100">
+                  Afifah Vanya
+                </span>
+                <span className="absolute text-2xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 mt-14 whitespace-nowrap group-hover:opacity-100">
+                  {" "}
+                  Jabatan{" "}
+                </span>
+              </div>
+            </div>
+            <div className="relative w-32 transition-all duration-300 ease-linear origin-right transform h-96 rounded-3xl hover:w-96">
+              <img src={foundingRight} className="object-cover w-full h-full rounded-3xl" alt="Founding Member"></img>
+              <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-linear bg-transparent group">
+                <span className="text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 -rotate-90 whitespace-nowrap group-hover:opacity-0">
+                  Afifah Vanya
+                </span>
+                <span className="absolute text-3xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 whitespace-nowrap group-hover:opacity-100">
+                  Afifah Vanya
+                </span>
+                <span className="absolute text-2xl font-semibold tracking-wider text-white transition-opacity duration-300 opacity-0 mt-14 whitespace-nowrap group-hover:opacity-100">
+                  {" "}
+                  Jabatan{" "}
+                </span>
+              </div>
+            </div>
+          </section>
         </div>
-
-        <div
-          className={`w-40 h-96 rounded-3xl duration-500 ${isHovered3 ? 'w-80' : 'w-40'}`}
-          onMouseEnter={() => handleMouseEnter(3)}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className={`absolute mt-56 text-light-1 text-left text-xl font-semibold ${isHovered3 ? 'rotate-0 pl-24 pt-20 text-center' : '-rotate-90 '} duration-500`}>
-            <p>Reggata Lara</p>
-            <p className="text-sm font-normal">CO-Executive Director</p>
-          </div>
-          <img src={foundingRight} className="w-full h-full rounded-3xl object-cover" alt="Founding Member" />
-        </div>
-      </section>
-
-      {/* Current Executive Leads */}
-      <section className="flex flex-wrap items-center pb-28 min-h-600 grid-cols-3 space-y-32 justify-center text-primary-1 bg-light-3">
-        <div className="pt-40 mx-16">
-          <div className="w-72 h-72 text-center pt-6">
-            <h className="text-7xl font-semibold text-center">Current Executive Leads</h>
-          </div>
-        </div>
-        {event.map((people) => (
-          <div key={people.nama} className="w-72 h-72 mx-14">
-            <img className="w-72 h-72 rounded-b-4xl rounded-tr-4xl" src={people.img} alt="Executive Lead"></img>
-            <p className="text-center pt-3 font-semibold">{people.nama}</p>
-            <p className="text-center">{people.peran}</p>
-          </div>
-        ))}
-      </section>
-
-      {/* Board of Director */}
-      <section className="bg-primary-1 flex pt-28 pb-28 min-h-600 grid-cols-4 space-x-16 justify-center items-center text-light-1 relative">
-        <div className="w-8 h-96 text-6xl p-4 mr-16 absolute left-0">Board of Director</div>
-
-        <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear">        
-          </div>
-          <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative group">
-            <img src={foundingLeft} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
-            <div className="absolute inset-0 flex items-center justify-center bg-transparent transition-all duration-300 ease-linear">
-              <span className = "text-white font-semibold -rotate-90 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-0">Afifah Vanya</span>
-              <span className="absolute text-white font-semibold opacity-0 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-100">Afifah Vanya</span>
-              <span className="absolute mt-14 text-white font-semibold opacity-0 whitespace-nowrap text-2xl tracking-wider transition-opacity duration-300 group-hover:opacity-100"> Jabatan </span>
-            </div>
-          </div>
-          <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative group">
-            <img src={foundingMiddle} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>  
-            <div className="absolute inset-0 flex items-center justify-center bg-transparent transition-all duration-300 ease-linear">        
-              <span className = "text-white font-semibold -rotate-90 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-0">Afifah Vanya</span>
-              <span className="absolute text-white font-semibold opacity-0 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-100">Afifah Vanya</span>
-              <span className="absolute mt-14 text-white font-semibold opacity-0 whitespace-nowrap text-2xl tracking-wider transition-opacity duration-300 group-hover:opacity-100"> Jabatan </span>
-            </div>  
-          </div>
-          <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative">
-            <img src={foundingRight} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
-            <div className="absolute inset-0 flex items-center justify-center bg-transparent transition-all duration-300 ease-linear group">        
-              <span className = "text-white font-semibold -rotate-90 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-0">Afifah Vanya</span>
-              <span className="absolute text-white font-semibold opacity-0 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-100">Afifah Vanya</span>
-              <span className="absolute mt-14 text-white font-semibold opacity-0 whitespace-nowrap text-2xl tracking-wider transition-opacity duration-300 group-hover:opacity-100"> Jabatan </span>
-            </div>
-          </div>
-          <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative">
-            <img src={foundingRight} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
-            <div className="absolute inset-0 flex items-center justify-center bg-transparent transition-all duration-300 ease-linear group">        
-            <span className = "text-white font-semibold -rotate-90 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-0">Afifah Vanya</span>
-              <span className="absolute text-white font-semibold opacity-0 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-100">Afifah Vanya</span>
-              <span className="absolute mt-14 text-white font-semibold opacity-0 whitespace-nowrap text-2xl tracking-wider transition-opacity duration-300 group-hover:opacity-100"> Jabatan </span>
-            </div>
-          </div>
-          <div className="w-32 h-96 rounded-3xl transition-all duration-300 ease-linear transform hover:w-96 origin-right relative">
-            <img src={foundingRight} className="w-full h-full rounded-3xl object-cover" alt="Founding Member"></img>
-            <div className="absolute inset-0 flex items-center justify-center bg-transparent transition-all duration-300 ease-linear group">        
-            <span className = "text-white font-semibold -rotate-90 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-0">Afifah Vanya</span>
-              <span className="absolute text-white font-semibold opacity-0 whitespace-nowrap text-3xl tracking-wider transition-opacity duration-300 group-hover:opacity-100">Afifah Vanya</span>
-              <span className="absolute mt-14 text-white font-semibold opacity-0 whitespace-nowrap text-2xl tracking-wider transition-opacity duration-300 group-hover:opacity-100"> Jabatan </span>
-            </div>
-          </div>
-
-        </section>
+      )}
 
       <Footer />
-    </div>
+    </>
   );
 }
