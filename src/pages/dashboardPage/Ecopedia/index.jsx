@@ -10,7 +10,6 @@ import deleteIcon from "../../../assets/icons/delete_icon.svg";
 import postEcopedia from "../../../assets/icons/postEcopedia_icon.svg";
 import questionPerson from "../../../assets/icons/icon_questionperson.svg";
 import closeIcon from "../../../assets/icons/close_icon.svg";
-
 import convertDateValue from "../../../utils/ConvertDate";
 
 // Define the Modal within the same file

@@ -19,21 +19,22 @@ export const getGalleryById = async (slug) => {
 };
 
 export const addGallery = async (body) => {
-  return await API.post("/gallery/", body)
-    .then(() => {
+  return await API.post("/gallery/", body, { headers: { "Content-Type": "multipart/form-data" } })
+    .then((response) => {
       SweatAlert("gallery has been created successfully", "success");
-      ReloadRefresh(2000);
+      ReloadRefresh(2000, "/dashboard/gallery");
+      return response.data;
     })
     .catch(() => {
       SweatAlert("Error when create gallery", "error");
     });
 };
 
-export const editGallery = async (slug, body) => {
-  return await API.put(`/gallery/${slug}`, body)
+export const editGallery = async (data) => {
+  return await API.put(`/gallery/${data?.slug}`, data)
     .then(() => {
       SweatAlert("gallery has been updated successfully", "success");
-      ReloadRefresh(2000);
+      ReloadRefresh(2000, "/dashboard/gallery");
     })
     .catch(() => {
       SweatAlert("Error when update gallery", "error");

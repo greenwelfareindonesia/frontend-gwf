@@ -6,7 +6,7 @@ export const useGetArticles = () => {
     queryKey: ["getArticles"],
     queryFn: async () => {
       const response = await getArticles();
-      return response?.data || "";
+      return response?.payload || "";
     },
   });
 };
@@ -16,7 +16,7 @@ export const useGetArticleById = (slug) => {
     queryKey: ["getArticleById", slug],
     queryFn: async () => {
       const response = await getArticleById(slug);
-      return response?.data || "";
+      return response?.payload || "";
     },
   });
 };
@@ -25,7 +25,7 @@ export const useAddArticle = () => {
   return useMutation({
     mutationFn: async (body) => {
       const response = await addArticle(body);
-      return response?.data;
+      return response?.payload;
     },
   });
 };
@@ -35,7 +35,7 @@ export const useEditArticle = () => {
     mutationFn: async (data) => {
       const { slugId, body } = data;
       const response = await editArticle(slugId, body);
-      return response?.data;
+      return response?.payload;
     },
   });
 };
@@ -44,7 +44,7 @@ export const useDeleteArticle = () => {
   return useMutation({
     mutationFn: async (slug) => {
       const response = await deleteArticle(slug);
-      return response?.data;
+      return response?.payload;
     },
   });
 };
