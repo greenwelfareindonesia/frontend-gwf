@@ -81,7 +81,6 @@ const Events = () => {
                     <button onClick={() => setShowDeletePopOut(true)}>
                       <img src={delete_icon} alt="Delete" />
                     </button>
-
                   </div>
                 </div>
               </td>
