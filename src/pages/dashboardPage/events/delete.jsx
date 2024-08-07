@@ -1,21 +1,39 @@
-import uploadIcon from "../../../assets/icons/delete-icon-2/lottiefiles.com/animations/question-ESUC7y16es.png";
+import { useDeleteEvent } from "../../../features/events/service";
+import closeIcon from "../../../assets/icons/close_icon.svg";
+import questionPerson from "../../../assets/icons/icon_questionperson.svg";
 
-const Delete = ({ visible, setVisible }) => {
+const Modal = ({ visible, notVisible, selectedEvent }) => {
+  console.log("🚀 ~ Modal ~ selectedArticle:", selectedEvent);
+  const { mutate } = useDeleteEvent();
+
   if (!visible) return null;
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    mutate(selectedEvent); 
+  };
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="p-10 bg-white rounded-lg w-00">
-        <h1 className="pb-5 text-3xl font-semibold text-primary-2">Apakah Kamu Yakin akan Menghapus Postingan?</h1>
-        <img src={uploadIcon} alt="Upload Icon" className="mx-auto mb-4" />
-        <div className="flex justify-center gap-4">
-          <button className="px-4 py-2 text-xs text-white rounded-md bg-primary-2" onClick={() => setVisible(false)}>
+      <div className="relative flex flex-col items-center justify-center p-12 bg-white rounded-lg shadow-lg w-700 h-96">
+        <button onClick={notVisible} className="absolute top-2 right-2 bg-transparent border-none">
+          <img src={closeIcon} alt="Close" className="w-6 h-6"/>
+        </button>
+        <h1 className="text-2xl font-bold text-center text-primary-2">Apakah Kamu Yakin akan Menghapus</h1>
+        <h1 className="mb-4 text-2xl font-bold text-center text-primary-2">Event</h1>
+        <img src={questionPerson} alt="Question" className="w-48 h-48 mx-auto"/>
+        <form onSubmit={onSubmit} className="flex justify-center mt-4">
+          <button type="button" onClick={notVisible} className="px-20 py-2 mr-4 font-semibold text-white rounded bg-primary-2">
             Batal
           </button>
-          <button className="px-4 py-2 text-xs bg-white border rounded-md text-primary-2 border-primary-2">Hapus</button>
-        </div>
+          <button type="submit" className="px-20 py-2 font-semibold bg-white border rounded text-primary-2 border-primary-2">
+            Hapus
+          </button>
+        </form>
       </div>
     </div>
   );
 };
 
-export default Delete;
+export default Modal;

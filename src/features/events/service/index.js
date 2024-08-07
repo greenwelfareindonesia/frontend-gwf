@@ -6,7 +6,7 @@ export const useGetEvents = () => {
     queryKey: ["getEvents"],
     queryFn: async () => {
       const response = await getEvents();
-      return response?.data || "";
+      return response?.payload || "";
     },
   });
 };
@@ -16,7 +16,7 @@ export const useGetEventById = (slug) => {
     queryKey: ["getEventById", slug],
     queryFn: async () => {
       const response = await getEventById(slug);
-      return response?.data || "";
+      return response?.payload || "";
     },
   });
 };
@@ -25,7 +25,7 @@ export const useAddEvent = () => {
   return useMutation({
     mutationFn: async (body) => {
       const response = await addEvent(body);
-      return response?.data;
+      return response?.payload;
     },
   });
 };
@@ -33,9 +33,8 @@ export const useAddEvent = () => {
 export const useEditEvent = () => {
   return useMutation({
     mutationFn: async (data) => {
-      const { slugId, body } = data;
-      const response = await editEvent(slugId, body);
-      return response?.data;
+      const response = await editEvent(data);
+      return response?.payload;
     },
   });
 };
@@ -44,7 +43,7 @@ export const useDeleteEvent = () => {
   return useMutation({
     mutationFn: async (slug) => {
       const response = await deleteEvent(slug);
-      return response?.data;
+      return response?.payload;
     },
   });
 };

@@ -20,17 +20,18 @@ export const getWorkshopById = async (slug) => {
 
 export const addWorkshop = async (body) => {
   return await API.post("/workshop/", body, { headers: { "Content-Type": "multipart/form-data" } })
-    .then(() => {
+    .then((response) => {
       SweatAlert("Workshop has been created successfully", "success");
       ReloadRefresh(2000);
+      return response.data;
     })
     .catch(() => {
       SweatAlert("Error when create workshop", "error");
     });
 };
 
-export const editWorkshop = async (slug, body) => {
-  return await API.put(`/workshop/${slug}`, body, { headers: { "Content-Type": "multipart/form-data" } })
+export const editWorkshop = async (body) => {
+  return await API.put(`/workshop/${body.slug}`, body, { headers: { "Content-Type": "multipart/form-data" } })
     .then(() => {
       SweatAlert("Workshop has been updated successfully", "success");
       ReloadRefresh(2000);

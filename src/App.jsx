@@ -78,11 +78,11 @@ const App = () => {
         <Route path="/dashboard/gallery/post" element={<PostGallery />} />
 
         <Route path="/dashboard/workshop" element={<WorkshopDashboard />} />
-        <Route path="/dashboard/workshop/edit" element={<EditWorkshop />} />
+        <Route path="/dashboard/workshop/edit/:slug" element={<EditWorkshop />} />
         <Route path="/dashboard/workshop/post" element={<PostWorkshop />} />
 
         <Route path="/dashboard/event" element={<EventsDashboard />} />
-        <Route path="/dashboard/event/edit" element={<EditEvents />} />
+        <Route path="/dashboard/event/edit/:slug" element={<EditEvents />} />
         <Route path="/dashboard/event/post" element={<PostEvents />} />
 
         <Route path="/dashboard/article" element={<ArticleDashboard />} />

@@ -23,9 +23,9 @@ const Index = () => {
 
   return (
     <Sidebar titleField={"Article"}>
-      <div className="absolute flex items-center justify-between mb-4 top-24 right-9">
-        <Link to="/post3">
-          <button className="font-semibold bg-primary-2 w-36 h-9 rounded-3xl text-light-1">Post Article</button>
+      <div className="flex absolute top-24 right-9 justify-between items-center mb-4">
+        <Link to="/dashboard/article/post">
+          <button className="bg-primary-2 w-36 h-9 rounded-3xl font-semibold text-light-1">Post Article</button>
         </Link>
       </div>
       <table className="w-full text-left table-fixed text-primary-2">

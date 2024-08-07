@@ -6,7 +6,7 @@ export const useGetWorkshops = () => {
     queryKey: ["getWorkshops"],
     queryFn: async () => {
       const response = await getWorkshops();
-      return response?.data || "";
+      return response?.payload || "";
     },
   });
 };
@@ -16,7 +16,7 @@ export const useGetWorkshopById = (slug) => {
     queryKey: ["getWorkshopById", slug],
     queryFn: async () => {
       const response = await getWorkshopById(slug);
-      return response?.data || "";
+      return response?.payload || "";
     },
   });
 };
@@ -25,7 +25,7 @@ export const useAddWorkshop = () => {
   return useMutation({
     mutationFn: async (body) => {
       const response = await addWorkshop(body);
-      return response?.data;
+      return response?.payload;
     },
   });
 };
@@ -33,9 +33,8 @@ export const useAddWorkshop = () => {
 export const useEditWorkshop = () => {
   return useMutation({
     mutationFn: async (data) => {
-      const { slugId, body } = data;
-      const response = await editWorkshop(slugId, body);
-      return response?.data;
+      const response = await editWorkshop(data);
+      return response?.payload;
     },
   });
 };
@@ -44,7 +43,7 @@ export const useDeleteWorkshop = () => {
   return useMutation({
     mutationFn: async (slug) => {
       const response = await deleteWorkshop(slug);
-      return response?.data;
+      return response?.payload;
     },
   });
 };

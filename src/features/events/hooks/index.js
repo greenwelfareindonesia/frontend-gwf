@@ -7,9 +7,6 @@ export const getEvents = async () => {
     .then((response) => {
       return response.data;
     })
-    .catch(() => {
-      SweatAlert("Error when fetch events", "error");
-    });
 };
 
 export const getEventById = async (slug) => {
@@ -20,17 +17,18 @@ export const getEventById = async (slug) => {
 
 export const addEvent = async (body) => {
   return await API.post("/event/", body, { headers: { "Content-Type": "multipart/form-data" } })
-    .then(() => {
+    .then((response) => {
       SweatAlert("Event has been created successfully", "success");
-      ReloadRefresh(2000);
+      ReloadRefresh(2000, "/dashboard/event");
+      return response.data;
     })
     .catch(() => {
       SweatAlert("Error when create event", "error");
     });
 };
 
-export const editEvent = async (slug, body) => {
-  return await API.put(`/event/${slug}`, body, { headers: { "Content-Type": "multipart/form-data" } })
+export const editEvent = async (body) => {
+  return await API.put(`/event/${body.slug}`, body, { headers: { "Content-Type": "multipart/form-data" } })
     .then(() => {
       SweatAlert("Event has been updated successfully", "success");
       ReloadRefresh(2000);
