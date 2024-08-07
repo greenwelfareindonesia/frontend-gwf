@@ -74,7 +74,7 @@ const App = () => {
         <Route path="/dashboard/ecopedia/post" element={<PostEcopedia />} />
 
         <Route path="/dashboard/gallery" element={<GalleryDashboard />} />
-        <Route path="/dashboard/gallery/edit" element={<EditGallery />} />
+        <Route path="/dashboard/gallery/edit/:slug" element={<EditGallery />} />
         <Route path="/dashboard/gallery/post" element={<PostGallery />} />
 
         <Route path="/dashboard/workshop" element={<WorkshopDashboard />} />

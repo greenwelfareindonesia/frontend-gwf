@@ -6,7 +6,7 @@ export const useGetGalleries = () => {
     queryKey: ["getGalleries"],
     queryFn: async () => {
       const response = await getGalleries();
-      return response?.data || "";
+      return response?.payload || "";
     },
   });
 };
@@ -16,7 +16,7 @@ export const useGetGalleryById = (slug) => {
     queryKey: ["getGalleryById", slug],
     queryFn: async () => {
       const response = await getGalleryById(slug);
-      return response?.data || "";
+      return response?.payload || "";
     },
   });
 };
@@ -25,7 +25,7 @@ export const useAddGallery = () => {
   return useMutation({
     mutationFn: async (body) => {
       const response = await addGallery(body);
-      return response?.data;
+      return response?.payload;
     },
   });
 };
@@ -33,9 +33,8 @@ export const useAddGallery = () => {
 export const useEditGallery = () => {
   return useMutation({
     mutationFn: async (data) => {
-      const { slugId, body } = data;
-      const response = await editGallery(slugId, body);
-      return response?.data;
+      const response = await editGallery(data);
+      return response?.payload;
     },
   });
 };
@@ -44,7 +43,8 @@ export const useDeleteGallery = () => {
   return useMutation({
     mutationFn: async (slug) => {
       const response = await deleteGallery(slug);
-      return response?.data;
+      return response?.payload;
     },
   });
+
 };

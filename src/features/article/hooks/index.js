@@ -19,10 +19,11 @@ export const getArticleById = async (slug) => {
 };
 
 export const addArticle = async (body) => {
-  return await API.post("/article/", body)
-    .then(() => {
+  return await API.post("/article/", body, { headers: { "Content-Type": "multipart/form-data" } })
+    .then((response) => {
       SweatAlert("Article has been created successfully", "success");
-      ReloadRefresh(2000);
+      ReloadRefresh(2000, "/dashboard/article");
+      return response.data;
     })
     .catch(() => {
       SweatAlert("Error when add article", "error");
