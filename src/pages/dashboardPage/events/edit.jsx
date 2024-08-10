@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
@@ -12,11 +14,13 @@ import { camera_icon } from "../../../assets/icons";
 const Edit = () => {
   const { slug } = useParams();
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   const { data } = useGetEventById(slug);
 
   const { mutate: editEvent } = useEditEvent();
+
+  const [imagePreviews, setImagePreviews] = useState(data?.FileName);
 
   const navigate = useNavigate();
 
@@ -24,11 +28,22 @@ const Edit = () => {
     navigate(-1);
   };
 
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+    const urls = files.map((file) => URL.createObjectURL(file));
+    setImagePreviews(urls);
+    setValue("file", files[0]);
+  };
+
   const onSubmit = (data) => {
     const { title, eventMessage, file } = data;
 
-    editEvent({ slug, title, eventMessage, file: file[0] });
+    editEvent({ slug, title, eventMessage, file });
   };
+
+  useEffect(() => {
+    setImagePreviews(data?.FileName);
+  }, [data]);
 
   return (
     <Sidebar>
@@ -63,17 +78,25 @@ const Edit = () => {
             />
 
             {/* Photo Upload */}
-            <div className="flex flex-col gap-2 mt-4">
-              <p>Add Photo</p>
-              <label
-                htmlFor="photo-upload"
-                className="flex flex-col items-center justify-center p-4 my-2 border rounded-md cursor-pointer w-60 border-primary-2 h-36"
-              >
-                <div className="text-center">
-                  <img src={camera_icon} className="duration-75 hover:scale-150"></img>
+            <div className="flex gap-16 mt-4">
+              <div className="space-y-4">
+                <p className="text-xl font-semibold text-primary-2">Add Photo</p>
+                <label
+                  htmlFor="photo-upload"
+                  className="flex flex-col items-center justify-center p-4 mb-4 rounded-md cursor-pointer w-60 border-1 border-primary-2 h-36"
+                >
+                  <div className="text-center">
+                    <img src={camera_icon} className="duration-75 hover:scale-150" />
+                  </div>
+                  <input id="photo-upload" type="file" className="hidden" {...register("file")} accept="image/*" onChange={handleFileChange} />
+                </label>
+              </div>
+              <div className="space-y-4">
+                <h5 className="text-xl font-semibold text-primary-2">Preview Photo Events</h5>
+                <div className="flex flex-wrap gap-4">
+                  <img alt="preview image" src={imagePreviews} className="object-cover w-80" />
                 </div>
-                <input {...register("file")} id="photo-upload" type="file" className="hidden" />
-              </label>
+              </div>
             </div>
 
             {/* Action Buttons */}

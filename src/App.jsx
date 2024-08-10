@@ -40,6 +40,8 @@ import {
   Dashboard,
 } from "./pages/dashboardPage";
 
+import ProtectedAdmin from "./routes/ProtectedAdmin";
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -65,28 +67,30 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<AdminLogin />} />
 
-        <Route path="/dashboards" element={<Dashboard />} />
+        <Route element={<ProtectedAdmin />}>
+          <Route path="/dashboards" element={<Dashboard />} />
 
-        <Route path="/dashboard/feedback" element={<FeedbackPage />} />
+          <Route path="/dashboard/feedback" element={<FeedbackPage />} />
 
-        <Route path="/dashboard/ecopedia" element={<EcopediaDashboard />} />
-        <Route path="/dashboard/ecopedia/edit/:slug" element={<EditEcopedia />} />
-        <Route path="/dashboard/ecopedia/post" element={<PostEcopedia />} />
+          <Route path="/dashboard/ecopedia" element={<EcopediaDashboard />} />
+          <Route path="/dashboard/ecopedia/edit/:slug" element={<EditEcopedia />} />
+          <Route path="/dashboard/ecopedia/post" element={<PostEcopedia />} />
 
-        <Route path="/dashboard/gallery" element={<GalleryDashboard />} />
-        <Route path="/dashboard/gallery/edit/:slug" element={<EditGallery />} />
-        <Route path="/dashboard/gallery/post" element={<PostGallery />} />
+          <Route path="/dashboard/gallery" element={<GalleryDashboard />} />
+          <Route path="/dashboard/gallery/edit/:slug" element={<EditGallery />} />
+          <Route path="/dashboard/gallery/post" element={<PostGallery />} />
 
-        <Route path="/dashboard/workshop" element={<WorkshopDashboard />} />
-        <Route path="/dashboard/workshop/edit/:slug" element={<EditWorkshop />} />
-        <Route path="/dashboard/workshop/post" element={<PostWorkshop />} />
+          <Route path="/dashboard/workshop" element={<WorkshopDashboard />} />
+          <Route path="/dashboard/workshop/edit/:slug" element={<EditWorkshop />} />
+          <Route path="/dashboard/workshop/post" element={<PostWorkshop />} />
 
-        <Route path="/dashboard/event" element={<EventsDashboard />} />
-        <Route path="/dashboard/event/edit/:slug" element={<EditEvents />} />
-        <Route path="/dashboard/event/post" element={<PostEvents />} />
+          <Route path="/dashboard/event" element={<EventsDashboard />} />
+          <Route path="/dashboard/event/edit/:slug" element={<EditEvents />} />
+          <Route path="/dashboard/event/post" element={<PostEvents />} />
 
-        <Route path="/dashboard/article" element={<ArticleDashboard />} />
-        <Route path="/dashboard/article/post" element={<PostArticle />} />
+          <Route path="/dashboard/article" element={<ArticleDashboard />} />
+          <Route path="/dashboard/article/post" element={<PostArticle />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
