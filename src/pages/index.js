@@ -14,6 +14,7 @@ import Team from "./teampage/Team";
 import Workshop from "./workshoppage/Workshop";
 import MerchDetail from "./merchpage/Detail";
 import MerchDetailLogin from "./merchpage/DetailLogin";
+import Gallery from "./gallerypage/Gallery";
 
 export {
   Ecopedia,
@@ -32,4 +33,5 @@ export {
   Merch,
   MerchDetail,
   MerchDetailLogin,
+  Gallery
 };

@@ -16,6 +16,7 @@ import {
   Profile,
   MerchDetail,
   MerchDetailLogin,
+  Gallery
 } from "./pages";
 
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
@@ -58,6 +59,7 @@ const App = () => {
         <Route path="/merch" element={<Merch />} />
         <Route path="/merch/detail" element={<MerchDetail />} />
         <Route path="/merch/detail/login" element={<MerchDetailLogin />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<Order />} />
         <Route path="/profile" element={<Profile />} />
