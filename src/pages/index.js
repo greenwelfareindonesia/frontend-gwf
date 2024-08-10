@@ -1,6 +1,7 @@
 import About from "./aboutpage/About";
 import Donate from "./donatepage/Donate";
 import Ecopedia from "./ecopediapage/Ecopedia";
+import Ecopedia2 from "./ecopediapage/Ecopedia2";
 import Cart from "./merchpage/Cart";
 import Order from "./merchpage/Ordersummary";
 import Profile from "./merchpage/Profile";
@@ -32,4 +33,5 @@ export {
   Merch,
   MerchDetail,
   MerchDetailLogin,
+  Ecopedia2,
 };

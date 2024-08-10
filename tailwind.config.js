@@ -86,6 +86,7 @@ export default withMT({
         "light-3": "#efefeb",
         "light-4": "#d9d9d9",
         "light-5": "#d1d1b4",
+        "light-6": "#F2F29E",
         dark: "#313335",
       },
       screens: {

@@ -16,6 +16,7 @@ import {
   Profile,
   MerchDetail,
   MerchDetailLogin,
+  Ecopedia2
 } from "./pages";
 
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
@@ -52,7 +53,10 @@ const App = () => {
         <Route path="/event" element={<Events />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/workshop" element={<Workshop />} />
+
         <Route path="/ecopedia" element={<Ecopedia />} />
+        <Route path="/ecopedia/ecopedia2" element={<Ecopedia2 />} />
+
         <Route path="/resource" element={<Resource />} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/merch" element={<Merch />} />

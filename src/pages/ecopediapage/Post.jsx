@@ -6,6 +6,7 @@ import like from "../../assets/ecopedia-image/like.svg";
 import Background from "../../components/background";
 
 import Filter from "../../components/filter";
+import { Link } from "react-router-dom";
 
 export default function Post() {
   return (
@@ -22,7 +23,9 @@ export default function Post() {
           </button>
         </div>
         <div className="space-y-2 text-light-1">
-          <h1 className="pb-2 text-2xl border-b cursor-pointer hover:text-primary-3">Types of Plant-Based Diets</h1>
+          <Link to="/ecopedia/ecopedia2">
+            <h1 className="pb-2 text-2xl border-b cursor-pointer hover:text-primary-3">Types of Plant-Based Diets</h1>
+          </Link>
           <div className="flex justify-between text-xs">
             <div className="flex items-center gap-6">
               <button className="flex items-center gap-1">
