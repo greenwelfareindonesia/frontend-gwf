@@ -1,17 +1,22 @@
-import { useState } from "react";
-
 import { motion } from "framer-motion";
 
 import image_contact from "../../assets/contact.webp";
 
 import Image from "../../components/image";
 import Button from "../../components/button";
+import { useForm } from "react-hook-form";
+import { useAddContact } from "../../features/contact/service";
 
 const Contact = () => {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [name, setName] = useState("");
-  const [subject, setSubject] = useState("");
+  const { handleSubmit, register } = useForm();
+
+  const { mutate: addContact, isPending } = useAddContact();
+
+  const onSubmit = (data) => {
+    const { message, name, email, subject } = data;
+
+    addContact({ name, email, subject, message });
+  };
 
   return (
     <section className="flex flex-col md:flex-row-reverse">
@@ -49,12 +54,11 @@ const Contact = () => {
             <p>+62 812 8836 1624</p>
           </motion.div>
         </div>
-        <form className="flex flex-col items-center w-full max-w-screen-lg gap-4 px-0 md:px-8">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center w-full max-w-screen-lg gap-4 px-0 md:px-8">
           <div className="w-full">
             <input
               type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              {...register("name")}
               className="border bg-transparent border-transparent border-b-white text-white text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-white"
               placeholder="Name"
               required
@@ -63,8 +67,7 @@ const Contact = () => {
           <div className="w-full">
             <input
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              {...register("email")}
               className="border bg-transparent border-transparent border-b-white text-white text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-white"
               placeholder="Email"
               required
@@ -73,8 +76,7 @@ const Contact = () => {
           <div className="w-full">
             <input
               type="text"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
+              {...register("subject")}
               className="border bg-transparent border-transparent border-b-white text-white text-base font-light focus:ring-white focus:border-white w-full p-2.5 hover:border-white outline-none tracking-tight placeholder:text-white"
               placeholder="Subject"
               required
@@ -82,15 +84,14 @@ const Contact = () => {
           </div>
           <div className="w-full">
             <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              {...register("message")}
               className="border bg-transparent border-transparent border-b-white text-white text-base font-light focus:ring-white focus:border-white w-full py-2.5 px-4 hover:border-white outline-none tracking-tight placeholder:text-white"
               placeholder="Type your message here"
               rows="6"
             />
           </div>
           <div className="w-full sm:text-end">
-            <Button intent="white" className="!w-full">
+            <Button intent="white" className={`!w-full ${isPending && "animate-pulse"}`}>
               Submit
             </Button>
           </div>

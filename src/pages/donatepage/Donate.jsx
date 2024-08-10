@@ -16,7 +16,7 @@ export default function Donate() {
         <h1 className="py-8 text-lg text-center text-light-1 lg:text-4xl">15k IDR = 1 plant-based meal donated!</h1>
       </div>
       {/* Donate */}
-      <Container className="space-y-32">
+      <Container className="my-16 space-y-32">
         <div className="flex flex-col items-center">
           <h1 className="mb-8 text-xl lg:text-3xl text-primary-1">Donate</h1>
           <p className="max-w-screen-md text-sm font-light text-center text lg:text-base">
@@ -104,7 +104,7 @@ export default function Donate() {
         </motion.div>
       </Background>
       {/* Fundings Section */}
-      <Container className="flex justify-between w-full">
+      <Container className="flex justify-between w-full my-16">
         <div className="flex flex-col items-center">
           <motion.img
             initial={{ opacity: 0, y: 50 }}

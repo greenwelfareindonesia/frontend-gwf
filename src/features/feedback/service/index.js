@@ -16,7 +16,7 @@ export const useGetFeedbackById = (slug) => {
     queryKey: ["getFeedbackById", slug],
     queryFn: async () => {
       const response = await getFeedbackById(slug);
-      return response?.data || "";
+      return response?.payload || "";
     },
   });
 };
@@ -25,7 +25,7 @@ export const useAddFeedback = () => {
   return useMutation({
     mutationFn: async (body) => {
       const response = await addFeedback(body);
-      return response?.data;
+      return response?.payload;
     },
   });
 };

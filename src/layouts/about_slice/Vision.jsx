@@ -28,7 +28,7 @@ const Vision = () => {
           <Background key={index} src={item} className="min-h-400 md:min-h-600" />
         ))}
       </Slider>
-      <Container className="py-8 !my-0 text-center text-light-1 space-y-12 md:py-32">
+      <Container className="py-8 space-y-12 text-center text-light-1 md:py-32">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -1,10 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
+
+import { useForm } from "react-hook-form";
+
 import DashboardSection from "../../../layouts/dashboard_section/Template";
+
+import { useEditEcopedia, useGetEcopediaById } from "../../../features/ecopedia/service";
+
+import { camera_icon } from "../../../assets/icons";
 import closeIcon from "../../../assets/icons/close_icon.svg";
 import image1 from "../../../assets/dashboard-image/Rectangle7.svg";
-import { camera_icon } from "../../../assets/icons";
-import { useForm } from "react-hook-form";
-import { useEditEcopedia, useGetEcopediaById } from "../../../features/ecopedia/service";
 
 const EditEcopedia = () => {
   const { slug } = useParams();
@@ -15,10 +19,10 @@ const EditEcopedia = () => {
 
   const { mutate: editEcopedia } = useEditEcopedia();
 
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate(-1); // Use navigate with -1 to go back to the previous page
+    navigate(-1);
   };
 
   const onSubmit = (data) => {

@@ -23,7 +23,7 @@ const CarouselMessage = () => {
     customPaging: (index) => <div className="text-3xl cursor-pointer">{index === activeDots ? <>&#9702;</> : <>&#8226;</>}</div>,
   };
   return (
-    <Container className="!max-w-screen-xl">
+    <Container className="my-32">
       <Slider className="px-2" {...settings} ref={(sliderRef) => setSlider(sliderRef)}>
         {messages.map((item, index) => (
           <div key={index} className="w-full space-y-4 italic text-center text-primary-2">

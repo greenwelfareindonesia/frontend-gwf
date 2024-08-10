@@ -10,7 +10,7 @@ import Filter from "../../components/filter";
 const PlantedBased = () => {
   return (
     <section className="p-0 md:p-16 bg-primary-1 text-light-1">
-      <Container className="hidden space-y-12 text-center md:block">
+      <Container className="hidden my-16 space-y-12 text-center md:block">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

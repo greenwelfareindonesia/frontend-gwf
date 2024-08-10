@@ -12,7 +12,7 @@ const iconList = [
 const DevGoals = () => {
   return (
     <section className="grid bg-primary-1">
-      <Container className="flex flex-col items-center gap-4 space-y-16 md:space-y-32">
+      <Container className="flex flex-col items-center gap-4 my-32 space-y-16 md:space-y-32">
         <h1 className="mx-8 text-2xl text-center text-light-1 lg:mx-0 font-inter md:text-4xl">
           UN Sustainable Development Goals Green Welfare is focusing on:
         </h1>

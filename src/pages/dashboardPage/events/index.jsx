@@ -1,11 +1,18 @@
 import { useState } from "react";
+
 import { Link } from "react-router-dom";
+
 import Sidebar from "../../../layouts/dashboard_section/Template";
-import { edit_icon, delete_icon } from "../../../assets/icons";
-import Delete from "./delete"; // Ensure this import path is correct
+
+import Delete from "./delete";
+
 import { useGetEvents } from "../../../features/events/service";
 
-const Events = () => {
+import { edit_icon, delete_icon } from "../../../assets/icons";
+
+import convertDateValue from "../../../utils/ConvertDate";
+
+const EventsDashboard = () => {
   const [showDeletePopOut, setShowDeletePopOut] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
@@ -27,38 +34,36 @@ const Events = () => {
           <button className="font-semibold bg-primary-2 w-36 h-9 rounded-3xl text-light-1">Post Events</button>
         </Link>
       </div>
-      <table className="w-full text-left table-fixed text-primary-2">
+      <table className="w-full text-left table-fixed text-primary-1">
         <thead>
           <tr className="border-b-1 border-t-1 border-primary-2">
-            <th className="p-4">Events</th>
-            <th className="p-4 w-80">Judul</th>
-            <th className="p-4">Tanggal Post</th>
+            <th className="p-4 w-60">Event Images</th>
+            <th className="p-4">Title and Description</th>
+            <th className="p-4">Post Date</th>
             <th className="p-4">Action</th>
           </tr>
         </thead>
         <tbody>
           {data?.map((event) => (
             <tr key={event?.ID} className="border-b-1 border-primary-2">
-              <td className="py-4">
+              <td className="p-4">
                 <div className="overflow-hidden">
                   <img src={event?.FileName} alt={event?.Title} className="object-cover w-auto h-auto max-w-full" />
                 </div>
               </td>
               <td className="p-4">
                 <div className="overflow-hidden">
-                  <p className="text-sm font-semibold align-text-top">{event?.Title}</p>
-                  <p className="text-xs">{event?.EventMessage}</p>
+                  <p className="text-lg font-semibold align-text-top">{event?.Title}</p>
+                  <p className="text-sm">{event?.EventMessage}</p>
                 </div>
               </td>
               <td className="p-4">
-                <div className="text-sm font-semibold">{event?.created_at}</div>
+                <div className="text-sm font-semibold">{convertDateValue(event?.created_at)}</div>
               </td>
               <td className="p-4">
-                <div className="container flex gap-2 overflow-hidden">
+                <div className="flex gap-2">
                   <Link to={`/dashboard/event/edit/${event?.Slug}`}>
-                    <button onClick={() => console.log("Edit button clicked")}>
-                      <img src={edit_icon} alt="Edit" />
-                    </button>
+                    <img src={edit_icon} alt="Edit" />
                   </Link>
                   <div>
                     <button onClick={() => openDeleteModal(event?.Slug)}>
@@ -71,9 +76,9 @@ const Events = () => {
           ))}
         </tbody>
       </table>
-      <Delete visible={showDeletePopOut} setVisible={setShowDeletePopOut} selectedEvent={selectedEvent} onClose={closeDeleteModal} />
+      <Delete visible={showDeletePopOut} closeDeleteModal={closeDeleteModal} selectedEvent={selectedEvent} />
     </Sidebar>
   );
 };
 
-export default Events;
+export default EventsDashboard;

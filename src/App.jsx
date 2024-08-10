@@ -10,12 +10,12 @@ import {
   Donate,
   Ecopedia,
   Chapters,
-  Cart,
-  Merch,
-  Order,
-  Profile,
-  MerchDetail,
-  MerchDetailLogin,
+  // Cart,
+  // Merch,
+  // Order,
+  // Profile,
+  // MerchDetail,
+  // MerchDetailLogin,
 } from "./pages";
 
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
@@ -55,12 +55,12 @@ const App = () => {
         <Route path="/ecopedia" element={<Ecopedia />} />
         <Route path="/resource" element={<Resource />} />
         <Route path="/login" element={<AdminLogin />} />
-        <Route path="/merch" element={<Merch />} />
+        {/* <Route path="/merch" element={<Merch />} />
         <Route path="/merch/detail" element={<MerchDetail />} />
         <Route path="/merch/detail/login" element={<MerchDetailLogin />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<Order />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} /> */}
 
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<AdminLogin />} />

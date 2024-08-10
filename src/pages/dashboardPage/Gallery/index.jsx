@@ -1,18 +1,19 @@
 import { useState } from "react";
+
+import { Link } from "react-router-dom";
+
 import DashboardSection from "../../../layouts/dashboard_section/Template";
-import { NavLink } from "react-router-dom";
+import { useDeleteGallery, useGetGalleries } from "../../../features/gallery/service";
+
 import editIcon from "../../../assets/icons/edit_icon.svg";
 import deleteIcon from "../../../assets/icons/delete_icon.svg";
 import postFoto from "../../../assets/icons/postFoto_icon.svg";
 import questionPerson from "../../../assets/icons/icon_questionperson.svg";
 import closeIcon from "../../../assets/icons/close_icon.svg";
 
-import { useDeleteGallery, useGetGalleries } from "../../../features/gallery/service";
 import convertDateValue from "../../../utils/ConvertDate";
 
-// Define the Modal within the same file
 const Modal = ({ isOpen, onClose, selectedArticle }) => {
-  console.log("🚀 ~ Modal ~ selectedArticle:", selectedArticle);
   const { mutate } = useDeleteGallery();
 
   if (!isOpen) return null;
@@ -62,49 +63,40 @@ const GalleryDashboard = () => {
 
   return (
     <DashboardSection titleField="Gallery">
-      <NavLink to="/dashboard/gallery/post">
-        <button className="absolute top-0 right-0 mt-24 bg-transparent border-none mr-9" onClick={() => console.log("Button clicked")}>
+      <Link to="/dashboard/gallery/post">
+        <button className="absolute top-0 right-0 mt-24 bg-transparent border-none mr-9">
           <img src={postFoto} alt="Dashboard" />
         </button>
-      </NavLink>
-      <hr className="border-b-1 border-primary-2" />
-      <table className="w-full">
+      </Link>
+      <table className="w-full border-t text-primary-1 border-primary-2">
         <thead>
-          <tr className="border-b-1 border-primary-2">
-            <th className="w-1/5 px-3 py-4 text-xs text-left text-primary-1">Foto</th>
-            <th className="w-1/3 py-4 text-xs text-left text-primary-1">alt</th>
-            <th className="w-1/6 py-4 text-xs text-left text-primary-1">Tanggal Post</th>
-            {/* <th className="w-1/12 py-4 text-xs text-left text-primary-1">Judul Event</th>
-            <th className="w-1/12 py-4 text-xs text-left text-primary-1">Suka</th>
-            <th className="w-1/12 py-4 text-xs text-left text-primary-1">Share</th> */}
-            <th className="w-4/5 px-10 py-4 text-xs text-left text-primary-1">Action</th>
+          <tr className="text-left border-b border-primary-2">
+            <th className="p-4 w-60">Photo</th>
+            <th className="p-4">Alt Image</th>
+            <th className="p-4">Post Date</th>
+            <th className="p-4">Action</th>
           </tr>
         </thead>
         <tbody>
           {data?.map((article) => (
-            <tr key={article?.ID} className="border-b-1 border-primary-2">
+            <tr key={article?.ID} className="border-b border-primary-2">
               <td className="px-4">
                 {article?.fileNames?.[0] && <img src={article?.fileNames?.[0]} alt="" className="object-cover w-56 py-2 h-36" />}
-                </td>
+              </td>
               <td className="px-4">
-                <p className="py-2 mb-2 text-lg font-bold text-primary-1">{article?.alt}</p>
-                {/*<p className="py-2 text-sm text-primary-1">{article.description}</p>*/}
+                <p className="py-2 mb-2 font-medium">{article?.alt}</p>
               </td>
-              <td className="text-sm font-bold text-primary-1">{convertDateValue(article?.createdAt)}</td>
-              {/* <td className="text-sm font-bold text-primary-1">{article.eventTitle}</td>
-              <td className="text-sm font-bold text-primary-1">{article.likes}</td>
-              <td className="text-sm font-bold text-primary-1">{article.share}</td> */}
-              <td className="">
-                <NavLink to={`/dashboard/gallery/edit/${article?.slug}`}>
-                  <button className="p-0 mr-4 bg-transparent border-none" onClick={() => console.log("Edit button clicked")}>
+              <td className="px-4 text-sm">{convertDateValue(article?.createdAt)}</td>
+              <td className="px-4">
+                <div className="flex items-center gap-2">
+                  <Link to={`/dashboard/gallery/edit/${article?.slug}`}>
                     <img src={editIcon} alt="Edit" />
+                  </Link>
+                  <button className="p-0 bg-transparent border-none" onClick={() => openModal(article?.ID)}>
+                    <img src={deleteIcon} alt="Delete" />
                   </button>
-                </NavLink>
-                <button className="p-0 bg-transparent border-none" onClick={() => openModal(article?.ID)}>
-                  <img src={deleteIcon} alt="Delete" />
-                </button>
+                </div>
               </td>
-              <td></td>
             </tr>
           ))}
         </tbody>

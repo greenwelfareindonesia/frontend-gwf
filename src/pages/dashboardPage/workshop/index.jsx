@@ -1,11 +1,16 @@
 import { useState } from "react";
+
 import { Link } from "react-router-dom";
+
 import Sidebar from "../../../layouts/dashboard_section/Template";
-import { edit_icon, delete_icon } from "../../../assets/icons";
+
 import Delete from "./delete";
+
 import { useGetWorkshops } from "../../../features/workshop/service";
 
-const Workshop = () => {
+import { edit_icon, delete_icon } from "../../../assets/icons";
+
+const WorkshopDashboard = () => {
   const [showDeletePopOut, setShowDeletePopOut] = useState(false);
   const [selectedWorkshop, setSelectedWorkshop] = useState(null);
 
@@ -24,19 +29,16 @@ const Workshop = () => {
     <Sidebar titleField="Workshop">
       <div className="absolute flex items-center justify-between mb-4 top-24 right-9">
         <Link to="/dashboard/workshop/post">
-          <button className="font-semibold bg-primary-2 w-36 h-9 rounded-3xl text-light-1">
-            Post Workshop
-          </button>
+          <button className="font-semibold bg-primary-2 w-36 h-9 rounded-3xl text-light-1">Post Workshop</button>
         </Link>
       </div>
       <div className="relative overflow-x-auto">
-        <table className="w-full text-left table-fixed text-primary-2">
+        <table className="w-full text-left table-fixed text-primary-1">
           <thead>
-            <tr className="border-b-1 border-t-1 border-primary-2">
-              <th className="p-4">Workshop</th>
-              <th className="p-4 w-80">Judul dan Deskripsi</th>
-              <th className="p-4">Tanggal Post</th>
-              <th className="p-4">Tanggal Event</th>
+            <tr className="border-b-1 border-t-1 border-primary-2 whitespace-nowrap">
+              <th className="p-4 w-60">Workshop</th>
+              <th className="p-4 w-60">Title dan Description</th>
+              <th className="p-4">Event Date</th>
               <th className="p-4">Link Event</th>
               <th className="p-4">Action</th>
             </tr>
@@ -54,23 +56,17 @@ const Workshop = () => {
                   </div>
                 </td>
                 <td className="p-4">
-                  <div className="text-sm font-semibold">{article?.created_at}</div>
-                </td>
-                <td className="p-4">
                   <div className="text-sm font-semibold">{article?.Date}</div>
                 </td>
                 <td className="p-4">
                   <div className="text-sm font-semibold">{article?.Url}</div>
                 </td>
                 <td className="p-4">
-                  <div className="container flex gap-2 overflow-hidden">
+                  <div className="flex gap-2 overflow-hidden">
                     <Link to={`/dashboard/workshop/edit/${article?.Slug}`}>
-                      <button onClick={() => console.log("Edit button clicked")}>
-                        <img src={edit_icon} alt="Edit" />
-                      </button>
+                      <img src={edit_icon} alt="Edit" />
                     </Link>
-                    <button onClick={() => 
-                      openDeleteModal(article?.Slug)}>
+                    <button onClick={() => openDeleteModal(article?.Slug)}>
                       <img src={delete_icon} alt="Delete" />
                     </button>
                   </div>
@@ -80,9 +76,9 @@ const Workshop = () => {
           </tbody>
         </table>
       </div>
-      <Delete visible={showDeletePopOut} setVisible={setShowDeletePopOut} selectedWorkshop={selectedWorkshop} onClose={closeDeleteModal} />
+      <Delete visible={showDeletePopOut} selectedWorkshop={selectedWorkshop} closeDeleteModal={closeDeleteModal} />
     </Sidebar>
   );
 };
 
-export default Workshop;
+export default WorkshopDashboard;

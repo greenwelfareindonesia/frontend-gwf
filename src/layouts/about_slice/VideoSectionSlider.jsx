@@ -16,7 +16,7 @@ const VideoSectionSlider = () => {
     slidesToScroll: 1,
   };
   return (
-    <Container className="max-w-screen-lg mx-auto my-20">
+    <Container className="my-32">
       <div className="relative w-full h-full px-4 group">
         <Slider {...settings} ref={(sliderRef) => setSlider(sliderRef)}>
           <div>

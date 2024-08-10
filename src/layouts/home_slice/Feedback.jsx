@@ -1,26 +1,24 @@
+import { useForm } from "react-hook-form";
+
 import { motion } from "framer-motion";
+
+import { useAddFeedback } from "../../features/feedback/service";
+
 import Button from "../../components/button";
 import Container from "../../components/container";
-import axios from "axios";
-import { useState } from "react";
 
 const Feedback = () => {
-  const BASE_URL = "https://backend-gwf-production.up.railway.app/api/feedback/";
-  const [email, setEmail] = useState("");
-  const [text, setText] = useState("");
+  const { handleSubmit, register } = useForm();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post(BASE_URL, { Email: email, Text: text });
-      console.log(response.data);
-    } catch (error) {
-      console.log(error.response);
-    }
+  const { mutate: addFeedback, isPending } = useAddFeedback();
+
+  const onSubmit = async (data) => {
+    addFeedback({ email: data.email, text: data.text });
   };
+
   return (
     <section className="flex flex-col items-center gap-8 px-16 py-32 bg-primary-1">
-      <Container className="!max-w-screen-lg text-center md:items-start !p-0 !m-0 space-y-4">
+      <Container className="text-center md:items-start !p-0 space-y-4">
         <motion.h5
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +38,7 @@ const Feedback = () => {
           We are always working to improve our community and would love to hear your suggestions on how to grow Green Welfare Indonesia!
         </motion.p>
       </Container>
-      <form className="flex flex-col items-center w-full max-w-screen-lg gap-4" onSubmit={handleSubmit}>
+      <form className="flex flex-col items-center w-full max-w-screen-lg gap-4" onSubmit={handleSubmit(onSubmit)}>
         <input
           id="Email"
           type="email"
@@ -48,8 +46,7 @@ const Feedback = () => {
           placeholder="Email"
           required
           name="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          {...register("email")}
         />
         <textarea
           id="Text"
@@ -58,10 +55,9 @@ const Feedback = () => {
           placeholder="How can we improve?"
           rows="6"
           name="Text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          {...register("text")}
         />
-        <Button className="hover:!bg-primary-2/50" size="large">
+        <Button type="submit" className={`hover:!bg-primary-2/50 ${isPending && "animate-pulse"}`} size="large">
           Send
         </Button>
       </form>

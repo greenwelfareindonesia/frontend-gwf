@@ -1,19 +1,23 @@
 import { useNavigate } from "react-router-dom";
-import DashboardSection from "../../../layouts/dashboard_section/Template";
-import cameraIcon from "../../../assets/icons/camera_icon.svg";
-import closeIcon from "../../../assets/icons/close_icon.svg";
+
 import { useForm } from "react-hook-form";
+
+import DashboardSection from "../../../layouts/dashboard_section/Template";
+
 import { useAddEcopedia } from "../../../features/ecopedia/service";
 
-const PostEcopedia = () => {
+import cameraIcon from "../../../assets/icons/camera_icon.svg";
+import closeIcon from "../../../assets/icons/close_icon.svg";
+
+const Post = () => {
   const { handleSubmit, register } = useForm();
 
   const { mutate: addEcopedia } = useAddEcopedia();
 
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate(-1); // Use navigate with -1 to go back to the previous page
+    navigate(-1);
   };
 
   const onSubmit = (data) => {
@@ -35,6 +39,7 @@ const PostEcopedia = () => {
           placeholder="Tulis judul disini"
           type="text"
         />
+
         <div className="mb-4 text-xl font-bold text-primary-2">Subtitle</div>
         <input
           {...register("subTitle")}
@@ -42,6 +47,7 @@ const PostEcopedia = () => {
           placeholder="Tulis deskripsi disini"
           type="text"
         />
+
         <div className="mb-4 text-xl font-bold text-primary-2">Description</div>
         <input
           {...register("description")}
@@ -49,6 +55,7 @@ const PostEcopedia = () => {
           placeholder="Tulis deskripsi disini"
           type="text"
         />
+
         <div className="mb-4 text-xl font-bold text-primary-2">Source File</div>
         <input
           {...register("srcFile")}
@@ -56,6 +63,7 @@ const PostEcopedia = () => {
           placeholder="Tulis asal gambar/file disini"
           type="text"
         />
+
         <div className="mb-4 text-xl font-bold text-primary-2">Reference</div>
         <input
           {...register("reference")}
@@ -63,6 +71,7 @@ const PostEcopedia = () => {
           placeholder="Tulis asal referensi disini"
           type="text"
         />
+
         <div className="flex flex-col flex-1 py-2">
           <p className="my-2 text-xl font-bold text-primary-2">Add First Photo</p>
           <label
@@ -75,6 +84,7 @@ const PostEcopedia = () => {
             <input id="photo-upload" type="file" className="hidden" {...register("file1")} />
           </label>
         </div>
+
         <div className="flex flex-col flex-1 py-2">
           <p className="my-2 text-xl font-bold text-primary-2">Add Second Photo</p>
           <label
@@ -91,7 +101,7 @@ const PostEcopedia = () => {
         {/* Container for the button */}
         <div className="flex justify-center mt-16">
           <button type="submit" className="py-2 font-semibold text-white rounded bg-primary-2 px-96">
-            Post Event
+            Post Ecopedia
           </button>
         </div>
       </form>
@@ -99,4 +109,4 @@ const PostEcopedia = () => {
   );
 };
 
-export default PostEcopedia;
+export default Post;

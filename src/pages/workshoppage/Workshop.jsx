@@ -45,7 +45,7 @@ const imgSlides = [
 export default function Workshop() {
   const [index, setIndex] = React.useState(0);
 
-  const [event, setEvent] = React.useState([
+  const event = [
     {
       title: "GWF Climate Education Mentorship & Course 3.0",
       img: Dummy1,
@@ -76,7 +76,7 @@ export default function Workshop() {
       event: "23rd March 2022 | 09:30 - 11:00 WIB | Paid Class",
       button: "CLOSE",
     },
-  ]);
+  ];
 
   return (
     <>
