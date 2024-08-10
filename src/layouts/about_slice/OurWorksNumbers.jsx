@@ -6,7 +6,7 @@ const OurWorksNumbers = () => {
   return (
     <section className="py-16 md:py-32 bg-primary-1">
       <h2 className="mb-8 text-3xl text-center md:mb-16 text-light-1 font-inter">Our Work in Numbers</h2>
-      <Container className="grid grid-cols-1 gap-16 md:gap-8 p-4 md:grid-cols-3 !my-0">
+      <Container className="grid grid-cols-1 gap-16 p-4 md:gap-8 md:grid-cols-3">
         {workNumbers.map((item, index) => (
           <div key={index} className="space-y-2 md:max-w-300">
             <motion.h3

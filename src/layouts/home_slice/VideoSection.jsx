@@ -49,7 +49,7 @@ const VideoSection = () => {
     ],
   };
   return (
-    <Container>
+    <Container className="my-16 md:my-32">
       <div className="p-0">
         <div className="flex w-full py-4">
           <h2 className="w-full text-xl font-extralight">All Videos</h2>

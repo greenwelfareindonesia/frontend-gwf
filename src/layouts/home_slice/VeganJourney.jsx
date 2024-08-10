@@ -9,7 +9,7 @@ import Filter from "../../components/filter";
 
 const VeganJourney = () => {
   return (
-    <Container className="!max-w-screen-xl !px-0 !my-0 md:!my-32">
+    <Container className="!px-0 !my-0 md:!my-10">
       <Background
         src={vegan_journey_image}
         className="flex flex-col items-center justify-center h-full max-w-screen-xl gap-8 px-8 py-10 mx-auto min-h-1000 text-light-1 md:py-44 md:px-32"

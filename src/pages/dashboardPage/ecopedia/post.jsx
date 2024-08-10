@@ -1,83 +1,76 @@
-import { useNavigate, useParams } from "react-router-dom";
-import DashboardSection from "../../../layouts/dashboard_section/Template";
-import closeIcon from "../../../assets/icons/close_icon.svg";
-import image1 from "../../../assets/dashboard-image/Rectangle7.svg";
-import { camera_icon } from "../../../assets/icons";
+import { useNavigate } from "react-router-dom";
+
 import { useForm } from "react-hook-form";
-import { useEditEcopedia, useGetEcopediaById } from "../../../features/ecopedia/service";
 
-const EditEcopedia = () => {
-  const { slug } = useParams();
+import DashboardSection from "../../../layouts/dashboard_section/Template";
 
-  const { register, handleSubmit } = useForm();
+import { useAddEcopedia } from "../../../features/ecopedia/service";
 
-  const { data } = useGetEcopediaById(slug);
+import cameraIcon from "../../../assets/icons/camera_icon.svg";
+import closeIcon from "../../../assets/icons/close_icon.svg";
 
-  const { mutate: editEcopedia } = useEditEcopedia();
+const Post = () => {
+  const { handleSubmit, register } = useForm();
 
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const { mutate: addEcopedia } = useAddEcopedia();
+
+  const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate(-1); // Use navigate with -1 to go back to the previous page
+    navigate(-1);
   };
 
   const onSubmit = (data) => {
-    const { Description, Reference, file1, SrcFile, SubTitle, Title } = data;
+    const { description, reference, file1, file2, srcFile, subTitle, title } = data;
 
-    editEcopedia({ slug, Description, Reference, file1, SrcFile, SubTitle, Title });
+    addEcopedia({ title, description, file1, file2, reference, srcFile, subTitle });
   };
 
   return (
-    <DashboardSection titleField="Edit Post">
+    <DashboardSection titleField="Add Post">
       <button onClick={handleBack} className="absolute top-0 right-0 mt-24 bg-transparent border-none mr-9">
         <img src={closeIcon} alt="Close" />
       </button>
       <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
         <div className="mb-4 text-xl font-bold text-primary-2">Title</div>
         <input
-          {...register("Title")}
+          {...register("title")}
           className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm"
           placeholder="Tulis judul disini"
           type="text"
-          defaultValue={data?.title}
         />
+
         <div className="mb-4 text-xl font-bold text-primary-2">Subtitle</div>
         <input
-          {...register("SubTitle")}
+          {...register("subTitle")}
           className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm"
           placeholder="Tulis deskripsi disini"
           type="text"
-          defaultValue={data?.subTitle}
         />
+
         <div className="mb-4 text-xl font-bold text-primary-2">Description</div>
         <input
-          {...register("Description")}
+          {...register("description")}
           className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm"
           placeholder="Tulis deskripsi disini"
           type="text"
-          defaultValue={data?.description}
         />
+
         <div className="mb-4 text-xl font-bold text-primary-2">Source File</div>
         <input
-          {...register("SrcFile")}
+          {...register("srcFile")}
           className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm"
           placeholder="Tulis asal gambar/file disini"
           type="text"
-          defaultValue={data?.srcFile}
         />
+
         <div className="mb-4 text-xl font-bold text-primary-2">Reference</div>
         <input
-          {...register("Reference")}
+          {...register("reference")}
           className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm"
           placeholder="Tulis asal referensi disini"
           type="text"
-          defaultValue={data?.reference}
         />
-
-        <div className="flex flex-col flex-1 py-2">
-          <p className="my-2 text-xl font-bold text-primary-2">Photo</p>
-          <img src={image1} style={{ width: "200px", height: "100px" }}></img>
-        </div>
 
         <div className="flex flex-col flex-1 py-2">
           <p className="my-2 text-xl font-bold text-primary-2">Add First Photo</p>
@@ -86,19 +79,29 @@ const EditEcopedia = () => {
             className="flex flex-col items-center justify-center p-4 my-2 rounded-md cursor-pointer w-60 border-1 border-primary-2 h-36"
           >
             <div className="text-center">
-              <img src={camera_icon} className="duration-75 hover:scale-150"></img>
+              <img src={cameraIcon} className="duration-75 hover:scale-150"></img>
             </div>
             <input id="photo-upload" type="file" className="hidden" {...register("file1")} />
           </label>
         </div>
 
-        {/* Container for the buttons */}
-        <div className="flex justify-center mt-28">
-          <button type="button" className="px-48 py-2 mr-4 font-semibold bg-white border rounded text-primary-2 border-primary-2">
-            Batal
-          </button>
-          <button type="submit" className="px-48 py-2 font-semibold text-white rounded bg-primary-2">
-            Simpan
+        <div className="flex flex-col flex-1 py-2">
+          <p className="my-2 text-xl font-bold text-primary-2">Add Second Photo</p>
+          <label
+            htmlFor="photo-upload"
+            className="flex flex-col items-center justify-center p-4 my-2 rounded-md cursor-pointer w-60 border-1 border-primary-2 h-36"
+          >
+            <div className="text-center">
+              <img src={cameraIcon} className="duration-75 hover:scale-150"></img>
+            </div>
+            <input id="photo-upload" type="file" className="hidden" {...register("file2")} />
+          </label>
+        </div>
+
+        {/* Container for the button */}
+        <div className="flex justify-center mt-16">
+          <button type="submit" className="py-2 font-semibold text-white rounded bg-primary-2 px-96">
+            Post Ecopedia
           </button>
         </div>
       </form>
@@ -106,4 +109,4 @@ const EditEcopedia = () => {
   );
 };
 
-export default EditEcopedia;
+export default Post;

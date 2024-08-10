@@ -9,11 +9,11 @@ import EditEvents from "./events/edit";
 import PostEvents from "./events/post";
 
 import EcopediaDashboard from "./ecopedia";
-import PostEcopedia from "./ecopedia/add";
+import PostEcopedia from "./ecopedia/post";
 import EditEcopedia from "./ecopedia/edit";
 
 import GalleryDashboard from "./gallery";
-import PostGallery from "./gallery/add";
+import PostGallery from "./gallery/post";
 import EditGallery from "./gallery/edit";
 
 import ArticleDashboard from "./article";

@@ -7,7 +7,7 @@ import Image from "../../components/image";
 
 const PrimeGoals = () => {
   return (
-    <Container className="flex flex-col items-center w-full h-full gap-8 lg:flex-row">
+    <Container className="flex flex-col items-center w-full h-full gap-8 my-32 lg:flex-row">
       <Image src={prime_goals_image} className="!w-550" description="prime-goals" />
       <div className="relative flex flex-col w-full max-w-lg gap-8 px-8 py-0 text-center bg-transparent lg:text-start lg:absolute lg:right-0 lg:bg-primary-2 md:p-16">
         <motion.h5

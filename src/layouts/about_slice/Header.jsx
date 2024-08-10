@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 
-import { header_image } from "../../assets/about-image";
 import Background from "../../components/background";
 import Container from "../../components/container";
 
+import { header_image } from "../../assets/about-image";
+
 const Header = () => {
   return (
-    <section className="space-y-8 md:space-y-16">
+    <section className="mb-16 space-y-8 md:space-y-16">
       <Background src={header_image} className="min-h-400 md:min-h-600" />
-      <Container className="mx-8 space-y-4 text-center md:space-y-8 !px-8 !mb-32">
+      <Container className="mx-8 space-y-4 text-center md:space-y-8 !px-8 mb-32">
         <motion.h1
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -5,10 +5,10 @@ import Container from "../../components/container";
 
 const Merch = () => {
   return (
-    <Container className="!max-w-screen-xl">
+    <Container className="!max-w-screen-xl my-32">
       <div className="flex flex-col gap-8 py-8 mx-8 text-center md:py-16">
-        <h4 className="text-3xl tracking-tight text-primary-2 md:text-6xl">Get our Merch</h4>
-        <p className="text-base leading-8 text-primary-2 md:text-lg">
+        <h4 className="text-3xl tracking-tight text-primary-1 md:text-5xl">Get Our Merch</h4>
+        <p className="text-base leading-8 text-primary-1 md:text-lg">
           Spend it for what it&apos;s worth - 100% of the revenue will be directed to <br /> support our non-profit programs and operational costs!
         </p>
       </div>

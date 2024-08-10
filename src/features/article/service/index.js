@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { addArticle, deleteArticle, editArticle, getArticleById, getArticles } from "../hooks";
+import ReloadRefresh from "../../../utils/ReloadRefresh";
 
 export const useGetArticles = () => {
   return useQuery({
@@ -25,6 +26,17 @@ export const useAddArticle = () => {
   return useMutation({
     mutationFn: async (body) => {
       const response = await addArticle(body);
+      ReloadRefresh(2000, "/dashboard/article");
+      return response?.payload;
+    },
+  });
+};
+
+export const useAddArticleInMainPage = () => {
+  return useMutation({
+    mutationFn: async (body) => {
+      const response = await addArticle(body);
+      ReloadRefresh(2000);
       return response?.payload;
     },
   });

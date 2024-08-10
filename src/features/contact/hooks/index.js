@@ -24,21 +24,10 @@ export const addContact = async (body) => {
       SweatAlert("Contact has been created successfully", "success");
       ReloadRefresh(2000);
     })
-    .catch(() => {
-      SweatAlert("Error when add contact", "error");
+    .catch((err) => {
+      SweatAlert(err?.response.data.error.message || "Error when add contact", "error");
     });
 };
-
-// export const editArticle = async (slug, body) => {
-//   return await API.put(`/article/${slug}`, body)
-//     .then((response) => {
-//       SweatAlert(response.data.data, "success");
-//       return response.data;
-//     })
-//     .catch(() => {
-//       SweatAlert("Error when update article", "error");
-//     });
-// };
 
 export const deleteContact = async (slug) => {
   return await API.delete(`/contact/${slug}`)

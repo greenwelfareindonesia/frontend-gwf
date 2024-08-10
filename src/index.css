@@ -35,15 +35,21 @@ input[type="file"]::file-selector-button:hover {
   background: #5f5e36;
 }
 
+.filter-card-team {
+  background: rgb(0, 14, 33);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 14, 33, 0.8) 0%,
+    rgba(101, 101, 57, 0.2) 43%,
+    rgba(56, 56, 7, 0.29) 64%,
+    rgba(127, 126, 94, 0.2) 88%,
+    rgba(62, 62, 8, 0.53) 100%
+  );
+}
+
 @layer components {
   .sidebar-menu {
     @apply flex items-center p-2 text-sm text-gray-300 rounded-md cursor-pointer hover:bg-primary-1 gap-x-4;
-  }
-  
-  .vertical-text {
-    writing-mode: vertical-rl;
-    text-align: center;
-    transform: rotate(180deg);
   }
 }
 
@@ -52,9 +58,9 @@ input[type="file"]::file-selector-button:hover {
   display: none; /* Default hidden */
 }
 
-@media (max-width: 640px) { /* Tailwind's sm breakpoint */
+@media (max-width: 640px) {
+  /* Tailwind's sm breakpoint */
   .overlay {
-      display: block; /* Show overlay on mobile screens */
+    display: block; /* Show overlay on mobile screens */
   }
 }
-
