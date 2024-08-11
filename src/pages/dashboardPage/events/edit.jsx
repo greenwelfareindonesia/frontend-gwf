@@ -35,10 +35,10 @@ const Edit = () => {
     setValue("file", files[0]);
   };
 
-  const onSubmit = (data) => {
-    const { title, eventMessage, file } = data;
+  const onSubmit = (body) => {
+    const { title, eventMessage, file } = body;
 
-    editEvent({ slug, title, eventMessage, file });
+    editEvent({ slug, title: title || data?.Title, eventMessage: eventMessage || data?.EventMessage, file });
   };
 
   useEffect(() => {

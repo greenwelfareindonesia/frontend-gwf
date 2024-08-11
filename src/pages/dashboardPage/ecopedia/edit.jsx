@@ -35,8 +35,8 @@ const EditEcopedia = () => {
     setValue("files", files);
   };
 
-  const onSubmit = (data) => {
-    const { files, Description, Reference, SrcFile, SubTitle, Title } = data;
+  const onSubmit = (body) => {
+    const { files, Description, Reference, SrcFile, SubTitle, Title } = body;
     const mapFile = files.map((image, index) => {
       return { [`file${index + 1}`]: image };
     });
@@ -45,7 +45,15 @@ const EditEcopedia = () => {
       return { ...acc, ...cur };
     }, {});
 
-    editEcopedia({ slug, Description, Reference, SrcFile, SubTitle, Title, ...mergedFiles });
+    editEcopedia({
+      slug,
+      Description: Description || data?.description,
+      Reference: Reference || data?.reference,
+      SrcFile: SrcFile || data?.srcFile,
+      SubTitle: SubTitle || data?.subTitle,
+      Title: Title || data?.title,
+      ...mergedFiles,
+    });
   };
 
   useEffect(() => {

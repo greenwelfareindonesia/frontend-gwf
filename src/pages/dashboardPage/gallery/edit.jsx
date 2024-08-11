@@ -35,8 +35,8 @@ const EditGallery = () => {
     setValue("files", files);
   };
 
-  const onSubmit = (data) => {
-    const { files, alt } = data;
+  const onSubmit = (body) => {
+    const { files, alt } = body;
     const mapFile = files.map((image, index) => {
       return { [`file${index + 1}`]: image };
     });
@@ -45,7 +45,7 @@ const EditGallery = () => {
       return { ...acc, ...cur };
     }, {});
 
-    editGallery({ alt, ...mergedFiles });
+    editGallery({ alt: alt || data?.alt, ...mergedFiles });
   };
 
   useEffect(() => {

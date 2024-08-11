@@ -14,8 +14,12 @@ import Team from "./teampage/Team";
 import Workshop from "./workshoppage/Workshop";
 import MerchDetail from "./merchpage/Detail";
 import MerchDetailLogin from "./merchpage/DetailLogin";
+import SingleEcopedia from "./ecopediapage/SingleEcopedia";
+import Gallery from "./galleryPage/Gallery";
 
 export {
+  Gallery,
+  SingleEcopedia,
   Ecopedia,
   Resource,
   About,

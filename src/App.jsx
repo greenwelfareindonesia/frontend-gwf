@@ -10,6 +10,8 @@ import {
   Donate,
   Ecopedia,
   Chapters,
+  SingleEcopedia,
+  Gallery,
   // Cart,
   // Merch,
   // Order,
@@ -55,6 +57,8 @@ const App = () => {
         <Route path="/donate" element={<Donate />} />
         <Route path="/workshop" element={<Workshop />} />
         <Route path="/ecopedia" element={<Ecopedia />} />
+        <Route path="/ecopedia/:slug" element={<SingleEcopedia />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/resource" element={<Resource />} />
         <Route path="/login" element={<AdminLogin />} />
         {/* <Route path="/merch" element={<Merch />} />

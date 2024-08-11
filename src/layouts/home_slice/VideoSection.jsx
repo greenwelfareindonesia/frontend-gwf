@@ -8,11 +8,25 @@ import { tumb1, tumb2 } from "../../assets/image";
 
 import Container from "../../components/container";
 import Image from "../../components/image";
-// import Background from "../../components/background";
-// import Button from "../../components/button";
+import Button from "../../components/button";
 
 const VideoSection = () => {
   const [slider, setSlider] = React.useState(null);
+  const iframeRef = React.useRef(null);
+  const [show, setShow] = React.useState(true);
+
+  const handlePlay = () => {
+    const iframe = iframeRef.current;
+    iframe.contentWindow.postMessage(
+      JSON.stringify({
+        event: "command",
+        func: "playVideo",
+        args: [],
+      }),
+      "*"
+    );
+    setShow(false);
+  };
 
   const settings = {
     lazyLoad: true,
@@ -60,15 +74,26 @@ const VideoSection = () => {
             <BsInfo className="w-6 h-6 duration-200 text-primary-2 hover:text-filter-2" />
           </button>
         </div>
-        <div className="relative flex items-center justify-center w-full h-full">
-          {/* <Background
-            src={tumb1}
-            className="absolute flex flex-col items-center justify-center gap-4 aspect-video"
-          >
-            <h1 className="text-light-1">All Videos</h1>
-            <Button>Play Video</Button>
-          </Background> */}
-          <iframe className="w-full aspect-video" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+        <div className="relative w-full h-0 pb-[50%]">
+          <iframe
+            ref={iframeRef}
+            title="YouTube video player"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY?enablejsapi=1"
+            className="absolute top-0 left-0 w-full h-full"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          ></iframe>
+          {show && (
+            <div className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full cursor-pointer" onClick={handlePlay}>
+              <img src={tumb1} alt="Play" className="object-cover w-full h-full" />
+              <div className="absolute p-4 space-y-8 text-center">
+                <h4 className="text-4xl text-light-1">All Videos</h4>
+                <Button intent="white" className="mx-auto">
+                  Play Video
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
         <div className="flex flex-col">
           <div className="relative flex items-center w-full gap-3 my-4">

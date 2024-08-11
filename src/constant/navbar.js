@@ -18,4 +18,5 @@ export const navContent = [
   },
   { name: "Resource Hub", path: "/resource" },
   { name: "Eco-pedia", path: "/ecopedia" },
+  { name: "Gallery", path: "/gallery" },
 ];
