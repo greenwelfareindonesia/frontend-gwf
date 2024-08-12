@@ -5,7 +5,7 @@ import { header_image, vision_image1 } from "../../assets/about-image";
 import Background from "../../components/background";
 import Container from "../../components/container";
 
-const slides = [header_image, vision_image1, vision_image1];
+const slides = [header_image, vision_image1];
 
 const Vision = () => {
   const [activeDots, setActiveDots] = React.useState(0);

@@ -2,10 +2,7 @@ export const navContent = [
   { name: "Home", path: "/" },
   {
     name: "About",
-    content: [
-      { name: "Team", path: "/team" },
-      { name: "Chapters", path: "/chapter" },
-    ],
+    content: [{ name: "Team", path: "/team" }],
     path: "/about",
   },
   {

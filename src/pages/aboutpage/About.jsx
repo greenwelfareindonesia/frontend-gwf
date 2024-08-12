@@ -5,7 +5,7 @@ import Contact from "../../layouts/about_slice/Contact";
 
 const About = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <Header />
       <Vision />
@@ -16,7 +16,7 @@ const About = () => {
       <OurWorksNumbers />
       <Contact />
       <Footer />
-    </div>
+    </>
   );
 };
 export default About;

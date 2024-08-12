@@ -1,7 +1,7 @@
-import { date_icon, donate_icon, location_icon, workshop_events_icon, campaign_events_icon } from "../../assets/icons";
+import { date_icon, location_icon, workshop_events_icon, campaign_events_icon } from "../../assets/icons";
 import convertDateValue from "../../utils/ConvertDate";
 
-const Card2 = ({ image, title, description, date, eventType }) => {
+const Card2 = ({ image, title, description, date, eventType, location }) => {
   const eventLabel = eventType === "Campaign" ? "Campaign" : "Workshop";
   const eventIcon = eventType === "Campaign" ? campaign_events_icon : workshop_events_icon;
 
@@ -19,18 +19,20 @@ const Card2 = ({ image, title, description, date, eventType }) => {
 
             <div className="flex items-center">
               <img src={date_icon} alt="Date Icon" className="w-3 h-3 xl:w-5 xl:h-5" />
-              <span className="ml-2 text-xs md:text-base sm:text-sm">{convertDateValue(date)}</span>
+              <span className="ml-2 text-xs sm:text-sm">{convertDateValue(date)}</span>
             </div>
 
-            <div className="flex items-center">
-              <img src={location_icon} alt="Location Icon" className="w-3 h-3 xl:w-5 xl:h-5" />
-              <span className="ml-2 text-xs md:text-base sm:text-sm">Jakarta</span>
-            </div>
-
-            <div className="flex items-center">
-              <img src={donate_icon} alt="Donate Icon" className="w-3 h-3 xl:w-5 xl:h-5" />
-              <span className="ml-2 text-xs md:text-base sm:text-sm">Donate needed</span>
-            </div>
+            {eventType === "Campaign" ? (
+              <div className="flex items-center">
+                <img src={location_icon} alt="Location Icon" className="w-3 h-3 xl:w-5 xl:h-5" />
+                <span className="ml-2 text-xs sm:text-sm">{location}</span>
+              </div>
+            ) : (
+              <div className="flex items-center">
+                <img src={date_icon} alt="Date Icon" className="w-3 h-3 xl:w-5 xl:h-5" />
+                <span className="ml-2 text-xs sm:text-sm">{location ? "Open Now" : "Closed Now"}</span>
+              </div>
+            )}
           </div>
 
           <div className="w-full">

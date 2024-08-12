@@ -46,9 +46,10 @@ const Gallery = () => {
 
   const { data } = useGetGalleries();
 
-  const handleShareClick = () => {
+  const handleShareClick = (e, alt) => {
+    e.preventDefault();
     setShowPopup(true);
-    // Fetch the URL from API Backend and set it to the state
+    setUrl(alt);
   };
 
   const handleCopyClick = () => {
@@ -80,7 +81,7 @@ const Gallery = () => {
                   <img src={image} className="transition-opacity duration-300" />
                   <div
                     className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 bg-white bg-opacity-50 opacity-0 hover:opacity-100"
-                    onClick={handleShareClick}
+                    onClick={(e) => handleShareClick(e, item.alt)}
                     style={{ cursor: "pointer" }}
                   >
                     <PiShareFat size={30} className="text-gray-700" />
@@ -93,7 +94,7 @@ const Gallery = () => {
 
         {showPopup && (
           <>
-            <div className="fixed inset-0 z-40 bg-black opacity-60"></div>
+            <div className="fixed inset-0 z-40 bg-dark opacity-60"></div>
             <div className="fixed z-50 h-64 p-4 transform -translate-x-1/2 -translate-y-1/2 bg-white top-1/2 left-1/2 w-600">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-bold"></h2>
@@ -120,8 +121,8 @@ const Gallery = () => {
                   </a>
                 </div>
                 <div className="flex items-center w-72">
-                  <input type="text" value={url} readOnly className="flex-1 p-2 border border-black " />
-                  <button onClick={handleCopyClick} className="flex items-center p-3 text-white bg-black">
+                  <input type="text" value={url} readOnly className="flex-1 p-2 border outline-none border-dark" />
+                  <button onClick={handleCopyClick} className="flex items-center p-3 text-white bg-dark">
                     <FaCopy size={18} />
                   </button>
                 </div>

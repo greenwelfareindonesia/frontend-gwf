@@ -1,4 +1,7 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+
 import {
   About,
   Events,
@@ -9,7 +12,7 @@ import {
   Resource,
   Donate,
   Ecopedia,
-  Chapters,
+  // Chapters,
   SingleEcopedia,
   Gallery,
   // Cart,
@@ -44,15 +47,26 @@ import {
 
 import ProtectedAdmin from "./routes/ProtectedAdmin";
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return;
+};
+
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/involved" element={<Involved />} />
         <Route path="/team" element={<Team />} />
-        <Route path="/chapter" element={<Chapters />} />
+        {/* <Route path="/chapter" element={<Chapters />} /> */}
         <Route path="/event" element={<Events />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/workshop" element={<Workshop />} />
