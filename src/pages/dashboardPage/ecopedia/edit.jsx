@@ -4,6 +4,43 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+
+import {
+  ClassicEditor,
+  Autoformat,
+  Bold,
+  Italic,
+  Underline,
+  BlockQuote,
+  Base64UploadAdapter,
+  CKFinder,
+  CKFinderUploadAdapter,
+  CloudServices,
+  Essentials,
+  Heading,
+  Image,
+  ImageCaption,
+  ImageResize,
+  ImageStyle,
+  ImageToolbar,
+  ImageUpload,
+  PictureEditing,
+  Indent,
+  IndentBlock,
+  Link,
+  List,
+  MediaEmbed,
+  Mention,
+  Paragraph,
+  PasteFromOffice,
+  Table,
+  TableColumnResize,
+  TableToolbar,
+  TextTransformation,
+  Alignment,
+} from "ckeditor5";
+
 import DashboardSection from "../../../layouts/dashboard_section/Template";
 
 import { useEditEcopedia, useGetEcopediaById } from "../../../features/ecopedia/service";
@@ -12,6 +49,8 @@ import { camera_icon } from "../../../assets/icons";
 import closeIcon from "../../../assets/icons/close_icon.svg";
 
 const EditEcopedia = () => {
+  const [description, setDescription] = useState("");
+
   const { slug } = useParams();
 
   const { register, handleSubmit, setValue } = useForm();
@@ -36,7 +75,7 @@ const EditEcopedia = () => {
   };
 
   const onSubmit = (body) => {
-    const { files, Description, Reference, SrcFile, SubTitle, Title } = body;
+    const { files, Reference, SrcFile, SubTitle, Title } = body;
     const mapFile = files.map((image, index) => {
       return { [`file${index + 1}`]: image };
     });
@@ -47,7 +86,7 @@ const EditEcopedia = () => {
 
     editEcopedia({
       slug,
-      Description: Description || data?.description,
+      Description: description || data?.description,
       Reference: Reference || data?.reference,
       SrcFile: SrcFile || data?.srcFile,
       SubTitle: SubTitle || data?.subTitle,
@@ -83,14 +122,73 @@ const EditEcopedia = () => {
           defaultValue={data?.subTitle}
         />
         <div className="mb-4 text-xl font-bold text-primary-2">Description</div>
-        <input
-          {...register("Description")}
-          className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm"
-          placeholder="Tulis deskripsi disini"
-          type="text"
-          defaultValue={data?.description}
+        <CKEditor
+          editor={ClassicEditor}
+          config={{
+            plugins: [
+              Alignment,
+              Autoformat,
+              BlockQuote,
+              Bold,
+              CKFinder,
+              CKFinderUploadAdapter,
+              CloudServices,
+              Essentials,
+              Heading,
+              Image,
+              ImageCaption,
+              ImageResize,
+              ImageStyle,
+              ImageToolbar,
+              ImageUpload,
+              Base64UploadAdapter,
+              Indent,
+              IndentBlock,
+              Italic,
+              Link,
+              List,
+              MediaEmbed,
+              Mention,
+              Paragraph,
+              PasteFromOffice,
+              PictureEditing,
+              Table,
+              TableColumnResize,
+              TableToolbar,
+              TextTransformation,
+              Underline,
+            ],
+            toolbar: [
+              "undo",
+              "redo",
+              "|",
+              "heading",
+              "|",
+              "alignment",
+              "bold",
+              "italic",
+              "underline",
+              "|",
+              "link",
+              "uploadImage",
+              "ckbox",
+              "insertTable",
+              "blockQuote",
+              "mediaEmbed",
+              "|",
+              "bulletedList",
+              "numberedList",
+              "|",
+              "outdent",
+              "indent",
+            ],
+          }}
+          onChange={(_, editor) => {
+            setDescription(editor.getData());
+          }}
+          data={data?.description}
         />
-        <div className="mb-4 text-xl font-bold text-primary-2">Source File</div>
+        <div className="my-4 text-xl font-bold text-primary-2">Source File</div>
         <input
           {...register("SrcFile")}
           className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm"

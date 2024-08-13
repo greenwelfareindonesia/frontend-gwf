@@ -2,6 +2,40 @@ import API from "../../../libs/api";
 import ReloadRefresh from "../../../utils/ReloadRefresh";
 import SweatAlert from "../../../utils/SweetAlert";
 
+export const getAllStaff = async () => {
+  return await API.get("/hrd/").then((response) => {
+    return response.data;
+  });
+};
+
+export const getStaffBySlug = async (slug) => {
+  return await API.get(`/hrd/${slug}`).then((response) => {
+    return response.data;
+  });
+};
+
+export const editStaff = async (body) => {
+  return await API.put(`/hrd/${body?.slug}`, body)
+    .then(() => {
+      SweatAlert("Hrd has been updated successfully", "success");
+      ReloadRefresh(2000, "/dashboards");
+    })
+    .catch(() => {
+      SweatAlert("Updated error", "error");
+    });
+};
+
+export const deleteStaff = async (slug) => {
+  return await API.put(`/hrd/${slug}`)
+    .then(() => {
+      SweatAlert("Hrd has been deleted successfully", "success");
+      ReloadRefresh(2000, "/dashboards");
+    })
+    .catch(() => {
+      SweatAlert("Deleted error", "error");
+    });
+};
+
 export const login = async (body) => {
   return await API.post("/user/login", body)
     .then((response) => {

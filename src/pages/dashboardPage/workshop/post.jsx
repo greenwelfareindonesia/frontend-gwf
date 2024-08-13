@@ -34,7 +34,7 @@ const PostWorkshop = () => {
   const onSubmit = (data) => {
     const { File, Title, Description, Date, Url, IsOpen } = data;
 
-    addWorkshop({ File, Title, Description, Date, Url, IsOpen });
+    addWorkshop({ File, Title, Description, Date, Url, IsOpen: IsOpen === "true" ? true : false });
   };
 
   return (

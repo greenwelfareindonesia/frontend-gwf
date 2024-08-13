@@ -40,10 +40,10 @@ const Edit = () => {
     editWorkshop({
       slug,
       Title: Title || data?.Title,
-      Description: Description || data?.Description,
+      Description: Description || data?.Desc,
       Date: Date || data?.Date,
       Url: Url || data?.Url,
-      IsOpen: IsOpen || data?.IsOpen,
+      IsOpen: IsOpen === "true" ? true : false || data?.IsOpen,
       File,
     });
   };

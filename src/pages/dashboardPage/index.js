@@ -1,4 +1,5 @@
 import Dashboard from "./dashboard";
+import EditDashboard from "./dashboard/edit";
 
 import WorkshopDashboard from "./workshop";
 import EditWorkshop from "./workshop/edit";
@@ -22,6 +23,7 @@ import FeedbackPage from "./feedback";
 
 export {
   Dashboard,
+  EditDashboard,
   FeedbackPage,
   EventsDashboard,
   EditEvents,

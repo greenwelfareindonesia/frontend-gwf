@@ -3,13 +3,9 @@ import ReloadRefresh from "../../../utils/ReloadRefresh";
 import SweatAlert from "../../../utils/SweetAlert";
 
 export const getContact = async () => {
-  return await API.get("/contact/")
-    .then((response) => {
-      return response.data;
-    })
-    .catch(() => {
-      SweatAlert("Error when fetch contact", "error");
-    });
+  return await API.get("/contact/").then((response) => {
+    return response.data;
+  });
 };
 
 export const getContactById = async (slug) => {

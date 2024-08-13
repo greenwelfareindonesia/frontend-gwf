@@ -43,6 +43,7 @@ import {
   WorkshopDashboard,
   FeedbackPage,
   Dashboard,
+  EditDashboard,
 } from "./pages/dashboardPage";
 
 import ProtectedAdmin from "./routes/ProtectedAdmin";
@@ -87,6 +88,7 @@ const App = () => {
 
         <Route element={<ProtectedAdmin />}>
           <Route path="/dashboards" element={<Dashboard />} />
+          <Route path="/dashboards/edit/:slug" element={<EditDashboard />} />
 
           <Route path="/dashboard/feedback" element={<FeedbackPage />} />
 

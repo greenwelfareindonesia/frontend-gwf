@@ -76,7 +76,7 @@ const SingleEcopedia = () => {
           </div>
           <img src={data?.fileNames?.[0]} alt={data?.title} className="object-cover w-full my-8 h-96" />
           <h2 className="my-8 text-3xl font-bold">{data?.title}</h2>
-          <p className="mb-4 text-lg">{data?.description}</p>
+          <div className="mt-4" dangerouslySetInnerHTML={{ __html: data?.description }} />
           <hr className="w-full my-5 border-gray-300" />
           <div className="flex gap-8">
             <button>
