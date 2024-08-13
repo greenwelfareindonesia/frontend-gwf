@@ -10,13 +10,13 @@ import {
   Donate,
   Ecopedia,
   Chapters,
+  Gallery,
   Cart,
   Merch,
   Order,
   Profile,
   MerchDetail,
   MerchDetailLogin,
-  Gallery
 } from "./pages";
 
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
@@ -41,6 +41,12 @@ import {
   Dashboard,
 } from "./pages/dashboardPage";
 
+import ProtectedAdmin from "./routes/ProtectedAdmin";
+
+import EmployeesDashboard from "./pages/dashboardPage/employees";
+import EditEmployees from "./pages/dashboardPage/employees/edit";
+
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -62,33 +68,39 @@ const App = () => {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<Order />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} /> */
 
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<AdminLogin />} />
 
-        <Route path="/dashboards" element={<Dashboard />} />
+        <Route element={<ProtectedAdmin />}>
+          <Route path="/dashboards" element={<Dashboard />} />
 
-        <Route path="/dashboard/feedback" element={<FeedbackPage />} />
+          <Route path="/dashboard/feedback" element={<FeedbackPage />} />
 
-        <Route path="/dashboard/ecopedia" element={<EcopediaDashboard />} />
-        <Route path="/dashboard/ecopedia/edit/:slug" element={<EditEcopedia />} />
-        <Route path="/dashboard/ecopedia/post" element={<PostEcopedia />} />
+          <Route path="/dashboard/ecopedia" element={<EcopediaDashboard />} />
+          <Route path="/dashboard/ecopedia/edit/:slug" element={<EditEcopedia />} />
+          <Route path="/dashboard/ecopedia/post" element={<PostEcopedia />} />
 
-        <Route path="/dashboard/gallery" element={<GalleryDashboard />} />
-        <Route path="/dashboard/gallery/edit/:slug" element={<EditGallery />} />
-        <Route path="/dashboard/gallery/post" element={<PostGallery />} />
+          <Route path="/dashboard/gallery" element={<GalleryDashboard />} />
+          <Route path="/dashboard/gallery/edit/:slug" element={<EditGallery />} />
+          <Route path="/dashboard/gallery/post" element={<PostGallery />} />
 
-        <Route path="/dashboard/workshop" element={<WorkshopDashboard />} />
-        <Route path="/dashboard/workshop/edit/:slug" element={<EditWorkshop />} />
-        <Route path="/dashboard/workshop/post" element={<PostWorkshop />} />
+          <Route path="/dashboard/workshop" element={<WorkshopDashboard />} />
+          <Route path="/dashboard/workshop/edit/:slug" element={<EditWorkshop />} />
+          <Route path="/dashboard/workshop/post" element={<PostWorkshop />} />
 
-        <Route path="/dashboard/event" element={<EventsDashboard />} />
-        <Route path="/dashboard/event/edit/:slug" element={<EditEvents />} />
-        <Route path="/dashboard/event/post" element={<PostEvents />} />
+          <Route path="/dashboard/event" element={<EventsDashboard />} />
+          <Route path="/dashboard/event/edit/:slug" element={<EditEvents />} />
+          <Route path="/dashboard/event/post" element={<PostEvents />} />
 
-        <Route path="/dashboard/article" element={<ArticleDashboard />} />
-        <Route path="/dashboard/article/post" element={<PostArticle />} />
+          <Route path="/dashboard/article" element={<ArticleDashboard />} />
+          <Route path="/dashboard/article/post" element={<PostArticle />} />
+
+          <Route path="/dashboard/employees" element={<EmployeesDashboard />} />
+          <Route path="/dashboard/employees/edit" element={<EditEmployees />} />
+
+        </Route>
       </Routes>
     </BrowserRouter>
   );

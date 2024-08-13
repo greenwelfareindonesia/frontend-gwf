@@ -15,7 +15,7 @@ import { FaFacebook, FaTwitter, FaPinterest, FaTumblr, FaCopy } from 'react-icon
 import { PiShareFat } from 'react-icons/pi'; // Import required icons
 import { IoMdClose } from 'react-icons/io'
 import { MdEmail } from 'react-icons/md'
-import { SlArrowLeft, SlArrowRight} from 'react-icons/sl'
+
 
 // Custom Previous Arrow Component
 const PrevArrow = ({ onClick }) => {
@@ -209,7 +209,7 @@ const Gallery = () => {
               </div>
               <div className="flex flex-col items-center gap-4 mb-4">
                 <div className="flex gap-10 mb-4">
-                <a href="" target="_blank" rel="noopener noreferrer">
+                <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">
                   <FaFacebook size={24} />
                 </a>
                 <a href="https://twitter.com/share" target="_blank" rel="noopener noreferrer">

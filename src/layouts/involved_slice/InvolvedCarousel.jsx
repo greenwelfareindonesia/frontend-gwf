@@ -26,7 +26,7 @@ const InvolvedCarousel = () => {
   };
 
   return (
-    <Container className="!max-w-screen-xl">
+    <Container className="!max-w-screen-xl my-32">
       <Slider {...settings} ref={(sliderRef) => setSlider(sliderRef)}>
         {involved.map((item, index) => (
           <div key={index} className="!flex flex-col lg:flex-row gap-4 px-0 lg:px-16">

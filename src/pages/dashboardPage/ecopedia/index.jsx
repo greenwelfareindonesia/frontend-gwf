@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useDeleteEcopedia, useGetEcopedia } from "../../../features/ecopedia/service";
 
@@ -10,11 +10,11 @@ import deleteIcon from "../../../assets/icons/delete_icon.svg";
 import postEcopedia from "../../../assets/icons/postEcopedia_icon.svg";
 import questionPerson from "../../../assets/icons/icon_questionperson.svg";
 import closeIcon from "../../../assets/icons/close_icon.svg";
+
 import convertDateValue from "../../../utils/ConvertDate";
 
 // Define the Modal within the same file
 const Modal = ({ isOpen, onClose, selectedArticle }) => {
-  console.log("🚀 ~ Modal ~ selectedArticle:", selectedArticle);
   const { mutate } = useDeleteEcopedia();
 
   if (!isOpen) return null;
@@ -64,42 +64,40 @@ const EcopediaDashboard = () => {
 
   return (
     <DashboardSection titleField="Ecopedia">
-      <NavLink to="/dashboard/ecopedia/post">
+      <Link to="/dashboard/ecopedia/post">
         <button className="absolute top-0 right-0 mt-24 bg-transparent border-none mr-9">
           <img src={postEcopedia} alt="Dashboard" />
         </button>
-      </NavLink>
-      <hr className="border-b-2 border-primary-2" />
-      <table className="w-full">
+      </Link>
+      <table className="w-full border-t border-primary-2 text-primary-1">
         <thead>
-          <tr className="border-b-2 border-primary-2">
-            <th className="w-1/5 py-4 text-xs text-left text-primary-1">Postingan</th>
-            <th className="w-4/12 py-4 text-xs text-left text-primary-1">Judul dan Deskripsi</th>
-            <th className="w-1/5 py-4 text-xs text-left text-primary-1">Tanggal Post</th>
-            <th className="w-1/5 px-10 py-4 text-xs text-left text-primary-1">Action</th>
-            <th className="w-1/5"></th>
+          <tr className="text-left border-b border-primary-2">
+            <th className="p-4 w-60">Ecopedia Image</th>
+            <th className="p-4">Title dan Description</th>
+            <th className="p-4">Post Date</th>
+            <th className="p-4">Action</th>
           </tr>
         </thead>
         <tbody>
           {data?.map((article) => (
-            <tr key={article?.ID} className="border-b-2 border-primary-2">
+            <tr key={article?.ID} className="border-b border-primary-2">
               <td className="px-4">
-                {article?.fileNames?.[0] && <img src={article?.fileNames?.[0]} alt="" className="object-cover w-56 py-2 h-36" />}
+                {article?.fileNames?.[0] && <img src={article?.fileNames?.[0]} alt={article?.title} className="object-cover w-56 py-2 h-36" />}
               </td>
               <td className="px-4">
-                <p className="py-2 mb-2 text-lg font-bold text-primary-1">{article?.title}</p>
-                <p className="py-2 text-sm text-primary-1">{article?.description}</p>
+                <p className="text-lg font-bold">{article?.title}</p>
+                <p className="text-sm">{article?.description}</p>
               </td>
-              <td className="text-sm font-bold text-primary-1">{convertDateValue(article?.createdAt)}</td>
+              <td className="px-4 text-sm font-bold">{convertDateValue(article?.createdAt)}</td>
               <td className="px-4">
-                <NavLink to={`/dashboard/ecopedia/edit/${article?.slug}`}>
-                  <button className="p-0 mr-4 bg-transparent border-none" onClick={() => console.log("Edit button clicked")}>
+                <div className="flex items-center gap-2">
+                  <Link to={`/dashboard/ecopedia/edit/${article?.slug}`}>
                     <img src={editIcon} alt="Edit" />
+                  </Link>
+                  <button className="p-0 bg-transparent border-none" onClick={() => openModal(article?.ID)}>
+                    <img src={deleteIcon} alt="Delete" />
                   </button>
-                </NavLink>
-                <button className="p-0 bg-transparent border-none" onClick={() => openModal(article?.ID)}>
-                  <img src={deleteIcon} alt="Delete" />
-                </button>
+                </div>
               </td>
             </tr>
           ))}

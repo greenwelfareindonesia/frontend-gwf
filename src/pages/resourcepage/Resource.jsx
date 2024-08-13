@@ -12,7 +12,7 @@ const Resource = () => {
   return (
     <>
       <Navbar />
-      <Container className="space-y-4 lg:space-y-8">
+      <Container className="my-32 space-y-4 lg:space-y-8">
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ const Resource = () => {
         </motion.p>
       </Container>
       <div className="flex flex-col my-16 lg:flex-row">
-        {resourceContent.map((item, index, last) => (
+        {resourceContent.map((item, index) => (
           <Background key={index} src={item.image} className="flex-col text-center min-h-400 lg:min-h-800 lg:justify-end">
             <div className="p-0 space-y-4 bg-transparent lg:px-12 lg:py-32 lg:bg-filter-2">
               <motion.h3
@@ -54,8 +54,8 @@ const Resource = () => {
               >
                 {item.desc}
               </motion.p>
-              <Button intent="white" className="mx-auto">
-                {last.length === index + 1 ? "IN PROGRESS" : "View"}
+              <Button intent="white" className="mx-auto" disabled>
+                Coming Soon
               </Button>
             </div>
           </Background>

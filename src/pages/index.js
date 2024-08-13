@@ -33,5 +33,5 @@ export {
   Merch,
   MerchDetail,
   MerchDetailLogin,
-  Gallery
+  Gallery,
 };

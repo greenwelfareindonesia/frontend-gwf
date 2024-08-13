@@ -3,10 +3,9 @@ import ReloadRefresh from "../../../utils/ReloadRefresh";
 import SweatAlert from "../../../utils/SweetAlert";
 
 export const getEvents = async () => {
-  return await API.get("/event/")
-    .then((response) => {
-      return response.data;
-    })
+  return await API.get("/event/").then((response) => {
+    return response.data;
+  });
 };
 
 export const getEventById = async (slug) => {
@@ -31,7 +30,7 @@ export const editEvent = async (body) => {
   return await API.put(`/event/${body.slug}`, body, { headers: { "Content-Type": "multipart/form-data" } })
     .then(() => {
       SweatAlert("Event has been updated successfully", "success");
-      ReloadRefresh(2000);
+      ReloadRefresh(2000, "/dashboard/event");
     })
     .catch(() => {
       SweatAlert("Error when update event", "error");

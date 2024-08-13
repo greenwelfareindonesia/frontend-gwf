@@ -24,7 +24,7 @@ export const addFeedback = async (body) => {
       SweatAlert("Feedback has been created successfully", "success");
       ReloadRefresh(2000);
     })
-    .catch(() => {
-      SweatAlert("Error when create feedback", "error");
+    .catch((err) => {
+      SweatAlert(err?.response.data.error.message || "Error when create feedback", "error");
     });
 };

@@ -1,9 +1,15 @@
-import closeIcon from "../../../assets/icons/close_icon.svg";
-import Sidebar from "../../../layouts/dashboard_section/Template";
-import { useForm } from "react-hook-form";
-import { useEditEvent, useGetEventById } from "../../../features/events/service";
-import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+
+import { useNavigate, useParams } from "react-router-dom";
+
+import { useForm } from "react-hook-form";
+
+import Sidebar from "../../../layouts/dashboard_section/Template";
+
+import { useEditEvent, useGetEventById } from "../../../features/events/service";
+
+import closeIcon from "../../../assets/icons/close_icon.svg";
+import { camera_icon } from "../../../assets/icons";
 
 const Edit = () => {
   const { slug } = useParams();
@@ -14,35 +20,30 @@ const Edit = () => {
 
   const { mutate: editEvent } = useEditEvent();
 
+  const [imagePreviews, setImagePreviews] = useState(data?.FileName);
+
   const navigate = useNavigate();
 
   const handleBack = () => {
     navigate(-1);
   };
 
-  const [previewImage, setPreviewImage] = useState(data?.FileName || "");
-
-  useEffect(() => {
-    if (data) {
-      setValue("title", data?.Title);
-      setValue("eventMessage", data?.EventMessage);
-      setPreviewImage(data?.FileName || "");
-    }
-  }, [data, setValue]);
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+    const urls = files.map((file) => URL.createObjectURL(file));
+    setImagePreviews(urls);
+    setValue("file", files[0]);
+  };
 
   const onSubmit = (data) => {
     const { title, eventMessage, file } = data;
 
-    editEvent({ slug, title, eventMessage, file: file[0]});
+    editEvent({ slug, title, eventMessage, file });
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setPreviewImage(URL.createObjectURL(file[0])); // Show file preview
-      setValue("file", file[0]); // Update form value
-    }
-  };
+  useEffect(() => {
+    setImagePreviews(data?.FileName);
+  }, [data]);
 
   return (
     <Sidebar>
@@ -59,8 +60,9 @@ const Edit = () => {
             {/* Title */}
             <p className="py-2">Title</p>
             <input
+              defaultValue={data?.Title}
               {...register("title", { required: true })}
-              className="w-full h-8 rounded-md border-primary-1 border-1"
+              className="w-full px-3 py-2 border rounded-md border-primary-1"
               type="text"
               placeholder="Write title here"
             />
@@ -68,42 +70,41 @@ const Edit = () => {
             {/* Event Description */}
             <p className="py-2">Description</p>
             <textarea
+              defaultValue={data?.EventMessage}
               {...register("eventMessage", { required: true })}
-              className="w-full pt-1 rounded-md border-primary-1 pb-36 border-1"
+              rows={5}
+              className="w-full px-3 py-2 border rounded-md border-primary-1"
               placeholder="Write description here"
             />
 
             {/* Photo Upload */}
-            <div className="container flex flex-col py-2">
-              <p className="my-5">Add Photo</p>
-              <input
-                type="file"
-                className="mb-4"
-                onChange={handleFileChange}
-                {...register("file")}
-              />
-              {previewImage && (
-                <img
-                  src={previewImage}
-                  className="container overflow-hidden rounded-md w-217 min-h-140 hover:opacity-40"
-                  alt="Event"
-                />
-              )}
+            <div className="flex gap-16 mt-4">
+              <div className="space-y-4">
+                <p className="text-xl font-semibold text-primary-2">Add Photo</p>
+                <label
+                  htmlFor="photo-upload"
+                  className="flex flex-col items-center justify-center p-4 mb-4 rounded-md cursor-pointer w-60 border-1 border-primary-2 h-36"
+                >
+                  <div className="text-center">
+                    <img src={camera_icon} className="duration-75 hover:scale-150" />
+                  </div>
+                  <input id="photo-upload" type="file" className="hidden" {...register("file")} accept="image/*" onChange={handleFileChange} />
+                </label>
+              </div>
+              <div className="space-y-4">
+                <h5 className="text-xl font-semibold text-primary-2">Preview Photo Events</h5>
+                <div className="flex flex-wrap gap-4">
+                  <img alt="preview image" src={imagePreviews} className="object-cover w-80" />
+                </div>
+              </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={handleBack}
-                className="w-full h-8 mt-4 text-xs bg-white rounded-md text-primary-2 border-primary-2 border-1"
-              >
+            <div className="flex gap-2 mt-4">
+              <button type="button" onClick={handleBack} className="w-full py-1.5 mt-4 bg-white rounded-md text-primary-2 border-primary-2 border">
                 Cancel
               </button>
-              <button
-                type="submit"
-                className="w-full h-8 mt-4 text-xs text-white rounded-md bg-primary-2"
-              >
+              <button type="submit" className="w-full py-1.5 mt-4 text-white rounded-md bg-primary-2">
                 Save
               </button>
             </div>
