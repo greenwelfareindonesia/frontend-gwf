@@ -37,11 +37,14 @@ const Menus = [
 
 const DashboardSection = ({ children, titleField, buttonField }) => {
   const [open, setOpen] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
 
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.clear();
+    setLoading(true);
     ReloadRefresh(2000, "/login");
+    setLoading(false);
   };
 
   return (
@@ -79,7 +82,7 @@ const DashboardSection = ({ children, titleField, buttonField }) => {
                 <Link to="/dashboard">
                   <Button className="rounded-md !w-full">Profile</Button>
                 </Link>
-                <Button className="!bg-red-400 hover:!bg-red-600 rounded-md" onClick={handleLogout}>
+                <Button className={`!bg-red-400 hover:!bg-red-600 rounded-md ${loading && "animate-pulse"}`} onClick={handleLogout}>
                   Logout
                 </Button>
               </ul>
