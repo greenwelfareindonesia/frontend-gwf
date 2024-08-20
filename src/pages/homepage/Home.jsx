@@ -9,7 +9,7 @@ import {
   FAQ,
   Feedback,
   Header,
-  Merch,
+  // Merch,
   OurRoots,
   PrimeGoals,
   VeganJourney,
@@ -30,7 +30,7 @@ const Home = () => {
       <ClimateWishes />
       <CarouselMessage />
       <FAQ />
-      <Merch />
+      {/* <Merch /> */}
       <Feedback />
       <Footer />
     </>

@@ -16,8 +16,10 @@ import MerchDetail from "./merchpage/Detail";
 import MerchDetailLogin from "./merchpage/DetailLogin";
 import SingleEcopedia from "./ecopediapage/SingleEcopedia";
 import Gallery from "./galleryPage/Gallery";
+import DetailDonate from "./donatepage/DetailDonate";
 
 export {
+  DetailDonate,
   Gallery,
   SingleEcopedia,
   Ecopedia,

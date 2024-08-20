@@ -76,7 +76,12 @@ const PostEvents = () => {
             />
 
             <p className="py-2">Event Date</p>
-            <input {...register("date")} className="px-3 py-2 border rounded-md border-primary-1" type="date" />
+            <input
+              {...register("date")}
+              className="w-full px-3 py-2 border rounded-md border-primary-1"
+              type="text"
+              placeholder="tulis tanggal disini"
+            />
 
             <div className="flex gap-16 mt-4">
               <div className="space-y-4">

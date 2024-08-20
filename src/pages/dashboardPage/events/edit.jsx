@@ -87,7 +87,13 @@ const Edit = () => {
             />
 
             <p className="py-2">Event Date</p>
-            <input defaultValue={data?.Date} {...register("date")} className="px-3 py-2 border rounded-md border-primary-1" type="date" />
+            <input
+              defaultValue={data?.Date}
+              {...register("date")}
+              className="w-full px-3 py-2 border rounded-md border-primary-1"
+              type="text"
+              placeholder="tulis tanggal disini"
+            />
 
             {/* Photo Upload */}
             <div className="flex gap-16 mt-4">

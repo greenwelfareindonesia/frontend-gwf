@@ -13,6 +13,7 @@ import { useGetEvents } from "../../features/events/service";
 import Container from "../../components/container";
 import Button from "../../components/button";
 import Background from "../../components/background";
+import { Link } from "react-router-dom";
 
 const Events = () => {
   const [selectedEventType, setSelectedEventType] = useState("Campaign");
@@ -125,9 +126,11 @@ const Events = () => {
               <Button intent="primary" className="rounded-xl">
                 Become a Volunteer
               </Button>
-              <Button intent="white" className="border-2 rounded-xl border-primary-2 hover:!bg-primary-2 hover:text-light-1">
-                About Us
-              </Button>
+              <Link to="/about">
+                <Button intent="white" className="border-2 rounded-xl border-primary-2 hover:!bg-primary-2 hover:text-light-1">
+                  About Us
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="flex w-0 my-auto sm:w-0 md:w-0 xl:w-400 xl:h-64">

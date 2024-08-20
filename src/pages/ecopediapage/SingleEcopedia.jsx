@@ -7,7 +7,7 @@ import Container from "../../components/container";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 
-import { FaFacebook, FaTwitter, FaLinkedin, FaShareAlt, FaSearch, FaComment, FaEye, FaFeather } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaShareAlt, FaSearch, FaFeather } from "react-icons/fa";
 import { AiFillLike } from "react-icons/ai";
 
 import convertDateValue from "../../utils/ConvertDate";
@@ -108,14 +108,16 @@ const SingleEcopedia = () => {
           </Link>
         </div>
         <div className="grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 md:grid-cols-3 sm:px-0">
-          {datas?.map((item, index) => (
+          {datas?.slice(3).map((item, index) => (
             <div key={index} className="rounded border-1 border-primary-1 text-primary-1">
               <div className="p-2">
                 <img src={item.fileNames?.[0]} className="object-cover w-full h-48" />
               </div>
-              <p className="mx-8 my-3 text-lg text-left line-clamp-2">{item.title}</p>
+              <Link to={`/ecopedia/${item.slug}`}>
+                <h4 className="mx-8 my-3 text-lg font-medium text-left duration-300 line-clamp-2 hover:text-primary-2">{item.title}</h4>
+              </Link>
               <hr className="w-full border-gray-300" />
-              <div className="flex items-center justify-between mx-8 my-4">
+              {/* <div className="flex items-center justify-between mx-8 my-4">
                 <div className="flex items-center gap-2">
                   <FaEye />
                   <p className="text-xs">0</p>
@@ -126,7 +128,7 @@ const SingleEcopedia = () => {
                   <p className="text-xs">0</p>
                   <AiFillLike />
                 </div>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

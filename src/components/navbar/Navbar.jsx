@@ -49,7 +49,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="sticky top-0 z-10 block w-full border shadow-md bg-light-1 text-light-1">
+    <nav className="sticky top-0 z-10 block w-full py-6 border shadow-md bg-light-1 text-light-1">
       <div className="relative flex items-center justify-between flex-grow-0 flex-shrink-0 w-full px-8 text-dark lg:px-16">
         <Link to="/" className="z-50 block cursor-pointer">
           <Image src={logo_gwf} className="!w-24 h-24" description="logo gwf" />

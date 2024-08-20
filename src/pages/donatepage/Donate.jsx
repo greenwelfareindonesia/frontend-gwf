@@ -7,6 +7,7 @@ import Container from "../../components/container";
 import { DonateBg, FundingReceivedIcon, FundingUsedIcon } from "../../assets/donate-image";
 import Background from "../../components/background";
 import Filter from "../../components/filter";
+import { Link } from "react-router-dom";
 
 export default function Donate() {
   return (
@@ -44,7 +45,9 @@ export default function Donate() {
             >
               Bank Central Asia (BCA)
             </motion.h4>
-            <Button>Click Here</Button>
+            <Link to="/donate-detail">
+              <Button>Click Here</Button>
+            </Link>
           </div>
           <div className="flex flex-col items-center w-full space-y-8">
             <motion.h1
