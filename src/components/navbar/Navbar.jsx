@@ -26,11 +26,15 @@ const Navbar = () => {
     >
       {navContent.map((item, index) => (
         <li key={index} className="relative block p-1 text-sm group">
-          <Link to={item.path} className="flex items-center duration-500 hover:text-primary-2 text-dark whitespace-nowrap">
-            {item.name}
-          </Link>
+          {item?.content?.length >= 1 ? (
+            <p className="flex items-center duration-500 cursor-default hover:text-primary-2 text-dark whitespace-nowrap">{item.name}</p>
+          ) : (
+            <Link to={item.path} className="flex items-center duration-500 hover:text-primary-2 text-dark whitespace-nowrap">
+              {item.name}
+            </Link>
+          )}
           {item?.content?.length >= 1 && (
-            <div className="absolute z-30 hidden w-24 px-2 py-4 space-y-1 -translate-x-1/2 lg:translate-x-0 left-1/2 lg:left-0 bg-light-1 group-hover:block">
+            <div className="absolute z-30 hidden w-24 px-2 py-4 space-y-2 -translate-x-1/2 lg:translate-x-0 left-1/2 lg:left-0 bg-light-1 group-hover:block">
               {item.content.map((item, index) => (
                 <Link key={index} to={item.path} className="flex items-center duration-300 hover:text-primary-2 text-dark">
                   {item.name}

@@ -2,16 +2,18 @@ export const navContent = [
   { name: "Home", path: "/" },
   {
     name: "About",
-    content: [{ name: "Team", path: "/team" }],
-    path: "/about",
+    content: [
+      { name: "About Us", path: "/about" },
+      { name: "Team", path: "/team" },
+    ],
   },
   {
     name: "Get Involved",
     content: [
+      { name: "Involved", path: "/involved" },
       { name: "Events", path: "/event" },
       { name: "Donation", path: "/donate" },
     ],
-    path: "/involved",
   },
   { name: "Resource Hub", path: "/resource" },
   { name: "Eco-pedia", path: "/ecopedia" },
