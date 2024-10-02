@@ -9,7 +9,7 @@ import Filter from "../../components/filter";
 import WhiteDot from "../../assets/ecopedia-image/whitedot.svg";
 import convertDateValue from "../../utils/ConvertDate";
 
-const Post = ({ reference, title, fileNames, createdAt }) => {
+const Post = ({ reference, title, fileNames, createdAt, slug }) => {
   return (
     <Background src={fileNames[0]} className="w-full overflow-hidden rounded max-w-300">
       <Filter intent="secondary" />
@@ -24,7 +24,7 @@ const Post = ({ reference, title, fileNames, createdAt }) => {
           </button>
         </div>
         <div className="space-y-2 text-light-1">
-          <Link to="/ecopedia/ecopedia2">
+          <Link to={`/ecopedia/${slug}`}>
             <h1 className="pb-2 text-3xl duration-300 border-b cursor-pointer hover:text-primary-3 line-clamp-2">{title}</h1>
           </Link>
           {/* <div className="flex justify-between text-xs">

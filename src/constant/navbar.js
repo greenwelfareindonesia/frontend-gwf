@@ -2,10 +2,7 @@ export const navContent = [
   { name: "Home", path: "/" },
   {
     name: "About",
-    content: [
-      { name: "Team", path: "/team" },
-      { name: "Chapters", path: "/chapter" },
-    ],
+    content: [{ name: "Team", path: "/team" }],
     path: "/about",
   },
   {
@@ -18,4 +15,5 @@ export const navContent = [
   },
   { name: "Resource Hub", path: "/resource" },
   { name: "Eco-pedia", path: "/ecopedia" },
+  { name: "Gallery", path: "/gallery" },
 ];

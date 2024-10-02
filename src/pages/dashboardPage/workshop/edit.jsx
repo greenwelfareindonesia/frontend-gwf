@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -11,11 +13,13 @@ import { camera_icon } from "../../../assets/icons";
 const Edit = () => {
   const { slug } = useParams();
 
-  const { register, handleSubmit } = useForm();
+  const { mutate: editWorkshop } = useEditWorkshop();
 
   const { data } = useGetWorkshopById(slug);
 
-  const { mutate: editWorkshop } = useEditWorkshop();
+  const [imagePreviews, setImagePreviews] = useState(data?.Image);
+
+  const { register, handleSubmit, setValue } = useForm();
 
   const navigate = useNavigate();
 
@@ -23,18 +27,30 @@ const Edit = () => {
     navigate(-1);
   };
 
-  const onSubmit = (data) => {
-    const { Title, Description, Date, Url, IsOpen, File } = data;
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+    const urls = files.map((file) => URL.createObjectURL(file));
+    setImagePreviews(urls);
+    setValue("File", files[0]);
+  };
+
+  const onSubmit = (body) => {
+    const { Title, Description, Date, Url, IsOpen, File } = body;
+
     editWorkshop({
       slug,
-      Title,
-      Description,
-      Date,
-      Url,
-      IsOpen,
-      File: File[0],
+      Title: Title || data?.Title,
+      Description: Description || data?.Description,
+      Date: Date || data?.Date,
+      Url: Url || data?.Url,
+      IsOpen: IsOpen || data?.IsOpen,
+      File,
     });
   };
+
+  useEffect(() => {
+    setImagePreviews(data?.Image);
+  }, [data]);
 
   return (
     <Sidebar>
@@ -67,31 +83,6 @@ const Edit = () => {
             defaultValue={data?.Desc}
           />
 
-          {/* tanggal event dan photo bersebelahan */}
-          <div className="container flex">
-            <div className="flex-1">
-              <p className="py-2 mt-4">Event Date</p>
-              <input {...register("Date")} className="px-3 py-2 border rounded-md border-primary-1" type="date" defaultValue={data?.Date} />
-              <p className="mt-4 text-sm">Is Open</p>
-              <select {...register("IsOpen")} className="px-3 py-2 border rounded-md border-primary-1" value={data?.isOpen}>
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
-            </div>
-            <div className="flex flex-col flex-1 py-2">
-              <p className="my-5">Add Photo</p>
-              <label
-                htmlFor="photo-upload"
-                className="flex flex-col items-center justify-center p-4 my-2 border rounded-md cursor-pointer w-60 border-primary-2 h-36"
-              >
-                <div className="text-center">
-                  <img src={camera_icon} className="duration-75 hover:scale-150"></img>
-                </div>
-                <input {...register("File")} id="photo-upload" type="file" className="hidden" />
-              </label>
-            </div>
-          </div>
-
           {/* link event  */}
           <p className="py-2">Link Event</p>
           <input
@@ -101,6 +92,39 @@ const Edit = () => {
             placeholder="drop link event in here..."
             defaultValue={data?.Url}
           />
+
+          {/* tanggal event dan photo bersebelahan */}
+          <div className="flex gap-16 mt-6">
+            <div className="space-y-2">
+              <p className="py-2">Event Date</p>
+              <input {...register("Date")} className="px-3 py-2 border rounded-md border-primary-1" type="date" defaultValue={data?.Date} />
+              <p className="mt-4 text-sm">Is Open</p>
+              <select {...register("IsOpen")} className="px-3 py-2 border rounded-md border-primary-1" value={data?.isOpen}>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </div>
+            <div className="flex flex-1 gap-12 mt-2">
+              <div className="space-y-4">
+                <p className="text-xl font-semibold text-primary-2">Add Photo</p>
+                <label
+                  htmlFor="photo-upload"
+                  className="flex flex-col items-center justify-center p-4 mb-4 rounded-md cursor-pointer w-60 border-1 border-primary-2 h-36"
+                >
+                  <div className="text-center">
+                    <img src={camera_icon} className="duration-75 hover:scale-150" />
+                  </div>
+                  <input id="photo-upload" type="file" className="hidden" {...register("File")} accept="image/*" onChange={handleFileChange} />
+                </label>
+              </div>
+              <div className="space-y-4">
+                <h5 className="text-xl font-semibold text-primary-2">Preview Photo Workshop</h5>
+                <div className="flex flex-wrap gap-4">
+                  <img alt="preview image" src={imagePreviews} className="object-cover w-80" />
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* button untuk finalisasi post */}
           <div className="flex justify-center mt-10">

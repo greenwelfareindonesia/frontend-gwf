@@ -98,10 +98,7 @@ export default function Donate() {
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
           className="flex flex-col gap-8 lg:flex-row"
-        >
-          <Button intent="white">Explore Merch</Button>
-          <Button intent="secondary">Donate Instead</Button>
-        </motion.div>
+        ></motion.div>
       </Background>
       {/* Fundings Section */}
       <Container className="flex justify-between w-full my-16">

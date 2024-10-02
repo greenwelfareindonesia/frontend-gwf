@@ -9,11 +9,14 @@ import { camera_icon } from "../../../assets/icons";
 import closeIcon from "../../../assets/icons/close_icon.svg";
 
 import Sidebar from "../../../layouts/dashboard_section/Template";
+import { useState } from "react";
 
 const PostEvents = () => {
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, setValue } = useForm();
 
   const { mutate: addEvents } = useAddEvent();
+
+  const [imagePreviews, setImagePreviews] = useState([]);
 
   const navigate = useNavigate();
 
@@ -21,9 +24,16 @@ const PostEvents = () => {
     navigate(-1);
   };
 
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+    const urls = files.map((file) => URL.createObjectURL(file));
+    setImagePreviews(urls);
+    setValue("file", files[0]);
+  };
+
   const onSubmit = (data) => {
     const { title, eventMessage, file } = data;
-    addEvents({ file: file[0], title, eventMessage });
+    addEvents({ file, title, eventMessage });
   };
 
   return (
@@ -57,17 +67,29 @@ const PostEvents = () => {
               placeholder="tulis deskripsi disini"
             />
 
-            <div className="flex flex-col gap-2 mt-4">
-              <p>Add Photo</p>
-              <label
-                htmlFor="photo-upload"
-                className="flex flex-col items-center justify-center p-4 my-2 rounded-md cursor-pointer w-60 border-1 border-primary-2 h-36"
-              >
-                <div className="text-center">
-                  <img src={camera_icon} className="duration-75 hover:scale-150"></img>
+            <div className="flex gap-16 mt-4">
+              <div className="space-y-4">
+                <p className="text-xl font-semibold text-primary-2">Add Photo</p>
+                <label
+                  htmlFor="photo-upload"
+                  className="flex flex-col items-center justify-center p-4 mb-4 rounded-md cursor-pointer w-60 border-1 border-primary-2 h-36"
+                >
+                  <div className="text-center">
+                    <img src={camera_icon} className="duration-75 hover:scale-150" />
+                  </div>
+                  <input id="photo-upload" type="file" className="hidden" {...register("file")} accept="image/*" onChange={handleFileChange} />
+                </label>
+              </div>
+              <div className="space-y-4">
+                <h5 className="text-xl font-semibold text-primary-2">Preview Photo Events</h5>
+                <div className="flex flex-wrap gap-4">
+                  {imagePreviews.map((url, index) => (
+                    <div key={index}>
+                      <img alt="preview image" src={url} className="object-cover w-80" />
+                    </div>
+                  ))}
                 </div>
-                <input {...register("file")} id="photo-upload" type="file" className="hidden" />
-              </label>
+              </div>
             </div>
 
             <div className="flex justify-center mt-16">

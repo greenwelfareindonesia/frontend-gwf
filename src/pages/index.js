@@ -7,6 +7,7 @@ import Order from "./merchpage/Ordersummary";
 import Profile from "./merchpage/Profile";
 import Merch from "./merchpage/Merch";
 import Events from "./eventspage/Events";
+import BookStudy from "./eventspage/BookStudy";
 import Chapters from "./chapterspage/Chapters";
 import Home from "./homepage/Home";
 import Involved from "./involvedpage/Involved";
@@ -15,8 +16,12 @@ import Team from "./teampage/Team";
 import Workshop from "./workshoppage/Workshop";
 import MerchDetail from "./merchpage/Detail";
 import MerchDetailLogin from "./merchpage/DetailLogin";
+import SingleEcopedia from "./ecopediapage/SingleEcopedia";
+import Gallery from "./galleryPage/Gallery";
 
 export {
+  Gallery,
+  SingleEcopedia,
   Ecopedia,
   Resource,
   About,
@@ -25,6 +30,7 @@ export {
   Chapters,
   Team,
   Events,
+  BookStudy,
   Cart,
   Order,
   Profile,
