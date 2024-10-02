@@ -9,8 +9,8 @@ import Container from "../../components/container";
 import foundingLeft from "../../assets/team-image/founding-left.png";
 import foundingMiddle from "../../assets/team-image/founding-middle.png";
 import foundingRight from "../../assets/team-image/founding-right.png";
-import executiveLeft from "../../assets/team-image/executive-left.png";
-import executiveMiddle from "../../assets/team-image/executive-middle.png";
+
+import { arya, ayundha, bartholomew, hanifah, nifa, raihan, regatta, sahira, vanya, yovinka } from "../../assets/team-image";
 
 export default function Team() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 850);
@@ -26,40 +26,26 @@ export default function Team() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const cards = [
-    { img: foundingLeft, nama: "Nifa Rahma", peran: "Executive Director" },
-    { img: foundingMiddle, nama: "Regatta Larra", peran: "Co-Executive Director" },
-    { img: foundingRight, nama: "Shahira Syifa", peran: "Secretary General" },
-    { img: executiveLeft, nama: "Hanifa Rahmaliya", peran: "Vice Secretary" },
-    { img: executiveMiddle, nama: "Yovinka Ignacia", peran: "Treasurer" },
+  const foundingMembers = [
+    { img: foundingLeft, nama: "Nala Amirah", peran: "Founder" },
+    { img: foundingMiddle, nama: "Daniel Figo", peran: "Co-Founder" },
+    { img: foundingRight, nama: "Fiza Khan", peran: "Co-Founder" },
   ];
 
-  const event = [
-    {
-      img: foundingLeft,
-      nama: "Nifa Rahma",
-      peran: "Executive Director",
-    },
-    {
-      img: foundingMiddle,
-      nama: "Regatta Larra",
-      peran: "Co-Executive Director",
-    },
-    {
-      img: foundingRight,
-      nama: "Shahira Syifa",
-      peran: "Secretary General",
-    },
-    {
-      img: executiveLeft,
-      nama: "Hanifa Rahmaliya",
-      peran: "Vice Secretary",
-    },
-    {
-      img: executiveMiddle,
-      nama: "Yovinka Ignacia",
-      peran: "Treasurer",
-    },
+  const currentLeads = [
+    { img: nifa, nama: "Nifa Rahma", peran: "Executive Director" },
+    { img: regatta, nama: "Regatta Larra", peran: "Co-Executive Director" },
+    { img: sahira, nama: "Sahira", peran: "Secretary" },
+    { img: hanifah, nama: "Hanifah", peran: "Vice Secretary" },
+    { img: yovinka, nama: "Yovinka", peran: "Treasurer" },
+  ];
+
+  const boardOfDirector = [
+    { img: raihan, nama: "Raihan Alfarisi", peran: "Technology" },
+    { img: arya, nama: "Afifah Arya", peran: "Human Resource" },
+    { img: bartholomew, nama: "Bartholomew Jordan", peran: "Entertainment" },
+    { img: vanya, nama: "Afifah Vanya", peran: "Education" },
+    { img: ayundha, nama: "Ayundha Sachi", peran: "Media Communication" },
   ];
 
   return (
@@ -67,24 +53,24 @@ export default function Team() {
       <Navbar />
       {isMobile ? (
         <>
-          <CardMobile cards={cards} title="Founding Members" className="bg-primary-1 text-light-1" />
-          <CardMobile cards={cards} title="Current Executive Leads" className="bg-light-1 text-primary-1" />
-          <CardMobile cards={cards} title="Board of Director" className="bg-primary-1 text-light-1" />
+          <CardMobile cards={foundingMembers} title="Founding Members" className="bg-primary-1 text-light-1" />
+          <CardMobile cards={currentLeads} title="Current Executive Leads" className="bg-light-1 text-primary-1" />
+          <CardMobile cards={boardOfDirector} title="Board of Director" className="bg-primary-1 text-light-1" />
         </>
       ) : (
         <>
           {/* Founding Members */}
           <section className="py-16 bg-primary-1 text-light-1">
             <Container className="flex flex-col xl:flex-row gap-16 items-center justify-between !max-w-screen-xl">
-              <h3 className="w-full text-5xl font-medium text-center xl:text-left xl:w-72 xl:text-7xl">Board of Director</h3>
+              <h3 className="w-full text-5xl font-medium text-center xl:text-left xl:w-72 xl:text-7xl">Founding Members</h3>
               <div className="flex justify-end gap-16">
-                {cards.slice(0, 3).map((item, index) => (
+                {foundingMembers.slice(0, 3).map((item, index) => (
                   <CardDesktop
                     key={index}
                     job={item.peran}
                     name={item.nama}
                     pathImg={item.img}
-                    isHighlight={hover === null ? index === 1 : hover === index}
+                    isHighlight={hover === null ? index === 0 : hover === index}
                     onMouseEnter={() => setHover(index)}
                     onMouseLeave={() => setHover(null)}
                   />
@@ -100,7 +86,7 @@ export default function Team() {
                 <h3 className="font-semibold text-center text-7xl">Current Executive Leads</h3>
               </div>
             </div>
-            {event.map((people) => (
+            {currentLeads.map((people) => (
               <div key={people.nama} className="w-72 h-72 mx-14">
                 <img className="w-72 h-72 rounded-b-4xl rounded-tr-4xl" src={people.img} alt="Executive Lead"></img>
                 <p className="pt-3 font-semibold text-center">{people.nama}</p>
@@ -114,7 +100,7 @@ export default function Team() {
             <Container className="flex flex-col xl:flex-row gap-8 items-center justify-between !max-w-screen-xl">
               <h3 className="w-full text-5xl font-medium text-center xl:text-left xl:w-72 xl:text-7xl">Board of Director</h3>
               <div className="flex justify-end gap-8">
-                {cards.map((item, index) => (
+                {boardOfDirector.map((item, index) => (
                   <CardDesktop
                     isBOD
                     key={index}

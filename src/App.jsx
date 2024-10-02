@@ -14,7 +14,8 @@ import {
   Ecopedia,
   // Chapters,
   SingleEcopedia,
-  Gallery,
+  DetailDonate,
+  // Gallery,
   // Cart,
   // Merch,
   // Order,
@@ -44,6 +45,7 @@ import {
   WorkshopDashboard,
   FeedbackPage,
   Dashboard,
+  EditDashboard,
 } from "./pages/dashboardPage";
 
 import ProtectedAdmin from "./routes/ProtectedAdmin";
@@ -70,11 +72,12 @@ const App = () => {
         {/* <Route path="/chapter" element={<Chapters />} /> */}
         <Route path="/event" element={<Events />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/donate-detail" element={<DetailDonate />} />
         <Route path="/workshop" element={<Workshop />} />
 
         <Route path="/ecopedia" element={<Ecopedia />} />
         <Route path="/ecopedia/:slug" element={<SingleEcopedia />} />
-        <Route path="/gallery" element={<Gallery />} />
+        {/* <Route path="/gallery" element={<Gallery />} /> */}
         <Route path="/resource" element={<Resource />} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/event/bookstudy" element={<BookStudy />} />
@@ -91,6 +94,7 @@ const App = () => {
 
         <Route element={<ProtectedAdmin />}>
           <Route path="/dashboards" element={<Dashboard />} />
+          <Route path="/dashboards/edit/:slug" element={<EditDashboard />} />
 
           <Route path="/dashboard/feedback" element={<FeedbackPage />} />
 

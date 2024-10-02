@@ -9,6 +9,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 import "reactjs-popup/dist/index.css";
 
+import "ckeditor5/ckeditor5.css";
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

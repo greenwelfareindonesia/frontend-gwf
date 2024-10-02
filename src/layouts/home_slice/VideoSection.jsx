@@ -78,7 +78,7 @@ const VideoSection = () => {
           <iframe
             ref={iframeRef}
             title="YouTube video player"
-            src="https://www.youtube.com/embed/tgbNymZ7vqY?enablejsapi=1"
+            src="https://www.youtube.com/embed/ANnfpW6mvw8?enablejsapi=1"
             className="absolute top-0 left-0 w-full h-full"
             allow="autoplay; encrypted-media"
             allowFullScreen

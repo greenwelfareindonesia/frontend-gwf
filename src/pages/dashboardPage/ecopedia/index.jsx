@@ -84,9 +84,9 @@ const EcopediaDashboard = () => {
               <td className="px-4">
                 {article?.fileNames?.[0] && <img src={article?.fileNames?.[0]} alt={article?.title} className="object-cover w-56 py-2 h-36" />}
               </td>
-              <td className="px-4">
+              <td className="px-4 w-80">
                 <p className="text-lg font-bold">{article?.title}</p>
-                <p className="text-sm">{article?.description}</p>
+                <p className="text-sm line-clamp-4">{article?.description}</p>
               </td>
               <td className="px-4 text-sm font-bold">{convertDateValue(article?.createdAt)}</td>
               <td className="px-4">

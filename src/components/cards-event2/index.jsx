@@ -1,5 +1,4 @@
 import { date_icon, location_icon, workshop_events_icon, campaign_events_icon } from "../../assets/icons";
-import convertDateValue from "../../utils/ConvertDate";
 
 const Card2 = ({ image, title, description, date, eventType, location }) => {
   const eventLabel = eventType === "Campaign" ? "Campaign" : "Workshop";
@@ -19,7 +18,7 @@ const Card2 = ({ image, title, description, date, eventType, location }) => {
 
             <div className="flex items-center">
               <img src={date_icon} alt="Date Icon" className="w-3 h-3 xl:w-5 xl:h-5" />
-              <span className="ml-2 text-xs sm:text-sm">{convertDateValue(date)}</span>
+              <span className="ml-2 text-xs sm:text-sm">{date}</span>
             </div>
 
             {eventType === "Campaign" ? (
@@ -36,7 +35,9 @@ const Card2 = ({ image, title, description, date, eventType, location }) => {
           </div>
 
           <div className="w-full">
-            <p className="text-xs font-semibold text-left xl:text-lg md:text-base sm:text-sm text-primary-2">Event Description</p>
+            <p className="text-xs font-semibold text-left xl:text-lg md:text-base sm:text-sm text-primary-2">
+              {eventType === "Campaign" ? "Event Description" : "Workshop Description"}
+            </p>
             <p className="w-full text-xs text-justify text-gray-700 break-words whitespace-normal line-clamp-5 xl:text-base lg:text-base sm:text-sm">
               {description}
             </p>

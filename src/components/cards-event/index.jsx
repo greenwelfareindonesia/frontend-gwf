@@ -1,6 +1,6 @@
 import { date_icon, location_icon, campaign_events_icon } from "../../assets/icons";
 
-const Card = ({ image, title, description, date, location, buttonText }) => {
+const Card = ({ image, title, description, date, location }) => {
   return (
     <div className="relative max-w-sm overflow-hidden bg-white rounded shadow-lg md:max-w-md lg:max-w-lg">
       <img className="object-cover w-full h-52" src={image} alt="Event" />
@@ -11,8 +11,8 @@ const Card = ({ image, title, description, date, location, buttonText }) => {
       </div>
 
       <div className="px-6 py-4">
-        <div className="text-xl font-bold text-left text-filter-4">{title}</div>
-        <p className="text-left text-gray-700 text-md">{description}</p>
+        <div className="text-xl font-bold text-left text-filter-4 line-clamp-2">{title}</div>
+        <p className="text-left text-gray-700 text-md line-clamp-3">{description}</p>
       </div>
 
       <div className="px-5 pt-2 pb-2">
@@ -24,7 +24,7 @@ const Card = ({ image, title, description, date, location, buttonText }) => {
           <img src={location_icon} alt="Location Icon" className="w-6 h-6" />
           <span className="ml-2">{location}</span>
         </div>
-        <button className={`bg-filter-5 text-light-1 font-bold py-2 w-full rounded`}>{buttonText}</button>
+        <button className={`bg-filter-5 text-light-1 font-bold py-2 w-full rounded`}>{date === "Closed" ? "closed" : "coming soon"}</button>
       </div>
     </div>
   );

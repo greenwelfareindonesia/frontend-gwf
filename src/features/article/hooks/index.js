@@ -3,13 +3,9 @@ import ReloadRefresh from "../../../utils/ReloadRefresh";
 import SweatAlert from "../../../utils/SweetAlert";
 
 export const getArticles = async () => {
-  return await API.get("/article/")
-    .then((response) => {
-      return response.data;
-    })
-    .catch(() => {
-      SweatAlert("Error when fetch articles", "error");
-    });
+  return await API.get("/article/").then((response) => {
+    return response.data;
+  });
 };
 
 export const getArticleById = async (slug) => {
