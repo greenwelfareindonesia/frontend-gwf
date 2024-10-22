@@ -31,7 +31,7 @@ const dummyData = [
   },
 ];
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { FaSort, FaSearch } from "react-icons/fa";
 import { MdOutlineEdit } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -66,12 +66,6 @@ const DashboardPage = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <DashboardSection titleField="Employees">
-      <div className="border-1 border-primary-1 rounded-md">
-        <div className="p-5">
-          <p>Search dkk bar</p>
-=======
     <DashboardSection titleField="Dashboard Page">
       <div className="rounded-md border-1 border-primary-1">
         <div className="flex items-center p-5">
@@ -97,36 +91,17 @@ const DashboardPage = () => {
             <FaSearch className="mr-2 text-gray-500" />
             <input type="text" placeholder="Search Users by Name, Email or Date" className="w-full placeholder-gray-500 bg-gray-200 outline-none" />
           </div>
->>>>>>> 47dcb7f22488556cb3f978567c6c05792afa56ed
         </div>
         <table className="w-full border-t border-primary-2 text-primary-1">
           <thead>
             <tr className="text-left border-b border-primary-2 bg-primary-1 bg-opacity-30">
-<<<<<<< HEAD
-              <th className="p-4 w-60">Full Name</th>
-=======
               <th className="p-4 w-60">Name</th>
->>>>>>> 47dcb7f22488556cb3f978567c6c05792afa56ed
               <th className="p-4">Department</th>
               <th className="p-4">Status</th>
               <th className="p-4">Action</th>
             </tr>
           </thead>
           <tbody>
-<<<<<<< HEAD
-            {dummyData.map((data) => (
-              <tr key={data.ID} className="border-b border-primary-2">
-                <td className="px-4 py-5">{data.fullName}</td>
-                <td className="px-4">{data.department}</td>
-                <td className="px-4 text-sm font-bold">{data.status}</td>
-                <td className="px-4">
-                  <div className="flex items-center gap-2">
-                    <Link to={`/dashboard/user/edit/${data.slug}`}>
-                      <img src={edit_icon} alt="Edit" />
-                    </Link>
-                    <button className="p-0 bg-transparent border-none" onClick={() => alert('Delete action triggered')}>
-                      <img src={delete_icon} alt="Delete" />
-=======
             {data?.map((data) => (
               <tr key={data.ID} className="border-b border-primary-2">
                 <td className="px-4 py-5">{data?.Nama}</td>
@@ -149,7 +124,6 @@ const DashboardPage = () => {
                       <div className="p-2 bg-red-500 rounded-md border-1">
                         <RiDeleteBin6Line size={20} />
                       </div>
->>>>>>> 47dcb7f22488556cb3f978567c6c05792afa56ed
                     </button>
                   </div>
                 </td>
@@ -166,8 +140,6 @@ const DashboardPage = () => {
           </tfoot>
         </table>
       </div>
-<<<<<<< HEAD
-=======
 
       {/* Confirmation Pop-up */}
       {showConfirm && (
@@ -194,7 +166,6 @@ const DashboardPage = () => {
           </div>
         </div>
       )}
->>>>>>> 47dcb7f22488556cb3f978567c6c05792afa56ed
     </DashboardSection>
   );
 };
