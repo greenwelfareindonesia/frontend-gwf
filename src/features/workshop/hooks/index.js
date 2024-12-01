@@ -3,13 +3,9 @@ import ReloadRefresh from "../../../utils/ReloadRefresh";
 import SweatAlert from "../../../utils/SweetAlert";
 
 export const getWorkshops = async () => {
-  return await API.get("/workshop/")
-    .then((response) => {
-      return response.data;
-    })
-    .catch(() => {
-      SweatAlert("Error when fetch workshops", "error");
-    });
+  return await API.get("/workshop/").then((response) => {
+    return response.data;
+  });
 };
 
 export const getWorkshopById = async (slug) => {

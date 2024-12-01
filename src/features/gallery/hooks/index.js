@@ -3,13 +3,9 @@ import ReloadRefresh from "../../../utils/ReloadRefresh";
 import SweatAlert from "../../../utils/SweetAlert";
 
 export const getGalleries = async () => {
-  return await API.get("/gallery/")
-    .then((response) => {
-      return response.data;
-    })
-    .catch(() => {
-      SweatAlert("Error when fetch galleries", "error");
-    });
+  return await API.get("/gallery/").then((response) => {
+    return response.data;
+  });
 };
 
 export const getGalleryById = async (slug) => {

@@ -14,6 +14,7 @@ import {
   feedback_icon,
   gallery_icon,
   gwf_dashboard_icon,
+  study_icon,
   // users_icon,
   // veganguide_icon,
   workshop_icon,
@@ -30,9 +31,8 @@ const Menus = [
   { title: "Events", path: "/dashboard/event", src: events_icon },
   { title: "Gallery", path: "/dashboard/gallery", src: gallery_icon },
   { title: "Feedback", path: "/dashboard/feedback", src: feedback_icon },
-  // { title: "Contact", path: "/dashboard/contact", src: users_icon },
-  // { title: "Veganguide", path: "/dashboard/veganguide", src: veganguide_icon },
   { title: "Workshop", path: "/dashboard/workshop", src: workshop_icon },
+  { title: "Study", path: "/dashboard/study", src: study_icon },
 ];
 
 const DashboardSection = ({ children, titleField, buttonField }) => {
@@ -49,11 +49,7 @@ const DashboardSection = ({ children, titleField, buttonField }) => {
 
   return (
     <section className="relative flex">
-      <div
-        className={` ${
-          open ? "max-w-[240px] min-w-[230px]" : "max-w-[90px] min-w-[80px]"
-        } w-full bg-primary-2 h-screen p-5 pt-8 fixed duration-300 flex-1`}
-      >
+      <div className={` ${open ? "max-w-[240px] min-w-[230px]" : "max-w-[90px] min-w-[80px]"} w-full bg-primary-2 h-screen p-5 pt-8 fixed duration-300 flex-1`}>
         <button onClick={() => setOpen(!open)} className={`absolute cursor-pointer right-0 top-0`}>
           <HiArrowRightCircle className={`${open && "rotate-[180deg]"} w-7 h-7 duration-700 text-light-1`} />
         </button>

@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { deleteStaff, deleteUser, editStaff, editUser, getAllStaff, getStaffBySlug, login, register } from "../hooks";
+import { addStaff, deleteStaff, deleteUser, editStaff, editUser, getAllStaff, getStaffBySlug, login, register } from "../hooks";
 
 export const useGetAllStaff = () => {
   return useQuery({
@@ -17,6 +17,15 @@ export const useGetStaffBySlug = (slug) => {
     queryFn: async () => {
       const response = await getStaffBySlug(slug);
       return response?.payload || "";
+    },
+  });
+};
+
+export const useAddStaff = () => {
+  return useMutation({
+    mutationFn: async (body) => {
+      const response = await addStaff(body);
+      return response?.payload;
     },
   });
 };

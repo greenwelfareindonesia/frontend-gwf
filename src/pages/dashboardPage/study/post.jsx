@@ -5,12 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 import DashboardSection from "../../../layouts/dashboard_section/Template";
 
-import { useAddEcopedia } from "../../../features/ecopedia/service";
+import { useAddStudy } from "../../../features/study/service";
 
 import cameraIcon from "../../../assets/icons/camera_icon.svg";
 import closeIcon from "../../../assets/icons/close_icon.svg";
@@ -20,7 +19,7 @@ const Post = () => {
 
   const { handleSubmit, register, setValue } = useForm();
 
-  const { mutate: addEcopedia } = useAddEcopedia();
+  const { mutate: addStudy } = useAddStudy();
 
   const [imagePreviews, setImagePreviews] = useState([]);
 
@@ -38,7 +37,7 @@ const Post = () => {
   };
 
   const onSubmit = (data) => {
-    const { files, title, reference, srcFile, subTitle } = data;
+    const { files, title } = data;
     const mapFile = files.map((image, index) => {
       return { [`file${index + 1}`]: image };
     });
@@ -47,7 +46,7 @@ const Post = () => {
       return { ...acc, ...cur };
     }, {});
 
-    addEcopedia({ title, description, reference, srcFile, subTitle, ...mergedFiles });
+    addStudy({ title, description, ...mergedFiles });
   };
 
   return (
@@ -56,13 +55,10 @@ const Post = () => {
         <img src={closeIcon} alt="Close" />
       </button>
       <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
-        <div className="mb-4 text-xl font-bold text-primary-2">Title</div>
-        <input {...register("title")} className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm" placeholder="Tulis judul disini" type="text" />
+        <div className="mb-2 text-xl font-bold text-primary-2">Title</div>
+        <input {...register("title")} className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm" placeholder="Tulis judul disini" type="text" required />
 
-        <div className="mb-4 text-xl font-bold text-primary-2">Subtitle</div>
-        <input {...register("subTitle")} className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm" placeholder="Tulis deskripsi disini" type="text" />
-
-        <div className="mb-4 text-xl font-bold text-primary-2">Description</div>
+        <div className="mb-2 text-xl font-bold text-primary-2">Description</div>
         <CKEditor
           editor={ClassicEditor}
           config={{
@@ -88,13 +84,7 @@ const Post = () => {
           }}
         />
 
-        <div className="my-4 text-xl font-bold text-primary-2">Source File</div>
-        <input {...register("srcFile")} className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm" placeholder="Tulis asal gambar/file disini" type="text" />
-
-        <div className="mb-4 text-xl font-bold text-primary-2">Reference</div>
-        <input {...register("reference")} className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm" placeholder="Tulis asal referensi disini" type="text" />
-
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2 mt-4">
           <p className="text-xl font-bold text-primary-2">Add Photo</p>
           <label htmlFor="photo-upload" className="flex flex-col items-center justify-center p-4 mb-4 rounded-md cursor-pointer w-60 border-1 border-primary-2 h-36">
             <div className="text-center">
@@ -102,7 +92,7 @@ const Post = () => {
             </div>
             <input id="photo-upload" type="file" className="hidden" {...register("files")} multiple accept="image/*" onChange={handleFileChange} />
           </label>
-          <h5 className="text-2xl font-semibold text-primary-2">Preview Photo Ecopedia</h5>
+          <h5 className="text-2xl font-semibold text-primary-2">Preview Photo Study</h5>
           <div className="flex flex-wrap gap-4">
             {imagePreviews.map((url, index) => (
               <div key={index}>
@@ -114,8 +104,8 @@ const Post = () => {
 
         {/* Container for the button */}
         <div className="flex justify-center mt-16">
-          <button type="submit" className="py-2 font-semibold text-white rounded bg-primary-2 px-96">
-            Post Ecopedia
+          <button type="submit" className="w-full py-2 font-semibold text-white rounded bg-primary-2">
+            Post Study
           </button>
         </div>
       </form>

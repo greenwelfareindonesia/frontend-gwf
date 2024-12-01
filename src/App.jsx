@@ -15,6 +15,8 @@ import {
   // Chapters,
   SingleEcopedia,
   DetailDonate,
+  Study,
+  DetailStudy,
   // Gallery,
   // Cart,
   // Merch,
@@ -26,7 +28,6 @@ import {
 
 import AdminLogin from "./pages/adminloginpage/AdminLogin";
 import NotFound from "./pages/notFoundPage/NotFound";
-import BookStudy from "./pages/eventspage/BookStudy";
 
 import {
   EcopediaDashboard,
@@ -46,6 +47,10 @@ import {
   FeedbackPage,
   Dashboard,
   EditDashboard,
+  PostDashboard,
+  StudyDashboard,
+  EditStudy,
+  PostStudy,
 } from "./pages/dashboardPage";
 
 import ProtectedAdmin from "./routes/ProtectedAdmin";
@@ -80,7 +85,8 @@ const App = () => {
         {/* <Route path="/gallery" element={<Gallery />} /> */}
         <Route path="/resource" element={<Resource />} />
         <Route path="/login" element={<AdminLogin />} />
-        <Route path="/event/bookstudy" element={<BookStudy />} />
+        <Route path="/study" element={<Study />} />
+        <Route path="/study/detail" element={<DetailStudy />} />
 
         {/* <Route path="/merch" element={<Merch />} />
         <Route path="/merch/detail" element={<MerchDetail />} />
@@ -94,6 +100,7 @@ const App = () => {
 
         <Route element={<ProtectedAdmin />}>
           <Route path="/dashboards" element={<Dashboard />} />
+          <Route path="/dashboards/post" element={<PostDashboard />} />
           <Route path="/dashboards/edit/:slug" element={<EditDashboard />} />
 
           <Route path="/dashboard/feedback" element={<FeedbackPage />} />
@@ -101,6 +108,10 @@ const App = () => {
           <Route path="/dashboard/ecopedia" element={<EcopediaDashboard />} />
           <Route path="/dashboard/ecopedia/edit/:slug" element={<EditEcopedia />} />
           <Route path="/dashboard/ecopedia/post" element={<PostEcopedia />} />
+
+          <Route path="/dashboard/study" element={<StudyDashboard />} />
+          <Route path="/dashboard/study/edit/:slug" element={<EditStudy />} />
+          <Route path="/dashboard/study/post" element={<PostStudy />} />
 
           <Route path="/dashboard/gallery" element={<GalleryDashboard />} />
           <Route path="/dashboard/gallery/edit/:slug" element={<EditGallery />} />

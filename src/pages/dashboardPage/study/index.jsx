@@ -1,21 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { useDeleteEcopedia, useGetEcopedia } from "../../../features/ecopedia/service";
-
 import DashboardSection from "../../../layouts/dashboard_section/Template";
 
 import editIcon from "../../../assets/icons/edit_icon.svg";
 import deleteIcon from "../../../assets/icons/delete_icon.svg";
-import postEcopedia from "../../../assets/icons/postEcopedia_icon.svg";
 import questionPerson from "../../../assets/icons/icon_questionperson.svg";
 import closeIcon from "../../../assets/icons/close_icon.svg";
 
 import convertDateValue from "../../../utils/ConvertDate";
+import { useDeleteStudy, useGetStudy } from "../../../features/study/service";
 
 // Define the Modal within the same file
 const Modal = ({ isOpen, onClose, selectedArticle }) => {
-  const { mutate } = useDeleteEcopedia();
+  const { mutate } = useDeleteStudy();
 
   if (!isOpen) return null;
 
@@ -47,11 +45,11 @@ const Modal = ({ isOpen, onClose, selectedArticle }) => {
   );
 };
 
-const EcopediaDashboard = () => {
+const StudyDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState(null);
 
-  const { data } = useGetEcopedia();
+  const { data } = useGetStudy();
 
   const openModal = (article) => {
     setSelectedArticle(article);
@@ -63,35 +61,33 @@ const EcopediaDashboard = () => {
   };
 
   return (
-    <DashboardSection titleField="Ecopedia">
-      <Link to="/dashboard/ecopedia/post">
-        <button className="absolute top-0 right-0 mt-24 bg-transparent border-none mr-9">
-          <img src={postEcopedia} alt="Dashboard" />
-        </button>
+    <DashboardSection titleField="Study">
+      <Link to="/dashboard/study/post">
+        <button className="absolute top-0 right-0 px-5 py-1.5 mt-24 mr-4 rounded-3xl bg-primary-2 text-light-1">Post Study</button>
       </Link>
       <table className="w-full border-t border-primary-2 text-primary-1">
         <thead>
           <tr className="text-left border-b border-primary-2">
-            <th className="p-4 w-60">Ecopedia Image</th>
+            <th className="p-4 w-60">Study Image</th>
             <th className="p-4">Title</th>
             <th className="p-4">Post Date</th>
             <th className="p-4">Action</th>
           </tr>
         </thead>
         <tbody>
-          {data?.map((article) => (
-            <tr key={article?.ID} className="border-b border-primary-2">
-              <td className="px-4 py-2 w-96">{article?.fileNames?.[0] && <img src={article?.fileNames?.[0]} alt={article?.title} className="object-cover w-full h-auto max-w-full" />}</td>
+          {data?.map((study) => (
+            <tr key={study?.ID} className="border-b border-primary-2">
+              <td className="px-4 py-2 w-96">{study?.Images && <img src={study?.Images?.[0]?.FileName} alt={study?.Title} className="object-cover w-full h-auto max-w-full" />}</td>
               <td className="px-4 w-96">
-                <p className="text-lg font-bold line-clamp-2">{article?.title}</p>
+                <p className="text-lg font-bold line-clamp-2">{study?.Title}</p>
               </td>
-              <td className="px-4 text-sm font-bold">{convertDateValue(article?.createdAt)}</td>
+              <td className="px-4 text-sm font-bold">{convertDateValue(study?.created_at)}</td>
               <td className="px-4">
                 <div className="flex items-center gap-2">
-                  <Link to={`/dashboard/ecopedia/edit/${article?.slug}`}>
+                  <Link to={`/dashboard/study/edit/${study?.Slug}`}>
                     <img src={editIcon} alt="Edit" />
                   </Link>
-                  <button className="p-0 bg-transparent border-none" onClick={() => openModal(article?.ID)}>
+                  <button className="p-0 bg-transparent border-none" onClick={() => openModal(study?.Slug)}>
                     <img src={deleteIcon} alt="Delete" />
                   </button>
                 </div>
@@ -105,4 +101,4 @@ const EcopediaDashboard = () => {
   );
 };
 
-export default EcopediaDashboard;
+export default StudyDashboard;

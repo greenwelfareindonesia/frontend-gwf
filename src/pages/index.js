@@ -7,7 +7,6 @@ import Order from "./merchpage/Ordersummary";
 import Profile from "./merchpage/Profile";
 import Merch from "./merchpage/Merch";
 import Events from "./eventspage/Events";
-import BookStudy from "./eventspage/BookStudy";
 import Chapters from "./chapterspage/Chapters";
 import Home from "./homepage/Home";
 import Involved from "./involvedpage/Involved";
@@ -19,8 +18,12 @@ import MerchDetailLogin from "./merchpage/DetailLogin";
 import SingleEcopedia from "./ecopediapage/SingleEcopedia";
 import Gallery from "./galleryPage/Gallery";
 import DetailDonate from "./donatepage/DetailDonate";
+import Study from "./studyPage/Study";
+import DetailStudy from "./studyPage/DetailStudy";
 
 export {
+  Study,
+  DetailStudy,
   DetailDonate,
   Gallery,
   SingleEcopedia,
@@ -32,7 +35,6 @@ export {
   Chapters,
   Team,
   Events,
-  BookStudy,
   Cart,
   Order,
   Profile,

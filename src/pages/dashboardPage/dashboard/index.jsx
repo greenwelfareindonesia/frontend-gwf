@@ -2,34 +2,6 @@ import { useState } from "react";
 
 import DashboardSection from "../../../layouts/dashboard_section/Template";
 import { Link } from "react-router-dom";
-import { edit_icon, delete_icon } from "../../../assets/icons";
-
-const dummyData = [
-  {
-    ID: 1,
-    fullName: 'John Doe1',
-    department: 'Engineering',
-    status: 'Active',
-    createdAt: new Date().toISOString(),
-    slug: 'john-doe',
-  },
-  {
-    ID: 2,
-    fullName: 'John Doe2',
-    department: 'Engineering',
-    status: 'Active',
-    createdAt: new Date().toISOString(),
-    slug: 'john-doe',
-  },
-  {
-    ID: 3,
-    fullName: 'John Doe3',
-    department: 'Engineering',
-    status: 'Active',
-    createdAt: new Date().toISOString(),
-    slug: 'john-doe',
-  },
-];
 
 // import { Link } from "react-router-dom";
 import { FaSort, FaSearch } from "react-icons/fa";
@@ -67,6 +39,11 @@ const DashboardPage = () => {
 
   return (
     <DashboardSection titleField="Dashboard Page">
+      <div className="absolute flex items-center justify-between mb-4 top-24 right-9">
+        <Link to="/dashboards/post">
+          <button className="font-semibold bg-primary-2 w-36 h-9 rounded-3xl text-light-1">Add Users</button>
+        </Link>
+      </div>
       <div className="rounded-md border-1 border-primary-1">
         <div className="flex items-center p-5">
           <div className="relative">
@@ -156,10 +133,7 @@ const DashboardPage = () => {
               <button onClick={handleCancelDelete} className="w-40 px-4 py-2 text-gray-700 border-2 rounded-md border-primary-2 hover:bg-gray-100">
                 Cancel
               </button>
-              <button
-                onClick={handleConfirmDelete}
-                className="w-40 px-4 py-2 text-white bg-red-500 border-2 rounded-md border-primary-2 hover:bg-red-600"
-              >
+              <button onClick={handleConfirmDelete} className="w-40 px-4 py-2 text-white bg-red-500 border-2 rounded-md border-primary-2 hover:bg-red-600">
                 Delete
               </button>
             </div>

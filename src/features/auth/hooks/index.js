@@ -14,6 +14,17 @@ export const getStaffBySlug = async (slug) => {
   });
 };
 
+export const addStaff = async (body) => {
+  return await API.post("/hrd/", body)
+    .then(() => {
+      SweatAlert("Hrd has been added successfully", "success");
+      ReloadRefresh(2000, "/dashboards");
+    })
+    .catch(() => {
+      SweatAlert("Deleted error", "error");
+    });
+};
+
 export const editStaff = async (body) => {
   return await API.put(`/hrd/${body?.slug}`, body)
     .then(() => {
@@ -25,8 +36,8 @@ export const editStaff = async (body) => {
     });
 };
 
-export const deleteStaff = async (slug) => {
-  return await API.put(`/hrd/${slug}`)
+export const deleteStaff = async (body) => {
+  return await API.delete(`/hrd/${body.slug}`)
     .then(() => {
       SweatAlert("Hrd has been deleted successfully", "success");
       ReloadRefresh(2000, "/dashboards");
