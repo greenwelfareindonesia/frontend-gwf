@@ -20,6 +20,38 @@ body {
   padding: 0;
 }
 
+.loader {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #fff;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-left: 4px solid #3e3e08;
+  border-bottom: 4px solid transparent;
+  animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 input[type="file"]::file-selector-button {
   margin-right: 20px;
   border: none;
@@ -37,14 +69,63 @@ input[type="file"]::file-selector-button:hover {
 
 .filter-card-team {
   background: rgb(0, 14, 33);
-  background: linear-gradient(
-    0deg,
-    rgba(0, 14, 33, 0.8) 0%,
-    rgba(101, 101, 57, 0.2) 43%,
-    rgba(56, 56, 7, 0.29) 64%,
-    rgba(127, 126, 94, 0.2) 88%,
-    rgba(62, 62, 8, 0.53) 100%
-  );
+  background: linear-gradient(0deg, rgba(0, 14, 33, 0.8) 0%, rgba(101, 101, 57, 0.2) 43%, rgba(56, 56, 7, 0.29) 64%, rgba(127, 126, 94, 0.2) 88%, rgba(62, 62, 8, 0.53) 100%);
+}
+
+/* ckeditor style */
+.ck-content * {
+  all: revert;
+  color: #181c14 !important;
+}
+.ck-content p {
+  text-align: justify !important;
+}
+.dangerous_html * {
+  all: revert !important;
+}
+.dangerous_html .image {
+  margin: 0 auto;
+  max-width: 600px !important;
+  width: 100%;
+}
+.dangerous_html img {
+  max-width: 600px !important;
+  width: 100%;
+}
+.dangerous_html p {
+  text-align: justify !important;
+}
+.dangerous_html blockquote {
+  font-style: italic !important;
+  padding: 1rem 1.5rem !important;
+  margin: 1rem 0 !important;
+  border-left: 4px solid #ddd !important;
+}
+.dangerous_html blockquote p {
+  margin: 0 !important;
+}
+.dangerous_html table {
+  display: table !important;
+  border-spacing: 0 !important;
+  border-collapse: collapse !important;
+  margin: 1rem auto !important;
+}
+.dangerous_html th,
+.dangerous_html td {
+  border: 1px solid #ddd !important;
+  padding: 2px 6px !important;
+  text-align: left !important;
+  min-width: 34px !important;
+}
+.dangerous_html th {
+  background-color: #f4f4f4 !important;
+  font-weight: bold !important;
+}
+.dangerous_html table caption {
+  caption-side: bottom !important;
+  padding-top: 0.75rem !important;
+  font-style: italic !important;
+  color: #777 !important;
 }
 
 @layer components {

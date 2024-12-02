@@ -4,23 +4,17 @@ import DashboardSection from "../../../layouts/dashboard_section/Template";
 import { Link } from "react-router-dom";
 
 // import { Link } from "react-router-dom";
-import { FaSort, FaSearch } from "react-icons/fa";
 import { MdOutlineEdit } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MdSort } from "react-icons/md";
 import { useDeleteStaff, useGetAllStaff } from "../../../features/auth/service";
 
 const DashboardPage = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
   const { data } = useGetAllStaff();
   const { mutate: deleteStaff } = useDeleteStaff();
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
 
   const handleDeleteClick = (id) => {
     setSelectedItem(id);
@@ -45,31 +39,7 @@ const DashboardPage = () => {
         </Link>
       </div>
       <div className="rounded-md border-1 border-primary-1">
-        <div className="flex items-center p-5">
-          <div className="relative">
-            <button className="flex items-center py-2 pl-4 pr-8 border rounded-md border-primary-2" onClick={toggleDropdown}>
-              <FaSort className="mr-2" />
-              <p>Sort</p>
-            </button>
-            {dropdownOpen && (
-              <div className="absolute w-full mt-1 bg-white border rounded-md shadow-lg border-primary-2">
-                <ul className="py-1">
-                  <li className="px-4 py-2 cursor-pointer hover:bg-primary-1 hover:bg-opacity-20" onClick={() => console.log("Sort A-Z")}>
-                    A-Z
-                  </li>
-                  <li className="px-4 py-2 cursor-pointer hover:bg-primary-1 hover:bg-opacity-20" onClick={() => console.log("Sort Z-A")}>
-                    Z-A
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
-          <div className="flex items-center p-2 ml-4 bg-gray-200 rounded-md w-96">
-            <FaSearch className="mr-2 text-gray-500" />
-            <input type="text" placeholder="Search Users by Name, Email or Date" className="w-full placeholder-gray-500 bg-gray-200 outline-none" />
-          </div>
-        </div>
-        <table className="w-full border-t border-primary-2 text-primary-1">
+        <table className="w-full text-primary-1">
           <thead>
             <tr className="text-left border-b border-primary-2 bg-primary-1 bg-opacity-30">
               <th className="p-4 w-60">Name</th>

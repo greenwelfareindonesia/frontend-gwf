@@ -32,7 +32,7 @@ const Menus = [
   { title: "Gallery", path: "/dashboard/gallery", src: gallery_icon },
   { title: "Feedback", path: "/dashboard/feedback", src: feedback_icon },
   { title: "Workshop", path: "/dashboard/workshop", src: workshop_icon },
-  { title: "Study", path: "/dashboard/study", src: study_icon },
+  { title: "Reports", path: "/dashboard/report", src: study_icon },
 ];
 
 const DashboardSection = ({ children, titleField, buttonField }) => {

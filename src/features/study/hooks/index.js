@@ -18,7 +18,7 @@ export const addStudy = async (body) => {
   return await API.post("/kajian/", body, { headers: { "Content-Type": "multipart/form-data" } })
     .then((response) => {
       SweatAlert("Study has been created successfully", "success");
-      ReloadRefresh(2000, "/dashboard/Study");
+      ReloadRefresh(2000, "/dashboard/report");
       return response.data;
     })
     .catch(() => {
@@ -27,10 +27,10 @@ export const addStudy = async (body) => {
 };
 
 export const editStudy = async (body) => {
-  return await API.put(`/kajian/${body.slug}`, body)
+  return await API.put(`/kajian/${body.slug}`, body, { headers: { "Content-Type": "multipart/form-data" } })
     .then(() => {
       SweatAlert("Study has been updated successfully", "success");
-      ReloadRefresh(2000, "/dashboard/Study");
+      ReloadRefresh(2000, "/dashboard/report");
     })
     .catch(() => {
       SweatAlert("Error when update Study", "error");

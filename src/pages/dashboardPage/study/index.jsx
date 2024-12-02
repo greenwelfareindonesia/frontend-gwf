@@ -62,7 +62,7 @@ const StudyDashboard = () => {
 
   return (
     <DashboardSection titleField="Study">
-      <Link to="/dashboard/study/post">
+      <Link to="/dashboard/report/post">
         <button className="absolute top-0 right-0 px-5 py-1.5 mt-24 mr-4 rounded-3xl bg-primary-2 text-light-1">Post Study</button>
       </Link>
       <table className="w-full border-t border-primary-2 text-primary-1">
@@ -84,7 +84,7 @@ const StudyDashboard = () => {
               <td className="px-4 text-sm font-bold">{convertDateValue(study?.created_at)}</td>
               <td className="px-4">
                 <div className="flex items-center gap-2">
-                  <Link to={`/dashboard/study/edit/${study?.Slug}`}>
+                  <Link to={`/dashboard/report/edit/${study?.Slug}`}>
                     <img src={editIcon} alt="Edit" />
                   </Link>
                   <button className="p-0 bg-transparent border-none" onClick={() => openModal(study?.Slug)}>

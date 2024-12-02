@@ -63,7 +63,10 @@ const EditEcopedia = () => {
   };
 
   useEffect(() => {
-    setImagePreviews(data?.fileNames);
+    if (data) {
+      setImagePreviews(data.fileNames);
+      setDescription(data.description);
+    }
   }, [data]);
 
   return (

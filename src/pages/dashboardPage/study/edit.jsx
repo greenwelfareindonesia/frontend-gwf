@@ -34,13 +34,14 @@ const EditStudy = () => {
 
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
-    const urls = files.map((file) => URL.createObjectURL(file));
+    const urls = files.map((file) => ({ FileName: URL.createObjectURL(file) }));
     setImagePreviews(urls);
     setValue("files", files);
   };
 
   const onSubmit = (body) => {
     const { files, Title } = body;
+
     const mapFile = files.map((image, index) => {
       return { [`file${index + 1}`]: image };
     });
@@ -51,8 +52,8 @@ const EditStudy = () => {
 
     editStudy({
       slug,
-      Description: description || data?.description,
-      Title: Title || data?.title,
+      description: description || data?.description,
+      title: Title || data?.title,
       ...mergedFiles,
     });
   };

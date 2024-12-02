@@ -13,9 +13,9 @@ export const navContent = [
       { name: "Involved", path: "/involved" },
       { name: "Events", path: "/event" },
       { name: "Donation", path: "/donate" },
-      { name: "Study", path: "/study" },
     ],
   },
   { name: "Resource Hub", path: "/resource" },
   { name: "Eco-pedia", path: "/ecopedia" },
+  { name: "Events Reports", path: "/report" },
 ];

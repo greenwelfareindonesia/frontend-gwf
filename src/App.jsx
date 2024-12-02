@@ -85,8 +85,8 @@ const App = () => {
         {/* <Route path="/gallery" element={<Gallery />} /> */}
         <Route path="/resource" element={<Resource />} />
         <Route path="/login" element={<AdminLogin />} />
-        <Route path="/study" element={<Study />} />
-        <Route path="/study/detail" element={<DetailStudy />} />
+        <Route path="/report" element={<Study />} />
+        <Route path="/report/detail/:slug" element={<DetailStudy />} />
 
         {/* <Route path="/merch" element={<Merch />} />
         <Route path="/merch/detail" element={<MerchDetail />} />
@@ -109,9 +109,9 @@ const App = () => {
           <Route path="/dashboard/ecopedia/edit/:slug" element={<EditEcopedia />} />
           <Route path="/dashboard/ecopedia/post" element={<PostEcopedia />} />
 
-          <Route path="/dashboard/study" element={<StudyDashboard />} />
-          <Route path="/dashboard/study/edit/:slug" element={<EditStudy />} />
-          <Route path="/dashboard/study/post" element={<PostStudy />} />
+          <Route path="/dashboard/report" element={<StudyDashboard />} />
+          <Route path="/dashboard/report/edit/:slug" element={<EditStudy />} />
+          <Route path="/dashboard/report/post" element={<PostStudy />} />
 
           <Route path="/dashboard/gallery" element={<GalleryDashboard />} />
           <Route path="/dashboard/gallery/edit/:slug" element={<EditGallery />} />
