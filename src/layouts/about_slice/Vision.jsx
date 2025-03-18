@@ -45,8 +45,9 @@ const Vision = () => {
           viewport={{ once: true }}
           className="mx-8 mb-4 italic font-extralight md:mb-16 text-md md:text-lg lg:text-xl"
         >
-          “Becoming an organization that engages the younger generation to actively participate and contribute to social issues while spreading
-          awareness about the climate and making a significant impact on communities.”
+          "Our mission is to strengthen the contribution of Indonesian youths and local communities
+          in achieving Golden Indonesia by 2045 through actively engaging in environmental and 
+          social actions."
         </motion.p>
       </Container>
     </section>

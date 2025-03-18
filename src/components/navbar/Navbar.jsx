@@ -44,9 +44,9 @@ const Navbar = () => {
           )}
         </li>
       ))}
-      <li className="hidden text-sm lg:block text-dark">
+      <li className="text-sm text-dark">
         <Link to="/login" className="flex items-center duration-200 hover:text-primary-2">
-          <HiUserCircle className="hidden w-6 h-6 mr-1 lg:block text-primary-2" /> Login
+          <HiUserCircle className="w-6 h-6 mr-1 text-primary-2" /> Login
         </Link>
       </li>
     </ul>
@@ -55,19 +55,10 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-10 block w-full py-6 border shadow-md bg-light-1 text-light-1">
       <div className="relative flex items-center justify-between flex-grow-0 flex-shrink-0 w-full px-8 text-dark lg:px-16">
+        {/* Logo */}
         <Link to="/" className="z-50 block cursor-pointer">
           <Image src={logo_gwf} className="!w-24 h-24" description="logo gwf" />
         </Link>
-
-        <div
-          className={`lg:hidden z-30 text-dark absolute left-1/2 -translate-x-1/2 duration-300 ${
-            openNav ? "top-1/2 -translate-y-1/2" : "top-[-100%]"
-          }`}
-        >
-          <Link to="/login" className="flex items-center duration-200 hover:text-primary-2">
-            <HiUserCircle className="w-6 h-6 mr-1" /> Login
-          </Link>
-        </div>
 
         <button className="relative z-40 text-xs text-center lg:hidden" onClick={() => setOpenNav(!openNav)} type="button">
           {openNav ? <AiOutlineClose className="w-8 h-8" /> : <AiOutlineMenu className="w-8 h-8" />}
