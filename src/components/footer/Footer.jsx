@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="py-2 text-xs text-center bg-primary-1 text-light-1">©2023 by Green Welfare Indonesia</div>
+      <div className="py-2 text-xs text-center bg-primary-1 text-light-1">©2025 by Green Welfare Indonesia</div>
     </section>
   );
 }

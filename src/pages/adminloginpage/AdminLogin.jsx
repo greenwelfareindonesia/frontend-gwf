@@ -71,7 +71,7 @@ export default function AdminLogin() {
               Submit
             </Button>
           </form>
-          <p className="absolute text-xs font-medium bottom-2">©2023 by Green Welfare Indonesia</p>
+          <p className="absolute text-xs font-medium bottom-2">©2025 by Green Welfare Indonesia</p>
         </div>
       </div>
       {/* Right Side */}

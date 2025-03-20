@@ -26,6 +26,7 @@ export default function Donate() {
           </p>
         </div>
         <div className="flex flex-col items-center justify-center gap-20 mb-16 lg:flex-row">
+          {/* 
           <div className="flex flex-col items-center w-full space-y-8">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
@@ -49,6 +50,8 @@ export default function Donate() {
               <Button>Click Here</Button>
             </Link>
           </div>
+          */}
+
           <div className="flex flex-col items-center w-full space-y-8">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
@@ -72,7 +75,10 @@ export default function Donate() {
           </div>
         </div>
 
+        {/* 
         <h1 className="text-xl italic font-semibold text-center underline cursor-pointer">Download Donor Brochure</h1>
+        */}
+        
       </Container>
       {/* Image Headline */}
       <Background src={DonateBg} className="flex-col gap-16 min-h-800">

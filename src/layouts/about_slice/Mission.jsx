@@ -60,8 +60,8 @@ const Mission = () => {
           viewport={{ once: true }}
           className="font-light z-1 text-md md:leading-relaxed"
         >
-          To spread environmental education among the youths of Indonesia as a course of action to protect our climate future and be more
-          eco-conscious.
+          Mobilizing youth and local communities to engage in environmental & social actions and awareness campaigns to strengthen the understanding 
+          of the importance in preserving our environment and societies.
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: -20 }}
@@ -70,8 +70,8 @@ const Mission = () => {
           viewport={{ once: true }}
           className="font-light z-1 text-md md:leading-relaxed"
         >
-          To promote sustainable and environmental friendly consumption lifestyles for the benefit of the environment, specifically on raising
-          awareness about the link in animal agriculture and climate change, as well as to promote sustainable urban agriculture.
+          Providing in-depth climate education to broaden the interdisciplinary awareness of challenges and solutions related to climate change, equipping 
+          the younger generation with the theoretical knowledge needed to act efectively and contribute to the future.
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: -20 }}
@@ -80,8 +80,8 @@ const Mission = () => {
           viewport={{ once: true }}
           className="font-light z-1 text-md md:leading-relaxed"
         >
-          To motivate young people to contribute to society by addressing important issues related to social and environmental problems through active
-          engagement, advocacy, and collaboration with various stakeholders.
+          Promoting the use of nature-based solutions that rely on grassroots wisdom, involving youth and local communities to 
+          actively participate in nature-based tools against climate change.
         </motion.p>
       </Background>
     </section>
