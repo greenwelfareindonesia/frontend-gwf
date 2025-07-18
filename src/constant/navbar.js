@@ -16,6 +16,6 @@ export const navContent = [
     ],
   },
   { name: "Resource Hub", path: "/resource" },
-  { name: "Eco-pedia", path: "/ecopedia" },
+  // { name: "Eco-pedia", path: "/ecopedia" },
   { name: "Events Reports", path: "/report" },
 ];
