@@ -10,7 +10,7 @@ import foundingLeft from "../../assets/team-image/founding-left.png";
 import foundingMiddle from "../../assets/team-image/founding-middle.png";
 import foundingRight from "../../assets/team-image/founding-right.png";
 
-import { hanifah, nifa, regatta, sahira, yovinka, ory, abigail, iklima, alif, aulia, aurellia, saskia, revina, hanna, gamma, nazkya } from "../../assets/team-image";
+import { girl, nifa, ayundha, shahira, ory, abigail, iklima, alif, aulia, aurellia, saskia, revina, hanna, gamma, nazkya } from "../../assets/team-image";
 
 export default function Team() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 850);
@@ -34,10 +34,10 @@ export default function Team() {
 
   const currentLeads = [
     { img: nifa, nama: "Nifa Rahma", peran: "Executive Director" },
-    { img: regatta, nama: "Regatta Larra", peran: "Co-Executive Director" },
-    { img: sahira, nama: "Sahira", peran: "Secretary" },
-    { img: hanifah, nama: "Hanifah", peran: "Vice Secretary" },
-    { img: yovinka, nama: "Yovinka", peran: "Treasurer" },
+    { img: ayundha, nama: "Ayundha Sachi", peran: "Co-Executive Director" },
+    { img: kevin, nama: "Kevin Wisnumurthi", peran: "Chief Supervisor" },
+    { img: shahira, nama: "Shahira Putri", peran: "Secretary" },
+    { img: girl, nama: "Riza Fitrisia", peran: "Treasurer" },
   ];
 
   const boardOfDirector = [
