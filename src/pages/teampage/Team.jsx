@@ -10,7 +10,7 @@ import foundingLeft from "../../assets/team-image/founding-left.png";
 import foundingMiddle from "../../assets/team-image/founding-middle.png";
 import foundingRight from "../../assets/team-image/founding-right.png";
 
-import { girl, nifa, ayundha, shahira, ory, abigail, iklima, alif, aulia, aurellia, saskia, revina, hanna, gamma, nazkya } from "../../assets/team-image";
+import {girl, nifa, ayundha, shahira, ory, abigail, iklima, alif, aulia, aurellia, saskia, revina, hanna, gamma, nazkya, kevin } from "../../assets/team-image";
 
 export default function Team() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 850);
