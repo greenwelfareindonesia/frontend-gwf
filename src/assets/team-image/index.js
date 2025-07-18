@@ -19,5 +19,8 @@ import hanna from "./hanna.jpg";
 import gamma from "./gamma.jpeg";
 import nazkya from "./nazkya.jpg";
 import ory from "./ory.jpg";
+import kevin from "./kevin.jpg";
+import shahira from "./shahira.jpg";    
+import girl from "./girl.png";
 
-export { regatta, nifa, sahira, yovinka, hanifah, raihan, ayundha, arya, vanya, bartholomew, abigail, iklima, alif, aulia, aurellia, saskia, revina, hanna, gamma, nazkya, ory };
+export { girl, regatta, nifa, sahira, yovinka, hanifah, raihan, ayundha, arya, vanya, bartholomew, abigail, iklima, alif, aulia, aurellia, saskia, revina, hanna, gamma, nazkya, ory, shahira, kevin };
