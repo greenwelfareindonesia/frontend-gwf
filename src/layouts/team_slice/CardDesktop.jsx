@@ -1,7 +1,7 @@
 import Filter from "../../components/filter";
 
 const CardDesktop = ({ onMouseLeave, onMouseEnter, isHighlight, name, job, pathImg, isBOD }) => {
-  const width = isBOD ? `${isHighlight ? "w-64" : "w-28"}` : `${isHighlight ? "w-80" : "w-40"}`;
+  const width = isBOD ? `${isHighlight ? "w-80" : "w-28"}` : `${isHighlight ? "w-80" : "w-40"}`;
 
   return (
     <div

@@ -10,7 +10,7 @@ import foundingLeft from "../../assets/team-image/founding-left.png";
 import foundingMiddle from "../../assets/team-image/founding-middle.png";
 import foundingRight from "../../assets/team-image/founding-right.png";
 
-import { arya, ayundha, bartholomew, hanifah, nifa, raihan, regatta, sahira, vanya, yovinka } from "../../assets/team-image";
+import { hanifah, nifa, regatta, sahira, yovinka, ory, abigail, iklima, alif, aulia, aurellia, saskia, revina, hanna, gamma, nazkya } from "../../assets/team-image";
 
 export default function Team() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 850);
@@ -41,11 +41,20 @@ export default function Team() {
   ];
 
   const boardOfDirector = [
-    { img: raihan, nama: "Raihan Alfarisi", peran: "Technology" },
-    { img: arya, nama: "Afifah Arya", peran: "Human Resource" },
-    { img: bartholomew, nama: "Bartholomew Jordan", peran: "Entertainment" },
-    { img: vanya, nama: "Afifah Vanya", peran: "Education" },
-    { img: ayundha, nama: "Ayundha Sachi", peran: "Media Communication" },
+    { img: ory, nama: "Ory Praka Revikansha K", peran: "Human Resources and General Affairs" },
+    { img: abigail, nama: "Abigail Gabriella Aditamma", peran: "Community Services" },
+    { img: iklima, nama: "Iklima Green", peran: "Education" },
+    { img: alif, nama: "Alif Syams Agiputra", peran: "Media Communication" },
+  ];
+
+  const head = [
+    { img: aulia, nama: "Aulia Sarah Andraina", peran: "Head of Social Media" },
+    { img: aurellia, nama: "Aurellia Nezza Widarko", peran: "Head of Graphic Design" },
+    { img: saskia, nama: "Saskia Novtarisa Putri", peran: "Head of Website Development" },
+    { img: revina, nama: "Revina Syifa Tiara", peran: "Head of Climate Education" },
+    { img: hanna, nama: "Hanna Novrelin Purba", peran: "Co-Head of Climate Education" },
+    { img: gamma, nama: "Gamma Farrel", peran: "Head of CSR" },
+    { img: nazkya, nama: "Nazkya Raahiil Ramandha", peran: "Head of Business Development" },
   ];
 
   return (
@@ -56,6 +65,7 @@ export default function Team() {
           <CardMobile cards={foundingMembers} title="Founding Members" className="bg-primary-1 text-light-1" />
           <CardMobile cards={currentLeads} title="Current Executive Leads" className="bg-light-1 text-primary-1" />
           <CardMobile cards={boardOfDirector} title="Board of Director" className="bg-primary-1 text-light-1" />
+          <CardMobile cards={head} title="Head" className="bg-light-1 text-primary-1" />
         </>
       ) : (
         <>
@@ -107,7 +117,7 @@ export default function Team() {
                     job={item.peran}
                     name={item.nama}
                     pathImg={item.img}
-                    isHighlight={hover === null ? index === 2 : hover === index}
+                    isHighlight={hover === null ? index === 0 : hover === index}
                     onMouseEnter={() => setHover(index)}
                     onMouseLeave={() => setHover(null)}
                   />
@@ -115,9 +125,24 @@ export default function Team() {
               </div>
             </Container>
           </section>
+
+          {/* Head */}
+          <section className="flex flex-wrap items-center justify-center grid-cols-3 space-y-32 pb-28 min-h-600 text-primary-1 bg-light-3">
+            <div className="pt-40 mx-16">
+              <div className="pt-6 text-center w-72 h-72">
+                <h3 className="font-semibold text-center text-7xl">Heads</h3>
+              </div>
+            </div>
+            {head.map((people) => (
+              <div key={people.nama} className="w-72 h-72 mx-14">
+                <img className="w-72 h-72 rounded-b-4xl rounded-tr-4xl" src={people.img} alt="Executive Lead"></img>
+                <p className="pt-3 font-semibold text-center">{people.nama}</p>
+                <p className="text-center">{people.peran}</p>
+              </div>
+            ))}
+          </section>
         </>
       )}
-
       <Footer />
     </>
   );
