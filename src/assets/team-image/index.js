@@ -8,5 +8,16 @@ import ayundha from "./ayundha.jpg";
 import arya from "./arya.jpg";
 import vanya from "./vanya.jpeg";
 import bartholomew from "./bartholomew.jpg";
+import abigail from "./abigail.jpg";
+import iklima from "./iklima.jpg";
+import alif from "./alif.jpg";
+import aulia from "./aulia.jpg";
+import aurellia from "./aurellia.jpg";
+import saskia from "./saskia.jpg";
+import revina from "./revina.jpg";
+import hanna from "./hanna.jpg";
+import gamma from "./gamma.jpeg";
+import nazkya from "./nazkya.jpg";
+import ory from "./ory.jpg";
 
-export { regatta, nifa, sahira, yovinka, hanifah, raihan, ayundha, arya, vanya, bartholomew };
+export { regatta, nifa, sahira, yovinka, hanifah, raihan, ayundha, arya, vanya, bartholomew, abigail, iklima, alif, aulia, aurellia, saskia, revina, hanna, gamma, nazkya, ory };
