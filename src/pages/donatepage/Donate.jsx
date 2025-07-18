@@ -7,6 +7,7 @@ import Container from "../../components/container";
 import { DonateBg, FundingReceivedIcon, FundingUsedIcon } from "../../assets/donate-image";
 import Background from "../../components/background";
 import Filter from "../../components/filter";
+import { Link } from "react-router-dom";
 
 export default function Donate() {
   return (
@@ -25,6 +26,7 @@ export default function Donate() {
           </p>
         </div>
         <div className="flex flex-col items-center justify-center gap-20 mb-16 lg:flex-row">
+          {/* 
           <div className="flex flex-col items-center w-full space-y-8">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
@@ -44,8 +46,12 @@ export default function Donate() {
             >
               Bank Central Asia (BCA)
             </motion.h4>
-            <Button>Click Here</Button>
+            <Link to="/donate-detail">
+              <Button>Click Here</Button>
+            </Link>
           </div>
+          */}
+
           <div className="flex flex-col items-center w-full space-y-8">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
@@ -69,7 +75,10 @@ export default function Donate() {
           </div>
         </div>
 
+        {/* 
         <h1 className="text-xl italic font-semibold text-center underline cursor-pointer">Download Donor Brochure</h1>
+        */}
+        
       </Container>
       {/* Image Headline */}
       <Background src={DonateBg} className="flex-col gap-16 min-h-800">
@@ -98,10 +107,7 @@ export default function Donate() {
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
           className="flex flex-col gap-8 lg:flex-row"
-        >
-          <Button intent="white">Explore Merch</Button>
-          <Button intent="secondary">Donate Instead</Button>
-        </motion.div>
+        ></motion.div>
       </Background>
       {/* Fundings Section */}
       <Container className="flex justify-between w-full my-16">

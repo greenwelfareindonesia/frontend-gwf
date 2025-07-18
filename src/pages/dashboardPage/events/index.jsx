@@ -28,7 +28,7 @@ const EventsDashboard = () => {
   };
 
   return (
-    <Sidebar titleField={"Events"}>
+    <Sidebar titleField="Events">
       <div className="absolute flex items-center justify-between mb-4 top-24 right-9">
         <Link to="/dashboard/event/post">
           <button className="font-semibold bg-primary-2 w-36 h-9 rounded-3xl text-light-1">Post Events</button>

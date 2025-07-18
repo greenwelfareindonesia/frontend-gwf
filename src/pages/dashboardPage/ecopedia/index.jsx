@@ -73,7 +73,7 @@ const EcopediaDashboard = () => {
         <thead>
           <tr className="text-left border-b border-primary-2">
             <th className="p-4 w-60">Ecopedia Image</th>
-            <th className="p-4">Title dan Description</th>
+            <th className="p-4">Title</th>
             <th className="p-4">Post Date</th>
             <th className="p-4">Action</th>
           </tr>
@@ -81,12 +81,9 @@ const EcopediaDashboard = () => {
         <tbody>
           {data?.map((article) => (
             <tr key={article?.ID} className="border-b border-primary-2">
-              <td className="px-4">
-                {article?.fileNames?.[0] && <img src={article?.fileNames?.[0]} alt={article?.title} className="object-cover w-56 py-2 h-36" />}
-              </td>
-              <td className="px-4">
-                <p className="text-lg font-bold">{article?.title}</p>
-                <p className="text-sm">{article?.description}</p>
+              <td className="px-4 py-2 w-96">{article?.fileNames?.[0] && <img src={article?.fileNames?.[0]} alt={article?.title} className="object-cover w-full h-auto max-w-full" />}</td>
+              <td className="px-4 w-96">
+                <p className="text-lg font-bold line-clamp-2">{article?.title}</p>
               </td>
               <td className="px-4 text-sm font-bold">{convertDateValue(article?.createdAt)}</td>
               <td className="px-4">

@@ -1,0 +1,26 @@
+import regatta from "./regatta.jpg";
+import nifa from "./nifa.png";
+import sahira from "./sahira.webp";
+import yovinka from "./yovinka.jpeg";
+import hanifah from "./hanifa.jpg";
+import raihan from "./raihan.jpeg";
+import ayundha from "./ayundha.jpg";
+import arya from "./arya.jpg";
+import vanya from "./vanya.jpeg";
+import bartholomew from "./bartholomew.jpg";
+import abigail from "./abigail.jpg";
+import iklima from "./iklima.jpg";
+import alif from "./alif.jpg";
+import aulia from "./aulia.jpg";
+import aurellia from "./aurellia.jpg";
+import saskia from "./saskia.jpg";
+import revina from "./revina.jpg";
+import hanna from "./hanna.jpg";
+import gamma from "./gamma.jpeg";
+import nazkya from "./nazkya.jpg";
+import ory from "./ory.jpg";
+import kevin from "./kevin.jpg";
+import shahira from "./shahira.jpg";    
+import girl from "./girl.png";
+
+export { girl, regatta, nifa, sahira, yovinka, hanifah, raihan, ayundha, arya, vanya, bartholomew, abigail, iklima, alif, aulia, aurellia, saskia, revina, hanna, gamma, nazkya, ory, shahira, kevin };

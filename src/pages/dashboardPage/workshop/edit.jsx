@@ -19,15 +19,7 @@ const Edit = () => {
 
   const [imagePreviews, setImagePreviews] = useState(data?.Image);
 
-  const { register, handleSubmit, setValue } = useForm({
-    defaultValues: {
-      Title: data?.Title,
-      Description: data?.Desc,
-      Date: data?.Date,
-      Url: data?.Url,
-      IsOpen: data?.IsOpen,
-    },
-  });
+  const { register, handleSubmit, setValue } = useForm();
 
   const navigate = useNavigate();
 
@@ -42,16 +34,16 @@ const Edit = () => {
     setValue("File", files[0]);
   };
 
-  const onSubmit = (data) => {
-    const { Title, Description, Date, Url, IsOpen, File } = data;
+  const onSubmit = (body) => {
+    const { Title, Description, Date, Url, IsOpen, File } = body;
 
     editWorkshop({
       slug,
-      Title,
-      Description,
-      Date,
-      Url,
-      IsOpen,
+      Title: Title || data?.Title,
+      Description: Description || data?.Desc,
+      Date: Date || data?.Date,
+      Url: Url || data?.Url,
+      IsOpen: IsOpen === "true" ? true : false || data?.IsOpen,
       File,
     });
   };

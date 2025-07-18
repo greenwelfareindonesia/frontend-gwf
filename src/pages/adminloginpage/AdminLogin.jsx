@@ -9,6 +9,7 @@ import Input from "../../components/input";
 import Button from "../../components/button";
 import Background from "../../components/background";
 import { useLogin } from "../../features/auth/service";
+import { Link } from "react-router-dom";
 
 export default function AdminLogin() {
   const [input, setInput] = React.useState({
@@ -31,7 +32,9 @@ export default function AdminLogin() {
       {/* Left Side */}
       <div className="flex items-center justify-center flex-1">
         <div className="relative flex flex-col items-center justify-center px-8 py-8 mx-auto overflow-hidden duration-300 bg-white sm:px-24 rounded-3xl">
-          <img src={gwficon} alt="gwf logo" className="absolute top-0 left-0 hidden sm:block" />
+          <Link to="/">
+            <img src={gwficon} alt="gwf logo" className="absolute top-0 left-0 hidden sm:block" />
+          </Link>
           <h2 className="text-xl font-semibold text-center text-primary-2">Welcome GWF Team!</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full my-8 space-y-4 sm:w-72">
             <Input
@@ -68,7 +71,7 @@ export default function AdminLogin() {
               Submit
             </Button>
           </form>
-          <p className="absolute text-xs font-medium bottom-2">©2023 by Green Welfare Indonesia</p>
+          <p className="absolute text-xs font-medium bottom-2">©2025 by Green Welfare Indonesia</p>
         </div>
       </div>
       {/* Right Side */}

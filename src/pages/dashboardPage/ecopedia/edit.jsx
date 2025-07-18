@@ -4,6 +4,10 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+
 import DashboardSection from "../../../layouts/dashboard_section/Template";
 
 import { useEditEcopedia, useGetEcopediaById } from "../../../features/ecopedia/service";
@@ -12,6 +16,8 @@ import { camera_icon } from "../../../assets/icons";
 import closeIcon from "../../../assets/icons/close_icon.svg";
 
 const EditEcopedia = () => {
+  const [description, setDescription] = useState("");
+
   const { slug } = useParams();
 
   const { register, handleSubmit, setValue } = useForm();
@@ -35,8 +41,8 @@ const EditEcopedia = () => {
     setValue("files", files);
   };
 
-  const onSubmit = (data) => {
-    const { files, Description, Reference, SrcFile, SubTitle, Title } = data;
+  const onSubmit = (body) => {
+    const { files, Reference, SrcFile, SubTitle, Title } = body;
     const mapFile = files.map((image, index) => {
       return { [`file${index + 1}`]: image };
     });
@@ -45,11 +51,22 @@ const EditEcopedia = () => {
       return { ...acc, ...cur };
     }, {});
 
-    editEcopedia({ slug, Description, Reference, SrcFile, SubTitle, Title, ...mergedFiles });
+    editEcopedia({
+      slug,
+      Description: description || data?.description,
+      Reference: Reference || data?.reference,
+      SrcFile: SrcFile || data?.srcFile,
+      SubTitle: SubTitle || data?.subTitle,
+      Title: Title || data?.title,
+      ...mergedFiles,
+    });
   };
 
   useEffect(() => {
-    setImagePreviews(data?.fileNames);
+    if (data) {
+      setImagePreviews(data.fileNames);
+      setDescription(data.description);
+    }
   }, [data]);
 
   return (
@@ -59,13 +76,7 @@ const EditEcopedia = () => {
       </button>
       <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
         <div className="mb-4 text-xl font-bold text-primary-2">Title</div>
-        <input
-          {...register("Title")}
-          className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm"
-          placeholder="Tulis judul disini"
-          type="text"
-          defaultValue={data?.title}
-        />
+        <input {...register("Title")} className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm" placeholder="Tulis judul disini" type="text" defaultValue={data?.title} />
         <div className="mb-4 text-xl font-bold text-primary-2">Subtitle</div>
         <input
           {...register("SubTitle")}
@@ -75,14 +86,32 @@ const EditEcopedia = () => {
           defaultValue={data?.subTitle}
         />
         <div className="mb-4 text-xl font-bold text-primary-2">Description</div>
-        <input
-          {...register("Description")}
-          className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm"
-          placeholder="Tulis deskripsi disini"
-          type="text"
-          defaultValue={data?.description}
+        <CKEditor
+          editor={ClassicEditor}
+          config={{
+            link: {
+              decorators: {
+                openInNewTab: {
+                  mode: "automatic",
+                  callback: (url) => url?.startsWith("http") || url?.startsWith("https"),
+                  attributes: {
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  },
+                },
+              },
+            },
+          }}
+          onChange={(_, editor) => {
+            let data = editor.getData();
+            data = data.replace(/href="(?!https?:\/\/)([^"]*)"/g, (_key, p1) => {
+              return `href="http://${p1}"`;
+            });
+            setDescription(data);
+          }}
+          data={description}
         />
-        <div className="mb-4 text-xl font-bold text-primary-2">Source File</div>
+        <div className="my-4 text-xl font-bold text-primary-2">Source File</div>
         <input
           {...register("SrcFile")}
           className="w-full px-3 py-2 mb-4 border rounded-md border-primary-2 sm:text-sm"
@@ -101,10 +130,7 @@ const EditEcopedia = () => {
 
         <div className="flex flex-col gap-4">
           <p className="text-xl font-bold text-primary-2">Add Photo</p>
-          <label
-            htmlFor="photo-upload"
-            className="flex flex-col items-center justify-center p-4 mb-4 rounded-md cursor-pointer w-60 border-1 border-primary-2 h-36"
-          >
+          <label htmlFor="photo-upload" className="flex flex-col items-center justify-center p-4 mb-4 rounded-md cursor-pointer w-60 border-1 border-primary-2 h-36">
             <div className="text-center">
               <img src={camera_icon} className="duration-75 hover:scale-150" />
             </div>

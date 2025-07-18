@@ -32,8 +32,8 @@ const PostEvents = () => {
   };
 
   const onSubmit = (data) => {
-    const { title, eventMessage, file } = data;
-    addEvents({ file, title, eventMessage });
+    const { title, eventMessage, file, date, location } = data;
+    addEvents({ file, title, eventMessage, date, location });
   };
 
   return (
@@ -49,22 +49,38 @@ const PostEvents = () => {
             </div>
 
             {/* judul event  */}
-            <p className="py-2">Judul</p>
+            <p className="py-2">Title</p>
             <input
               {...register("title")}
-              className="w-full h-8 px-3 py-2 border rounded-md border-primary-1"
+              className="w-full px-3 py-2 border rounded-md border-primary-1"
               type="text"
               placeholder="tulis judul disini"
             />
 
             {/* deskripsi event  */}
-            <p className="py-2">Deskripsi</p>
+            <p className="py-2">Description</p>
             <textarea
               {...register("eventMessage")}
               className="w-full px-3 py-2 border rounded-md border-primary-1"
               type="text"
               rows={5}
               placeholder="tulis deskripsi disini"
+            />
+
+            <p className="py-2">location</p>
+            <input
+              {...register("location")}
+              className="w-full px-3 py-2 border rounded-md border-primary-1"
+              type="text"
+              placeholder="tulis judul disini"
+            />
+
+            <p className="py-2">Event Date</p>
+            <input
+              {...register("date")}
+              className="w-full px-3 py-2 border rounded-md border-primary-1"
+              type="text"
+              placeholder="tulis tanggal disini"
             />
 
             <div className="flex gap-16 mt-4">

@@ -13,6 +13,9 @@ import {
   feedback_icon,
   gallery_icon,
   gwf_dashboard_icon,
+  study_icon,
+  // users_icon,
+  // veganguide_icon,
   workshop_icon,
 } from "../../assets/icons";
 import Icon from "../../components/icon";
@@ -28,33 +31,26 @@ const Menus = [
   { title: "Gallery", path: "/dashboard/gallery", src: gallery_icon },
   { title: "Feedback", path: "/dashboard/feedback", src: feedback_icon },
   { title: "Workshop", path: "/dashboard/workshop", src: workshop_icon },
+  { title: "Reports", path: "/dashboard/report", src: study_icon },
 ];
 
 const DashboardSection = ({ children, titleField, buttonField }) => {
   const [open, setOpen] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
 
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.clear();
+    setLoading(true);
     ReloadRefresh(2000, "/login");
+    setLoading(false);
   };
 
   return (
     <section className="relative flex">
-      <div
-        className={`${
-          open ? "max-w-[240px] min-w-[230px]" : "max-w-[90px] min-w-[80px]"
-        } w-full bg-primary-2 h-screen p-5 pt-8 fixed duration-300 flex-1`}
-      >
-        <button
-          onClick={() => setOpen(!open)}
-          className={`absolute cursor-pointer right-0 top-0`}
-        >
-          <HiArrowRightCircle
-            className={`${
-              open && "rotate-[180deg]"
-            } w-7 h-7 duration-700 text-light-1`}
-          />
+      <div className={` ${open ? "max-w-[240px] min-w-[230px]" : "max-w-[90px] min-w-[80px]"} w-full bg-primary-2 h-screen p-5 pt-8 fixed duration-300 flex-1`}>
+        <button onClick={() => setOpen(!open)} className={`absolute cursor-pointer right-0 top-0`}>
+          <HiArrowRightCircle className={`${open && "rotate-[180deg]"} w-7 h-7 duration-700 text-light-1`} />
         </button>
         <div className="flex items-center pb-4">
           <Icon
@@ -105,10 +101,7 @@ const DashboardSection = ({ children, titleField, buttonField }) => {
                 <Link to="/dashboard">
                   <Button className="rounded-md !w-full">Profile</Button>
                 </Link>
-                <Button
-                  className="!bg-red-400 hover:!bg-red-600 rounded-md"
-                  onClick={handleLogout}
-                >
+                <Button className={`!bg-red-400 hover:!bg-red-600 rounded-md ${loading && "animate-pulse"}`} onClick={handleLogout}>
                   Logout
                 </Button>
               </ul>

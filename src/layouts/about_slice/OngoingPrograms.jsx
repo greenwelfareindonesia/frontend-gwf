@@ -4,7 +4,7 @@ import { ongoingPrograms } from "../../constant/ongoingPrograms";
 
 const OngoingPrograms = () => {
   return (
-    <Container className="text-center !max-w-screen-xl h-full">
+    <Container className="text-center !max-w-screen-xl h-full my-32">
       <h1 className="text-2xl font-light text-primary-2 md:text-4xl">Ongoing Programs</h1>
       <div className="mt-12 space-y-16 text-center">
         {ongoingPrograms.map((item, index) => (

@@ -10,6 +10,7 @@ import users_icon from "./users-icon.svg";
 import admin_user_icon from "./admin-user-icon.svg";
 import veganguide_icon from "./veganguide-icon.svg";
 import workshop_icon from "./workshop-icon.svg";
+import study_icon from "./study-icon.svg";
 import edit_icon from "./edit-icon.svg";
 import delete_icon from "./delete-icon.svg";
 import camera_icon from "./camera-icon.svg";
@@ -23,8 +24,16 @@ import location_icon from "./location-icon/white/location.png";
 import donate_icon from "./donate-needed-icon/white/donate.png";
 import workshop_events_icon from "./workshop-events-icon.png";
 import campaign_events_icon from "./campaign-events-icon.png";
+import instagram from "./instagram.svg";
+import share_link from "./share-link.svg";
+import twitter from "./twitter.svg";
+import whatsapp from "./whatsapp.svg";
 
 export {
+  instagram,
+  share_link,
+  twitter,
+  whatsapp,
   gwf_dashboard_icon,
   admin_user_icon,
   dashboard_icon,
@@ -36,6 +45,7 @@ export {
   gallery_icon,
   users_icon,
   veganguide_icon,
+  study_icon,
   workshop_icon,
   edit_icon,
   delete_icon,

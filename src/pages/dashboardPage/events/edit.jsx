@@ -35,10 +35,10 @@ const Edit = () => {
     setValue("file", files[0]);
   };
 
-  const onSubmit = (data) => {
-    const { title, eventMessage, file } = data;
+  const onSubmit = (body) => {
+    const { title, eventMessage, file } = body;
 
-    editEvent({ slug, title, eventMessage, file });
+    editEvent({ slug, title: title || data?.Title, eventMessage: eventMessage || data?.EventMessage, file });
   };
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const Edit = () => {
             <p className="py-2">Title</p>
             <input
               defaultValue={data?.Title}
-              {...register("title", { required: true })}
+              {...register("title")}
               className="w-full px-3 py-2 border rounded-md border-primary-1"
               type="text"
               placeholder="Write title here"
@@ -71,10 +71,28 @@ const Edit = () => {
             <p className="py-2">Description</p>
             <textarea
               defaultValue={data?.EventMessage}
-              {...register("eventMessage", { required: true })}
+              {...register("eventMessage")}
               rows={5}
               className="w-full px-3 py-2 border rounded-md border-primary-1"
               placeholder="Write description here"
+            />
+
+            <p className="py-2">location</p>
+            <input
+              defaultValue={data?.Location}
+              {...register("location")}
+              className="w-full px-3 py-2 border rounded-md border-primary-1"
+              type="text"
+              placeholder="tulis judul disini"
+            />
+
+            <p className="py-2">Event Date</p>
+            <input
+              defaultValue={data?.Date}
+              {...register("date")}
+              className="w-full px-3 py-2 border rounded-md border-primary-1"
+              type="text"
+              placeholder="tulis tanggal disini"
             />
 
             {/* Photo Upload */}

@@ -3,13 +3,9 @@ import ReloadRefresh from "../../../utils/ReloadRefresh";
 import SweatAlert from "../../../utils/SweetAlert";
 
 export const getFeedbacks = async () => {
-  return await API.get("/feedback/")
-    .then((response) => {
-      return response.data;
-    })
-    .catch(() => {
-      SweatAlert("Error when fetch feedback", "error");
-    });
+  return await API.get("/feedback/").then((response) => {
+    return response.data;
+  });
 };
 
 export const getFeedbackById = async (slug) => {

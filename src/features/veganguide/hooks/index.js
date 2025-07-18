@@ -3,13 +3,9 @@ import ReloadRefresh from "../../../utils/ReloadRefresh";
 import SweatAlert from "../../../utils/SweetAlert";
 
 export const getVeganguide = async () => {
-  return await API.get("/veganguide/")
-    .then((response) => {
-      return response.data;
-    })
-    .catch(() => {
-      SweatAlert("Error when fetch vegan guide", "error");
-    });
+  return await API.get("/veganguide/").then((response) => {
+    return response.data;
+  });
 };
 
 export const getVeganguideById = async (slug) => {

@@ -58,7 +58,7 @@ const WorkshopDashboard = () => {
                 <td className="p-4">
                   <div className="text-sm font-semibold">{article?.Date}</div>
                 </td>
-                <td className="p-4">
+                <td className="p-4 overflow-hidden">
                   <div className="text-sm font-semibold">{article?.Url}</div>
                 </td>
                 <td className="p-4">

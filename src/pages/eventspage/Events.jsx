@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Slider from "react-slick";
 
-import { event1, image_events_part1, image_events_part2, image_events_part3, past_events } from "../../assets/event-image";
+import { event1, past_events } from "../../assets/event-image";
 import { workshop_events_icon, campaign_events_icon } from "../../assets/icons";
 
 import Navbar from "../../components/navbar/Navbar";
@@ -13,6 +13,7 @@ import { useGetEvents } from "../../features/events/service";
 import Container from "../../components/container";
 import Button from "../../components/button";
 import Background from "../../components/background";
+import { Link } from "react-router-dom";
 
 const Events = () => {
   const [selectedEventType, setSelectedEventType] = useState("Campaign");
@@ -55,47 +56,11 @@ const Events = () => {
     cssEase: "linear",
   });
 
-  const eventCards1Data = [
-    {
-      image: image_events_part1,
-      title: "Event Title",
-      description: "Description event",
-      date: "Date",
-      location: "Location",
-      donateNeeded: "Donate needed",
-      buttonText: "Join Now",
-      buttonType: "join",
-      eventType: "Workshop",
-    },
-    {
-      image: image_events_part2,
-      title: "Event Title",
-      description: "Description event",
-      date: "Date",
-      location: "Location",
-      donateNeeded: "Donate needed",
-      buttonText: "Coming Soon",
-      buttonType: "soon",
-      eventType: "Campaign",
-    },
-    {
-      image: image_events_part3,
-      title: "Event Title",
-      description: "Description event",
-      date: "Date",
-      location: "Location",
-      donateNeeded: "Donate needed",
-      buttonText: "Coming Soon",
-      buttonType: "soon",
-      eventType: "Campaign",
-    },
-  ];
-
   const renderCurrentEvents = () => (
-    <Slider {...getSliderSettings()} className="items-center max-w-5xl mx-10">
-      {eventCards1Data?.map((event, index) => (
+    <Slider arrows={false} {...getSliderSettings()} className="items-center max-w-5xl mx-10">
+      {dataEvents?.map((event, index) => (
         <div className="px-2" key={index}>
-          <Cards1 {...event} />
+          <Cards1 image={event.FileName} description={event.EventMessage} date={event.Date} location={event.Location} title={event.Title} />
         </div>
       ))}
     </Slider>
@@ -112,14 +77,23 @@ const Events = () => {
               description={item.EventMessage}
               image={item.FileName}
               eventType="Campaign"
-              date={item.created_at}
+              date={item.Date}
+              location={item.Location}
             />
           ))}
         </>
       ) : (
         <>
           {dataWorkshops?.map((item, index) => (
-            <Cards2 key={index} title={item.Title} description={item.Desc} image={item.Image} eventType="Workshop" date={item.Date} />
+            <Cards2
+              key={index}
+              title={item.Title}
+              description={item.Desc}
+              image={item.Image}
+              eventType="Workshop"
+              date={item.Date}
+              location={item.IsOpen}
+            />
           ))}
         </>
       )}
@@ -129,30 +103,28 @@ const Events = () => {
   return (
     <>
       <Navbar />
-      <div className="">
-        <div className="grid items-center justify-center grid-cols-1 xl:grid-cols-2 xl:ml-48">
-          <div className="py-10 m-4">
-            <h1 className="mb-2 text-2xl font-semibold xl:text-4xl md:text-3xl sm:text-2xl">
-              A little of your time can go a long way for the others.
-            </h1>
-            <div className="items-center justify-center sm:grid sm:grid-cols-2 md:grid md:grid-cols-2">
-              <p className="mt-6 xl:text-xl md:text-lg sm:text-lg">
-                You give but little when you give of your possessions, it&quot;s when you give of yourself that you truly give
-              </p>
-              <img src={event1} alt="Event" className="xl:w-0 md:w-96 sm:w-96" />
-            </div>
-            <div className="flex items-center justify-center gap-4 mt-4 md:justify-start">
-              <Button intent="primary" className="rounded-xl">
-                Become a Volunteer
-              </Button>
+      <div className="grid items-center justify-center grid-cols-1 xl:grid-cols-2 xl:ml-48">
+        <div className="py-10 m-4">
+          <h1 className="mb-2 text-2xl font-semibold xl:text-4xl md:text-3xl sm:text-2xl">A little of your time can go a long way for the others.</h1>
+          <div className="items-center justify-center sm:grid sm:grid-cols-2 md:grid md:grid-cols-2">
+            <p className="mt-6 xl:text-xl md:text-lg sm:text-lg">
+              You give but little when you give of your possessions, it&quot;s when you give of yourself that you truly give
+            </p>
+            <img src={event1} alt="Event" className="xl:w-0 md:w-96 sm:w-96" />
+          </div>
+          <div className="flex items-center justify-center gap-4 mt-4 md:justify-start">
+            <Button intent="primary" className="rounded-xl">
+              Become a Volunteer
+            </Button>
+            <Link to="/about">
               <Button intent="white" className="border-2 rounded-xl border-primary-2 hover:!bg-primary-2 hover:text-light-1">
                 About Us
               </Button>
-            </div>
+            </Link>
           </div>
-          <div className="flex w-0 my-auto sm:w-0 md:w-0 xl:w-400 xl:h-64">
-            <img src={event1} alt="Event" />
-          </div>
+        </div>
+        <div className="flex w-0 my-auto sm:w-0 md:w-0 xl:w-400 xl:h-64">
+          <img src={event1} alt="Event" />
         </div>
       </div>
 
