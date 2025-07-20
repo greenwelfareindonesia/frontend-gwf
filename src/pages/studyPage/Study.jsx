@@ -6,9 +6,35 @@ import Footer from "../../components/footer/Footer";
 import Container from "../../components/container";
 import { useGetStudy } from "../../features/study/service";
 import { formatDate } from "../../utils/ConvertDate";
+import tripsirImage from "../../assets/image/tripsir.jpg";
+import greentrip from "../../assets/image/greentrip.jpg";
+import greener from "../../assets/image/greener.jpg";
 
 const Study = () => {
-  const { data } = useGetStudy();
+  //const { data } = useGetStudy();
+  const data = [
+    {
+      Title: "Greener School 2025",
+      Description: "Ayo bergabung menjadi tutor Greener School 2025 GWF X Agung Sedayu Group",
+      updated_at: "2025-05-18T12:00:00Z",
+      Slug: "https://www.instagram.com/p/DBybeO8SNSR/?img_index=2&igsh=MTgyam44cDJka3Y1Ng==",
+      Images: [{ FileName: greener }],
+    },
+    {
+      Title: "Recap of Green Trip: Ramadhan Visit 1446 H",
+      Description: "Kunjungan Ramadhan ke Yayasan Al-Andalusia, Jakarta Selatan.",
+      updated_at: "2025-03-17T11:30:00Z",
+      Slug: "https://www.instagram.com/p/DHTNuByp7Ma/?img_index=2&igsh=ZnhiYmNnMDlhZWcy",
+      Images: [{ FileName: greentrip }],
+    },
+    {
+      Title: "TRIPSIR (Transformasi untuk Pesisir)",
+      Description: "Green Welfare bersama BEM Vokasi UI 2024 meluncurkan program TRIPSIR di Desa Pantai Bakti.",
+      updated_at: "2024-10-31T10:15:00Z",
+      Slug: "https://www.instagram.com/p/DBybeO8SNSR/?img_index=2&igsh=MTgyam44cDJka3Y1Ng%3D%3D",
+      Images: [{ FileName: tripsirImage }],
+    },
+  ];
 
   return (
     <>
@@ -19,7 +45,7 @@ const Study = () => {
           <h1 className="mb-2 text-3xl font-bold sm:text-4xl md:text-6xl">
             Welcome to <span className="bg-[#9C9C5E] px-2 py-1 inline-block ">Event Report</span>
           </h1>
-          <p className="mt-4 text-base tracking-wide sm:text-lg md:text-xl">Lorem ipsum dolor sit amet consectetur. Sed ligula nisi placerat pharetra gravida donec.</p>
+          <p className="mt-4 text-base tracking-wide sm:text-lg md:text-xl">Laporan dokumentasi kegiatan yang telah diselenggarakan oleh Green Welfare, mulai dari kunjungan sosial, program kolaborasi, hingga aksi lingkungan.</p>
         </div>
 
         {/* Search and Sort Section */}
@@ -37,9 +63,9 @@ const Study = () => {
         </div> */}
 
         {/* Rectangular Event Cards */}
-        <div className="grid grid-cols-1 gap-6 my-10">
-          {data?.length > 2 &&
-            data?.slice(0, 2).map((report, index) => (
+        {/* <div className="grid grid-cols-1 gap-6 my-10">
+          {data?.length > 2 && */}
+            {/* data?.slice(0, 2).map((report, index) => (
               <motion.div key={index} whileHover={{ scale: 1.05 }} className="border border-gray-200 rounded-lg shadow-lg p-4 bg-[#B5B5A3] w-full flex flex-col sm:flex-row">
                 <img src={report?.Images?.[0].FileName} alt={report.title} className="object-cover w-full mb-4 rounded-lg sm:w-40 sm:mb-0 sm:mr-4 aspect-video sm:aspect-square" />
                 <div className="flex-1">
@@ -72,45 +98,45 @@ const Study = () => {
                 </div>
               </motion.div>
             ))}
-        </div>
+        </div> */}
 
-        {/* Square Event Cards */}
-        <div className="grid grid-cols-1 gap-6 mb-10 sm:grid-cols-2">
-          {data?.length > 2 &&
-            data?.slice(2, data?.length).map((report, index) => (
-              <motion.div key={index} whileHover={{ scale: 1.05 }} className="border border-gray-200 rounded-lg shadow-lg p-4 bg-[#B5B5A3] w-full flex flex-col">
-                {/* Image */}
-                <img
-                  src={report?.Images?.[0].FileName} // Replace with dynamic image path
-                  alt={report.Title}
-                  className="object-cover w-full mb-4 rounded-md aspect-video"
-                />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+          {data.map((report, index) => (
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.05 }}
+            className="border border-gray-200 rounded-lg shadow-lg p-4 bg-[#B5B5A3] flex flex-col"
+          >
+            {/* Image */}
+            <img
+              src={report?.Images?.[0].FileName}
+              alt={report.Title}
+              className="object-cover w-full mb-4 rounded-md aspect-square"
+            />
 
-                {/* Title and Date with Dark Green Background */}
-                <div className="p-4 mb-4 rounded-md bg-primary-1">
-                  <h2 className="text-base font-semibold text-white sm:text-lg">{report.Title}</h2>
-                  <p className="text-sm text-white">{formatDate(report.updated_at)}</p>
-                </div>
+            {/* Title and Date */}
+            <div className="mb-2">
+              <h2 className="text-base font-semibold sm:text-lg text-black">{report.Title}</h2>
+              <p className="text-sm text-black">{formatDate(report.updated_at)}</p>
+            </div>
 
-                {/* Description */}
-                <div className="flex-1 text-left">
-                  <div className="h-10">
-                    <div className="text-sm text-black line-clamp-2" dangerouslySetInnerHTML={{ __html: report.Description }} />
-                  </div>
+            {/* Description */}
+            <p className="text-sm text-black line-clamp-3 mb-4">{report.Description}</p>
 
-                  {/* Divider */}
-                  <hr className="my-4 border-black border-t-1" />
-
-                  {/* Views and See More */}
-                  <div className="flex items-center justify-end mt-4">
-                    <Link to={`/report/detail/${report.Slug}`} className="text-sm text-black">
-                      See More &gt;
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-        </div>
+            {/* Button */}
+            <div className="mt-auto text-right">
+              <a
+                href={report.Slug}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-black underline hover:text-gray-700"
+              >
+                See More &gt;
+              </a>
+            </div>
+          </motion.div>
+        ))}
+      </div>
       </Container>
 
       {/* Footer */}
