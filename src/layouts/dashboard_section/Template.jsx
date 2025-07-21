@@ -1,8 +1,7 @@
 import * as React from "react";
-
 import { HiArrowRightCircle } from "react-icons/hi2";
 import { RiArrowDownSLine } from "react-icons/ri";
-
+import { IoPerson } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
 
 import {
@@ -21,13 +20,13 @@ import {
 } from "../../assets/icons";
 import Icon from "../../components/icon";
 import Button from "../../components/button";
-
 import ReloadRefresh from "../../utils/ReloadRefresh";
 
 const Menus = [
   { title: "Dashboard", path: "/dashboards", src: dashboard_icon },
+  { title: "Employees", path: "/dashboard/employees", src: IoPerson },
   { title: "Articles", path: "/dashboard/article", src: articles_icon },
-  { title: "Ecopedia ", path: "/dashboard/ecopedia", src: ecopedia_icon },
+  { title: "Ecopedia", path: "/dashboard/ecopedia", src: ecopedia_icon },
   { title: "Events", path: "/dashboard/event", src: events_icon },
   { title: "Gallery", path: "/dashboard/gallery", src: gallery_icon },
   { title: "Feedback", path: "/dashboard/feedback", src: feedback_icon },
@@ -54,19 +53,43 @@ const DashboardSection = ({ children, titleField, buttonField }) => {
           <HiArrowRightCircle className={`${open && "rotate-[180deg]"} w-7 h-7 duration-700 text-light-1`} />
         </button>
         <div className="flex items-center pb-4">
-          <Icon src={gwf_dashboard_icon} type="unset" className={`${open && "rotate-[360deg]"} w-24`} />
+          <Icon
+            src={gwf_dashboard_icon}
+            type="unset"
+            className={`${open && "rotate-[360deg]"} w-24`}
+          />
         </div>
-        <i className="h-0.5 w-full bg-light-1 absolute left-0"></i>
-        <ul className="pt-4 space-y-2 ">
+        <div className="h-0.5 w-full bg-light-1 absolute left-0"></div>
+        <ul className="pt-4 space-y-2">
           {Menus.map((item, index) => (
-            <NavLink key={index} className={({ isActive }) => (isActive ? "sidebar-menu bg-primary-1" : "sidebar-menu bg-primary-2")} to={item.path}>
-              <Icon src={item.src} />
-              <span className={`${!open && "hidden"} origin-left duration-200`}>{item.title}</span>
+            <NavLink
+              key={index}
+              className={({ isActive }) =>
+                isActive
+                  ? "sidebar-menu bg-primary-1"
+                  : "sidebar-menu bg-primary-2"
+              }
+              to={item.path}
+            >
+              {typeof item.src === "string" ? (
+                <Icon src={item.src} />
+              ) : (
+                <item.src className="w-6 h-6" />
+              )}
+              <span
+                className={`${!open && "hidden"} origin-left duration-200`}
+              >
+                {item.title}
+              </span>
             </NavLink>
           ))}
         </ul>
       </div>
-      <div className={`flex-1 w-full duration-300 ${open ? "ml-[240px]" : "ml-[90px]"}`}>
+      <div
+        className={`flex-1 w-full duration-300 ${
+          open ? "ml-[240px]" : "ml-[90px]"
+        }`}
+      >
         <div className="flex items-center justify-end h-16 px-8 bg-light-2">
           <div className="group !bg-light-2 relative p-2 flex items-center gap-1 cursor-pointer">
             <Icon src={admin_user_icon} />
@@ -87,7 +110,9 @@ const DashboardSection = ({ children, titleField, buttonField }) => {
         </div>
         <div className="mb-20 space-y-8">
           <div className="flex items-center justify-between px-4 pt-8">
-            <h1 className="text-3xl font-bold text-primary-1">{titleField ?? null}</h1>
+            <h1 className="text-3xl font-bold text-primary-1">
+              {titleField ?? null}
+            </h1>
             {buttonField ?? null}
           </div>
           <div className="block px-4 overflow-y-auto">{children}</div>

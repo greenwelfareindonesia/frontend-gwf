@@ -8,6 +8,7 @@ import Profile from "./merchpage/Profile";
 import Merch from "./merchpage/Merch";
 import Events from "./eventspage/Events";
 import Chapters from "./chapterspage/Chapters";
+import Eventreport from "./reportpage/Eventreport";
 import Home from "./homepage/Home";
 import Involved from "./involvedpage/Involved";
 import Resource from "./resourcepage/Resource";
@@ -33,6 +34,7 @@ export {
   Home,
   Involved,
   Chapters,
+  Eventreport,
   Team,
   Events,
   Cart,
