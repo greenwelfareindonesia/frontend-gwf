@@ -15,21 +15,21 @@ const Study = () => {
   const data = [
     {
       Title: "Greener School 2025",
-      Description: "Ayo bergabung menjadi tutor Greener School 2025 GWF X Agung Sedayu Group",
+      Description: "Join as a tutor for Greener School 2025 GWF X Agung Sedayu Group.",
       updated_at: "2025-05-18T12:00:00Z",
       Slug: "https://www.instagram.com/p/DBybeO8SNSR/?img_index=2&igsh=MTgyam44cDJka3Y1Ng==",
       Images: [{ FileName: greener }],
     },
     {
       Title: "Recap of Green Trip: Ramadhan Visit 1446 H",
-      Description: "Kunjungan Ramadhan ke Yayasan Al-Andalusia, Jakarta Selatan.",
+      Description: "Ramadhan visit to Al-Andalusia Foundation, South Jakarta.",
       updated_at: "2025-03-17T11:30:00Z",
       Slug: "https://www.instagram.com/p/DHTNuByp7Ma/?img_index=2&igsh=ZnhiYmNnMDlhZWcy",
       Images: [{ FileName: greentrip }],
     },
     {
-      Title: "TRIPSIR (Transformasi untuk Pesisir)",
-      Description: "Green Welfare bersama BEM Vokasi UI 2024 meluncurkan program TRIPSIR di Desa Pantai Bakti.",
+      Title: "TRIPSIR (Transformation for Coastal Areas)",
+      Description: "Green Welfare and BEM Vokasi UI 2024 launched the TRIPSIR program in Pantai Bakti Village.",
       updated_at: "2024-10-31T10:15:00Z",
       Slug: "https://www.instagram.com/p/DBybeO8SNSR/?img_index=2&igsh=MTgyam44cDJka3Y1Ng%3D%3D",
       Images: [{ FileName: tripsirImage }],
@@ -39,14 +39,36 @@ const Study = () => {
   return (
     <>
       <Navbar />
-      <Container className="py-12">
-        {/* Hero Section */}
-        <div className="">
+      <Container className="py-0">
+        <Container className="my-32 space-y-4 lg:space-y-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0 }}
+            viewport={{ once: true }}
+            className="text-2xl font-normal tracking-wide text-center text-primary-2 lg:text-5xl"
+          >
+            Event Report
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2, delay: 1 }}
+            viewport={{ once: true }}
+            className="text-base font-light leading-6 text-center text-dark lg:text-lg"
+          >
+            Documentation reports of activities organized by Green Welfare, ranging from social visits, collaborative programs, to environmental actions.
+          </motion.p>
+        </Container>
+
+        {/* <div className="">
           <h1 className="mb-2 text-3xl font-bold sm:text-4xl md:text-6xl">
             Welcome to <span className="bg-[#9C9C5E] px-2 py-1 inline-block ">Event Report</span>
           </h1>
-          <p className="mt-4 text-base tracking-wide sm:text-lg md:text-xl">Laporan dokumentasi kegiatan yang telah diselenggarakan oleh Green Welfare, mulai dari kunjungan sosial, program kolaborasi, hingga aksi lingkungan.</p>
-        </div>
+          <p className="mt-4 text-base tracking-wide sm:text-lg md:text-xl">
+            Documentation reports of activities organized by Green Welfare, ranging from social visits, collaborative programs, to environmental actions.
+          </p>
+        </div> */}
 
         {/* Search and Sort Section */}
         {/* <div className="flex flex-row items-center justify-between w-full mt-10 mb-8">
